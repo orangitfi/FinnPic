@@ -15,7 +15,7 @@ class PicSpec extends AnyFlatSpecLike with Matchers {
   val ValidPic3FemaleBornIn2010s = "170214A6228"
   val ValidPic4MaleBornIn1800s = "290877+1639"
 
-  val validPics: List[String] = List(ValidPic1MaleBornIn1900s, ValidPic2FemaleBornIn1900s, ValidPic3FemaleBornIn2010s)
+  val validPics: List[String] = List(ValidPic1MaleBornIn1900s, ValidPic2FemaleBornIn1900s, ValidPic3FemaleBornIn2010s, ValidPic4MaleBornIn1800s)
 
   behavior of "object Pic, method fromString"
 
