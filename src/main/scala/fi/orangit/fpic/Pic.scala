@@ -45,6 +45,16 @@ object Male extends Gender
 object Female extends Gender
 
 object Pic {
+  /**
+   * Create a Pic from an input String, returning an [[Either]].
+   *
+   * See also [[fromStringUnsafe(String)]] for cases where you are sure that the input is a valid PIC
+   * (or you are willing to handle exceptions).
+   *
+   * @param input a valid Personal Identity Code as a String.
+   * @return Left(String) if the given String is not a valid PIC, return a [[Left]] containing an error message.
+   *         Right(Pic) if the given String is a valid PIC.
+   */
   def fromString(input: String): Either[String, Pic] = {
     input.trim().toUpperCase match {
       case s: String if s.length != 11 => Left(s"Invalid PIC: '${s}'. PIC should have 11 characters, but was ${s.length} characters.")
@@ -82,6 +92,31 @@ object Pic {
       }
     }
   }
+
+  /**
+   * Create a Pic from an input String, throwing an [[IllegalArgumentException]] if the input is not a valid PIC.
+   *
+   * See also:
+   * - [[fromString(String)]] for cases where you are not sure if the input is a valid PIC (for example,
+   * the input comes from a user), which returns an Either for you to handle.
+   * - [[fromStringU(String)]] for a shorter named alias of this function.
+   *
+   * @param input a valid Personal Identity Code as a String.
+   * @return a Pic object if the input is a valid PIC.
+   * @throws IllegalArgumentException if the input is not a valid PIC.
+   */
+  def fromStringUnsafe(input: String): Pic = {
+    fromString(input) match {
+      case Left(errorMessage) => throw new IllegalArgumentException(errorMessage)
+      case Right(pic) => pic
+    }
+  }
+
+  /**
+   * A shorter alias for [[Pic.fromStringUnsafe]].
+   * See the documentation for that function.
+   */
+  def fromStringU(input: String): Pic = fromStringUnsafe(input)
 
   /**
    * The possible control characters. See https://vrk.fi/en/personal-identity-code1 for more information about the control character calculation.
