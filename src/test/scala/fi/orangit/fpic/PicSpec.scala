@@ -12,6 +12,7 @@ class PicSpec extends AnyFlatSpecLike with Matchers {
   val ValidPic1MaleBornIn1900s = "290877-1639"
   val ValidPic2FemaleBornIn1900s = "010781-190A"
   val ValidPic3FemaleBornIn2010s = "170214A6228"
+  val ValidPic4MaleBornIn1800s = "290877+1639"
 
   val validPics: List[String] = List(ValidPic1MaleBornIn1900s, ValidPic2FemaleBornIn1900s, ValidPic3FemaleBornIn2010s)
 
@@ -69,24 +70,28 @@ class PicSpec extends AnyFlatSpecLike with Matchers {
     Pic.fromStringU(ValidPic1MaleBornIn1900s).gender should be(Male)
     Pic.fromStringU(ValidPic2FemaleBornIn1900s).gender should be(Female)
     Pic.fromStringU(ValidPic3FemaleBornIn2010s).gender should be(Female)
+    Pic.fromStringU(ValidPic4MaleBornIn1800s).gender should be(Male)
   }
 
   it should "know the birth year of the person in question" in {
     Pic.fromStringU(ValidPic1MaleBornIn1900s).birthYear should be(1977)
     Pic.fromStringU(ValidPic2FemaleBornIn1900s).birthYear should be(1981)
     Pic.fromStringU(ValidPic3FemaleBornIn2010s).birthYear should be(2014)
+    Pic.fromStringU(ValidPic4MaleBornIn1800s).birthYear should be(1877)
   }
 
   it should "know the birth month of the person in question" in {
     Pic.fromStringU(ValidPic1MaleBornIn1900s).birthMonth should be(8)
     Pic.fromStringU(ValidPic2FemaleBornIn1900s).birthMonth should be(7)
     Pic.fromStringU(ValidPic3FemaleBornIn2010s).birthMonth should be(2)
+    Pic.fromStringU(ValidPic4MaleBornIn1800s).birthMonth should be(8)
   }
 
   it should "know the birth day (of month) of the person in question" in {
     Pic.fromStringU(ValidPic1MaleBornIn1900s).birthDay should be(29)
     Pic.fromStringU(ValidPic2FemaleBornIn1900s).birthDay should be(1)
     Pic.fromStringU(ValidPic3FemaleBornIn2010s).birthDay should be(17)
+    Pic.fromStringU(ValidPic4MaleBornIn1800s).birthDay should be(29)
   }
 
   behavior of "Pic.toString()"
@@ -95,6 +100,7 @@ class PicSpec extends AnyFlatSpecLike with Matchers {
     Pic.fromStringU(ValidPic1MaleBornIn1900s).toString should be(ValidPic1MaleBornIn1900s)
     Pic.fromStringU(ValidPic2FemaleBornIn1900s).toString should be(ValidPic2FemaleBornIn1900s)
     Pic.fromStringU(ValidPic3FemaleBornIn2010s).toString should be(ValidPic3FemaleBornIn2010s)
+    Pic.fromStringU(ValidPic4MaleBornIn1800s).toString should be(ValidPic4MaleBornIn1800s)
   }
 
   behavior of "Pic.equals()"
