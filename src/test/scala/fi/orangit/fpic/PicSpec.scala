@@ -44,41 +44,41 @@ class PicSpec extends AnyFlatSpecLike with Matchers {
   }
 
   it should "uppercase all characters to achieve a canonical representation" in {
-    Pic.fromString("010781-190a").toOption.get.value should be("010781-190A")
-    Pic.fromString("170214a6228").toOption.get.value should be("170214A6228")
+    Pic.fromStringU("010781-190a").value should be("010781-190A")
+    Pic.fromStringU("170214a6228").value should be("170214A6228")
   }
 
   behavior of "class Pic"
 
   it should "know the supposed gender of the person in question" in {
-    Pic.fromString(ValidPic1MaleBornIn1900s).toOption.get.gender should be(Male)
-    Pic.fromString(ValidPic2FemaleBornIn1900s).toOption.get.gender should be(Female)
-    Pic.fromString(ValidPic3FemaleBornIn2010s).toOption.get.gender should be(Female)
+    Pic.fromStringU(ValidPic1MaleBornIn1900s).gender should be(Male)
+    Pic.fromStringU(ValidPic2FemaleBornIn1900s).gender should be(Female)
+    Pic.fromStringU(ValidPic3FemaleBornIn2010s).gender should be(Female)
   }
 
   it should "know the birth year of the person in question" in {
-    Pic.fromString(ValidPic1MaleBornIn1900s).toOption.get.birthYear should be(1977)
-    Pic.fromString(ValidPic2FemaleBornIn1900s).toOption.get.birthYear should be(1981)
-    Pic.fromString(ValidPic3FemaleBornIn2010s).toOption.get.birthYear should be(2014)
+    Pic.fromStringU(ValidPic1MaleBornIn1900s).birthYear should be(1977)
+    Pic.fromStringU(ValidPic2FemaleBornIn1900s).birthYear should be(1981)
+    Pic.fromStringU(ValidPic3FemaleBornIn2010s).birthYear should be(2014)
   }
 
   it should "know the birth month of the person in question" in {
-    Pic.fromString(ValidPic1MaleBornIn1900s).toOption.get.birthMonth should be(8)
-    Pic.fromString(ValidPic2FemaleBornIn1900s).toOption.get.birthMonth should be(7)
-    Pic.fromString(ValidPic3FemaleBornIn2010s).toOption.get.birthMonth should be(2)
+    Pic.fromStringU(ValidPic1MaleBornIn1900s).birthMonth should be(8)
+    Pic.fromStringU(ValidPic2FemaleBornIn1900s).birthMonth should be(7)
+    Pic.fromStringU(ValidPic3FemaleBornIn2010s).birthMonth should be(2)
   }
 
   it should "know the birth day (of month) of the person in question" in {
-    Pic.fromString(ValidPic1MaleBornIn1900s).toOption.get.birthDay should be(29)
-    Pic.fromString(ValidPic2FemaleBornIn1900s).toOption.get.birthDay should be(1)
-    Pic.fromString(ValidPic3FemaleBornIn2010s).toOption.get.birthDay should be(17)
+    Pic.fromStringU(ValidPic1MaleBornIn1900s).birthDay should be(29)
+    Pic.fromStringU(ValidPic2FemaleBornIn1900s).birthDay should be(1)
+    Pic.fromStringU(ValidPic3FemaleBornIn2010s).birthDay should be(17)
   }
 
   behavior of "Pic.toString"
 
   it should "just show the original pic (the String value) without any decoration" in {
-    Pic.fromString(ValidPic1MaleBornIn1900s).toOption.get.toString should be(ValidPic1MaleBornIn1900s)
-    Pic.fromString(ValidPic2FemaleBornIn1900s).toOption.get.toString should be(ValidPic2FemaleBornIn1900s)
-    Pic.fromString(ValidPic3FemaleBornIn2010s).toOption.get.toString should be(ValidPic3FemaleBornIn2010s)
+    Pic.fromStringU(ValidPic1MaleBornIn1900s).toString should be(ValidPic1MaleBornIn1900s)
+    Pic.fromStringU(ValidPic2FemaleBornIn1900s).toString should be(ValidPic2FemaleBornIn1900s)
+    Pic.fromStringU(ValidPic3FemaleBornIn2010s).toString should be(ValidPic3FemaleBornIn2010s)
   }
 }
