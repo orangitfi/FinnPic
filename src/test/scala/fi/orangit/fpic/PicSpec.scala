@@ -128,4 +128,12 @@ class PicSpec extends AnyFlatSpecLike with Matchers {
     val other = "foo!"
     pic should not equal other
   }
+
+  behavior of "Pic.hashCode()"
+
+  it should "be the same as the PIC String's hashCode" in {
+    val hash1 = Pic.fromStringU(ValidPic1MaleBornIn1900s).hashCode()
+    val hash2 = ValidPic1MaleBornIn1900s.hashCode
+    hash1 should equal(hash2)
+  }
 }
