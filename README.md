@@ -1,6 +1,6 @@
 # finnish-personal-identity-code
 
-A Scala implementation of Finnish Personal Identity Code ("henkilötunnus" in Finnish).
+A Scala implementation of Finnish PIC (Personal Identity Code)("henkilötunnus" in Finnish).
 
 See the specification here: [https://vrk.fi/en/personal-identity-code1]
 
@@ -8,7 +8,8 @@ See the specification here: [https://vrk.fi/en/personal-identity-code1]
 
 ## Building
 
-Full build with test coverage measurement:
+Full build with test coverage (which should stay at 100%) measurement:
 
 > sbt clean coverage test coverageReport
 
+I'll add the necessary badges here when I have time.
