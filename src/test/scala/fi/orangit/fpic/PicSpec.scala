@@ -3,6 +3,8 @@ package fi.orangit.fpic
 import org.scalatest.flatspec.AnyFlatSpecLike
 import org.scalatest.matchers.should.Matchers
 
+import scala.util.Try
+
 /**
  * See https://vrk.fi/en/personal-identity-code1 for specs.
  */
@@ -46,6 +48,19 @@ class PicSpec extends AnyFlatSpecLike with Matchers {
   it should "uppercase all characters to achieve a canonical representation" in {
     Pic.fromStringU("010781-190a").value should be("010781-190A")
     Pic.fromStringU("170214a6228").value should be("170214A6228")
+  }
+
+  behavior of "object Pic, method fromStringUnsafe / fromStringU"
+
+  it should "throw an IllegalArgumentException if the input is not a valid PIC" in {
+    val t = Try(Pic.fromStringU("290877-1640")).toEither
+    t match {
+      case Left(err) => {
+        err shouldBe an[IllegalArgumentException]
+        err.getMessage should be("Invalid PIC: '290877-1640'. The control character ('0') is wrong: it should be 'A'.")
+      }
+      case Right(value) => fail("An IllegalArgumentException should have been thrown, but was not.")
+    }
   }
 
   behavior of "class Pic"
