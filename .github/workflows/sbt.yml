@@ -1,4 +1,4 @@
-name: CI for finnish-personal-identity-code using sbt
+name: sbt CI
 
 on: [push]
 
