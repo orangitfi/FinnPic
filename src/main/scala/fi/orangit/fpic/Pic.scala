@@ -12,10 +12,37 @@ import scala.util.Try
  * "smart constructor" pattern). This prevents instances which
  * are in an illegal state. Every Pic object can thus be
  * treated as a valid Pic.
+ *
+ * See the companion object for how to create instances of Pic.
  */
 class Pic private(_asString: String, _gender: Gender, _birthYear: Int, _birthMonth: Int, _birthDay: Int) {
+  /**
+   * The PIC String used to create this Pic object itself, trimmed and uppercased.
+   *
+   * Examples:
+   * {{{
+   * >>> Pic.fromStringU("290877-1639").value
+   * 290877-1639
+   *
+   * >>> Pic.fromStringU("170214a6228").value
+   * 170214A6228
+   * }}}
+   */
   val value: String = _asString
 
+  /**
+   * The [[Gender]] of the person whose PIC this is. Currently this can be only [[Male]] or [[Female]]; this
+   * is a restriction which comes directly from the PIC specification.
+   *
+   * Examples:
+   * {{{
+   * >>> Pic.fromStringU("290877-1639").gender
+   * Male
+   *
+   * >>> Pic.fromStringU("170214A6228").gender
+   * Female
+   * }}}
+   */
   val gender: Gender = _gender
 
   val birthYear: Int = _birthYear
@@ -47,12 +74,12 @@ sealed trait Gender
 /**
  * A male person.
  */
-object Male extends Gender
+case object Male extends Gender
 
 /**
  * A female person.
  */
-object Female extends Gender
+case object Female extends Gender
 
 /**
  * Contains the factory methods for creating objects of class [[Pic]].
@@ -80,11 +107,9 @@ object Pic {
    * Create a Pic from an input String, throwing an [[scala.IllegalArgumentException]] if the input is not a valid PIC.
    *
    * See also:
-   *
-   * - [[fromString]] for cases where you are not sure if the input is a valid PIC (for example,
+   *   - [[fromString]] for cases where you are not sure if the input is a valid PIC (for example,
    * the input comes from a user), which returns an Either for you to handle.
-   *
-   * - [[fromStringU]] for a shorter named alias of this function.
+   *   - [[fromStringU]] for a shorter named alias of this function.
    *
    * @param input a valid Personal Identity Code as a String.
    * @return a Pic object if the input is a valid PIC.
