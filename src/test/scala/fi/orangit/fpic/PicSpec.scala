@@ -89,11 +89,43 @@ class PicSpec extends AnyFlatSpecLike with Matchers {
     Pic.fromStringU(ValidPic3FemaleBornIn2010s).birthDay should be(17)
   }
 
-  behavior of "Pic.toString"
+  behavior of "Pic.toString()"
 
   it should "just show the original pic (the String value) without any decoration" in {
     Pic.fromStringU(ValidPic1MaleBornIn1900s).toString should be(ValidPic1MaleBornIn1900s)
     Pic.fromStringU(ValidPic2FemaleBornIn1900s).toString should be(ValidPic2FemaleBornIn1900s)
     Pic.fromStringU(ValidPic3FemaleBornIn2010s).toString should be(ValidPic3FemaleBornIn2010s)
+  }
+
+  behavior of "Pic.equals()"
+
+  it should "match if the PIC String value is equal" in {
+    val pic1 = Pic.fromStringU(ValidPic1MaleBornIn1900s)
+    val pic2 = Pic.fromStringU(ValidPic1MaleBornIn1900s)
+    pic1 should equal(pic2)
+  }
+
+  it should "match if the PIC String is equivalent, but the control character is in a different case" in {
+    val pic1 = Pic.fromStringU("010781-190A")
+    val pic2 = Pic.fromStringU("010781-190a")
+    pic1 should equal(pic2)
+  }
+
+  it should "match if the PIC String is equivalent, but the sign character is in a different case" in {
+    val pic1 = Pic.fromStringU("170214A6228")
+    val pic2 = Pic.fromStringU("170214a6228")
+    pic1 should equal(pic2)
+  }
+
+  it should "not match if the PIC String is different" in {
+    val pic1 = Pic.fromStringU(ValidPic1MaleBornIn1900s)
+    val pic2 = Pic.fromStringU(ValidPic2FemaleBornIn1900s)
+    pic1 should not equal pic2
+  }
+
+  it should "not match with an object of a different class" in {
+    val pic = Pic.fromStringU(ValidPic1MaleBornIn1900s)
+    val other = "foo!"
+    pic should not equal other
   }
 }
