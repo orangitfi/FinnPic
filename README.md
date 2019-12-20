@@ -2,10 +2,9 @@
 
 A Scala implementation of Finnish Personal Identity Code ("henkilötunnus" in Finnish).
 
-See the specification here: [[https://vrk.fi/en/personal-identity-code1]]
+See the specification here: [https://vrk.fi/en/personal-identity-code1]
 
-https://github.com/orangitfi/finnish-personal-identity-code/workflows/sbt-test/badge.svg
-
+![sbt test](https://github.com/orangitfi/finnish-personal-identity-code/workflows/sbt-test/badge.svg)
 
 ## Building
 
