@@ -38,15 +38,29 @@ class Pic private(_asString: String, _gender: Gender, _birthYear: Int, _birthMon
   override def hashCode(): Int = value.hashCode
 }
 
+/**
+ * The gender of the person, deduced from PIC. There are only two options present in the PIC,
+ * [[Male]] or [[Female]] - the PIC does not support more genders yet.
+ */
 sealed trait Gender
 
+/**
+ * A male person.
+ */
 object Male extends Gender
 
+/**
+ * A female person.
+ */
 object Female extends Gender
 
+/**
+ * Contains the factory methods for creating objects of class [[Pic]].
+ * Follows the "smart constructor" pattern, familiar from Haskell.
+ */
 object Pic {
   /**
-   * Create a Pic from an input String, returning an [[Either]].
+   * Create a Pic from an input String, returning an [[scala.util.Either]].
    *
    * See also [[fromStringUnsafe(String)]] for cases where you are sure that the input is a valid PIC
    * (or you are willing to handle exceptions).
@@ -63,7 +77,7 @@ object Pic {
   }
 
   /**
-   * Create a Pic from an input String, throwing an [[IllegalArgumentException]] if the input is not a valid PIC.
+   * Create a Pic from an input String, throwing an [[java.lang.IllegalArgumentException]] if the input is not a valid PIC.
    *
    * See also:
    * - [[fromString(String)]] for cases where you are not sure if the input is a valid PIC (for example,
@@ -72,7 +86,7 @@ object Pic {
    *
    * @param input a valid Personal Identity Code as a String.
    * @return a Pic object if the input is a valid PIC.
-   * @throws IllegalArgumentException if the input is not a valid PIC.
+   * @throws java.lang.IllegalArgumentException if the input is not a valid PIC.
    */
   def fromStringUnsafe(input: String): Pic = {
     fromString(input) match {
