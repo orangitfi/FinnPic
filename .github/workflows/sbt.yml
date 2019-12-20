@@ -1,4 +1,4 @@
-name: Scala CI
+name: CI for finnish-personal-identity-code using sbt
 
 on: [push]
 
