@@ -1,7 +1,7 @@
 package fi.orangit.fpic
 
-import org.scalatest.Matchers
 import org.scalatest.flatspec.AnyFlatSpecLike
+import org.scalatest.matchers.should.Matchers
 
 /**
  * See https://vrk.fi/en/personal-identity-code1 for specs.
