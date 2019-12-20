@@ -58,14 +58,7 @@ object Pic {
   def fromString(input: String): Either[String, Pic] = {
     input.trim().toUpperCase match {
       case s: String if s.length != 11 => Left(s"Invalid PIC: '${s}'. PIC should have 11 characters, but was ${s.length} characters.")
-      case s: String => {
-        // Note: These substring splits cannot fail, since the string is already confirmed as being 11 chars long.
-        val ddMmYyPart = s.substring(0, 6)
-        val sign = s.substring(6, 7)
-        val individualNumber = s.substring(7, 10)
-        val controlCharacter = s.substring(10, 11)
-        createFromSubstrings(input, s, ddMmYyPart, sign, individualNumber, controlCharacter)
-      }
+      case s: String if s.length == 11 => createFromStringOfCorrectLength(input, s)
     }
   }
 
@@ -94,6 +87,21 @@ object Pic {
    */
   def fromStringU(input: String): Pic = fromStringUnsafe(input)
 
+  /**
+   * Here we have certainty that parameter `cleanedInput` is 11 chars long.
+   */
+  private def createFromStringOfCorrectLength(originalInput: String, cleanedInput: String): Either[String, Pic] = {
+    // Note: These substring splits cannot fail, since the string is already confirmed as being 11 chars long.
+    val ddMmYyPart = cleanedInput.substring(0, 6)
+    val sign = cleanedInput.substring(6, 7)
+    val individualNumber = cleanedInput.substring(7, 10)
+    val controlCharacter = cleanedInput.substring(10, 11)
+    createFromSubstrings(originalInput, cleanedInput, ddMmYyPart, sign, individualNumber, controlCharacter)
+  }
+
+  /**
+   * Here we have certainty that all the substrings are 11 chars long.
+   */
   private def createFromSubstrings(originalInput: String, cleanedInput: String, ddMmYyPart: String, sign: String, individualNumber: String, controlCharacter: String): Either[String, Pic] = {
     if (!ddMmYyPart.matches("\\d{6}")) {
       Left(s"Invalid PIC: '${originalInput}'. The first six characters have to be numeric, but they were: '${ddMmYyPart}'.")
@@ -106,6 +114,9 @@ object Pic {
     }
   }
 
+  /**
+   * Here we have certainty that all the parts are themselves valid, except for the control character.
+   */
   private def createFromValidParts(originalInput: String, cleanedInput: String, ddMmYyPart: String, sign: Char, individualNumber: String, controlCharacter: Char): Either[String, Pic] = {
     // At this point the ddMmYyPart and individualNumber have been validated to be numeric, so we can just use .toLong directly without Try.
     val expectedControlCharacter: Char = calculateExpectedControlCharacter((ddMmYyPart + individualNumber).toLong)
