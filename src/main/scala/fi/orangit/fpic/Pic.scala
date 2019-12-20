@@ -45,14 +45,73 @@ class Pic private(_asString: String, _gender: Gender, _birthYear: Int, _birthMon
    */
   val gender: Gender = _gender
 
+  /**
+   * The birth year of the person whose PIC this is.
+   *
+   * Examples:
+   * {{{
+   * >>> Pic.fromStringU("290877-1639").birthYear
+   * 1977
+   *
+   * >>> Pic.fromStringU("170214A6228").birthYear
+   * 2014
+   * }}}
+   */
   val birthYear: Int = _birthYear
 
+  /**
+   * The birth month of the person whose PIC this is. 1-based representation, so
+   * January is 1 and December is 12.
+   *
+   * Examples:
+   * {{{
+   * >>> Pic.fromStringU("290877-1639").birthMonth
+   * 8
+   *
+   * >>> Pic.fromStringU("170214A6228").birthMonth
+   * 2
+   * }}}
+   */
   val birthMonth: Int = _birthMonth
 
+  /**
+   * The day of month of the birth of the person whose PIC this is.
+   * It is not a typo that this method is called 'birthDay', not 'birthday'.
+   * They are different concepts: this contains only the day of month,
+   * whereas the concept of 'birthday' includes the whole date.
+   *
+   * Examples:
+   * {{{
+   * >>> Pic.fromStringU("290877-1639").birthDay
+   * 29
+   *
+   * >>> Pic.fromStringU("170214A6228").birthDay
+   * 17
+   * }}}
+   */
   val birthDay: Int = _birthDay
 
+  /**
+   * The canonical string representation of the PIC. Usually the same String
+   * which was used to create this object.
+   *
+   * Example:
+   * {{{
+   * >>> Pic.fromStringU("290877-1639").toString
+   * 290877-1639
+   * }}}
+   *
+   * @return the canonical string representation of the PIC.
+   */
   override def toString: String = value
 
+  /**
+   * Equals is true if the canonical string representation matches.
+   * Always false if the other object is not instance of [[Pic]].
+   *
+   * @param obj another object.
+   * @return true if the string matches, false if not.
+   */
   override def equals(obj: Any): Boolean = {
     obj match {
       case that: Pic =>
@@ -62,6 +121,17 @@ class Pic private(_asString: String, _gender: Gender, _birthYear: Int, _birthMon
     }
   }
 
+  /**
+   * The hashCode() function of [[Pic]] only delegates the call to [[value]].
+   *
+   * Example:
+   * {{{
+   * >>> Pic.fromStringU("290877-1639").hashCode == "290877-1639".hashCode
+   * true
+   * }}}
+   *
+   * @return
+   */
   override def hashCode(): Int = value.hashCode
 }
 
