@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="47445536-6a82-4458-aea3-b7ed8146b0cc" name="Default Changelist" comment="" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="CodeStyleSettingsInfer">
+    <option name="done" value="true" />
+  </component>
+  <component name="ElmWorkspace">
+    <elmProjects />
+    <settings elmCompilerPath="" elmFormatPath="" elmTestPath="" isElmFormatOnSaveEnabled="false" />
+  </component>
+  <component name="ExternalProjectsData">
+    <projectState path="$PROJECT_DIR$">
+      <ProjectState />
+    </projectState>
+  </component>
+  <component name="MacroExpansionManager">
+    <option name="directoryName" value="lCMhJFoV" />
+  </component>
+  <component name="ProjectCodeStyleSettingsMigration">
+    <option name="version" value="1" />
+  </component>
+  <component name="ProjectId" id="1VFH4VaT7JWrbbYhCzPXNMDLdfm" />
+  <component name="PropertiesComponent">
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="go.import.settings.migrated" value="true" />
+  </component>
+  <component name="RubyModuleManagerSettings">
+    <option name="blackListedRootsPaths">
+      <list>
+        <option value="$PROJECT_DIR$" />
+        <option value="$PROJECT_DIR$/project" />
+      </list>
+    </option>
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager">
+    <configuration name="PicSpec.object Pic, method fromString should reject an empty string&#10;object Pic, method fromString should reject a PIC with non-numeric character in the first 6 places&#10;object Pic, method fromString should reject a PIC where the delimiter char is something other than +, -, or A&#10;object Pic, method fromString should reject a PIC where the individual number is not numeric&#10;object Pic, method fromString should reject a PIC the control character is wrong&#10;object Pic, method fromString should accept a valid PIC&#10;object Pic, method fromString should uppercase all characters to achieve a canonical representation&#10;class Pic should know the supposed gender of the person in question&#10;class Pic should know the birth year of the person in question&#10;class Pic should know the birth month of the person in question&#10;class Pic should know the birth day (of month) of the person in question" type="ScalaTestRunConfiguration" factoryName="ScalaTest" temporary="true" show_console_on_std_err="false" show_console_on_std_out="false">
+      <module name="finnish-personal-identity-code" />
+      <option name="allowRunningInParallel" value="false" />
+      <option name="testKind" value="Class" />
+      <option name="envs">
+        <map />
+      </option>
+      <option name="javaOptions" value="" />
+      <option name="jrePath" />
+      <option name="searchTest" value="Across module dependencies" />
+      <option name="showProgressMessages" value="true" />
+      <option name="testArgs" value="" />
+      <option name="testClassPath" value="fi.orangit.fpic.PicSpec" />
+      <option name="testName" value="object Pic, method fromString should reject an empty string&#10;object Pic, method fromString should reject a PIC with non-numeric character in the first 6 places&#10;object Pic, method fromString should reject a PIC where the delimiter char is something other than +, -, or A&#10;object Pic, method fromString should reject a PIC where the individual number is not numeric&#10;object Pic, method fromString should reject a PIC the control character is wrong&#10;object Pic, method fromString should accept a valid PIC&#10;object Pic, method fromString should uppercase all characters to achieve a canonical representation&#10;class Pic should know the supposed gender of the person in question&#10;class Pic should know the birth year of the person in question&#10;class Pic should know the birth month of the person in question&#10;class Pic should know the birth day (of month) of the person in question" />
+      <option name="useSbt" value="false" />
+      <option name="useUiWithSbt" value="false" />
+      <option name="workingDirectory" value="$PROJECT_DIR$" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="ScalaTest.PicSpec.object Pic, method fromString should reject an empty string&#10;object Pic, method fromString should reject a PIC with non-numeric character in the first 6 places&#10;object Pic, method fromString should reject a PIC where the delimiter char is something other than +, -, or A&#10;object Pic, method fromString should reject a PIC where the individual number is not numeric&#10;object Pic, method fromString should reject a PIC the control character is wrong&#10;object Pic, method fromString should accept a valid PIC&#10;object Pic, method fromString should uppercase all characters to achieve a canonical representation&#10;class Pic should know the supposed gender of the person in question&#10;class Pic should know the birth year of the person in question&#10;class Pic should know the birth month of the person in question&#10;class Pic should know the birth day (of month) of the person in question" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SbtLocalSettings">
+    <option name="availableProjects">
+      <map>
+        <entry>
+          <key>
+            <ExternalProjectPojo>
+              <option name="name" value="finnish-personal-identity-code" />
+              <option name="path" value="$PROJECT_DIR$" />
+            </ExternalProjectPojo>
+          </key>
+          <value>
+            <list>
+              <ExternalProjectPojo>
+                <option name="name" value="root [file:/Users/vpeurala/Projects/OrangIT/finnish-personal-identity-code/]" />
+                <option name="path" value="$PROJECT_DIR$" />
+              </ExternalProjectPojo>
+              <ExternalProjectPojo>
+                <option name="name" value="finnish-personal-identity-code-build" />
+                <option name="path" value="$PROJECT_DIR$/project" />
+              </ExternalProjectPojo>
+            </list>
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="modificationStamps">
+      <map>
+        <entry key="$PROJECT_DIR$/build.sbt" value="4170958991" />
+        <entry key="$PROJECT_DIR$/project/build.properties" value="882899147" />
+      </map>
+    </option>
+    <option name="projectSyncType">
+      <map>
+        <entry key="$PROJECT_DIR$/../HelsinkiShipyard/overtime-notifications" value="PREVIEW" />
+      </map>
+    </option>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="47445536-6a82-4458-aea3-b7ed8146b0cc" name="Default Changelist" comment="" />
+      <created>1576841731339</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1576841731339</updated>
+      <workItem from="1576841733079" duration="516000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+</project>
