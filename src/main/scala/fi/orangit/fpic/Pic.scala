@@ -62,12 +62,12 @@ object Pic {
   /**
    * Create a Pic from an input String, returning an [[scala.util.Either]].
    *
-   * See also [[fromStringUnsafe(String)]] for cases where you are sure that the input is a valid PIC
+   * See also [[fromStringUnsafe]] for cases where you are sure that the input is a valid PIC
    * (or you are willing to handle exceptions).
    *
    * @param input a valid Personal Identity Code as a String.
-   * @return Left(String) if the given String is not a valid PIC, return a [[Left]] containing an error message.
-   *         Right(Pic) if the given String is a valid PIC.
+   * @return Left(String) if the given String is not a valid PIC, return a [[scala.util.Left]] containing an error message.
+   *         Right(Pic) if the given String is a valid PIC, return a [[scala.util.Right]] containing the [[Pic]] object.
    */
   def fromString(input: String): Either[String, Pic] = {
     input.trim().toUpperCase match {
@@ -77,16 +77,18 @@ object Pic {
   }
 
   /**
-   * Create a Pic from an input String, throwing an [[java.lang.IllegalArgumentException]] if the input is not a valid PIC.
+   * Create a Pic from an input String, throwing an [[scala.IllegalArgumentException]] if the input is not a valid PIC.
    *
    * See also:
-   * - [[fromString(String)]] for cases where you are not sure if the input is a valid PIC (for example,
+   *
+   * - [[fromString]] for cases where you are not sure if the input is a valid PIC (for example,
    * the input comes from a user), which returns an Either for you to handle.
-   * - [[fromStringU(String)]] for a shorter named alias of this function.
+   *
+   * - [[fromStringU]] for a shorter named alias of this function.
    *
    * @param input a valid Personal Identity Code as a String.
    * @return a Pic object if the input is a valid PIC.
-   * @throws java.lang.IllegalArgumentException if the input is not a valid PIC.
+   * @throws scala.IllegalArgumentException if the input is not a valid PIC.
    */
   def fromStringUnsafe(input: String): Pic = {
     fromString(input) match {

@@ -18,5 +18,5 @@ autoAPIMappings := true
 exportJars := true
 
 scalacOptions in (doc) ++= Opts.doc.externalAPI(List
-(file(s"${(packageBin in Compile).value}") -> url("https://www.scala-lang.org/api/current"))
+  (file(s"${(packageBin in Compile).value}") -> url("https://www.scala-lang.org/api/current"))
 )
