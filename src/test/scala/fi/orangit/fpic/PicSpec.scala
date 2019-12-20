@@ -73,4 +73,12 @@ class PicSpec extends AnyFlatSpecLike with Matchers {
     Pic.fromString(ValidPic2FemaleBornIn1900s).toOption.get.birthDay should be(1)
     Pic.fromString(ValidPic3FemaleBornIn2010s).toOption.get.birthDay should be(17)
   }
+
+  behavior of "Pic.toString"
+
+  it should "just show the original pic (the String value) without any decoration" in {
+    Pic.fromString(ValidPic1MaleBornIn1900s).toOption.get.toString should be(ValidPic1MaleBornIn1900s)
+    Pic.fromString(ValidPic2FemaleBornIn1900s).toOption.get.toString should be(ValidPic2FemaleBornIn1900s)
+    Pic.fromString(ValidPic3FemaleBornIn2010s).toOption.get.toString should be(ValidPic3FemaleBornIn2010s)
+  }
 }

@@ -23,6 +23,19 @@ class Pic private(_asString: String, _gender: Gender, _birthYear: Int, _birthMon
   val birthMonth: Int = _birthMonth
 
   val birthDay: Int = _birthDay
+
+  override def toString: String = value
+
+  override def equals(obj: Any): Boolean = {
+    obj match {
+      case that: Pic =>
+        that.value.equals(this.value)
+      case _ =>
+        false
+    }
+  }
+
+  override def hashCode(): Int = value.hashCode
 }
 
 sealed trait Gender

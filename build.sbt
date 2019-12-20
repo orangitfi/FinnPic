@@ -10,3 +10,5 @@ lazy val root = (project in file(".")).
 scalacOptions += "-deprecation"
 
 libraryDependencies += "org.scalatest" %% "scalatest" % "3.1.0" % Test
+
+coverageEnabled := true
