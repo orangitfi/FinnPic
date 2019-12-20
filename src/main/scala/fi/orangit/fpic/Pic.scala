@@ -14,10 +14,31 @@ import scala.util.Try
  * treated as a valid Pic.
  *
  * See the companion object for how to create instances of Pic.
+ *
+ * Some examples of [[Pic]] creation:
+ * {{{
+ * >>> Pic.fromString("290877-1639")
+ * Right(290877-1639)
+ *
+ * >>> Pic.fromString("290877-163")
+ * Left(Invalid PIC: '290877-163'. PIC should have 11 characters, but was 10 characters.)
+ *
+ * >>> Pic.fromString("290877-1638")
+ * Left(Invalid PIC: '290877-1638'. The control character ('8') is wrong: it should be '9'.)
+ *
+ * >>> Pic.fromStringUnsafe("290877-1639")
+ * 290877-1639
+ *
+ * // Pic.fromStringU is just a shorter alias for Pic.fromStringUnsafe.
+ * >>> Pic.fromStringU("290877-1639")
+ * 290877-1639
+ *
+ * // If you give Pic.fromStringUnsafe (or Pic.fromStringU) an invalid PIC, they throw an IllegalArgumentException.
+ * }}}
  */
 class Pic private(_asString: String, _gender: Gender, _birthYear: Int, _birthMonth: Int, _birthDay: Int) {
   /**
-   * The PIC String used to create this Pic object itself, trimmed and uppercased.
+   * The PIC String used to create this Pic object itself, trimmed and in uppercase.
    *
    * Examples:
    * {{{
@@ -154,6 +175,27 @@ case object Female extends Gender
 /**
  * Contains the factory methods for creating objects of class [[Pic]].
  * Follows the "smart constructor" pattern, familiar from Haskell.
+ *
+ * Some examples of [[Pic]] creation:
+ * {{{
+ * >>> Pic.fromString("290877-1639")
+ * Right(290877-1639)
+ *
+ * >>> Pic.fromString("290877-163")
+ * Left(Invalid PIC: '290877-163'. PIC should have 11 characters, but was 10 characters.)
+ *
+ * >>> Pic.fromString("290877-1638")
+ * Left(Invalid PIC: '290877-1638'. The control character ('8') is wrong: it should be '9'.)
+ *
+ * >>> Pic.fromStringUnsafe("290877-1639")
+ * 290877-1639
+ *
+ * // Pic.fromStringU is just a shorter alias for Pic.fromStringUnsafe.
+ * >>> Pic.fromStringU("290877-1639")
+ * 290877-1639
+ *
+ * // If you give Pic.fromStringUnsafe (or Pic.fromStringU) an invalid PIC, they throw an IllegalArgumentException.
+ * }}}
  */
 object Pic {
   /**
@@ -161,6 +203,18 @@ object Pic {
    *
    * See also [[fromStringUnsafe]] for cases where you are sure that the input is a valid PIC
    * (or you are willing to handle exceptions).
+   *
+   * Examples:
+   * {{{
+   * >>> Pic.fromString("290877-1639")
+   * Right(290877-1639)
+   *
+   * >>> Pic.fromString("290877-163")
+   * Left(Invalid PIC: '290877-163'. PIC should have 11 characters, but was 10 characters.)
+   *
+   * >>> Pic.fromString("290877-1638")
+   * Left(Invalid PIC: '290877-1638'. The control character ('8') is wrong: it should be '9'.)
+   * }}}
    *
    * @param input a valid Personal Identity Code as a String.
    * @return Left(String) if the given String is not a valid PIC, return a [[scala.util.Left]] containing an error message.
@@ -181,6 +235,14 @@ object Pic {
    * the input comes from a user), which returns an Either for you to handle.
    *   - [[fromStringU]] for a shorter named alias of this function.
    *
+   * Examples:
+   * {{{
+   * >>> Pic.fromStringUnsafe("290877-1639")
+   * 290877-1639
+   *
+   * >>> // Pic.fromStringUnsafe("foo") would throw an IllegalArgumentException.
+   * }}}
+   *
    * @param input a valid Personal Identity Code as a String.
    * @return a Pic object if the input is a valid PIC.
    * @throws scala.IllegalArgumentException if the input is not a valid PIC.
@@ -195,6 +257,14 @@ object Pic {
   /**
    * A shorter alias for [[Pic.fromStringUnsafe]].
    * See the documentation for that function.
+   *
+   * Examples:
+   * {{{
+   * >>> Pic.fromStringU("290877-1639")
+   * 290877-1639
+   *
+   * >>> // Pic.fromStringU("foo") would throw an IllegalArgumentException.
+   * }}}
    */
   def fromStringU(input: String): Pic = fromStringUnsafe(input)
 
