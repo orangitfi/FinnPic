@@ -64,31 +64,7 @@ object Pic {
         val sign = s.substring(6, 7)
         val individualNumber = s.substring(7, 10)
         val controlCharacter = s.substring(10, 11)
-        if (!ddMmYyPart.matches("\\d{6}")) {
-          Left(s"Invalid PIC: '${s}'. The first six characters have to be numeric, but they were: '${ddMmYyPart}'.")
-        } else if (!List('+', '-', 'A').contains(sign.charAt(0))) {
-          Left(s"Invalid PIC: '${s}'. The sign (7th character) must be +, - or A, now it was: '${sign}'.")
-        } else if (Try(individualNumber.toInt).toOption.isEmpty) {
-          Left(s"Invalid PIC: '${s}'. The individual number (characters 8-10) must be numeric, now it was: '${individualNumber}'.")
-        } else {
-          // At this point the ddMmYyPart and individualNumber have been validated to be numeric, so we can just use .toLong directly without Try.
-          val expectedControlCharacter: String = calculateExpectedControlCharacter((ddMmYyPart + individualNumber).toLong).toString
-          if (controlCharacter != expectedControlCharacter) {
-            Left(s"Invalid PIC: '${s}'. The control character ('${controlCharacter}') is wrong: it should be '${expectedControlCharacter}'.")
-          } else {
-            val gender = if (individualNumber.toInt % 2 == 0) Female else Male
-            val century = sign match {
-              case "+" => 1800
-              case "-" => 1900
-              case "A" => 2000
-            }
-            val yearWithinCentury = ddMmYyPart.substring(4, 6).toInt
-            val birthYear = century + yearWithinCentury
-            val birthMonth = ddMmYyPart.substring(2, 4).toInt
-            val birthDay = ddMmYyPart.substring(0, 2).toInt
-            Right(new Pic(s, gender, birthYear, birthMonth, birthDay))
-          }
-        }
+        createFromSubstrings(input, s, ddMmYyPart, sign, individualNumber, controlCharacter)
       }
     }
   }
@@ -117,6 +93,39 @@ object Pic {
    * See the documentation for that function.
    */
   def fromStringU(input: String): Pic = fromStringUnsafe(input)
+
+  private def createFromSubstrings(originalInput: String, cleanedInput: String, ddMmYyPart: String, sign: String, individualNumber: String, controlCharacter: String): Either[String, Pic] = {
+    if (!ddMmYyPart.matches("\\d{6}")) {
+      Left(s"Invalid PIC: '${originalInput}'. The first six characters have to be numeric, but they were: '${ddMmYyPart}'.")
+    } else if (!List('+', '-', 'A').contains(sign.charAt(0))) {
+      Left(s"Invalid PIC: '${originalInput}'. The sign (7th character) must be +, - or A, now it was: '${sign}'.")
+    } else if (Try(individualNumber.toInt).toOption.isEmpty) {
+      Left(s"Invalid PIC: '${originalInput}'. The individual number (characters 8-10) must be numeric, now it was: '${individualNumber}'.")
+    } else {
+      createFromValidParts(originalInput, cleanedInput, ddMmYyPart, sign.charAt(0), individualNumber, controlCharacter.charAt(0))
+    }
+  }
+
+  private def createFromValidParts(originalInput: String, cleanedInput: String, ddMmYyPart: String, sign: Char, individualNumber: String, controlCharacter: Char): Either[String, Pic] = {
+    // At this point the ddMmYyPart and individualNumber have been validated to be numeric, so we can just use .toLong directly without Try.
+    val expectedControlCharacter: Char = calculateExpectedControlCharacter((ddMmYyPart + individualNumber).toLong)
+    if (controlCharacter != expectedControlCharacter) {
+      Left(s"Invalid PIC: '${originalInput}'. The control character ('${controlCharacter}') is wrong: it should be '${expectedControlCharacter}'.")
+    } else {
+      val gender = if (individualNumber.toInt % 2 == 0) Female else Male
+      val century = sign match {
+        case '+' => 1800
+        case '-' => 1900
+        case 'A' => 2000
+      }
+      val yearWithinCentury = ddMmYyPart.toString.substring(4, 6).toInt
+      val birthYear = century + yearWithinCentury
+      val birthMonth = ddMmYyPart.toString.substring(2, 4).toInt
+      val birthDay = ddMmYyPart.toString.substring(0, 2).toInt
+      Right(new Pic(cleanedInput, gender, birthYear, birthMonth, birthDay))
+    }
+  }
+
 
   /**
    * The possible control characters. See https://vrk.fi/en/personal-identity-code1 for more information about the control character calculation.
