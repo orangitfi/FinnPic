@@ -281,7 +281,7 @@ object Pic {
   }
 
   /**
-   * Here we have certainty that all the substrings are 11 chars long.
+   * Here we have certainty that all the substrings, when concatenated together, form a string of 11 chars.
    */
   private def createFromSubstrings(originalInput: String, cleanedInput: String, ddMmYyPart: String, sign: String, individualNumber: String, controlCharacter: String): Either[String, Pic] = {
     if (!ddMmYyPart.matches("\\d{6}")) {
