@@ -273,48 +273,75 @@ object Pic {
    */
   private def createFromStringOfCorrectLength(originalInput: String, cleanedInput: String): Either[String, Pic] = {
     // Note: These substring splits cannot fail, since the string is already confirmed as being 11 chars long.
-    val ddMmYyPart = cleanedInput.substring(0, 6)
+    val birthDatePart = cleanedInput.substring(0, 6)
     val sign = cleanedInput.substring(6, 7)
     val individualNumber = cleanedInput.substring(7, 10)
     val controlCharacter = cleanedInput.substring(10, 11)
-    createFromSubstrings(originalInput, cleanedInput, ddMmYyPart, sign, individualNumber, controlCharacter)
+    createFromSubstrings(PicParts(originalInput, cleanedInput, birthDatePart, sign, individualNumber, controlCharacter))
   }
+
+  private case class PicParts(originalInput: String,
+                              cleanedInput: String,
+                              birthDatePart: String,
+                              sign: String,
+                              individualNumber: String,
+                              controlCharacter: String)
+
+  private case class ValidationRule(predicate: PicParts => Boolean, errorMessageGenerator: PicParts => String)
+
+  private val birthDatePartMustBeNumeric = ValidationRule(
+    pp =>
+      pp.birthDatePart.matches("\\d{6}"),
+    pp =>
+      s"Invalid PIC: '${pp.originalInput}'. The first six characters have to be numeric, but they were: '${pp.birthDatePart}'.")
+
+  private val signMustHaveAcceptableValue = ValidationRule(
+    pp =>
+      List('+', '-', 'A').contains(pp.sign.charAt(0)),
+    pp =>
+      s"Invalid PIC: '${pp.originalInput}'. The sign (7th character) must be +, - or A, now it was: '${pp.sign}'."
+  )
+
+  private val individualNumberMustBeNumeric = ValidationRule(
+    pp =>
+      Try(pp.individualNumber.toInt).toOption.isDefined,
+    pp =>
+      s"Invalid PIC: '${pp.originalInput}'. The individual number (characters 8-10) must be numeric, now it was: '${pp.individualNumber}'."
+  )
+
+  private val validationRules = List(birthDatePartMustBeNumeric, signMustHaveAcceptableValue, individualNumberMustBeNumeric)
 
   /**
    * Here we have certainty that all the substrings, when concatenated together, form a string of 11 chars.
    */
-  private def createFromSubstrings(originalInput: String, cleanedInput: String, ddMmYyPart: String, sign: String, individualNumber: String, controlCharacter: String): Either[String, Pic] = {
-    if (!ddMmYyPart.matches("\\d{6}")) {
-      Left(s"Invalid PIC: '${originalInput}'. The first six characters have to be numeric, but they were: '${ddMmYyPart}'.")
-    } else if (!List('+', '-', 'A').contains(sign.charAt(0))) {
-      Left(s"Invalid PIC: '${originalInput}'. The sign (7th character) must be +, - or A, now it was: '${sign}'.")
-    } else if (Try(individualNumber.toInt).toOption.isEmpty) {
-      Left(s"Invalid PIC: '${originalInput}'. The individual number (characters 8-10) must be numeric, now it was: '${individualNumber}'.")
-    } else {
-      createFromValidParts(originalInput, cleanedInput, ddMmYyPart, sign.charAt(0), individualNumber, controlCharacter.charAt(0))
+  private def createFromSubstrings(pp: PicParts): Either[String, Pic] = {
+    val failedValidationRule = validationRules.find(vr => !vr.predicate(pp))
+    failedValidationRule match {
+      case Some(rule) => Left(rule.errorMessageGenerator(pp))
+      case None => createFromValidParts(pp)
     }
   }
 
   /**
    * Here we have certainty that all the parts are themselves valid, except for the control character.
    */
-  private def createFromValidParts(originalInput: String, cleanedInput: String, ddMmYyPart: String, sign: Char, individualNumber: String, controlCharacter: Char): Either[String, Pic] = {
-    // At this point the ddMmYyPart and individualNumber have been validated to be numeric, so we can just use .toLong directly without Try.
-    val expectedControlCharacter: Char = calculateExpectedControlCharacter((ddMmYyPart + individualNumber).toLong)
-    if (controlCharacter != expectedControlCharacter) {
-      Left(s"Invalid PIC: '${originalInput}'. The control character ('${controlCharacter}') is wrong: it should be '${expectedControlCharacter}'.")
+  private def createFromValidParts(pp: PicParts): Either[String, Pic] = {
+    // At this point the birthDatePart and individualNumber have been validated to be numeric, so we can just use .toLong directly without Try.
+    val expectedControlCharacter: Char = calculateExpectedControlCharacter((pp.birthDatePart + pp.individualNumber).toLong)
+    if (pp.controlCharacter.charAt(0) != expectedControlCharacter) {
+      Left(s"Invalid PIC: '${pp.originalInput}'. The control character ('${pp.controlCharacter}') is wrong: it should be '${expectedControlCharacter}'.")
     } else {
-      val gender = if (individualNumber.toInt % 2 == 0) Female else Male
-      val century = sign match {
+      val gender = if (pp.individualNumber.toInt % 2 == 0) Female else Male
+      val century = pp.sign.charAt(0) match {
         case '+' => 1800
         case '-' => 1900
         case 'A' => 2000
       }
-      val yearWithinCentury = ddMmYyPart.toString.substring(4, 6).toInt
+      val yearWithinCentury = pp.birthDatePart.toString.substring(4, 6).toInt
       val birthYear = century + yearWithinCentury
-      val birthMonth = ddMmYyPart.toString.substring(2, 4).toInt
-      val birthDay = ddMmYyPart.toString.substring(0, 2).toInt
-      Right(new Pic(cleanedInput, gender, birthYear, birthMonth, birthDay))
+      val birthMonth = pp.birthDatePart.toString.substring(2, 4).toInt
+      val birthDay = pp.birthDatePart.toString.substring(0, 2).toInt
+      Right(new Pic(pp.cleanedInput, gender, birthYear, birthMonth, birthDay))
     }
   }
 
