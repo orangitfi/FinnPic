@@ -4,7 +4,8 @@
 
 # FinnPic
 
-<img src="assets/Flag_of_Finland.svg" alt="Flag of Finland" width="20%">
+<img src="assets/Flag_of_Finland.svg" alt="Flag of Finland" width="15%">
+
 A Scala implementation of Finnish PIC (Personal Identity Code)("henkilötunnus" in Finnish).
 
 See the specification here: [https://vrk.fi/en/personal-identity-code1](https://vrk.fi/en/personal-identity-code1).
@@ -44,4 +45,4 @@ p = Pic.fromStringUnsafe("foo")
 
 This project is proudly supported by [Orangit Oy](orangit.fi).
 
-![Orangit logo](assets/orangit_logo_web.svg)
+<img src="assets/orangit_logo_web.svg" alt="Orangit Oy" width="15%">
