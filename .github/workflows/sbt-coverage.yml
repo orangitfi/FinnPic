@@ -25,7 +25,7 @@ jobs:
       - uses: actions/upload-artifact@v1
         with:
           name: coverage-report
-          path: target/scala-2.13/scoverage-report
+          path: target/scala-2.12/scoverage-report
       - name: Upload coverage report to Codacy
         run: sbt codacyCoverage
         env:
