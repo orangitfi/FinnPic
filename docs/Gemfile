@@ -1,0 +1,9 @@
+# frozen_string_literal: true
+
+source "https://rubygems.org"
+
+git_source(:github) {|repo_name| "https://github.com/#{repo_name}" }
+
+
+# Added at 2019-12-21 18:42:03 +0200 by vpeurala:
+gem "jekyll", "~> 4.0"
