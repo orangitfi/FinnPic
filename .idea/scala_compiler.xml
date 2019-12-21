@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ScalaCompilerConfiguration">
     <profile name="sbt 1" modules="finnish-personal-identity-code_1270,scalatest-example" />
-    <profile name="sbt 2" modules="finnish-personal-identity-code">
+    <profile name="sbt 2" modules="FinnPic,finnish-personal-identity-code">
       <option name="deprecationWarnings" value="true" />
     </profile>
   </component>
