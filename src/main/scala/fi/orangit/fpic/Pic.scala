@@ -217,8 +217,8 @@ object Pic {
    * }}}
    *
    * @param input a valid Personal Identity Code as a String.
-   * @return Left(String) if the given String is not a valid PIC, return a [[scala.util.Left]] containing an error message.
-   *         Right(Pic) if the given String is a valid PIC, return a [[scala.util.Right]] containing the [[Pic]] object.
+   * @return Left(String) if the given String is not a valid PIC, return a scala.util.Left containing an error message.
+   *         Right(Pic) if the given String is a valid PIC, return a scala.util.Right containing the [[Pic]] object.
    */
   def fromString(input: String): Either[String, Pic] = {
     input.trim().toUpperCase match {
