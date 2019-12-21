@@ -4,7 +4,7 @@
 
 # FinnPic
 
-![Flag of Finland](assets/Flag_of_Finland.svg)
+![Flag of Finland](assets/Flag_of_Finland.svg){width="20%"}
 
 A Scala implementation of Finnish PIC (Personal Identity Code)("henkilötunnus" in Finnish).
 
