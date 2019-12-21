@@ -18,22 +18,47 @@ Full build with test coverage (which should stay at 100%) measurement:
 
 ## Usage
 
+### Construction
+
+There is a safe way and an unsafe way to make instances of *Pic*.
+
+The safe way is to use `Pic.fromString`, which returns instances of
+`Either` (in Scala standard library). `Left(errorMessage)` means
+that the given PIC was invalid, the error message inside tells you
+why. `Right(pic)` means the PIC was valid and now you can obtain 
+the value from the right side of the `Either`. This is a very common
+pattern in functional programming.
+
+Use the safe way if the PIC value (the string) is coming from a user
+or some other undependable source.
+
+The safe way, used successfully on a valid PIC:
+
 ```scala
-// The safe way (returning Either[String, Pic].
-// Use this if the PIC value (the string) is coming
-// from a user or some other undependable source.
-var p: Either[String, Pic] = Pic.fromString("290877-1639")
+// The safe way, success:
+val p = Pic.fromString("290877-1639")
 // ^ p is now Right(Pic(...))
+```
+
+The safe way, failing:
+
+```scala
 p = Pic.fromString("foo")
 // ^ p is now Left("some error message")
+```
 
-// The unsafe way (returning a Pic, and throwing
-// IllegalArgumentException if the PIC value is
-// invalid). Use this if the PIC value comes from
-// a dependable source or you are willing to
-// handle exceptions.
-var p: Pic = Pic.fromStringUnsafe("290877-1639")
+The unsafe way is to use ```Pic.fromStringUnsafe```, or its alias ```Pic.fromStringU```
+(which does the same thing, but is shorter to type and read). The unsafe variants return a
+*Pic* object directly on success (the PIC is valid). If the PIC is not valid, these functions
+throw an exception (a java.lang.IllegalArgumentException, to be more precise).
+
+Use the unsafe way when the PIC value comes from a dependable source (for example, from
+a database column where you know that only valid values are stored).
+
+```scala
+val p: Pic = Pic.fromStringUnsafe("290877-1639")
 // ^ p is now Pic(...)
+
 p = Pic.fromStringUnsafe("foo")
 // ^ throws IllegalArgumentException
 
