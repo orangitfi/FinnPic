@@ -1,3 +1,5 @@
 addSbtPlugin("com.codacy" % "sbt-codacy-coverage" % "3.0.3")
+addSbtPlugin("com.jsuereth" % "sbt-pgp" % "1.1.1")
 addSbtPlugin("com.github.tkawachi" % "sbt-doctest" % "0.9.5")
 addSbtPlugin("org.scoverage" % "sbt-scoverage" % "1.6.1")
+addSbtPlugin("org.xerial.sbt" % "sbt-sonatype" % "2.3")
