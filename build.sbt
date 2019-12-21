@@ -1,10 +1,10 @@
 lazy val root = (project in file(".")).
   settings(
     inThisBuild(List(
-      organization := "com.example",
+      organization := "fi.orangit",
       scalaVersion := "2.12.10"
     )),
-    name := "finnish-personal-identity-code"
+    name := "FinnPic"
   )
 
 scalacOptions += "-deprecation"
