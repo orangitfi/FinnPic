@@ -21,7 +21,7 @@ jobs:
       - uses: actions/upload-artifact@v1
         with:
           name: test-report
-          path: target/test-report
+          path: target/test-reports
       - uses: actions/upload-artifact@v1
         with:
           name: coverage-report
