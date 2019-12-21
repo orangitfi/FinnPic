@@ -19,9 +19,9 @@ jobs:
       - name: Create a report
         run: sbt coverageReport
       - uses: actions/upload-artifact@v1
-          with:
-            name: test-report
-            path: target/test-report
+        with:
+          name: test-report
+          path: target/test-report
       - uses: actions/upload-artifact@v1
         with:
           name: coverage-report
