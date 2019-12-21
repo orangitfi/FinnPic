@@ -4,6 +4,8 @@
 
 # FinnPic
 
+![Flag of Finland](assets/Flag_of_Finland.svg)
+
 A Scala implementation of Finnish PIC (Personal Identity Code)("henkilötunnus" in Finnish).
 
 See the specification here: [https://vrk.fi/en/personal-identity-code1](https://vrk.fi/en/personal-identity-code1).
@@ -20,9 +22,9 @@ Full build with test coverage (which should stay at 100%) measurement:
 // The safe way (returning Either[String, Pic].
 // Use this if the PIC value (the string) is coming
 // from a user or some other undependable source.
-val p: Either[String, Pic] = Pic.fromString("290877-1639")
+var p: Either[String, Pic] = Pic.fromString("290877-1639")
 // ^ p is now Right(Pic(...))
-val p = Pic.fromString("foo")
+p = Pic.fromString("foo")
 // ^ p is now Left("some error message")
 
 // The unsafe way (returning a Pic, and throwing
@@ -30,9 +32,9 @@ val p = Pic.fromString("foo")
 // invalid). Use this if the PIC value comes from
 // a dependable source or you are willing to
 // handle exceptions.
-val p: Pic = Pic.fromStringUnsafe("290877-1639")
+var p: Pic = Pic.fromStringUnsafe("290877-1639")
 // ^ p is now Pic(...)
-val p = Pic.fromStringUnsafe("foo")
+p = Pic.fromStringUnsafe("foo")
 // ^ throws IllegalArgumentException
 
 // There is also Pic.fromStringU, which is just an
