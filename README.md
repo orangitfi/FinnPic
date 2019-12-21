@@ -43,6 +43,8 @@ p = Pic.fromStringUnsafe("foo")
 
 ## Supporters
 
-This project is proudly supported by [Orangit Oy](orangit.fi).
+This project is proudly supported by [Orangit Oy](https://orangit.fi).
 
-<img src="assets/orangit_logo_web.svg" alt="Orangit Oy" width="15%">
+<a href="https://orangit.fi">
+  <img src="assets/orangit_logo_web.svg" alt="Orangit Oy" width="15%">
+</a>
