@@ -13,4 +13,3 @@ See the specification here: [https://vrk.fi/en/personal-identity-code1](https://
 Full build with test coverage (which should stay at 100%) measurement:
 
 > sbt clean coverage test coverageReport
-

@@ -3,7 +3,7 @@ package fi.orangit.fpic
 import scala.util.Try
 
 /**
- * PIC = Personal Identity Code, "henkilötunnus" in Finnish.
+ * PIC = Personal Identity Code, "henkilotunnus" in Finnish.
  *
  * See https://vrk.fi/en/personal-identity-code1 for specs.
  *
@@ -36,7 +36,7 @@ import scala.util.Try
  * // If you give Pic.fromStringUnsafe (or Pic.fromStringU) an invalid PIC, they throw an IllegalArgumentException.
  * }}}
  */
-class Pic private(_asString: String, _gender: Gender, _birthYear: Int, _birthMonth: Int, _birthDay: Int) {
+class Pic private(mAsString: String, mGender: Gender, mBirthYear: Int, mBirthMonth: Int, mBirthDay: Int) {
   /**
    * The PIC String used to create this Pic object itself, trimmed and in uppercase.
    *
@@ -49,7 +49,7 @@ class Pic private(_asString: String, _gender: Gender, _birthYear: Int, _birthMon
    * 170214A6228
    * }}}
    */
-  val value: String = _asString
+  val value: String = mAsString
 
   /**
    * The [[Gender]] of the person whose PIC this is. Currently this can be only [[Male]] or [[Female]]; this
@@ -64,7 +64,7 @@ class Pic private(_asString: String, _gender: Gender, _birthYear: Int, _birthMon
    * Female
    * }}}
    */
-  val gender: Gender = _gender
+  val gender: Gender = mGender
 
   /**
    * The birth year of the person whose PIC this is.
@@ -78,7 +78,7 @@ class Pic private(_asString: String, _gender: Gender, _birthYear: Int, _birthMon
    * 2014
    * }}}
    */
-  val birthYear: Int = _birthYear
+  val birthYear: Int = mBirthYear
 
   /**
    * The birth month of the person whose PIC this is. 1-based representation, so
@@ -93,7 +93,7 @@ class Pic private(_asString: String, _gender: Gender, _birthYear: Int, _birthMon
    * 2
    * }}}
    */
-  val birthMonth: Int = _birthMonth
+  val birthMonth: Int = mBirthMonth
 
   /**
    * The day of month of the birth of the person whose PIC this is.
@@ -110,7 +110,7 @@ class Pic private(_asString: String, _gender: Gender, _birthYear: Int, _birthMon
    * 17
    * }}}
    */
-  val birthDay: Int = _birthDay
+  val birthDay: Int = mBirthDay
 
   /**
    * The canonical string representation of the PIC. Usually the same String

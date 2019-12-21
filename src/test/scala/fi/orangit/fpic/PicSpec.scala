@@ -9,12 +9,12 @@ import scala.util.Try
  * See https://vrk.fi/en/personal-identity-code1 for specs.
  */
 class PicSpec extends FlatSpecLike with Matchers {
-  val ValidPic1MaleBornIn1900s = "290877-1639"
-  val ValidPic2FemaleBornIn1900s = "010781-190A"
-  val ValidPic3FemaleBornIn2010s = "170214A6228"
-  val ValidPic4MaleBornIn1800s = "290877+1639"
+  val validPic1MaleBornIn1900s = "290877-1639"
+  val validPic2FemaleBornIn1900s = "010781-190A"
+  val validPic3FemaleBornIn2010s = "170214A6228"
+  val validPic4MaleBornIn1800s = "290877+1639"
 
-  val validPics: List[String] = List(ValidPic1MaleBornIn1900s, ValidPic2FemaleBornIn1900s, ValidPic3FemaleBornIn2010s, ValidPic4MaleBornIn1800s)
+  val validPics: List[String] = List(validPic1MaleBornIn1900s, validPic2FemaleBornIn1900s, validPic3FemaleBornIn2010s, validPic4MaleBornIn1800s)
 
   behavior of "object Pic, method fromString"
 
@@ -67,47 +67,47 @@ class PicSpec extends FlatSpecLike with Matchers {
   behavior of "class Pic"
 
   it should "know the supposed gender of the person in question" in {
-    fromStringU(ValidPic1MaleBornIn1900s).gender should be(Male)
-    fromStringU(ValidPic2FemaleBornIn1900s).gender should be(Female)
-    fromStringU(ValidPic3FemaleBornIn2010s).gender should be(Female)
-    fromStringU(ValidPic4MaleBornIn1800s).gender should be(Male)
+    fromStringU(validPic1MaleBornIn1900s).gender should be(Male)
+    fromStringU(validPic2FemaleBornIn1900s).gender should be(Female)
+    fromStringU(validPic3FemaleBornIn2010s).gender should be(Female)
+    fromStringU(validPic4MaleBornIn1800s).gender should be(Male)
   }
 
   it should "know the birth year of the person in question" in {
-    fromStringU(ValidPic1MaleBornIn1900s).birthYear should be(1977)
-    fromStringU(ValidPic2FemaleBornIn1900s).birthYear should be(1981)
-    fromStringU(ValidPic3FemaleBornIn2010s).birthYear should be(2014)
-    fromStringU(ValidPic4MaleBornIn1800s).birthYear should be(1877)
+    fromStringU(validPic1MaleBornIn1900s).birthYear should be(1977)
+    fromStringU(validPic2FemaleBornIn1900s).birthYear should be(1981)
+    fromStringU(validPic3FemaleBornIn2010s).birthYear should be(2014)
+    fromStringU(validPic4MaleBornIn1800s).birthYear should be(1877)
   }
 
   it should "know the birth month of the person in question" in {
-    fromStringU(ValidPic1MaleBornIn1900s).birthMonth should be(8)
-    fromStringU(ValidPic2FemaleBornIn1900s).birthMonth should be(7)
-    fromStringU(ValidPic3FemaleBornIn2010s).birthMonth should be(2)
-    fromStringU(ValidPic4MaleBornIn1800s).birthMonth should be(8)
+    fromStringU(validPic1MaleBornIn1900s).birthMonth should be(8)
+    fromStringU(validPic2FemaleBornIn1900s).birthMonth should be(7)
+    fromStringU(validPic3FemaleBornIn2010s).birthMonth should be(2)
+    fromStringU(validPic4MaleBornIn1800s).birthMonth should be(8)
   }
 
   it should "know the birth day (of month) of the person in question" in {
-    fromStringU(ValidPic1MaleBornIn1900s).birthDay should be(29)
-    fromStringU(ValidPic2FemaleBornIn1900s).birthDay should be(1)
-    fromStringU(ValidPic3FemaleBornIn2010s).birthDay should be(17)
-    fromStringU(ValidPic4MaleBornIn1800s).birthDay should be(29)
+    fromStringU(validPic1MaleBornIn1900s).birthDay should be(29)
+    fromStringU(validPic2FemaleBornIn1900s).birthDay should be(1)
+    fromStringU(validPic3FemaleBornIn2010s).birthDay should be(17)
+    fromStringU(validPic4MaleBornIn1800s).birthDay should be(29)
   }
 
   behavior of "Pic.toString()"
 
   it should "just show the original pic (the String value) without any decoration" in {
-    fromStringU(ValidPic1MaleBornIn1900s).toString should be(ValidPic1MaleBornIn1900s)
-    fromStringU(ValidPic2FemaleBornIn1900s).toString should be(ValidPic2FemaleBornIn1900s)
-    fromStringU(ValidPic3FemaleBornIn2010s).toString should be(ValidPic3FemaleBornIn2010s)
-    fromStringU(ValidPic4MaleBornIn1800s).toString should be(ValidPic4MaleBornIn1800s)
+    fromStringU(validPic1MaleBornIn1900s).toString should be(validPic1MaleBornIn1900s)
+    fromStringU(validPic2FemaleBornIn1900s).toString should be(validPic2FemaleBornIn1900s)
+    fromStringU(validPic3FemaleBornIn2010s).toString should be(validPic3FemaleBornIn2010s)
+    fromStringU(validPic4MaleBornIn1800s).toString should be(validPic4MaleBornIn1800s)
   }
 
   behavior of "Pic.equals()"
 
   it should "match if the PIC String value is equal" in {
-    val pic1 = fromStringU(ValidPic1MaleBornIn1900s)
-    val pic2 = fromStringU(ValidPic1MaleBornIn1900s)
+    val pic1 = fromStringU(validPic1MaleBornIn1900s)
+    val pic2 = fromStringU(validPic1MaleBornIn1900s)
     pic1 should equal(pic2)
   }
 
@@ -124,13 +124,13 @@ class PicSpec extends FlatSpecLike with Matchers {
   }
 
   it should "not match if the PIC String is different" in {
-    val pic1 = fromStringU(ValidPic1MaleBornIn1900s)
-    val pic2 = fromStringU(ValidPic2FemaleBornIn1900s)
+    val pic1 = fromStringU(validPic1MaleBornIn1900s)
+    val pic2 = fromStringU(validPic2FemaleBornIn1900s)
     pic1 should not equal pic2
   }
 
   it should "not match with an object of a different class" in {
-    val pic = fromStringU(ValidPic1MaleBornIn1900s)
+    val pic = fromStringU(validPic1MaleBornIn1900s)
     val other = "foo!"
     pic should not equal other
   }
@@ -138,8 +138,8 @@ class PicSpec extends FlatSpecLike with Matchers {
   behavior of "Pic.hashCode()"
 
   it should "be the same as the PIC String's hashCode" in {
-    val hash1 = fromStringU(ValidPic1MaleBornIn1900s).hashCode()
-    val hash2 = ValidPic1MaleBornIn1900s.hashCode
+    val hash1 = fromStringU(validPic1MaleBornIn1900s).hashCode()
+    val hash2 = validPic1MaleBornIn1900s.hashCode
     hash1 should equal(hash2)
   }
 }
