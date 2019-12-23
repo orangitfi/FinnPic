@@ -3,7 +3,7 @@
   <component name="ScalaCompilerConfiguration">
     <option name="incrementalityType" value="SBT" />
     <profile name="sbt 1" modules=".jvm.FinnPic,finnish-personal-identity-code_1270,finnpic,jvm.FinnPic,scalatest-example" />
-    <profile name="sbt 2" modules="finnish-personal-identity-code">
+    <profile name="sbt 2" modules="OrangIT.FinnPic,finnish-personal-identity-code">
       <option name="deprecationWarnings" value="true" />
     </profile>
     <profile name="sbt 3" modules="FinnPic">

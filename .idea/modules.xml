@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/FinnPic.iml" filepath="$PROJECT_DIR$/.idea/modules/FinnPic.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/finnpic-build.iml" filepath="$PROJECT_DIR$/.idea/modules/finnpic-build.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/FinnPic-build.iml" filepath="$PROJECT_DIR$/.idea/modules/FinnPic-build.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/OrangIT.FinnPic.iml" filepath="$PROJECT_DIR$/.idea/modules/OrangIT.FinnPic.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/root-sources.iml" filepath="$PROJECT_DIR$/.idea/modules/root-sources.iml" />
     </modules>
   </component>

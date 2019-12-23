@@ -10,8 +10,6 @@
           <set>
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/project" />
-            <option value="$PROJECT_DIR$/root/jvm" />
-            <option value="$PROJECT_DIR$/root/shared" />
           </set>
         </option>
         <option name="sbtVersion" value="1.3.4" />
