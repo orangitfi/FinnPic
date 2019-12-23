@@ -7,7 +7,7 @@ theme = "ananke"
 [[menu.main]]
 identifier="api"
 name="API documentation"
-url="/api-docs/fi/orangit/fpic/"
+url="/api-docs/org/finnpic"
 weight=20
 
 # Note: Test reports are disabled while waiting for
