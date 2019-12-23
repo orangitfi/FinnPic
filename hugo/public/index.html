@@ -26,23 +26,35 @@
     
     
     <meta property="og:title" content="" />
-<meta property="og:description" content="FinnPic A Scala implementation of Finnish PIC (Personal Identity Code)(&ldquo;henkilötunnus&rdquo; in Finnish).
-See the specification here: https://vrk.fi/en/personal-identity-code1." />
+<meta property="og:description" content="FinnPic   A Scala implementation of Finnish PIC (Personal Identity Code)(&ldquo;henkilötunnus&rdquo; in Finnish).
+See the specification here: https://vrk.fi/en/personal-identity-code1.
+Building Full build with test coverage (which should stay at 100%) measurement:
+ sbt clean coverage test coverageReport
+ Usage Construction There is a safe way and an unsafe way to make instances of Pic.
+The safe way is to use Pic.fromString, which returns instances of Either (in Scala standard library). Left(errorMessage) means that the given PIC was invalid, the error message inside tells you why." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://finnpic.org/" />
 
 <meta itemprop="name" content="">
-<meta itemprop="description" content="FinnPic A Scala implementation of Finnish PIC (Personal Identity Code)(&ldquo;henkilötunnus&rdquo; in Finnish).
-See the specification here: https://vrk.fi/en/personal-identity-code1.">
+<meta itemprop="description" content="FinnPic   A Scala implementation of Finnish PIC (Personal Identity Code)(&ldquo;henkilötunnus&rdquo; in Finnish).
+See the specification here: https://vrk.fi/en/personal-identity-code1.
+Building Full build with test coverage (which should stay at 100%) measurement:
+ sbt clean coverage test coverageReport
+ Usage Construction There is a safe way and an unsafe way to make instances of Pic.
+The safe way is to use Pic.fromString, which returns instances of Either (in Scala standard library). Left(errorMessage) means that the given PIC was invalid, the error message inside tells you why.">
 
-<meta itemprop="wordCount" content="17">
+<meta itemprop="wordCount" content="291">
 
 
 
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content=""/>
-<meta name="twitter:description" content="FinnPic A Scala implementation of Finnish PIC (Personal Identity Code)(&ldquo;henkilötunnus&rdquo; in Finnish).
-See the specification here: https://vrk.fi/en/personal-identity-code1."/>
+<meta name="twitter:description" content="FinnPic   A Scala implementation of Finnish PIC (Personal Identity Code)(&ldquo;henkilötunnus&rdquo; in Finnish).
+See the specification here: https://vrk.fi/en/personal-identity-code1.
+Building Full build with test coverage (which should stay at 100%) measurement:
+ sbt clean coverage test coverageReport
+ Usage Construction There is a safe way and an unsafe way to make instances of Pic.
+The safe way is to use Pic.fromString, which returns instances of Either (in Scala standard library). Left(errorMessage) means that the given PIC was invalid, the error message inside tells you why."/>
 
   </head>
 
@@ -76,7 +88,7 @@ See the specification here: https://vrk.fi/en/personal-identity-code1."/>
           </li>
           
           <li class="list f5 f4-ns fw4 dib pr3">
-            <a class="hover-white no-underline white-90" href="/coverage-report" title="Test coverage report page">
+            <a class="hover-white no-underline white-90" href="/coverage-report/" title="Test coverage report page">
               Test coverage report
             </a>
           </li>
@@ -124,8 +136,52 @@ See the specification here: https://vrk.fi/en/personal-identity-code1."/>
       </header>
       <div class="nested-copy-line-height lh-copy f4 nested-links nested-img mid-gray">
         <h1 id="finnpic">FinnPic</h1>
+<p><a href="https://www.codacy.com?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=orangitfi/finnish-personal-identity-code&amp;utm_campaign=Badge_Coverage"><img src="https://api.codacy.com/project/badge/Coverage/8f19681119574ecd96ef6790b29dcde2" alt="Codacy Badge"></a>
+<a href="https://www.codacy.com?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=orangitfi/finnish-personal-identity-code&amp;utm_campaign=Badge_Grade"><img src="https://api.codacy.com/project/badge/Grade/8f19681119574ecd96ef6790b29dcde2" alt="Codacy Badge"></a>
+<img src="https://github.com/orangitfi/finnish-personal-identity-code/workflows/sbt-test/badge.svg" alt="sbt test"></p>
+<!-- raw HTML omitted -->
 <p>A Scala implementation of Finnish PIC (Personal Identity Code)(&ldquo;henkilötunnus&rdquo; in Finnish).</p>
 <p>See the specification here: <a href="https://vrk.fi/en/personal-identity-code1">https://vrk.fi/en/personal-identity-code1</a>.</p>
+<h2 id="building">Building</h2>
+<p>Full build with test coverage (which should stay at 100%) measurement:</p>
+<blockquote>
+<p>sbt clean coverage test coverageReport</p>
+</blockquote>
+<h2 id="usage">Usage</h2>
+<h3 id="construction">Construction</h3>
+<p>There is a safe way and an unsafe way to make instances of <em>Pic</em>.</p>
+<p>The safe way is to use <code>Pic.fromString</code>, which returns instances of
+<code>Either</code> (in Scala standard library). <code>Left(errorMessage)</code> means
+that the given PIC was invalid, the error message inside tells you
+why. <code>Right(pic)</code> means the PIC was valid and now you can obtain
+the value from the right side of the <code>Either</code>. This is a very common
+pattern in functional programming.</p>
+<p>Use the safe way if the PIC value (the string) is coming from a user
+or some other undependable source.</p>
+<p>The safe way, used successfully on a valid PIC:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-scala" data-lang="scala"><span style="color:#75715e">// The safe way, success:
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">val</span> p <span style="color:#66d9ef">=</span> <span style="color:#a6e22e">Pic</span><span style="color:#f92672">.</span>fromString<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;290877-1639&#34;</span><span style="color:#f92672">)</span>
+<span style="color:#75715e">// ^ p is now Right(Pic(...))
+</span></code></pre></div><p>The safe way, failing:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-scala" data-lang="scala">p <span style="color:#66d9ef">=</span> <span style="color:#a6e22e">Pic</span><span style="color:#f92672">.</span>fromString<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;foo&#34;</span><span style="color:#f92672">)</span>
+<span style="color:#75715e">// ^ p is now Left(&#34;some error message&#34;)
+</span></code></pre></div><p>The unsafe way is to use <code>Pic.fromStringUnsafe</code>, or its alias <code>Pic.fromStringU</code>
+(which does the same thing, but is shorter to type and read). The unsafe variants return a
+<em>Pic</em> object directly on success (the PIC is valid). If the PIC is not valid, these functions
+throw an exception (a java.lang.IllegalArgumentException, to be more precise).</p>
+<p>Use the unsafe way when the PIC value comes from a dependable source (for example, from
+a database column where you know that only valid values are stored).</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-scala" data-lang="scala"><span style="color:#66d9ef">val</span> p<span style="color:#66d9ef">:</span> <span style="color:#66d9ef">Pic</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">Pic</span><span style="color:#f92672">.</span>fromStringUnsafe<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;290877-1639&#34;</span><span style="color:#f92672">)</span>
+<span style="color:#75715e">// ^ p is now Pic(...)
+</span><span style="color:#75715e"></span>
+p <span style="color:#66d9ef">=</span> <span style="color:#a6e22e">Pic</span><span style="color:#f92672">.</span>fromStringUnsafe<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;foo&#34;</span><span style="color:#f92672">)</span>
+<span style="color:#75715e">// ^ throws IllegalArgumentException
+</span><span style="color:#75715e"></span>
+<span style="color:#75715e">// There is also Pic.fromStringU, which is just an
+</span><span style="color:#75715e"></span><span style="color:#75715e">// alias for Pic.fromStringUnsafe.
+</span></code></pre></div><h2 id="supporters">Supporters</h2>
+<p>This project is proudly supported by <a href="https://orangit.fi">Orangit Oy</a>.</p>
+<!-- raw HTML omitted -->
 
       </div>
     </article>

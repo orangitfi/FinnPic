@@ -1,7 +1,7 @@
 var path = require('path');
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
 var webpack = require('webpack');
-var AssetsPlugin = require('assets-webpack-plugin');
+var AssetsPlugin = require('images-webpack-plugin');
 
 module.exports = {
 	entry: {
