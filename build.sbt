@@ -1,6 +1,6 @@
 import sbt.Keys.organization
 import sbtcrossproject.CrossPlugin.autoImport.{CrossType, crossProject}
-import sbtcrossproject.JVMPlatform
+import sbtcrossproject.{JSPlatform, JVMPlatform}
 
 val scala_2_13 = "2.13.1"
 val scala_2_12 = "2.12.10"
@@ -10,24 +10,12 @@ val scala_js = "sjs0.6.31"
 
 val supportedScalaVersionsOnJvm = List(scala_2_10, scala_2_11, scala_2_12, scala_2_13)
 
-name := "FinnPic"
-organization := "fi.orangit"
-version := "0.1.0-SNAPSHOT"
-// Note: Move these two (doctestTestFramework and crossScalaVersions) to a .jvmSettings
-// block when you start supporting Scala.JS. - vpeurala, 23.12.2019
-doctestTestFramework := DoctestTestFramework.ScalaTest
-crossScalaVersions := supportedScalaVersionsOnJvm
-
 lazy val root = crossProject(JSPlatform, JVMPlatform)
   .crossType(CrossType.Full)
   .settings(
     name := "FinnPic",
     organization := "fi.orangit",
-    version := "0.1.0-SNAPSHOT",
-    // Note: Move these two (doctestTestFramework and crossScalaVersions) to a .jvmSettings
-    // block when you start supporting Scala.JS. - vpeurala, 23.12.2019
-    doctestTestFramework := DoctestTestFramework.ScalaTest,
-    crossScalaVersions := supportedScalaVersionsOnJvm
+    version := "0.1.0-SNAPSHOT"
   )
   .jsSettings(
     libraryDependencies += "org.scala-js" %%% "scalajs-java-time" % "0.2.6",
