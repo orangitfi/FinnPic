@@ -24,7 +24,8 @@ lazy val root = crossProject(JSPlatform, JVMPlatform)
   )
   .jvmSettings(
     doctestTestFramework := DoctestTestFramework.ScalaTest,
-    crossScalaVersions := supportedScalaVersionsOnJvm
+    crossScalaVersions := supportedScalaVersionsOnJvm,
+    coverageEnabled := true
   )
 
 scalacOptions += "-deprecation"
@@ -34,8 +35,6 @@ resolvers += "Typesafe Repository" at "https://repo.typesafe.com/typesafe/releas
 libraryDependencies += "org.scalacheck" %%% "scalacheck" % "1.14.3" % Test
 libraryDependencies += "org.scalactic" %%% "scalactic" % "3.1.0" % Test
 libraryDependencies += "org.scalatest" %%% "scalatest" % "3.1.0" % Test
-
-coverageEnabled := true
 
 autoAPIMappings := true
 
