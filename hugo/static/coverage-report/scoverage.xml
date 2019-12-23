@@ -1,0 +1,461 @@
+<scoverage 
+statement-count="119" statements-invoked="119" statement-rate="100.00" branch-rate="100.00" version="1.0" timestamp="1577101159308">
+    <packages>
+        <package name="fi.orangit.fpic" statement-count="119" statements-invoked="119" statement-rate="100.00">
+            <classes>
+                <class 
+                name="fi.orangit.fpic.Pic" filename="fi/orangit/fpic/Pic.scala" statement-count="119" statements-invoked="119" statement-rate="100.00" branch-rate="100.00">
+                    <methods>
+                        <method 
+                        name="fi.orangit.fpic/Pic/ageAt" statement-count="2" statements-invoked="2" statement-rate="100.00" branch-rate="100.00">
+                            <statements>
+                                <statement 
+                                package="fi.orangit.fpic" class="Pic" class-type="Class" full-class-name="fi.orangit.fpic.Pic" source="/Users/vpeurala/Projects/OrangIT/FinnPic/src/main/scala/fi/orangit/fpic/Pic.scala" method="ageAt" start="3357" end="3386" line="127" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="fi.orangit.fpic" class="Pic" class-type="Class" full-class-name="fi.orangit.fpic.Pic" source="/Users/vpeurala/Projects/OrangIT/FinnPic/src/main/scala/fi/orangit/fpic/Pic.scala" method="ageAt" start="3372" end="3381" line="127" branch="false" invocation-count="1" ignored="false">
+</statement>
+                            </statements>
+</method>
+                        <method 
+                        name="fi.orangit.fpic/Pic/ageInYearsAt" statement-count="1" statements-invoked="1" statement-rate="100.00" branch-rate="100.00">
+                            <statements>
+                                <statement 
+                                package="fi.orangit.fpic" class="Pic" class-type="Class" full-class-name="fi.orangit.fpic.Pic" source="/Users/vpeurala/Projects/OrangIT/FinnPic/src/main/scala/fi/orangit/fpic/Pic.scala" method="ageInYearsAt" start="3554" end="3572" line="135" branch="false" invocation-count="1" ignored="false">
+</statement>
+                            </statements>
+</method>
+                        <method 
+                        name="fi.orangit.fpic/Pic/fromStringUnsafe" statement-count="2" statements-invoked="2" statement-rate="100.00" branch-rate="100.00">
+                            <statements>
+                                <statement 
+                                package="fi.orangit.fpic" class="Pic" class-type="Object" full-class-name="fi.orangit.fpic.Pic" source="/Users/vpeurala/Projects/OrangIT/FinnPic/src/main/scala/fi/orangit/fpic/Pic.scala" method="fromStringUnsafe" start="8295" end="8343" line="289" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="fi.orangit.fpic" class="Pic" class-type="Object" full-class-name="fi.orangit.fpic.Pic" source="/Users/vpeurala/Projects/OrangIT/FinnPic/src/main/scala/fi/orangit/fpic/Pic.scala" method="fromStringUnsafe" start="8236" end="8253" line="288" branch="false" invocation-count="1" ignored="false">
+</statement>
+                            </statements>
+</method>
+                        <method 
+                        name="fi.orangit.fpic/Pic/personIsOfFinnishLegalAgeNow" statement-count="2" statements-invoked="2" statement-rate="100.00" branch-rate="100.00">
+                            <statements>
+                                <statement 
+                                package="fi.orangit.fpic" class="Pic" class-type="Class" full-class-name="fi.orangit.fpic.Pic" source="/Users/vpeurala/Projects/OrangIT/FinnPic/src/main/scala/fi/orangit/fpic/Pic.scala" method="personIsOfFinnishLegalAgeNow" start="3903" end="3941" line="147" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="fi.orangit.fpic" class="Pic" class-type="Class" full-class-name="fi.orangit.fpic.Pic" source="/Users/vpeurala/Projects/OrangIT/FinnPic/src/main/scala/fi/orangit/fpic/Pic.scala" method="personIsOfFinnishLegalAgeNow" start="3922" end="3941" line="147" branch="false" invocation-count="1" ignored="false">
+</statement>
+                            </statements>
+</method>
+                        <method 
+                        name="fi.orangit.fpic/Pic/calculateExpectedControlCharacter" statement-count="3" statements-invoked="3" statement-rate="100.00" branch-rate="100.00">
+                            <statements>
+                                <statement 
+                                package="fi.orangit.fpic" class="Pic" class-type="Object" full-class-name="fi.orangit.fpic.Pic" source="/Users/vpeurala/Projects/OrangIT/FinnPic/src/main/scala/fi/orangit/fpic/Pic.scala" method="calculateExpectedControlCharacter" start="13338" end="13361" line="403" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="fi.orangit.fpic" class="Pic" class-type="Object" full-class-name="fi.orangit.fpic.Pic" source="/Users/vpeurala/Projects/OrangIT/FinnPic/src/main/scala/fi/orangit/fpic/Pic.scala" method="calculateExpectedControlCharacter" start="13316" end="13333" line="402" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="fi.orangit.fpic" class="Pic" class-type="Object" full-class-name="fi.orangit.fpic.Pic" source="/Users/vpeurala/Projects/OrangIT/FinnPic/src/main/scala/fi/orangit/fpic/Pic.scala" method="calculateExpectedControlCharacter" start="13324" end="13326" line="402" branch="false" invocation-count="1" ignored="false">
+</statement>
+                            </statements>
+</method>
+                        <method 
+                        name="fi.orangit.fpic/Pic/hashCode" statement-count="1" statements-invoked="1" statement-rate="100.00" branch-rate="100.00">
+                            <statements>
+                                <statement 
+                                package="fi.orangit.fpic" class="Pic" class-type="Class" full-class-name="fi.orangit.fpic.Pic" source="/Users/vpeurala/Projects/OrangIT/FinnPic/src/main/scala/fi/orangit/fpic/Pic.scala" method="hashCode" start="4954" end="4968" line="191" branch="false" invocation-count="1" ignored="false">
+</statement>
+                            </statements>
+</method>
+                        <method 
+                        name="fi.orangit.fpic/Pic/ageInYearsNow" statement-count="1" statements-invoked="1" statement-rate="100.00" branch-rate="100.00">
+                            <statements>
+                                <statement 
+                                package="fi.orangit.fpic" class="Pic" class-type="Class" full-class-name="fi.orangit.fpic.Pic" source="/Users/vpeurala/Projects/OrangIT/FinnPic/src/main/scala/fi/orangit/fpic/Pic.scala" method="ageInYearsNow" start="3664" end="3681" line="139" branch="false" invocation-count="1" ignored="false">
+</statement>
+                            </statements>
+</method>
+                        <method 
+                        name="fi.orangit.fpic/Pic/createFromSubstrings" statement-count="5" statements-invoked="5" statement-rate="100.00" branch-rate="100.00">
+                            <statements>
+                                <statement 
+                                package="fi.orangit.fpic" class="Pic" class-type="Object" full-class-name="fi.orangit.fpic.Pic" source="/Users/vpeurala/Projects/OrangIT/FinnPic/src/main/scala/fi/orangit/fpic/Pic.scala" method="createFromSubstrings" start="11115" end="11139" line="358" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="fi.orangit.fpic" class="Pic" class-type="Object" full-class-name="fi.orangit.fpic.Pic" source="/Users/vpeurala/Projects/OrangIT/FinnPic/src/main/scala/fi/orangit/fpic/Pic.scala" method="createFromSubstrings" start="10955" end="11000" line="355" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="fi.orangit.fpic" class="Pic" class-type="Object" full-class-name="fi.orangit.fpic.Pic" source="/Users/vpeurala/Projects/OrangIT/FinnPic/src/main/scala/fi/orangit/fpic/Pic.scala" method="createFromSubstrings" start="11059" end="11095" line="357" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="fi.orangit.fpic" class="Pic" class-type="Object" full-class-name="fi.orangit.fpic.Pic" source="/Users/vpeurala/Projects/OrangIT/FinnPic/src/main/scala/fi/orangit/fpic/Pic.scala" method="createFromSubstrings" start="10982" end="10999" line="355" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="fi.orangit.fpic" class="Pic" class-type="Object" full-class-name="fi.orangit.fpic.Pic" source="/Users/vpeurala/Projects/OrangIT/FinnPic/src/main/scala/fi/orangit/fpic/Pic.scala" method="createFromSubstrings" start="11064" end="11094" line="357" branch="false" invocation-count="1" ignored="false">
+</statement>
+                            </statements>
+</method>
+                        <method 
+                        name="fi.orangit.fpic/Pic/personIsOfFinnishLegalAgeAt" statement-count="2" statements-invoked="2" statement-rate="100.00" branch-rate="100.00">
+                            <statements>
+                                <statement 
+                                package="fi.orangit.fpic" class="Pic" class-type="Class" full-class-name="fi.orangit.fpic.Pic" source="/Users/vpeurala/Projects/OrangIT/FinnPic/src/main/scala/fi/orangit/fpic/Pic.scala" method="personIsOfFinnishLegalAgeAt" start="3753" end="3792" line="143" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="fi.orangit.fpic" class="Pic" class-type="Class" full-class-name="fi.orangit.fpic.Pic" source="/Users/vpeurala/Projects/OrangIT/FinnPic/src/main/scala/fi/orangit/fpic/Pic.scala" method="personIsOfFinnishLegalAgeAt" start="3773" end="3792" line="143" branch="false" invocation-count="1" ignored="false">
+</statement>
+                            </statements>
+</method>
+                        <method 
+                        name="fi.orangit.fpic/Pic/ageNow" statement-count="2" statements-invoked="2" statement-rate="100.00" branch-rate="100.00">
+                            <statements>
+                                <statement 
+                                package="fi.orangit.fpic" class="Pic" class-type="Class" full-class-name="fi.orangit.fpic.Pic" source="/Users/vpeurala/Projects/OrangIT/FinnPic/src/main/scala/fi/orangit/fpic/Pic.scala" method="ageNow" start="3474" end="3501" line="131" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="fi.orangit.fpic" class="Pic" class-type="Class" full-class-name="fi.orangit.fpic.Pic" source="/Users/vpeurala/Projects/OrangIT/FinnPic/src/main/scala/fi/orangit/fpic/Pic.scala" method="ageNow" start="3480" end="3500" line="131" branch="false" invocation-count="1" ignored="false">
+</statement>
+                            </statements>
+</method>
+                        <method 
+                        name="fi.orangit.fpic/Pic/createFromValidParts" statement-count="32" statements-invoked="32" statement-rate="100.00" branch-rate="100.00">
+                            <statements>
+                                <statement 
+                                package="fi.orangit.fpic" class="Pic" class-type="Object" full-class-name="fi.orangit.fpic.Pic" source="/Users/vpeurala/Projects/OrangIT/FinnPic/src/main/scala/fi/orangit/fpic/Pic.scala" method="createFromValidParts" start="11826" end="11829" line="369" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="fi.orangit.fpic" class="Pic" class-type="Object" full-class-name="fi.orangit.fpic.Pic" source="/Users/vpeurala/Projects/OrangIT/FinnPic/src/main/scala/fi/orangit/fpic/Pic.scala" method="createFromValidParts" start="11940" end="11957" line="372" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="fi.orangit.fpic" class="Pic" class-type="Object" full-class-name="fi.orangit.fpic.Pic" source="/Users/vpeurala/Projects/OrangIT/FinnPic/src/main/scala/fi/orangit/fpic/Pic.scala" method="createFromValidParts" start="12269" end="12310" line="380" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="fi.orangit.fpic" class="Pic" class-type="Object" full-class-name="fi.orangit.fpic.Pic" source="/Users/vpeurala/Projects/OrangIT/FinnPic/src/main/scala/fi/orangit/fpic/Pic.scala" method="createFromValidParts" start="12036" end="12040" line="375" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="fi.orangit.fpic" class="Pic" class-type="Object" full-class-name="fi.orangit.fpic.Pic" source="/Users/vpeurala/Projects/OrangIT/FinnPic/src/main/scala/fi/orangit/fpic/Pic.scala" method="createFromValidParts" start="11688" end="11829" line="369" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="fi.orangit.fpic" class="Pic" class-type="Object" full-class-name="fi.orangit.fpic.Pic" source="/Users/vpeurala/Projects/OrangIT/FinnPic/src/main/scala/fi/orangit/fpic/Pic.scala" method="createFromValidParts" start="11560" end="11606" line="367" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="fi.orangit.fpic" class="Pic" class-type="Object" full-class-name="fi.orangit.fpic.Pic" source="/Users/vpeurala/Projects/OrangIT/FinnPic/src/main/scala/fi/orangit/fpic/Pic.scala" method="createFromValidParts" start="12329" end="12394" line="381" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="fi.orangit.fpic" class="Pic" class-type="Object" full-class-name="fi.orangit.fpic.Pic" source="/Users/vpeurala/Projects/OrangIT/FinnPic/src/main/scala/fi/orangit/fpic/Pic.scala" method="createFromValidParts" start="11690" end="11705" line="369" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="fi.orangit.fpic" class="Pic" class-type="Object" full-class-name="fi.orangit.fpic.Pic" source="/Users/vpeurala/Projects/OrangIT/FinnPic/src/main/scala/fi/orangit/fpic/Pic.scala" method="createFromValidParts" start="11867" end="11901" line="371" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="fi.orangit.fpic" class="Pic" class-type="Object" full-class-name="fi.orangit.fpic.Pic" source="/Users/vpeurala/Projects/OrangIT/FinnPic/src/main/scala/fi/orangit/fpic/Pic.scala" method="createFromValidParts" start="12149" end="12176" line="378" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="fi.orangit.fpic" class="Pic" class-type="Object" full-class-name="fi.orangit.fpic.Pic" source="/Users/vpeurala/Projects/OrangIT/FinnPic/src/main/scala/fi/orangit/fpic/Pic.scala" method="createFromValidParts" start="12079" end="12126" line="377" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="fi.orangit.fpic" class="Pic" class-type="Object" full-class-name="fi.orangit.fpic.Pic" source="/Users/vpeurala/Projects/OrangIT/FinnPic/src/main/scala/fi/orangit/fpic/Pic.scala" method="createFromValidParts" start="11842" end="12401" line="370" branch="true" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="fi.orangit.fpic" class="Pic" class-type="Object" full-class-name="fi.orangit.fpic.Pic" source="/Users/vpeurala/Projects/OrangIT/FinnPic/src/main/scala/fi/orangit/fpic/Pic.scala" method="createFromValidParts" start="11915" end="11919" line="371" branch="true" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="fi.orangit.fpic" class="Pic" class-type="Object" full-class-name="fi.orangit.fpic.Pic" source="/Users/vpeurala/Projects/OrangIT/FinnPic/src/main/scala/fi/orangit/fpic/Pic.scala" method="createFromValidParts" start="12200" end="12247" line="379" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="fi.orangit.fpic" class="Pic" class-type="Object" full-class-name="fi.orangit.fpic.Pic" source="/Users/vpeurala/Projects/OrangIT/FinnPic/src/main/scala/fi/orangit/fpic/Pic.scala" method="createFromValidParts" start="11772" end="11800" line="369" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="fi.orangit.fpic" class="Pic" class-type="Object" full-class-name="fi.orangit.fpic.Pic" source="/Users/vpeurala/Projects/OrangIT/FinnPic/src/main/scala/fi/orangit/fpic/Pic.scala" method="createFromValidParts" start="11560" end="11598" line="367" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="fi.orangit.fpic" class="Pic" class-type="Object" full-class-name="fi.orangit.fpic.Pic" source="/Users/vpeurala/Projects/OrangIT/FinnPic/src/main/scala/fi/orangit/fpic/Pic.scala" method="createFromValidParts" start="11752" end="11771" line="369" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="fi.orangit.fpic" class="Pic" class-type="Object" full-class-name="fi.orangit.fpic.Pic" source="/Users/vpeurala/Projects/OrangIT/FinnPic/src/main/scala/fi/orangit/fpic/Pic.scala" method="createFromValidParts" start="12011" end="12015" line="374" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="fi.orangit.fpic" class="Pic" class-type="Object" full-class-name="fi.orangit.fpic.Pic" source="/Users/vpeurala/Projects/OrangIT/FinnPic/src/main/scala/fi/orangit/fpic/Pic.scala" method="createFromValidParts" start="12337" end="12352" line="381" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="fi.orangit.fpic" class="Pic" class-type="Object" full-class-name="fi.orangit.fpic.Pic" source="/Users/vpeurala/Projects/OrangIT/FinnPic/src/main/scala/fi/orangit/fpic/Pic.scala" method="createFromValidParts" start="11683" end="11830" line="369" branch="true" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="fi.orangit.fpic" class="Pic" class-type="Object" full-class-name="fi.orangit.fpic.Pic" source="/Users/vpeurala/Projects/OrangIT/FinnPic/src/main/scala/fi/orangit/fpic/Pic.scala" method="createFromValidParts" start="11616" end="11673" line="368" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="fi.orangit.fpic" class="Pic" class-type="Object" full-class-name="fi.orangit.fpic.Pic" source="/Users/vpeurala/Projects/OrangIT/FinnPic/src/main/scala/fi/orangit/fpic/Pic.scala" method="createFromValidParts" start="11525" end="11607" line="367" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="fi.orangit.fpic" class="Pic" class-type="Object" full-class-name="fi.orangit.fpic.Pic" source="/Users/vpeurala/Projects/OrangIT/FinnPic/src/main/scala/fi/orangit/fpic/Pic.scala" method="createFromValidParts" start="11683" end="11830" line="369" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="fi.orangit.fpic" class="Pic" class-type="Object" full-class-name="fi.orangit.fpic.Pic" source="/Users/vpeurala/Projects/OrangIT/FinnPic/src/main/scala/fi/orangit/fpic/Pic.scala" method="createFromValidParts" start="12079" end="12120" line="377" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="fi.orangit.fpic" class="Pic" class-type="Object" full-class-name="fi.orangit.fpic.Pic" source="/Users/vpeurala/Projects/OrangIT/FinnPic/src/main/scala/fi/orangit/fpic/Pic.scala" method="createFromValidParts" start="12323" end="12395" line="381" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="fi.orangit.fpic" class="Pic" class-type="Object" full-class-name="fi.orangit.fpic.Pic" source="/Users/vpeurala/Projects/OrangIT/FinnPic/src/main/scala/fi/orangit/fpic/Pic.scala" method="createFromValidParts" start="11903" end="11909" line="371" branch="true" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="fi.orangit.fpic" class="Pic" class-type="Object" full-class-name="fi.orangit.fpic.Pic" source="/Users/vpeurala/Projects/OrangIT/FinnPic/src/main/scala/fi/orangit/fpic/Pic.scala" method="createFromValidParts" start="11723" end="11751" line="369" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="fi.orangit.fpic" class="Pic" class-type="Object" full-class-name="fi.orangit.fpic.Pic" source="/Users/vpeurala/Projects/OrangIT/FinnPic/src/main/scala/fi/orangit/fpic/Pic.scala" method="createFromValidParts" start="12200" end="12241" line="379" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="fi.orangit.fpic" class="Pic" class-type="Object" full-class-name="fi.orangit.fpic.Pic" source="/Users/vpeurala/Projects/OrangIT/FinnPic/src/main/scala/fi/orangit/fpic/Pic.scala" method="createFromValidParts" start="11579" end="11598" line="367" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="fi.orangit.fpic" class="Pic" class-type="Object" full-class-name="fi.orangit.fpic.Pic" source="/Users/vpeurala/Projects/OrangIT/FinnPic/src/main/scala/fi/orangit/fpic/Pic.scala" method="createFromValidParts" start="11986" end="11990" line="373" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="fi.orangit.fpic" class="Pic" class-type="Object" full-class-name="fi.orangit.fpic.Pic" source="/Users/vpeurala/Projects/OrangIT/FinnPic/src/main/scala/fi/orangit/fpic/Pic.scala" method="createFromValidParts" start="11706" end="11722" line="369" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="fi.orangit.fpic" class="Pic" class-type="Object" full-class-name="fi.orangit.fpic.Pic" source="/Users/vpeurala/Projects/OrangIT/FinnPic/src/main/scala/fi/orangit/fpic/Pic.scala" method="createFromValidParts" start="12269" end="12316" line="380" branch="false" invocation-count="1" ignored="false">
+</statement>
+                            </statements>
+</method>
+                        <method 
+                        name="fi.orangit.fpic/Pic/fromString" statement-count="10" statements-invoked="10" statement-rate="100.00" branch-rate="100.00">
+                            <statements>
+                                <statement 
+                                package="fi.orangit.fpic" class="Pic" class-type="Object" full-class-name="fi.orangit.fpic.Pic" source="/Users/vpeurala/Projects/OrangIT/FinnPic/src/main/scala/fi/orangit/fpic/Pic.scala" method="fromString" start="7219" end="7305" line="262" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="fi.orangit.fpic" class="Pic" class-type="Object" full-class-name="fi.orangit.fpic.Pic" source="/Users/vpeurala/Projects/OrangIT/FinnPic/src/main/scala/fi/orangit/fpic/Pic.scala" method="fromString" start="7349" end="7390" line="263" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="fi.orangit.fpic" class="Pic" class-type="Object" full-class-name="fi.orangit.fpic.Pic" source="/Users/vpeurala/Projects/OrangIT/FinnPic/src/main/scala/fi/orangit/fpic/Pic.scala" method="fromString" start="7139" end="7163" line="261" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="fi.orangit.fpic" class="Pic" class-type="Object" full-class-name="fi.orangit.fpic.Pic" source="/Users/vpeurala/Projects/OrangIT/FinnPic/src/main/scala/fi/orangit/fpic/Pic.scala" method="fromString" start="7239" end="7282" line="262" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="fi.orangit.fpic" class="Pic" class-type="Object" full-class-name="fi.orangit.fpic.Pic" source="/Users/vpeurala/Projects/OrangIT/FinnPic/src/main/scala/fi/orangit/fpic/Pic.scala" method="fromString" start="7283" end="7291" line="262" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="fi.orangit.fpic" class="Pic" class-type="Object" full-class-name="fi.orangit.fpic.Pic" source="/Users/vpeurala/Projects/OrangIT/FinnPic/src/main/scala/fi/orangit/fpic/Pic.scala" method="fromString" start="7331" end="7345" line="263" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="fi.orangit.fpic" class="Pic" class-type="Object" full-class-name="fi.orangit.fpic.Pic" source="/Users/vpeurala/Projects/OrangIT/FinnPic/src/main/scala/fi/orangit/fpic/Pic.scala" method="fromString" start="7221" end="7236" line="262" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="fi.orangit.fpic" class="Pic" class-type="Object" full-class-name="fi.orangit.fpic.Pic" source="/Users/vpeurala/Projects/OrangIT/FinnPic/src/main/scala/fi/orangit/fpic/Pic.scala" method="fromString" start="7196" end="7210" line="262" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="fi.orangit.fpic" class="Pic" class-type="Object" full-class-name="fi.orangit.fpic.Pic" source="/Users/vpeurala/Projects/OrangIT/FinnPic/src/main/scala/fi/orangit/fpic/Pic.scala" method="fromString" start="7292" end="7305" line="262" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="fi.orangit.fpic" class="Pic" class-type="Object" full-class-name="fi.orangit.fpic.Pic" source="/Users/vpeurala/Projects/OrangIT/FinnPic/src/main/scala/fi/orangit/fpic/Pic.scala" method="fromString" start="7214" end="7306" line="262" branch="false" invocation-count="1" ignored="false">
+</statement>
+                            </statements>
+</method>
+                        <method 
+                        name="fi.orangit.fpic/Pic/birthDate" statement-count="4" statements-invoked="4" statement-rate="100.00" branch-rate="100.00">
+                            <statements>
+                                <statement 
+                                package="fi.orangit.fpic" class="Pic" class-type="Class" full-class-name="fi.orangit.fpic.Pic" source="/Users/vpeurala/Projects/OrangIT/FinnPic/src/main/scala/fi/orangit/fpic/Pic.scala" method="birthDate" start="3299" end="3307" line="123" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="fi.orangit.fpic" class="Pic" class-type="Class" full-class-name="fi.orangit.fpic.Pic" source="/Users/vpeurala/Projects/OrangIT/FinnPic/src/main/scala/fi/orangit/fpic/Pic.scala" method="birthDate" start="3287" end="3297" line="123" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="fi.orangit.fpic" class="Pic" class-type="Class" full-class-name="fi.orangit.fpic.Pic" source="/Users/vpeurala/Projects/OrangIT/FinnPic/src/main/scala/fi/orangit/fpic/Pic.scala" method="birthDate" start="3263" end="3308" line="123" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="fi.orangit.fpic" class="Pic" class-type="Class" full-class-name="fi.orangit.fpic.Pic" source="/Users/vpeurala/Projects/OrangIT/FinnPic/src/main/scala/fi/orangit/fpic/Pic.scala" method="birthDate" start="3276" end="3285" line="123" branch="false" invocation-count="1" ignored="false">
+</statement>
+                            </statements>
+</method>
+                        <method 
+                        name="fi.orangit.fpic/Pic/fromStringU" statement-count="1" statements-invoked="1" statement-rate="100.00" branch-rate="100.00">
+                            <statements>
+                                <statement 
+                                package="fi.orangit.fpic" class="Pic" class-type="Object" full-class-name="fi.orangit.fpic.Pic" source="/Users/vpeurala/Projects/OrangIT/FinnPic/src/main/scala/fi/orangit/fpic/Pic.scala" method="fromStringU" start="8709" end="8732" line="306" branch="false" invocation-count="1" ignored="false">
+</statement>
+                            </statements>
+</method>
+                        <method 
+                        name="fi.orangit.fpic/Pic/toString" statement-count="1" statements-invoked="1" statement-rate="100.00" branch-rate="100.00">
+                            <statements>
+                                <statement 
+                                package="fi.orangit.fpic" class="Pic" class-type="Class" full-class-name="fi.orangit.fpic.Pic" source="/Users/vpeurala/Projects/OrangIT/FinnPic/src/main/scala/fi/orangit/fpic/Pic.scala" method="toString" start="4282" end="4287" line="162" branch="false" invocation-count="1" ignored="false">
+</statement>
+                            </statements>
+</method>
+                        <method 
+                        name="fi.orangit.fpic/Pic/equals" statement-count="3" statements-invoked="3" statement-rate="100.00" branch-rate="100.00">
+                            <statements>
+                                <statement 
+                                package="fi.orangit.fpic" class="Pic" class-type="Class" full-class-name="fi.orangit.fpic.Pic" source="/Users/vpeurala/Projects/OrangIT/FinnPic/src/main/scala/fi/orangit/fpic/Pic.scala" method="equals" start="4674" end="4679" line="176" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="fi.orangit.fpic" class="Pic" class-type="Class" full-class-name="fi.orangit.fpic.Pic" source="/Users/vpeurala/Projects/OrangIT/FinnPic/src/main/scala/fi/orangit/fpic/Pic.scala" method="equals" start="4620" end="4649" line="174" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="fi.orangit.fpic" class="Pic" class-type="Class" full-class-name="fi.orangit.fpic.Pic" source="/Users/vpeurala/Projects/OrangIT/FinnPic/src/main/scala/fi/orangit/fpic/Pic.scala" method="equals" start="4638" end="4648" line="174" branch="false" invocation-count="1" ignored="false">
+</statement>
+                            </statements>
+</method>
+                        <method 
+                        name="fi.orangit.fpic/Pic/createFromStringOfCorrectLength" statement-count="6" statements-invoked="6" statement-rate="100.00" branch-rate="100.00">
+                            <statements>
+                                <statement 
+                                package="fi.orangit.fpic" class="Pic" class-type="Object" full-class-name="fi.orangit.fpic.Pic" source="/Users/vpeurala/Projects/OrangIT/FinnPic/src/main/scala/fi/orangit/fpic/Pic.scala" method="createFromStringOfCorrectLength" start="9173" end="9202" line="315" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="fi.orangit.fpic" class="Pic" class-type="Object" full-class-name="fi.orangit.fpic.Pic" source="/Users/vpeurala/Projects/OrangIT/FinnPic/src/main/scala/fi/orangit/fpic/Pic.scala" method="createFromStringOfCorrectLength" start="9265" end="9381" line="317" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="fi.orangit.fpic" class="Pic" class-type="Object" full-class-name="fi.orangit.fpic.Pic" source="/Users/vpeurala/Projects/OrangIT/FinnPic/src/main/scala/fi/orangit/fpic/Pic.scala" method="createFromStringOfCorrectLength" start="9117" end="9145" line="314" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="fi.orangit.fpic" class="Pic" class-type="Object" full-class-name="fi.orangit.fpic.Pic" source="/Users/vpeurala/Projects/OrangIT/FinnPic/src/main/scala/fi/orangit/fpic/Pic.scala" method="createFromStringOfCorrectLength" start="9286" end="9380" line="317" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="fi.orangit.fpic" class="Pic" class-type="Object" full-class-name="fi.orangit.fpic.Pic" source="/Users/vpeurala/Projects/OrangIT/FinnPic/src/main/scala/fi/orangit/fpic/Pic.scala" method="createFromStringOfCorrectLength" start="9073" end="9101" line="313" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="fi.orangit.fpic" class="Pic" class-type="Object" full-class-name="fi.orangit.fpic.Pic" source="/Users/vpeurala/Projects/OrangIT/FinnPic/src/main/scala/fi/orangit/fpic/Pic.scala" method="createFromStringOfCorrectLength" start="9230" end="9260" line="316" branch="false" invocation-count="1" ignored="false">
+</statement>
+                            </statements>
+</method>
+                        <method 
+                        name="fi.orangit.fpic/Pic/&lt;none&gt;" statement-count="41" statements-invoked="41" statement-rate="100.00" branch-rate="100.00">
+                            <statements>
+                                <statement 
+                                package="fi.orangit.fpic" class="Pic" class-type="Object" full-class-name="fi.orangit.fpic.Pic" source="/Users/vpeurala/Projects/OrangIT/FinnPic/src/main/scala/fi/orangit/fpic/Pic.scala" method="&lt;none&gt;" start="10698" end="10727" line="349" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="fi.orangit.fpic" class="Pic" class-type="Object" full-class-name="fi.orangit.fpic.Pic" source="/Users/vpeurala/Projects/OrangIT/FinnPic/src/main/scala/fi/orangit/fpic/Pic.scala" method="&lt;none&gt;" start="10042" end="10058" line="333" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="fi.orangit.fpic" class="Pic" class-type="Object" full-class-name="fi.orangit.fpic.Pic" source="/Users/vpeurala/Projects/OrangIT/FinnPic/src/main/scala/fi/orangit/fpic/Pic.scala" method="&lt;none&gt;" start="10241" end="10302" line="339" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="fi.orangit.fpic" class="Pic" class-type="Object" full-class-name="fi.orangit.fpic.Pic" source="/Users/vpeurala/Projects/OrangIT/FinnPic/src/main/scala/fi/orangit/fpic/Pic.scala" method="&lt;none&gt;" start="10467" end="10482" line="346" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="fi.orangit.fpic" class="Pic" class-type="Object" full-class-name="fi.orangit.fpic.Pic" source="/Users/vpeurala/Projects/OrangIT/FinnPic/src/main/scala/fi/orangit/fpic/Pic.scala" method="&lt;none&gt;" start="10146" end="10149" line="337" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="fi.orangit.fpic" class="Pic" class-type="Object" full-class-name="fi.orangit.fpic.Pic" source="/Users/vpeurala/Projects/OrangIT/FinnPic/src/main/scala/fi/orangit/fpic/Pic.scala" method="&lt;none&gt;" start="10303" end="10310" line="339" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="fi.orangit.fpic" class="Pic" class-type="Object" full-class-name="fi.orangit.fpic.Pic" source="/Users/vpeurala/Projects/OrangIT/FinnPic/src/main/scala/fi/orangit/fpic/Pic.scala" method="&lt;none&gt;" start="12608" end="12768" line="389" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="fi.orangit.fpic" class="Pic" class-type="Object" full-class-name="fi.orangit.fpic.Pic" source="/Users/vpeurala/Projects/OrangIT/FinnPic/src/main/scala/fi/orangit/fpic/Pic.scala" method="&lt;none&gt;" start="10483" end="10499" line="346" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="fi.orangit.fpic" class="Pic" class-type="Object" full-class-name="fi.orangit.fpic.Pic" source="/Users/vpeurala/Projects/OrangIT/FinnPic/src/main/scala/fi/orangit/fpic/Pic.scala" method="&lt;none&gt;" start="10366" end="10602" line="342" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="fi.orangit.fpic" class="Pic" class-type="Object" full-class-name="fi.orangit.fpic.Pic" source="/Users/vpeurala/Projects/OrangIT/FinnPic/src/main/scala/fi/orangit/fpic/Pic.scala" method="&lt;none&gt;" start="10170" end="10187" line="337" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="fi.orangit.fpic" class="Pic" class-type="Object" full-class-name="fi.orangit.fpic.Pic" source="/Users/vpeurala/Projects/OrangIT/FinnPic/src/main/scala/fi/orangit/fpic/Pic.scala" method="&lt;none&gt;" start="9976" end="10041" line="333" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="fi.orangit.fpic" class="Pic" class-type="Class" full-class-name="fi.orangit.fpic.Pic" source="/Users/vpeurala/Projects/OrangIT/FinnPic/src/main/scala/fi/orangit/fpic/Pic.scala" method="&lt;none&gt;" start="2018" end="2025" line="69" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="fi.orangit.fpic" class="Pic" class-type="Object" full-class-name="fi.orangit.fpic.Pic" source="/Users/vpeurala/Projects/OrangIT/FinnPic/src/main/scala/fi/orangit/fpic/Pic.scala" method="&lt;none&gt;" start="10402" end="10421" line="344" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="fi.orangit.fpic" class="Pic" class-type="Class" full-class-name="fi.orangit.fpic.Pic" source="/Users/vpeurala/Projects/OrangIT/FinnPic/src/main/scala/fi/orangit/fpic/Pic.scala" method="&lt;none&gt;" start="3088" end="3097" line="115" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="fi.orangit.fpic" class="Pic" class-type="Object" full-class-name="fi.orangit.fpic.Pic" source="/Users/vpeurala/Projects/OrangIT/FinnPic/src/main/scala/fi/orangit/fpic/Pic.scala" method="&lt;none&gt;" start="9943" end="9958" line="333" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="fi.orangit.fpic" class="Pic" class-type="Object" full-class-name="fi.orangit.fpic.Pic" source="/Users/vpeurala/Projects/OrangIT/FinnPic/src/main/scala/fi/orangit/fpic/Pic.scala" method="&lt;none&gt;" start="10156" end="10159" line="337" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="fi.orangit.fpic" class="Pic" class-type="Object" full-class-name="fi.orangit.fpic.Pic" source="/Users/vpeurala/Projects/OrangIT/FinnPic/src/main/scala/fi/orangit/fpic/Pic.scala" method="&lt;none&gt;" start="10109" end="10318" line="335" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="fi.orangit.fpic" class="Pic" class-type="Object" full-class-name="fi.orangit.fpic.Pic" source="/Users/vpeurala/Projects/OrangIT/FinnPic/src/main/scala/fi/orangit/fpic/Pic.scala" method="&lt;none&gt;" start="10465" end="10598" line="346" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="fi.orangit.fpic" class="Pic" class-type="Object" full-class-name="fi.orangit.fpic.Pic" source="/Users/vpeurala/Projects/OrangIT/FinnPic/src/main/scala/fi/orangit/fpic/Pic.scala" method="&lt;none&gt;" start="10208" end="10223" line="339" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="fi.orangit.fpic" class="Pic" class-type="Object" full-class-name="fi.orangit.fpic.Pic" source="/Users/vpeurala/Projects/OrangIT/FinnPic/src/main/scala/fi/orangit/fpic/Pic.scala" method="&lt;none&gt;" start="10398" end="10447" line="344" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="fi.orangit.fpic" class="Pic" class-type="Object" full-class-name="fi.orangit.fpic.Pic" source="/Users/vpeurala/Projects/OrangIT/FinnPic/src/main/scala/fi/orangit/fpic/Pic.scala" method="&lt;none&gt;" start="9959" end="9975" line="333" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="fi.orangit.fpic" class="Pic" class-type="Class" full-class-name="fi.orangit.fpic.Pic" source="/Users/vpeurala/Projects/OrangIT/FinnPic/src/main/scala/fi/orangit/fpic/Pic.scala" method="&lt;none&gt;" start="2604" end="2615" line="98" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="fi.orangit.fpic" class="Pic" class-type="Object" full-class-name="fi.orangit.fpic.Pic" source="/Users/vpeurala/Projects/OrangIT/FinnPic/src/main/scala/fi/orangit/fpic/Pic.scala" method="&lt;none&gt;" start="10669" end="10696" line="349" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="fi.orangit.fpic" class="Pic" class-type="Object" full-class-name="fi.orangit.fpic.Pic" source="/Users/vpeurala/Projects/OrangIT/FinnPic/src/main/scala/fi/orangit/fpic/Pic.scala" method="&lt;none&gt;" start="10595" end="10598" line="346" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="fi.orangit.fpic" class="Pic" class-type="Object" full-class-name="fi.orangit.fpic.Pic" source="/Users/vpeurala/Projects/OrangIT/FinnPic/src/main/scala/fi/orangit/fpic/Pic.scala" method="&lt;none&gt;" start="9857" end="10063" line="329" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="fi.orangit.fpic" class="Pic" class-type="Object" full-class-name="fi.orangit.fpic.Pic" source="/Users/vpeurala/Projects/OrangIT/FinnPic/src/main/scala/fi/orangit/fpic/Pic.scala" method="&lt;none&gt;" start="6160" end="6162" line="236" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="fi.orangit.fpic" class="Pic" class-type="Object" full-class-name="fi.orangit.fpic.Pic" source="/Users/vpeurala/Projects/OrangIT/FinnPic/src/main/scala/fi/orangit/fpic/Pic.scala" method="&lt;none&gt;" start="10224" end="10240" line="339" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="fi.orangit.fpic" class="Pic" class-type="Class" full-class-name="fi.orangit.fpic.Pic" source="/Users/vpeurala/Projects/OrangIT/FinnPic/src/main/scala/fi/orangit/fpic/Pic.scala" method="&lt;none&gt;" start="1636" end="1642" line="54" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="fi.orangit.fpic" class="Pic" class-type="Object" full-class-name="fi.orangit.fpic.Pic" source="/Users/vpeurala/Projects/OrangIT/FinnPic/src/main/scala/fi/orangit/fpic/Pic.scala" method="&lt;none&gt;" start="10311" end="10314" line="339" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="fi.orangit.fpic" class="Pic" class-type="Object" full-class-name="fi.orangit.fpic.Pic" source="/Users/vpeurala/Projects/OrangIT/FinnPic/src/main/scala/fi/orangit/fpic/Pic.scala" method="&lt;none&gt;" start="10500" end="10574" line="346" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="fi.orangit.fpic" class="Pic" class-type="Object" full-class-name="fi.orangit.fpic.Pic" source="/Users/vpeurala/Projects/OrangIT/FinnPic/src/main/scala/fi/orangit/fpic/Pic.scala" method="&lt;none&gt;" start="10636" end="10728" line="349" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="fi.orangit.fpic" class="Pic" class-type="Object" full-class-name="fi.orangit.fpic.Pic" source="/Users/vpeurala/Projects/OrangIT/FinnPic/src/main/scala/fi/orangit/fpic/Pic.scala" method="&lt;none&gt;" start="10206" end="10314" line="339" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="fi.orangit.fpic" class="Pic" class-type="Object" full-class-name="fi.orangit.fpic.Pic" source="/Users/vpeurala/Projects/OrangIT/FinnPic/src/main/scala/fi/orangit/fpic/Pic.scala" method="&lt;none&gt;" start="9889" end="9923" line="331" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="fi.orangit.fpic" class="Pic" class-type="Object" full-class-name="fi.orangit.fpic.Pic" source="/Users/vpeurala/Projects/OrangIT/FinnPic/src/main/scala/fi/orangit/fpic/Pic.scala" method="&lt;none&gt;" start="10151" end="10154" line="337" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="fi.orangit.fpic" class="Pic" class-type="Object" full-class-name="fi.orangit.fpic.Pic" source="/Users/vpeurala/Projects/OrangIT/FinnPic/src/main/scala/fi/orangit/fpic/Pic.scala" method="&lt;none&gt;" start="10575" end="10594" line="346" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="fi.orangit.fpic" class="Pic" class-type="Object" full-class-name="fi.orangit.fpic.Pic" source="/Users/vpeurala/Projects/OrangIT/FinnPic/src/main/scala/fi/orangit/fpic/Pic.scala" method="&lt;none&gt;" start="10059" end="10062" line="333" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="fi.orangit.fpic" class="Pic" class-type="Object" full-class-name="fi.orangit.fpic.Pic" source="/Users/vpeurala/Projects/OrangIT/FinnPic/src/main/scala/fi/orangit/fpic/Pic.scala" method="&lt;none&gt;" start="10141" end="10188" line="337" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="fi.orangit.fpic" class="Pic" class-type="Class" full-class-name="fi.orangit.fpic.Pic" source="/Users/vpeurala/Projects/OrangIT/FinnPic/src/main/scala/fi/orangit/fpic/Pic.scala" method="&lt;none&gt;" start="2278" end="2288" line="83" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="fi.orangit.fpic" class="Pic" class-type="Object" full-class-name="fi.orangit.fpic.Pic" source="/Users/vpeurala/Projects/OrangIT/FinnPic/src/main/scala/fi/orangit/fpic/Pic.scala" method="&lt;none&gt;" start="10641" end="10667" line="349" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="fi.orangit.fpic" class="Pic" class-type="Object" full-class-name="fi.orangit.fpic.Pic" source="/Users/vpeurala/Projects/OrangIT/FinnPic/src/main/scala/fi/orangit/fpic/Pic.scala" method="&lt;none&gt;" start="10402" end="10427" line="344" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="fi.orangit.fpic" class="Pic" class-type="Object" full-class-name="fi.orangit.fpic.Pic" source="/Users/vpeurala/Projects/OrangIT/FinnPic/src/main/scala/fi/orangit/fpic/Pic.scala" method="&lt;none&gt;" start="9941" end="10062" line="333" branch="false" invocation-count="1" ignored="false">
+</statement>
+                            </statements>
+</method>
+                    </methods>
+</class>
+            </classes>
+        </package>
+    </packages>
+</scoverage>

@@ -1,3 +1,30 @@
-baseURL = "http://example.org/"
+baseURL = "https://finnpic.org/"
 languageCode = "en-us"
-title = "My New Hugo Site"
+title = "FinnPic open source project"
+theme = "ananke"
+
+[menu]
+[[menu.main]]
+identifier="api"
+name="API documentation"
+url="/api-docs/fi/orangit/fpic/"
+weight=20
+
+[[menu.main]]
+identifier="test"
+name="Test report"
+url="/test-report/"
+weight=40
+
+[[menu.main]]
+identifier="coverage"
+name="Test coverage report"
+url="/coverage-report/"
+weight=80
+
+[[menu.main]]
+identifier="github"
+name="GitHub project"
+url="https://github.com/orangitfi/finnpic"
+weight=100
+

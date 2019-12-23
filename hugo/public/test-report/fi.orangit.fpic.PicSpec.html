@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+      <head>
+        <title>ScalaTest Suite fi.orangit.fpic.PicSpec Results</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+        <meta http-equiv="Expires" content="-1"/>
+        <meta http-equiv="Pragma" content="no-cache"/>
+        <link href="css/styles.css" rel="stylesheet"/>
+        
+        <script type="text/javascript">
+        //<![CDATA[
+            function toggleDetails(contentId, linkId) { 
+              var ele = document.getElementById(contentId); 
+              var text = document.getElementById(linkId); 
+              if(ele.style.display == "block") { 
+                ele.style.display = "none"; 
+                text.innerHTML = "(Show Details)"; 
+              } 
+              else { 
+                ele.style.display = "block"; 
+                text.innerHTML = "(Hide Details)";
+              }
+            } 
+            function hideOpenInNewTabIfRequired() { 
+              if (top === self) { document.getElementById('printlink').style.display = 'none'; } 
+            }
+        //]]>
+        </script>
+      </head>
+      <body class="specification">
+        <div id="suite_header_name">PicSpec</div>
+        <div id="suite_header_statistic_passed">
+          Tests: total 25, succeeded 25, failed 0, canceled 0, ignored 0, pending 0
+        </div>
+        <div id="0753b6b8-56e7-48e2-b153-c97c767ccadb" class="scope" style="margin-left: 0px;">
+      object Pic, method fromString
+    </div><div id="36640df6-7a58-403a-948f-24857047f2ae" class="test_passed" style="margin-left: 0px;">
+      <dl>
+        <dt>should reject an empty string</dt>
+      </dl>
+    </div><div id="3566cdff-6fee-4dad-a0f7-1a03607723e7" class="test_passed" style="margin-left: 0px;">
+      <dl>
+        <dt>should reject a PIC with non-numeric character in the first 6 places</dt>
+      </dl>
+    </div><div id="1f9b0b4c-f041-457c-b726-e51e95b383a4" class="test_passed" style="margin-left: 0px;">
+      <dl>
+        <dt>should reject a PIC where the delimiter char is something other than +, -, or A</dt>
+      </dl>
+    </div><div id="2ee6b011-c629-4012-8c5a-a82b16967651" class="test_passed" style="margin-left: 0px;">
+      <dl>
+        <dt>should reject a PIC where the individual number is not numeric</dt>
+      </dl>
+    </div><div id="58694915-0304-4b0f-ba37-40a00e9a0ad6" class="test_passed" style="margin-left: 0px;">
+      <dl>
+        <dt>should reject a PIC the control character is wrong</dt>
+      </dl>
+    </div><div id="b95deceb-04bd-4176-bc4e-b1a87b4de398" class="test_passed" style="margin-left: 0px;">
+      <dl>
+        <dt>should accept a valid PIC</dt>
+      </dl>
+    </div><div id="48cfac5d-2105-46db-9efd-ab3f5f0fd4ab" class="test_passed" style="margin-left: 0px;">
+      <dl>
+        <dt>should uppercase all characters to achieve a canonical representation</dt>
+      </dl>
+    </div><div id="d49aed09-9bef-4206-b41d-3226713f28b9" class="scope" style="margin-left: 0px;">
+      object Pic, method fromStringUnsafe / fromStringU
+    </div><div id="51257782-df09-4b3f-a5a1-835e50d5bdc2" class="test_passed" style="margin-left: 0px;">
+      <dl>
+        <dt>should throw an IllegalArgumentException if the input is not a valid PIC</dt>
+      </dl>
+    </div><div id="f6679540-bb28-4220-a4bf-873388485650" class="scope" style="margin-left: 0px;">
+      class Pic
+    </div><div id="b6197fd1-9caf-442c-80e3-062ceed42d16" class="test_passed" style="margin-left: 0px;">
+      <dl>
+        <dt>should know the supposed gender of the person</dt>
+      </dl>
+    </div><div id="1ce5a6be-d072-42b6-b2a9-3776a8da57b4" class="test_passed" style="margin-left: 0px;">
+      <dl>
+        <dt>should know the birth year of the person</dt>
+      </dl>
+    </div><div id="97315222-1355-4db5-858c-848ff6a2df2b" class="test_passed" style="margin-left: 0px;">
+      <dl>
+        <dt>should know the birth month of the person</dt>
+      </dl>
+    </div><div id="d303b1d5-8377-4dc3-8235-9acbe9c952b4" class="test_passed" style="margin-left: 0px;">
+      <dl>
+        <dt>should know the birth day (of month) of the person</dt>
+      </dl>
+    </div><div id="2dbbec99-d346-4b0c-804c-27abbb9cdd3c" class="test_passed" style="margin-left: 0px;">
+      <dl>
+        <dt>should know the birth date of the person</dt>
+      </dl>
+    </div><div id="610d2a97-1313-4ee2-af12-63b5f218fb11" class="test_passed" style="margin-left: 0px;">
+      <dl>
+        <dt>should know the age of the person in question, on the day before birthday</dt>
+      </dl>
+    </div><div id="316349a1-67f2-4fdf-9b12-cea8140a1aa5" class="test_passed" style="margin-left: 0px;">
+      <dl>
+        <dt>should know the age of the person in question, on birthday</dt>
+      </dl>
+    </div><div id="533cd192-df07-4c4f-a65a-2fa293482874" class="test_passed" style="margin-left: 0px;">
+      <dl>
+        <dt>should know if the person if os Finnish legal age at some point in time, on the day before birthday</dt>
+      </dl>
+    </div><div id="e7bf3b7f-e81d-4442-9d5c-1028a7e5cb6a" class="test_passed" style="margin-left: 0px;">
+      <dl>
+        <dt>should know if the person if os Finnish legal age at some point in time, on birthday</dt>
+      </dl>
+    </div><div id="4007e55f-eeb7-433a-a9f8-3c40ecc54adf" class="test_passed" style="margin-left: 0px;">
+      <dl>
+        <dt>should know if the person is of Finnish legal age now</dt>
+      </dl>
+    </div><div id="0fdae2e0-670c-46bd-8e6a-43baf7197896" class="scope" style="margin-left: 0px;">
+      Pic.toString()
+    </div><div id="31184eea-19ab-4727-aa41-0830d94f5276" class="test_passed" style="margin-left: 0px;">
+      <dl>
+        <dt>should just show the original pic (the String value) without any decoration</dt>
+      </dl>
+    </div><div id="2bad605b-f399-45db-9427-3e1ea98923c3" class="scope" style="margin-left: 0px;">
+      Pic.equals()
+    </div><div id="590b0738-e6ce-4791-bbb3-3fc866daab5a" class="test_passed" style="margin-left: 0px;">
+      <dl>
+        <dt>should match if the PIC String value is equal</dt>
+      </dl>
+    </div><div id="161694e6-a6e0-4c9f-8b59-d09ad3ef5122" class="test_passed" style="margin-left: 0px;">
+      <dl>
+        <dt>should match if the PIC String is equivalent, but the control character is in a different case</dt>
+      </dl>
+    </div><div id="241c19c8-745d-44a9-bd05-1e13eed57dd1" class="test_passed" style="margin-left: 0px;">
+      <dl>
+        <dt>should match if the PIC String is equivalent, but the sign character is in a different case</dt>
+      </dl>
+    </div><div id="c92acdba-024f-47e9-b595-58d2ac320ebd" class="test_passed" style="margin-left: 0px;">
+      <dl>
+        <dt>should not match if the PIC String is different</dt>
+      </dl>
+    </div><div id="303d8c03-87cb-41a9-8807-e79861344f2d" class="test_passed" style="margin-left: 0px;">
+      <dl>
+        <dt>should not match with an object of a different class</dt>
+      </dl>
+    </div><div id="9beebbc4-c80f-4c95-a2c0-8fedac922896" class="scope" style="margin-left: 0px;">
+      Pic.hashCode()
+    </div><div id="99071b06-3c6a-45f5-9048-e1cad8d79497" class="test_passed" style="margin-left: 0px;">
+      <dl>
+        <dt>should be the same as the PIC String's hashCode</dt>
+      </dl>
+    </div>
+        <table id="suite_footer">
+          <tr id="suite_footer_id">
+            <td id="suite_footer_id_label_passed">Suite ID</td>
+            <td id="suite_footer_id_value" colspan="5">fi.orangit.fpic.PicSpec</td>
+          </tr>
+          <tr id="suite_footer_class">
+            <td id="suite_footer_class_label_passed">Class name</td>
+            <td id="suite_footer_class_value" colspan="5">fi.orangit.fpic.PicSpec</td>
+          </tr>
+          <tr id="suite_footer_duration">
+            <td id="suite_footer_duration_label_passed">Total duration</td>
+            <td id="suite_footer_duration_value" colspan="2">
+              75 milliseconds
+              </td>
+          </tr>
+        </table>
+           <div id="printlink">(<a href="fi.orangit.fpic.PicSpec.html" target="_blank">Open PicSpec in new tab</a>)</div>
+      </body>
+      <script type="text/javascript">
+        //<![CDATA[
+          hideOpenInNewTabIfRequired();
+        //]]>
+      </script>
+    </html>

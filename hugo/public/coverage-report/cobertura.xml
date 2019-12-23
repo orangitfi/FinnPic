@@ -1,0 +1,338 @@
+<?xml version="1.0"?>
+<!DOCTYPE coverage SYSTEM "http://cobertura.sourceforge.net/xml/coverage-04.dtd">
+<coverage 
+line-rate="1.00" lines-valid="119" lines-covered="119" branches-valid="4" branches-covered="4" branch-rate="1.00" complexity="0" version="1.0" timestamp="1577099507135">
+    <sources>
+        <source>--source</source>
+        <source>/Users/vpeurala/Projects/OrangIT/FinnPic/src/main/scala</source>
+    </sources>
+    <packages>
+        <package name="fi.orangit.fpic" line-rate="1.00" branch-rate="1.00" complexity="0">
+            <classes>
+                <class 
+                name="fi.orangit.fpic.Pic" filename="fi/orangit/fpic/Pic.scala" line-rate="1.00" branch-rate="1.00" complexity="0">
+                    <methods>
+                        <method name="fi.orangit.fpic/Pic/ageAt" signature="()V" line-rate="1.00" branch-rate="1.00" complexity="0">
+                            <lines>
+                                <line number="127" hits="1" branch="false"/>
+                                <line number="127" hits="1" branch="false"/>
+                            </lines>
+                        </method>
+                        <method name="fi.orangit.fpic/Pic/ageInYearsAt" signature="()V" line-rate="1.00" branch-rate="1.00" complexity="0">
+                            <lines>
+                                <line number="135" hits="1" branch="false"/>
+                            </lines>
+                        </method>
+                        <method name="fi.orangit.fpic/Pic/fromStringUnsafe" signature="()V" line-rate="1.00" branch-rate="1.00" complexity="0">
+                            <lines>
+                                <line number="289" hits="1" branch="false"/>
+                                <line number="288" hits="1" branch="false"/>
+                            </lines>
+                        </method>
+                        <method 
+                        name="fi.orangit.fpic/Pic/personIsOfFinnishLegalAgeNow" signature="()V" line-rate="1.00" branch-rate="1.00" complexity="0">
+                            <lines>
+                                <line number="147" hits="1" branch="false"/>
+                                <line number="147" hits="1" branch="false"/>
+                            </lines>
+</method>
+                        <method 
+                        name="fi.orangit.fpic/Pic/calculateExpectedControlCharacter" signature="()V" line-rate="1.00" branch-rate="1.00" complexity="0">
+                            <lines>
+                                <line number="403" hits="1" branch="false"/>
+                                <line number="402" hits="1" branch="false"/>
+                                <line number="402" hits="1" branch="false"/>
+                            </lines>
+</method>
+                        <method name="fi.orangit.fpic/Pic/hashCode" signature="()V" line-rate="1.00" branch-rate="1.00" complexity="0">
+                            <lines>
+                                <line number="191" hits="1" branch="false"/>
+                            </lines>
+                        </method>
+                        <method name="fi.orangit.fpic/Pic/ageInYearsNow" signature="()V" line-rate="1.00" branch-rate="1.00" complexity="0">
+                            <lines>
+                                <line number="139" hits="1" branch="false"/>
+                            </lines>
+                        </method>
+                        <method 
+                        name="fi.orangit.fpic/Pic/createFromSubstrings" signature="()V" line-rate="1.00" branch-rate="1.00" complexity="0">
+                            <lines>
+                                <line number="358" hits="1" branch="false"/>
+                                <line number="355" hits="1" branch="false"/>
+                                <line number="357" hits="1" branch="false"/>
+                                <line number="355" hits="1" branch="false"/>
+                                <line number="357" hits="1" branch="false"/>
+                            </lines>
+</method>
+                        <method 
+                        name="fi.orangit.fpic/Pic/personIsOfFinnishLegalAgeAt" signature="()V" line-rate="1.00" branch-rate="1.00" complexity="0">
+                            <lines>
+                                <line number="143" hits="1" branch="false"/>
+                                <line number="143" hits="1" branch="false"/>
+                            </lines>
+</method>
+                        <method name="fi.orangit.fpic/Pic/ageNow" signature="()V" line-rate="1.00" branch-rate="1.00" complexity="0">
+                            <lines>
+                                <line number="131" hits="1" branch="false"/>
+                                <line number="131" hits="1" branch="false"/>
+                            </lines>
+                        </method>
+                        <method 
+                        name="fi.orangit.fpic/Pic/createFromValidParts" signature="()V" line-rate="1.00" branch-rate="1.00" complexity="0">
+                            <lines>
+                                <line number="369" hits="1" branch="false"/>
+                                <line number="372" hits="1" branch="false"/>
+                                <line number="380" hits="1" branch="false"/>
+                                <line number="375" hits="1" branch="false"/>
+                                <line number="369" hits="1" branch="false"/>
+                                <line number="367" hits="1" branch="false"/>
+                                <line number="381" hits="1" branch="false"/>
+                                <line number="369" hits="1" branch="false"/>
+                                <line number="371" hits="1" branch="false"/>
+                                <line number="378" hits="1" branch="false"/>
+                                <line number="377" hits="1" branch="false"/>
+                                <line number="370" hits="1" branch="false"/>
+                                <line number="371" hits="1" branch="false"/>
+                                <line number="379" hits="1" branch="false"/>
+                                <line number="369" hits="1" branch="false"/>
+                                <line number="367" hits="1" branch="false"/>
+                                <line number="369" hits="1" branch="false"/>
+                                <line number="374" hits="1" branch="false"/>
+                                <line number="381" hits="1" branch="false"/>
+                                <line number="369" hits="1" branch="false"/>
+                                <line number="368" hits="1" branch="false"/>
+                                <line number="367" hits="1" branch="false"/>
+                                <line number="369" hits="1" branch="false"/>
+                                <line number="377" hits="1" branch="false"/>
+                                <line number="381" hits="1" branch="false"/>
+                                <line number="371" hits="1" branch="false"/>
+                                <line number="369" hits="1" branch="false"/>
+                                <line number="379" hits="1" branch="false"/>
+                                <line number="367" hits="1" branch="false"/>
+                                <line number="373" hits="1" branch="false"/>
+                                <line number="369" hits="1" branch="false"/>
+                                <line number="380" hits="1" branch="false"/>
+                            </lines>
+</method>
+                        <method name="fi.orangit.fpic/Pic/fromString" signature="()V" line-rate="1.00" branch-rate="1.00" complexity="0">
+                            <lines>
+                                <line number="262" hits="1" branch="false"/>
+                                <line number="263" hits="1" branch="false"/>
+                                <line number="261" hits="1" branch="false"/>
+                                <line number="262" hits="1" branch="false"/>
+                                <line number="262" hits="1" branch="false"/>
+                                <line number="263" hits="1" branch="false"/>
+                                <line number="262" hits="1" branch="false"/>
+                                <line number="262" hits="1" branch="false"/>
+                                <line number="262" hits="1" branch="false"/>
+                                <line number="262" hits="1" branch="false"/>
+                            </lines>
+                        </method>
+                        <method name="fi.orangit.fpic/Pic/birthDate" signature="()V" line-rate="1.00" branch-rate="1.00" complexity="0">
+                            <lines>
+                                <line number="123" hits="1" branch="false"/>
+                                <line number="123" hits="1" branch="false"/>
+                                <line number="123" hits="1" branch="false"/>
+                                <line number="123" hits="1" branch="false"/>
+                            </lines>
+                        </method>
+                        <method name="fi.orangit.fpic/Pic/fromStringU" signature="()V" line-rate="1.00" branch-rate="1.00" complexity="0">
+                            <lines>
+                                <line number="306" hits="1" branch="false"/>
+                            </lines>
+                        </method>
+                        <method name="fi.orangit.fpic/Pic/toString" signature="()V" line-rate="1.00" branch-rate="1.00" complexity="0">
+                            <lines>
+                                <line number="162" hits="1" branch="false"/>
+                            </lines>
+                        </method>
+                        <method name="fi.orangit.fpic/Pic/equals" signature="()V" line-rate="1.00" branch-rate="1.00" complexity="0">
+                            <lines>
+                                <line number="176" hits="1" branch="false"/>
+                                <line number="174" hits="1" branch="false"/>
+                                <line number="174" hits="1" branch="false"/>
+                            </lines>
+                        </method>
+                        <method 
+                        name="fi.orangit.fpic/Pic/createFromStringOfCorrectLength" signature="()V" line-rate="1.00" branch-rate="1.00" complexity="0">
+                            <lines>
+                                <line number="315" hits="1" branch="false"/>
+                                <line number="317" hits="1" branch="false"/>
+                                <line number="314" hits="1" branch="false"/>
+                                <line number="317" hits="1" branch="false"/>
+                                <line number="313" hits="1" branch="false"/>
+                                <line number="316" hits="1" branch="false"/>
+                            </lines>
+</method>
+                        <method name="fi.orangit.fpic/Pic/&lt;none&gt;" signature="()V" line-rate="1.00" branch-rate="1.00" complexity="0">
+                            <lines>
+                                <line number="349" hits="1" branch="false"/>
+                                <line number="333" hits="1" branch="false"/>
+                                <line number="339" hits="1" branch="false"/>
+                                <line number="346" hits="1" branch="false"/>
+                                <line number="337" hits="1" branch="false"/>
+                                <line number="339" hits="1" branch="false"/>
+                                <line number="389" hits="1" branch="false"/>
+                                <line number="346" hits="1" branch="false"/>
+                                <line number="342" hits="1" branch="false"/>
+                                <line number="337" hits="1" branch="false"/>
+                                <line number="333" hits="1" branch="false"/>
+                                <line number="69" hits="1" branch="false"/>
+                                <line number="344" hits="1" branch="false"/>
+                                <line number="115" hits="1" branch="false"/>
+                                <line number="333" hits="1" branch="false"/>
+                                <line number="337" hits="1" branch="false"/>
+                                <line number="335" hits="1" branch="false"/>
+                                <line number="346" hits="1" branch="false"/>
+                                <line number="339" hits="1" branch="false"/>
+                                <line number="344" hits="1" branch="false"/>
+                                <line number="333" hits="1" branch="false"/>
+                                <line number="98" hits="1" branch="false"/>
+                                <line number="349" hits="1" branch="false"/>
+                                <line number="346" hits="1" branch="false"/>
+                                <line number="329" hits="1" branch="false"/>
+                                <line number="236" hits="1" branch="false"/>
+                                <line number="339" hits="1" branch="false"/>
+                                <line number="54" hits="1" branch="false"/>
+                                <line number="339" hits="1" branch="false"/>
+                                <line number="346" hits="1" branch="false"/>
+                                <line number="349" hits="1" branch="false"/>
+                                <line number="339" hits="1" branch="false"/>
+                                <line number="331" hits="1" branch="false"/>
+                                <line number="337" hits="1" branch="false"/>
+                                <line number="346" hits="1" branch="false"/>
+                                <line number="333" hits="1" branch="false"/>
+                                <line number="337" hits="1" branch="false"/>
+                                <line number="83" hits="1" branch="false"/>
+                                <line number="349" hits="1" branch="false"/>
+                                <line number="344" hits="1" branch="false"/>
+                                <line number="333" hits="1" branch="false"/>
+                            </lines>
+                        </method>
+                    </methods>
+                    <lines>
+                        <line number="369" hits="1" branch="false"/>
+                        <line number="372" hits="1" branch="false"/>
+                        <line number="358" hits="1" branch="false"/>
+                        <line number="380" hits="1" branch="false"/>
+                        <line number="403" hits="1" branch="false"/>
+                        <line number="375" hits="1" branch="false"/>
+                        <line number="176" hits="1" branch="false"/>
+                        <line number="369" hits="1" branch="false"/>
+                        <line number="349" hits="1" branch="false"/>
+                        <line number="367" hits="1" branch="false"/>
+                        <line number="333" hits="1" branch="false"/>
+                        <line number="339" hits="1" branch="false"/>
+                        <line number="381" hits="1" branch="false"/>
+                        <line number="315" hits="1" branch="false"/>
+                        <line number="262" hits="1" branch="false"/>
+                        <line number="346" hits="1" branch="false"/>
+                        <line number="337" hits="1" branch="false"/>
+                        <line number="339" hits="1" branch="false"/>
+                        <line number="263" hits="1" branch="false"/>
+                        <line number="317" hits="1" branch="false"/>
+                        <line number="123" hits="1" branch="false"/>
+                        <line number="143" hits="1" branch="false"/>
+                        <line number="261" hits="1" branch="false"/>
+                        <line number="355" hits="1" branch="false"/>
+                        <line number="369" hits="1" branch="false"/>
+                        <line number="389" hits="1" branch="false"/>
+                        <line number="371" hits="1" branch="false"/>
+                        <line number="346" hits="1" branch="false"/>
+                        <line number="378" hits="1" branch="false"/>
+                        <line number="127" hits="1" branch="false"/>
+                        <line number="342" hits="1" branch="false"/>
+                        <line number="337" hits="1" branch="false"/>
+                        <line number="306" hits="1" branch="false"/>
+                        <line number="262" hits="1" branch="false"/>
+                        <line number="333" hits="1" branch="false"/>
+                        <line number="162" hits="1" branch="false"/>
+                        <line number="69" hits="1" branch="false"/>
+                        <line number="344" hits="1" branch="false"/>
+                        <line number="115" hits="1" branch="false"/>
+                        <line number="135" hits="1" branch="false"/>
+                        <line number="377" hits="1" branch="false"/>
+                        <line number="370" hits="1" branch="false"/>
+                        <line number="333" hits="1" branch="false"/>
+                        <line number="402" hits="1" branch="false"/>
+                        <line number="371" hits="1" branch="false"/>
+                        <line number="379" hits="1" branch="false"/>
+                        <line number="357" hits="1" branch="false"/>
+                        <line number="369" hits="1" branch="false"/>
+                        <line number="337" hits="1" branch="false"/>
+                        <line number="335" hits="1" branch="false"/>
+                        <line number="346" hits="1" branch="false"/>
+                        <line number="339" hits="1" branch="false"/>
+                        <line number="344" hits="1" branch="false"/>
+                        <line number="367" hits="1" branch="false"/>
+                        <line number="369" hits="1" branch="false"/>
+                        <line number="333" hits="1" branch="false"/>
+                        <line number="314" hits="1" branch="false"/>
+                        <line number="131" hits="1" branch="false"/>
+                        <line number="98" hits="1" branch="false"/>
+                        <line number="174" hits="1" branch="false"/>
+                        <line number="374" hits="1" branch="false"/>
+                        <line number="262" hits="1" branch="false"/>
+                        <line number="349" hits="1" branch="false"/>
+                        <line number="381" hits="1" branch="false"/>
+                        <line number="143" hits="1" branch="false"/>
+                        <line number="369" hits="1" branch="false"/>
+                        <line number="123" hits="1" branch="false"/>
+                        <line number="355" hits="1" branch="false"/>
+                        <line number="368" hits="1" branch="false"/>
+                        <line number="346" hits="1" branch="false"/>
+                        <line number="317" hits="1" branch="false"/>
+                        <line number="329" hits="1" branch="false"/>
+                        <line number="236" hits="1" branch="false"/>
+                        <line number="263" hits="1" branch="false"/>
+                        <line number="339" hits="1" branch="false"/>
+                        <line number="127" hits="1" branch="false"/>
+                        <line number="289" hits="1" branch="false"/>
+                        <line number="54" hits="1" branch="false"/>
+                        <line number="262" hits="1" branch="false"/>
+                        <line number="147" hits="1" branch="false"/>
+                        <line number="339" hits="1" branch="false"/>
+                        <line number="367" hits="1" branch="false"/>
+                        <line number="369" hits="1" branch="false"/>
+                        <line number="377" hits="1" branch="false"/>
+                        <line number="381" hits="1" branch="false"/>
+                        <line number="346" hits="1" branch="false"/>
+                        <line number="349" hits="1" branch="false"/>
+                        <line number="371" hits="1" branch="false"/>
+                        <line number="339" hits="1" branch="false"/>
+                        <line number="369" hits="1" branch="false"/>
+                        <line number="331" hits="1" branch="false"/>
+                        <line number="337" hits="1" branch="false"/>
+                        <line number="346" hits="1" branch="false"/>
+                        <line number="357" hits="1" branch="false"/>
+                        <line number="262" hits="1" branch="false"/>
+                        <line number="379" hits="1" branch="false"/>
+                        <line number="288" hits="1" branch="false"/>
+                        <line number="402" hits="1" branch="false"/>
+                        <line number="123" hits="1" branch="false"/>
+                        <line number="147" hits="1" branch="false"/>
+                        <line number="333" hits="1" branch="false"/>
+                        <line number="174" hits="1" branch="false"/>
+                        <line number="337" hits="1" branch="false"/>
+                        <line number="131" hits="1" branch="false"/>
+                        <line number="83" hits="1" branch="false"/>
+                        <line number="367" hits="1" branch="false"/>
+                        <line number="373" hits="1" branch="false"/>
+                        <line number="369" hits="1" branch="false"/>
+                        <line number="349" hits="1" branch="false"/>
+                        <line number="262" hits="1" branch="false"/>
+                        <line number="313" hits="1" branch="false"/>
+                        <line number="380" hits="1" branch="false"/>
+                        <line number="344" hits="1" branch="false"/>
+                        <line number="139" hits="1" branch="false"/>
+                        <line number="316" hits="1" branch="false"/>
+                        <line number="333" hits="1" branch="false"/>
+                        <line number="262" hits="1" branch="false"/>
+                        <line number="191" hits="1" branch="false"/>
+                        <line number="123" hits="1" branch="false"/>
+                    </lines>
+</class>
+            </classes>
+        </package>
+    </packages>
+</coverage>
