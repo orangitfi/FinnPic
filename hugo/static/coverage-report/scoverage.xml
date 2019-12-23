@@ -1,5 +1,5 @@
 <scoverage 
-statement-count="119" statements-invoked="119" statement-rate="100.00" branch-rate="100.00" version="1.0" timestamp="1577129930090">
+statement-count="119" statements-invoked="119" statement-rate="100.00" branch-rate="100.00" version="1.0" timestamp="1577130848448">
     <packages>
         <package name="org.finnpic" statement-count="119" statements-invoked="119" statement-rate="100.00">
             <classes>
