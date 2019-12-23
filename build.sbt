@@ -31,7 +31,6 @@ scalacOptions += "-deprecation"
 
 resolvers += "Typesafe Repository" at "https://repo.typesafe.com/typesafe/releases/"
 
-libraryDependencies += "com.vladsch.flexmark" % "flexmark-util" % "0.50.46" % Test
 libraryDependencies += "org.scalacheck" %%% "scalacheck" % "1.14.3" % Test
 libraryDependencies += "org.scalactic" %%% "scalactic" % "3.1.0" % Test
 libraryDependencies += "org.scalatest" %%% "scalatest" % "3.1.0" % Test
