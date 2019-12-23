@@ -19,6 +19,8 @@ lazy val root = crossProject(JSPlatform, JVMPlatform)
     version := "0.1.0-SNAPSHOT",
   )
   .jsSettings(
+    // Note: Doctest does not work on Scala.js as of 23.12.2019. - vpeurala
+    doctestIgnoreRegex := Some(".*"),
     libraryDependencies += "org.scala-js" %%% "scalajs-java-time" % "0.2.6"
   )
   .jvmSettings(
@@ -47,8 +49,6 @@ scalacOptions in (doc) ++= Opts.doc.externalAPI(List
 (file(s"${(packageBin in Compile).value}") -> url("https://www.scala-lang.org/api/current"))
 )
 
-// Doctests do not work on Scala.js, so only run specs.
-testOptions in Test := Seq(Tests.Filter(s => s.endsWith("Spec")))
 testOptions in Test += Tests.Argument(TestFrameworks.ScalaTest, "-h", "target/test-reports/")
 
 organization := "fi.orangit"
