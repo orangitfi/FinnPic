@@ -16,8 +16,7 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://finnpic.org/</guid>
-      <description>FinnPic   {:width=&amp;quot;50%&amp;quot;}
-A Scala implementation of Finnish PIC (Personal Identity Code)(&amp;ldquo;henkilötunnus&amp;rdquo; in Finnish).
+      <description>FinnPic    A Scala implementation of Finnish PIC (Personal Identity Code)(&amp;ldquo;henkilötunnus&amp;rdquo; in Finnish).
 See the specification here: https://vrk.fi/en/personal-identity-code1.
 Building Full build with test coverage (which should stay at 100%) measurement:
  sbt clean coverage test coverageReport
