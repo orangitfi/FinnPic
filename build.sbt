@@ -1,20 +1,29 @@
+import sbtcrossproject.CrossPlugin.autoImport.{CrossType, crossProject}
+
 val scala_2_13 = "2.13.1"
 val scala_2_12 = "2.12.10"
 val scala_2_11 = "2.11.12"
 val scala_2_10 = "2.10.7"
 val scala_js = "sjs0.6.31"
 
-val supportedScalaVersions = List(scala_js, scala_2_10, scala_2_11, scala_2_12, scala_2_13)
+val supportedScalaVersionsOnJvm = List(scala_2_10, scala_2_11, scala_2_12, scala_2_13)
 
-lazy val root = (project in file(".")).
-  settings(
+lazy val root = crossProject(JSPlatform, JVMPlatform)
+  .crossType(CrossType.Pure)
+  .settings(
     inThisBuild(List(
-      organization := "fi.orangit",
-      scalaVersion := scala_2_10
+      scalaVersion := scala_2_12
     )),
     name := "FinnPic",
+    organization := "fi.orangit",
     version := "0.1.0-SNAPSHOT",
-    crossScalaVersions := supportedScalaVersions
+  )
+  .jsSettings(
+    libraryDependencies += "org.scala-js" %%% "scalajs-java-time" % "0.2.6"
+  )
+  .jvmSettings(
+    doctestTestFramework := DoctestTestFramework.ScalaTest,
+    crossScalaVersions := supportedScalaVersionsOnJvm
   )
 
 enablePlugins(ScalaJSPlugin)
@@ -23,9 +32,10 @@ scalacOptions += "-deprecation"
 
 resolvers += "Typesafe Repository" at "https://repo.typesafe.com/typesafe/releases/"
 
-libraryDependencies += "org.pegdown" % "pegdown" % "1.6.0" % Test
-libraryDependencies += "org.scalactic" %%% "scalactic" % "3.0.8" % Test
-libraryDependencies += "org.scalatest" %%% "scalatest" % "3.0.8" % Test
+libraryDependencies += "com.vladsch.flexmark" % "flexmark-all" % "0.50.44" % Test
+libraryDependencies += "org.scalacheck" %%% "scalacheck" % "1.14.3" % Test
+libraryDependencies += "org.scalactic" %%% "scalactic" % "3.1.0" % Test
+libraryDependencies += "org.scalatest" %%% "scalatest" % "3.1.0" % Test
 
 coverageEnabled := true
 
@@ -37,9 +47,9 @@ scalacOptions in (doc) ++= Opts.doc.externalAPI(List
 (file(s"${(packageBin in Compile).value}") -> url("https://www.scala-lang.org/api/current"))
 )
 
+// Doctests do not work on Scala.js, so only run specs.
+testOptions in Test := Seq(Tests.Filter(s => s.endsWith("Spec")))
 testOptions in Test += Tests.Argument(TestFrameworks.ScalaTest, "-h", "target/test-reports/")
-
-doctestTestFramework := DoctestTestFramework.ScalaTest
 
 organization := "fi.orangit"
 homepage := Some(url("https://github.com/orangitfi/FinnPic"))
