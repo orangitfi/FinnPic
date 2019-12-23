@@ -1,6 +1,8 @@
 package org.finnpic
 
-import java.time.{Clock, LocalDate, Period}
+// Note: enable this when you enable support for Scala.js cross-compiling.
+// - vpeurala, 23.12.2019
+// import java.time.{Clock, LocalDate, Period}
 
 import scala.util.Try
 
@@ -114,11 +116,9 @@ class Pic private(mValue: String, mGender: Gender, mBirthYear: Int, mBirthMonth:
    */
   val birthDay: Int = mBirthDay
 
-  /**
-   * Returns the birth date of the person as a java.time LocalDate.
-   *
-   * @return a LocalDate of the birth date.
-   */
+  // Note: enable this documented out code block when ScalaJS supports all the required functionality
+  // of java-time. It does not as of version 0.2.6. - vpeurala, 23.12.2019
+/**
   def birthDate: LocalDate = {
     LocalDate.of(birthYear, birthMonth, birthDay)
   }
@@ -146,6 +146,7 @@ class Pic private(mValue: String, mGender: Gender, mBirthYear: Int, mBirthMonth:
   def personIsOfFinnishLegalAgeNow()(implicit clock: Clock = Clock.systemDefaultZone()): Boolean = {
     ageInYearsNow() >= Pic.finnishLegalAge
   }
+*/
 
   /**
    * The canonical string representation of the PIC. Usually the same String
