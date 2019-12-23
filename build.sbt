@@ -2,8 +2,9 @@ val scala_2_13 = "2.13.1"
 val scala_2_12 = "2.12.10"
 val scala_2_11 = "2.11.12"
 val scala_2_10 = "2.10.7"
+val scala_js = "sjs0.6.31"
 
-val supportedScalaVersions = List(scala_2_10, scala_2_11, scala_2_12, scala_2_13)
+val supportedScalaVersions = List(scala_js, scala_2_10, scala_2_11, scala_2_12, scala_2_13)
 
 lazy val root = (project in file(".")).
   settings(
@@ -16,13 +17,15 @@ lazy val root = (project in file(".")).
     crossScalaVersions := supportedScalaVersions
   )
 
+enablePlugins(ScalaJSPlugin)
+
 scalacOptions += "-deprecation"
 
 resolvers += "Typesafe Repository" at "https://repo.typesafe.com/typesafe/releases/"
 
 libraryDependencies += "org.pegdown" % "pegdown" % "1.6.0" % Test
-libraryDependencies += "org.scalactic" %% "scalactic" % "3.0.8" % Test
-libraryDependencies += "org.scalatest" %% "scalatest" % "3.0.8" % Test
+libraryDependencies += "org.scalactic" %%% "scalactic" % "3.0.8" % Test
+libraryDependencies += "org.scalatest" %%% "scalatest" % "3.0.8" % Test
 
 coverageEnabled := true
 
