@@ -1,5 +1,5 @@
 <scoverage 
-statement-count="119" statements-invoked="119" statement-rate="100.00" branch-rate="100.00" version="1.0" timestamp="1577102124127">
+statement-count="119" statements-invoked="119" statement-rate="100.00" branch-rate="100.00" version="1.0" timestamp="1577103037958">
     <packages>
         <package name="fi.orangit.fpic" statement-count="119" statements-invoked="119" statement-rate="100.00">
             <classes>
