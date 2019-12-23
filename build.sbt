@@ -1,6 +1,6 @@
 import sbt.Keys.organization
 import sbtcrossproject.CrossPlugin.autoImport.{CrossType, crossProject}
-import sbtcrossproject.{JSPlatform, JVMPlatform}
+import sbtcrossproject.{JVMPlatform}
 
 val scala_2_13 = "2.13.1"
 val scala_2_12 = "2.12.10"
