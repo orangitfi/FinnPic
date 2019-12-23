@@ -3,14 +3,15 @@ package fi.orangit.fpic
 import java.time.{Clock, Instant, LocalDate, ZoneId}
 
 import fi.orangit.fpic.Pic.{fromString, fromStringU}
-import org.scalatest.{FlatSpecLike, Matchers}
+import org.scalatest.flatspec.AnyFlatSpecLike
+import org.scalatest.matchers.should.Matchers
 
 import scala.util.{Failure, Success, Try}
 
 /**
  * See https://vrk.fi/en/personal-identity-code1 for specs.
  */
-class PicSpec extends FlatSpecLike with Matchers {
+class PicSpec extends AnyFlatSpecLike with Matchers {
   val validPic1MaleBornIn1900s = "290877-1639"
   val validPic2FemaleBornIn1900s = "010781-190A"
   val validPic3FemaleBornIn2000s = "170214A6228"
