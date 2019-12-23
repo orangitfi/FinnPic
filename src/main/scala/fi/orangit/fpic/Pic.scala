@@ -1,5 +1,7 @@
 package fi.orangit.fpic
 
+import java.time.{Clock, LocalDate, Period}
+
 import scala.util.Try
 
 /**
@@ -113,6 +115,39 @@ class Pic private(mValue: String, mGender: Gender, mBirthYear: Int, mBirthMonth:
   val birthDay: Int = mBirthDay
 
   /**
+   * Returns the birth date of the person as a java.time LocalDate.
+   *
+   * @return a LocalDate of the birth date.
+   */
+  def birthDate: LocalDate = {
+    LocalDate.of(birthYear, birthMonth, birthDay)
+  }
+
+  def ageAt(at: LocalDate): Period = {
+    Period.between(birthDate, at)
+  }
+
+  def ageNow()(implicit clock: Clock = Clock.systemDefaultZone()): Period = {
+    ageAt(LocalDate.now(clock))
+  }
+
+  def ageInYearsAt(at: LocalDate): Int = {
+    ageAt(at).getYears
+  }
+
+  def ageInYearsNow()(implicit clock: Clock = Clock.systemDefaultZone()): Int = {
+    ageNow().getYears
+  }
+
+  def personIsOfFinnishLegalAgeAt(at: LocalDate): Boolean = {
+    ageInYearsAt(at) >= Pic.finnishLegalAge
+  }
+
+  def personIsOfFinnishLegalAgeNow()(implicit clock: Clock = Clock.systemDefaultZone()): Boolean = {
+    ageInYearsNow() >= Pic.finnishLegalAge
+  }
+
+  /**
    * The canonical string representation of the PIC. Usually the same String
    * which was used to create this object.
    *
@@ -198,6 +233,8 @@ case object Female extends Gender
  * }}}
  */
 object Pic {
+  val finnishLegalAge: Int = 18
+
   /**
    * Create a Pic from an input String, returning an [[scala.util.Either]].
    *

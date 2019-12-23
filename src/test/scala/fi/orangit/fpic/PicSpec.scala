@@ -1,5 +1,7 @@
 package fi.orangit.fpic
 
+import java.time.{Clock, Instant, LocalDate, ZoneId}
+
 import fi.orangit.fpic.Pic.{fromString, fromStringU}
 import org.scalatest.{FlatSpecLike, Matchers}
 
@@ -11,10 +13,10 @@ import scala.util.Try
 class PicSpec extends FlatSpecLike with Matchers {
   val validPic1MaleBornIn1900s = "290877-1639"
   val validPic2FemaleBornIn1900s = "010781-190A"
-  val validPic3FemaleBornIn2010s = "170214A6228"
+  val validPic3FemaleBornIn2000s = "170214A6228"
   val validPic4MaleBornIn1800s = "290877+1639"
 
-  val validPics: List[String] = List(validPic1MaleBornIn1900s, validPic2FemaleBornIn1900s, validPic3FemaleBornIn2010s, validPic4MaleBornIn1800s)
+  val validPics: List[String] = List(validPic1MaleBornIn1900s, validPic2FemaleBornIn1900s, validPic3FemaleBornIn2000s, validPic4MaleBornIn1800s)
 
   behavior of "object Pic, method fromString"
 
@@ -66,32 +68,79 @@ class PicSpec extends FlatSpecLike with Matchers {
 
   behavior of "class Pic"
 
-  it should "know the supposed gender of the person in question" in {
+  it should "know the supposed gender of the person" in {
     fromStringU(validPic1MaleBornIn1900s).gender should be(Male)
     fromStringU(validPic2FemaleBornIn1900s).gender should be(Female)
-    fromStringU(validPic3FemaleBornIn2010s).gender should be(Female)
+    fromStringU(validPic3FemaleBornIn2000s).gender should be(Female)
     fromStringU(validPic4MaleBornIn1800s).gender should be(Male)
   }
 
-  it should "know the birth year of the person in question" in {
+  it should "know the birth year of the person" in {
     fromStringU(validPic1MaleBornIn1900s).birthYear should be(1977)
     fromStringU(validPic2FemaleBornIn1900s).birthYear should be(1981)
-    fromStringU(validPic3FemaleBornIn2010s).birthYear should be(2014)
+    fromStringU(validPic3FemaleBornIn2000s).birthYear should be(2014)
     fromStringU(validPic4MaleBornIn1800s).birthYear should be(1877)
   }
 
-  it should "know the birth month of the person in question" in {
+  it should "know the birth month of the person" in {
     fromStringU(validPic1MaleBornIn1900s).birthMonth should be(8)
     fromStringU(validPic2FemaleBornIn1900s).birthMonth should be(7)
-    fromStringU(validPic3FemaleBornIn2010s).birthMonth should be(2)
+    fromStringU(validPic3FemaleBornIn2000s).birthMonth should be(2)
     fromStringU(validPic4MaleBornIn1800s).birthMonth should be(8)
   }
 
-  it should "know the birth day (of month) of the person in question" in {
+  it should "know the birth day (of month) of the person" in {
     fromStringU(validPic1MaleBornIn1900s).birthDay should be(29)
     fromStringU(validPic2FemaleBornIn1900s).birthDay should be(1)
-    fromStringU(validPic3FemaleBornIn2010s).birthDay should be(17)
+    fromStringU(validPic3FemaleBornIn2000s).birthDay should be(17)
     fromStringU(validPic4MaleBornIn1800s).birthDay should be(29)
+  }
+
+  it should "know the birth date of the person" in {
+    fromStringU(validPic1MaleBornIn1900s).birthDate should be(LocalDate.of(1977, 8, 29))
+    fromStringU(validPic2FemaleBornIn1900s).birthDate should be(LocalDate.of(1981, 7, 1))
+    fromStringU(validPic3FemaleBornIn2000s).birthDate should be(LocalDate.of(2014, 2, 17))
+    fromStringU(validPic4MaleBornIn1800s).birthDate should be(LocalDate.of(1877, 8, 29))
+  }
+
+  it should "know the age of the person in question, on the day before birthday" in {
+    implicit val at28081995: Clock = Clock.fixed(Instant.ofEpochSecond(809629200), ZoneId.of("Europe/Helsinki"))
+    fromStringU(validPic1MaleBornIn1900s).ageInYearsNow() should be(17)
+    fromStringU(validPic2FemaleBornIn1900s).ageInYearsNow() should be(14)
+    fromStringU(validPic3FemaleBornIn2000s).ageInYearsNow() should be(-18)
+    fromStringU(validPic4MaleBornIn1800s).ageInYearsNow() should be(117)
+  }
+
+  it should "know the age of the person in question, on birthday" in {
+    implicit val at29081995: Clock = Clock.fixed(Instant.ofEpochSecond(809715600), ZoneId.of("Europe/Helsinki"))
+    fromStringU(validPic1MaleBornIn1900s).ageInYearsNow() should be(18)
+    fromStringU(validPic2FemaleBornIn1900s).ageInYearsNow() should be(14)
+    fromStringU(validPic3FemaleBornIn2000s).ageInYearsNow() should be(-18)
+    fromStringU(validPic4MaleBornIn1800s).ageInYearsNow() should be(118)
+  }
+
+  it should "know if the person if os Finnish legal age at some point in time, on the day before birthday" in {
+    val at29081995: LocalDate = LocalDate.of(1995, 8, 28)
+    fromStringU(validPic1MaleBornIn1900s).personIsOfFinnishLegalAgeAt(at29081995) should be(false)
+    fromStringU(validPic2FemaleBornIn1900s).personIsOfFinnishLegalAgeAt(at29081995) should be(false)
+    fromStringU(validPic3FemaleBornIn2000s).personIsOfFinnishLegalAgeAt(at29081995) should be(false)
+    fromStringU(validPic4MaleBornIn1800s).personIsOfFinnishLegalAgeAt(at29081995) should be(true)
+  }
+
+  it should "know if the person if os Finnish legal age at some point in time, on birthday" in {
+    val at29081995: LocalDate = LocalDate.of(1995, 8, 29)
+    fromStringU(validPic1MaleBornIn1900s).personIsOfFinnishLegalAgeAt(at29081995) should be(true)
+    fromStringU(validPic2FemaleBornIn1900s).personIsOfFinnishLegalAgeAt(at29081995) should be(false)
+    fromStringU(validPic3FemaleBornIn2000s).personIsOfFinnishLegalAgeAt(at29081995) should be(false)
+    fromStringU(validPic4MaleBornIn1800s).personIsOfFinnishLegalAgeAt(at29081995) should be(true)
+  }
+
+  it should "know if the person is of Finnish legal age now" in {
+    implicit val at29081995: Clock = Clock.fixed(Instant.ofEpochSecond(809715600), ZoneId.of("Europe/Helsinki"))
+    fromStringU(validPic1MaleBornIn1900s).personIsOfFinnishLegalAgeNow() should be(true)
+    fromStringU(validPic2FemaleBornIn1900s).personIsOfFinnishLegalAgeNow() should be(false)
+    fromStringU(validPic3FemaleBornIn2000s).personIsOfFinnishLegalAgeNow() should be(false)
+    fromStringU(validPic4MaleBornIn1800s).personIsOfFinnishLegalAgeNow() should be(true)
   }
 
   behavior of "Pic.toString()"
@@ -99,7 +148,7 @@ class PicSpec extends FlatSpecLike with Matchers {
   it should "just show the original pic (the String value) without any decoration" in {
     fromStringU(validPic1MaleBornIn1900s).toString should be(validPic1MaleBornIn1900s)
     fromStringU(validPic2FemaleBornIn1900s).toString should be(validPic2FemaleBornIn1900s)
-    fromStringU(validPic3FemaleBornIn2010s).toString should be(validPic3FemaleBornIn2010s)
+    fromStringU(validPic3FemaleBornIn2000s).toString should be(validPic3FemaleBornIn2000s)
     fromStringU(validPic4MaleBornIn1800s).toString should be(validPic4MaleBornIn1800s)
   }
 
