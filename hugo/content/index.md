@@ -4,7 +4,7 @@
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/8f19681119574ecd96ef6790b29dcde2)](https://www.codacy.com?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=orangitfi/finnish-personal-identity-code&amp;utm_campaign=Badge_Grade)
 ![sbt test](https://github.com/orangitfi/finnish-personal-identity-code/workflows/sbt-test/badge.svg)
 
-<img src="/images/Flag_of_Finland.svg" alt="Flag of Finland" width="15%">
+![Flag of Finland](/images/Flag_of_Finland.svg)
 
 A Scala implementation of Finnish PIC (Personal Identity Code)("henkilötunnus" in Finnish).
 
@@ -73,3 +73,4 @@ This project is proudly supported by [Orangit Oy](https://orangit.fi).
 <a href="https://orangit.fi">
   <img src="/images/orangit_logo_web.svg" alt="Orangit Oy" width="15%">
 </a>
+[![Orangit logo](/images/orangit_logo_web.svg)](https://orangit.fi)
