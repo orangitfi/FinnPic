@@ -5,7 +5,7 @@ import java.time.{Clock, Instant, LocalDate, ZoneId}
 import fi.orangit.fpic.Pic.{fromString, fromStringU}
 import org.scalatest.{FlatSpecLike, Matchers}
 
-import scala.util.Try
+import scala.util.{Failure, Success, Try}
 
 /**
  * See https://vrk.fi/en/personal-identity-code1 for specs.
@@ -56,13 +56,12 @@ class PicSpec extends FlatSpecLike with Matchers {
   behavior of "object Pic, method fromStringUnsafe / fromStringU"
 
   it should "throw an IllegalArgumentException if the input is not a valid PIC" in {
-    val t = Try(fromStringU("290877-1640")).toEither
+    val t: Try[Pic] = Try(fromStringU("290877-1640"))
     t match {
-      case Left(err) => {
-        err shouldBe an[IllegalArgumentException]
+      case Failure(err) => {
         err.getMessage should be("Invalid PIC: '290877-1640'. The control character ('0') is wrong: it should be 'A'.")
       }
-      case Right(value) => fail("An IllegalArgumentException should have been thrown, but was not.")
+      case Success(_) => fail("An IllegalArgumentException should have been thrown, but was not.")
     }
   }
 
