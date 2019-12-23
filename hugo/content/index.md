@@ -70,7 +70,4 @@ p = Pic.fromStringUnsafe("foo")
 
 This project is proudly supported by [Orangit Oy](https://orangit.fi).
 
-<a href="https://orangit.fi">
-  <img src="/images/orangit_logo_web.svg" alt="Orangit Oy" width="15%">
-</a>
 [![Orangit logo](/images/orangit_logo_web.svg)](https://orangit.fi)
