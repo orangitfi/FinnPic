@@ -12,7 +12,7 @@ lazy val root = (project in file(".")).
       scalaVersion := scala_2_10
     )),
     name := "FinnPic",
-    version := "0.1.0",
+    version := "0.1.0-SNAPSHOT",
     crossScalaVersions := supportedScalaVersions
   )
 
