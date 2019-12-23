@@ -1,3 +1,4 @@
+import sbt.Keys.organization
 import sbtcrossproject.CrossPlugin.autoImport.{CrossType, crossProject}
 import sbtcrossproject.JVMPlatform
 
@@ -17,24 +18,26 @@ version := "0.1.0-SNAPSHOT"
 doctestTestFramework := DoctestTestFramework.ScalaTest
 crossScalaVersions := supportedScalaVersionsOnJvm
 
-// Note: https://github.com/scala-js/scala-js-java-time does not implement all the stuff that we need
-// as of version 0.2.6. Add JSPlatform here when it does, like this:
-// > lazy val root = crossProject(JSPlatform, JVMPlatform)
-// and enable .jsSettings block below.
-// - vpeurala, 23.12.2019
-lazy val root = crossProject(JVMPlatform)
+lazy val root = crossProject(JSPlatform, JVMPlatform)
   .crossType(CrossType.Full)
-// Note: Enable this block when you start supporting Scala.js. - vpeurala, 23.12.2019
-// .jsSettings(
-//   libraryDependencies += "org.scala-js" %%% "scalajs-java-time" % "0.2.6",
-//   // Note: Doctest does not work on Scala.js as of 23.12.2019. - vpeurala
-//   doctestIgnoreRegex := Some(".*")
-// )
-// Note: Enable this block when you start supporting Scala.js. - vpeurala, 23.12.2019
-// .jvmSettings(
-//  doctestTestFramework := DoctestTestFramework.ScalaTest,
-//  crossScalaVersions := supportedScalaVersionsOnJvm
-//)
+  .settings(
+    name := "FinnPic",
+    organization := "fi.orangit",
+    version := "0.1.0-SNAPSHOT",
+    // Note: Move these two (doctestTestFramework and crossScalaVersions) to a .jvmSettings
+    // block when you start supporting Scala.JS. - vpeurala, 23.12.2019
+    doctestTestFramework := DoctestTestFramework.ScalaTest,
+    crossScalaVersions := supportedScalaVersionsOnJvm
+  )
+  .jsSettings(
+    libraryDependencies += "org.scala-js" %%% "scalajs-java-time" % "0.2.6",
+    // Note: Doctest does not work on Scala.js as of 23.12.2019. - vpeurala
+    doctestIgnoreRegex := Some(".*")
+  )
+  .jvmSettings(
+    doctestTestFramework := DoctestTestFramework.ScalaTest,
+    crossScalaVersions := supportedScalaVersionsOnJvm
+  )
 
 scalacOptions += "-deprecation"
 
