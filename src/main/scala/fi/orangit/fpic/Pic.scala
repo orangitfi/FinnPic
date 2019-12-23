@@ -36,7 +36,7 @@ import scala.util.Try
  * // If you give Pic.fromStringUnsafe (or Pic.fromStringU) an invalid PIC, they throw an IllegalArgumentException.
  * }}}
  */
-class Pic private(mAsString: String, mGender: Gender, mBirthYear: Int, mBirthMonth: Int, mBirthDay: Int) {
+class Pic private(mValue: String, mGender: Gender, mBirthYear: Int, mBirthMonth: Int, mBirthDay: Int) {
   /**
    * The PIC String used to create this Pic object itself, trimmed and in uppercase.
    *
@@ -49,7 +49,7 @@ class Pic private(mAsString: String, mGender: Gender, mBirthYear: Int, mBirthMon
    * 170214A6228
    * }}}
    */
-  val value: String = mAsString
+  val value: String = mValue
 
   /**
    * The [[Gender]] of the person whose PIC this is. Currently this can be only [[Male]] or [[Female]]; this
