@@ -22,11 +22,14 @@ lazy val root = crossProject(JSPlatform, JVMPlatform)
   )
   .jsSettings(
     libraryDependencies += "org.scala-js" %%% "scalajs-java-time" % "0.2.6",
-    // Note: Doctest does not work on Scala.js as of 23.12.2019. - vpeurala
-    doctestIgnoreRegex := Some(".*")
+    // Note: Doctests disabled for now, because they are not supported on Scala.js.
+    // - vpeurala, 25.12.2019
+    // doctestIgnoreRegex := Some(".*")
   )
   .jvmSettings(
-    doctestTestFramework := DoctestTestFramework.ScalaTest,
+    // Note: Doctests disabled for now, because they are not supported on Scala.js.
+    // - vpeurala, 25.12.2019
+    // doctestTestFramework := DoctestTestFramework.ScalaTest,
     coverageEnabled := true
   )
 

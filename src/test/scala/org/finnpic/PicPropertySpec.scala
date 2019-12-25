@@ -1,8 +1,5 @@
 package org.finnpic
 
-// Note: Commented out until scalacheck and scalatest/scalactic support the same version of Scala.js.
-// - vpeurala, 25.12.2019
-/*
 import org.scalacheck.Prop.forAll
 import org.scalacheck.Properties
 
@@ -15,4 +12,3 @@ object PicPropertySpec extends Properties("Pic.fromString") {
     }
   }
 }
-*/
