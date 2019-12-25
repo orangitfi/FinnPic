@@ -2,11 +2,8 @@
 <project version="4">
   <component name="ScalaCompilerConfiguration">
     <option name="incrementalityType" value="SBT" />
-    <profile name="sbt 1" modules=".jvm.FinnPic,finnish-personal-identity-code_1270,finnpic,jvm.FinnPic,jvm.root,scalatest-example" />
-    <profile name="sbt 2" modules="OrangIT.FinnPic,finnish-personal-identity-code">
-      <option name="deprecationWarnings" value="true" />
-    </profile>
-    <profile name="sbt 4" modules=".js.FinnPic,FinnPic,root">
+    <profile name="sbt 1" modules="finnpic_5306,rootJVM" />
+    <profile name="sbt 2" modules="finnpic,rootJS">
       <plugins>
         <plugin path="$USER_HOME$/.coursier/cache/v1/https/repo1.maven.org/maven2/org/scala-js/scalajs-compiler_2.12.10/0.6.31/scalajs-compiler_2.12.10-0.6.31.jar" />
       </plugins>
