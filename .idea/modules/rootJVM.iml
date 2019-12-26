@@ -10,7 +10,7 @@
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="module" module-name="root-sources" exported="" />
-    <orderEntry type="library" name="sbt: org.scoverage:scalac-scoverage-runtime_2.12:1.4.1:jar" level="project" />
     <orderEntry type="library" name="sbt: org.scala-lang:scala-library:2.12.10:jar" level="project" />
+    <orderEntry type="library" name="sbt: org.scoverage:scalac-scoverage-runtime_2.12:1.4.1:jar" level="project" />
   </component>
 </module>

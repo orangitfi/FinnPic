@@ -12,6 +12,8 @@ val scala_2_11 = "2.11.12"
 val scala_2_10 = "2.10.7"
 val supportedScalaVersions = List(scala_2_11, scala_2_12, scala_2_13)
 
+ThisBuild / scalaVersion := scala_2_12
+
 lazy val root = crossProject(JSPlatform, JVMPlatform)
   .crossType(CrossType.Full)
   .settings(
