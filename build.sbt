@@ -1,7 +1,5 @@
 resolvers += "Typesafe Repository" at "https://repo.typesafe.com/typesafe/releases/"
 
-enablePlugins(ScalaJSPlugin)
-
 import sbt.Keys.organization
 import sbtcrossproject.CrossPlugin.autoImport.{CrossType, crossProject}
 import sbtcrossproject.JVMPlatform
@@ -10,14 +8,14 @@ val scala_2_13 = "2.13.1"
 val scala_2_12 = "2.12.10"
 val scala_2_11 = "2.11.12"
 val scala_2_10 = "2.10.7"
-val supportedScalaVersions = List(scala_2_11, scala_2_12, scala_2_13)
+val supportedScalaVersions = Seq(scala_2_11, scala_2_12, scala_2_13)
 
 ThisBuild / scalaVersion := scala_2_12
 
 lazy val root = crossProject(JSPlatform, JVMPlatform)
   .crossType(CrossType.Full)
   .settings(
-    name := "FinnPic",
+    name := "finnpic",
     organization := "org.finnpic",
     version := "0.1.0-SNAPSHOT",
     crossScalaVersions := supportedScalaVersions
