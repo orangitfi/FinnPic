@@ -1,0 +1,709 @@
+<html>
+      <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+        <title id="title">
+          org/finnpic/PicGenerator.scala.html
+        </title>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery.tablesorter/2.20.1/css/theme.default.min.css" type="text/css"/><script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.tablesorter/2.20.1/js/jquery.tablesorter.min.js"></script><link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css" type="text/css"/><script src="https://netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"></script><script type="text/javascript">
+        $(document).ready(function() {$(".tablesorter").tablesorter();});
+      </script>
+        <style>
+          table.codegrid { font-family: monospace; font-size: 12px; width: auto!important; }table.statementlist { width: auto!important; font-size: 13px; } table.codegrid td { padding: 0!important; border: 0!important } table td.linenumber { width: 40px!important; } 
+        </style>
+      </head>
+      <body style="font-family: monospace;">
+        <ul class="nav nav-tabs">
+          <li>
+            <a href="#codegrid" data-toggle="tab">Codegrid</a>
+          </li>
+          <li>
+            <a href="#statementlist" data-toggle="tab">Statement List</a>
+          </li>
+        </ul>
+        <div class="tab-content">
+          <div class="tab-pane active" id="codegrid">
+            <pre style='font-size: 12pt; font-family: courier, monospace;'>1 <span style=''>package org.finnpic
+</span>2 <span style=''>
+</span>3 <span style=''>import scala.util.Random
+</span>4 <span style=''>
+</span>5 <span style=''>object PicGenerator {
+</span>6 <span style=''>  @scala.annotation.tailrec
+</span>7 <span style=''>  def generateOne()(implicit seed: Long = Random.nextLong()): Pic = {
+</span>8 <span style=''>    val random = </span><span style='background: #AEF1AE'>new Random(seed)</span><span style=''>
+</span>9 <span style=''>    val day: Int = </span><span style='background: #AEF1AE'>random.nextInt(31) + 1</span><span style=''>
+</span>10 <span style=''>    val month: Int = </span><span style='background: #AEF1AE'>random.nextInt(12) + 1</span><span style=''>
+</span>11 <span style=''>    val year: Int = </span><span style='background: #AEF1AE'>random.nextInt(100)</span><span style=''>
+</span>12 <span style=''>    val sign: Char = </span><span style='background: #AEF1AE'>List('+', '-', 'A')(random.nextInt(3))</span><span style=''>
+</span>13 <span style=''>    val individualNumber: Int = </span><span style='background: #AEF1AE'>random.nextInt(1000)</span><span style=''>
+</span>14 <span style=''>    val birthDatePart: String = </span><span style='background: #AEF1AE'>formatInt2(day) +
+</span>15 <span style=''></span><span style='background: #AEF1AE'>      formatInt2(month) +
+</span>16 <span style=''></span><span style='background: #AEF1AE'>      formatInt2(year)</span><span style=''>
+</span>17 <span style=''>    val numericPartsString = </span><span style='background: #AEF1AE'>birthDatePart + formatInt3(individualNumber)</span><span style=''>
+</span>18 <span style=''>    val controlCharacter: Char = </span><span style='background: #AEF1AE'>Pic.calculateExpectedControlCharacter(numericPartsString.toLong)</span><span style=''>
+</span>19 <span style=''>    val picString = </span><span style='background: #AEF1AE'>birthDatePart +
+</span>20 <span style=''></span><span style='background: #AEF1AE'>      sign.toString +
+</span>21 <span style=''></span><span style='background: #AEF1AE'>      formatInt3(individualNumber) +
+</span>22 <span style=''></span><span style='background: #AEF1AE'>      controlCharacter.toString</span><span style=''>
+</span>23 <span style=''>
+</span>24 <span style=''>    var candidatePic: Either[String, Pic] = </span><span style='background: #AEF1AE'>Pic(picString)</span><span style=''>
+</span>25 <span style=''>
+</span>26 <span style=''>    // Filter out candidates with an impossible birth date.
+</span>27 <span style=''>    // Empirical experimentation has shown that there are
+</span>28 <span style=''>    // about 2 % of these.
+</span>29 <span style=''>    candidatePic match {
+</span>30 <span style=''>      case Left(_) =&gt; </span><span style='background: #AEF1AE'>generateOne()(random.nextLong())</span><span style=''>
+</span>31 <span style=''>      case Right(pic) =&gt; pic
+</span>32 <span style=''>    }
+</span>33 <span style=''>  }
+</span>34 <span style=''>
+</span>35 <span style=''>  def generateMany(n: Int)(implicit seed: Long = Random.nextLong()): Seq[Pic] = {
+</span>36 <span style=''>    </span><span style='background: #AEF1AE'>generateInfinite()(seed).take(n)</span><span style=''>
+</span>37 <span style=''>  }
+</span>38 <span style=''>
+</span>39 <span style=''>  def generateInfinite()(implicit seed: Long = Random.nextLong()): Stream[Pic] = {
+</span>40 <span style=''>    val random = </span><span style='background: #AEF1AE'>new Random(seed)</span><span style=''>
+</span>41 <span style=''>    generateOne()(random.nextLong()) </span><span style='background: #AEF1AE'>#:: generateInfinite()(random.nextLong())</span><span style=''>
+</span>42 <span style=''>  }
+</span>43 <span style=''>
+</span>44 <span style=''>  def generateOneWithSpecification(specification: Pic =&gt; Boolean)(implicit seed: Long = Random.nextLong()): Pic = {
+</span>45 <span style=''>    </span><span style='background: #AEF1AE'>generateInfinite()(seed).find(specification).get</span><span style=''>
+</span>46 <span style=''>  }
+</span>47 <span style=''>
+</span>48 <span style=''>  def generateManyWithSpecification(specification: Pic =&gt; Boolean)(n: Int)(implicit seed: Long = Random.nextLong()): Seq[Pic] = {
+</span>49 <span style=''>    </span><span style='background: #AEF1AE'>generateInfinite()(seed).filter(specification).take(n)</span><span style=''>
+</span>50 <span style=''>  }
+</span>51 <span style=''>
+</span>52 <span style=''>  private def formatInt2(input: Int): String = {
+</span>53 <span style=''>    f&quot;${input}%02d&quot;
+</span>54 <span style=''>  }
+</span>55 <span style=''>
+</span>56 <span style=''>  private def formatInt3(input: Int): String = {
+</span>57 <span style=''>    f&quot;${input}%03d&quot;
+</span>58 <span style=''>  }
+</span>59 <span style=''>}
+</span></pre>
+          </div>
+          <div class="tab-pane" id="statementlist">
+            <table cellspacing="0" cellpadding="0" class="table statementlist">
+      <tr>
+        <th>Line</th>
+        <th>Stmt Id</th>
+        <th>Pos</th>
+        <th>Tree</th>
+        <th>Symbol</th>
+        <th>Code</th>
+      </tr><tr>
+        <td>
+          8
+        </td>
+        <td>
+          156
+        </td>
+        <td>
+          184
+          -
+          200
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          scala.util.Random.&lt;init&gt;
+        </td>
+        <td style="background: #AEF1AE">
+          new scala.util.Random(seed)
+        </td>
+      </tr><tr>
+        <td>
+          9
+        </td>
+        <td>
+          157
+        </td>
+        <td>
+          220
+          -
+          242
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          scala.Int.+
+        </td>
+        <td style="background: #AEF1AE">
+          random.nextInt(31).+(1)
+        </td>
+      </tr><tr>
+        <td>
+          10
+        </td>
+        <td>
+          158
+        </td>
+        <td>
+          264
+          -
+          286
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          scala.Int.+
+        </td>
+        <td style="background: #AEF1AE">
+          random.nextInt(12).+(1)
+        </td>
+      </tr><tr>
+        <td>
+          11
+        </td>
+        <td>
+          159
+        </td>
+        <td>
+          307
+          -
+          326
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          scala.util.Random.nextInt
+        </td>
+        <td style="background: #AEF1AE">
+          random.nextInt(100)
+        </td>
+      </tr><tr>
+        <td>
+          12
+        </td>
+        <td>
+          164
+        </td>
+        <td>
+          348
+          -
+          386
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          scala.collection.LinearSeqOptimized.apply
+        </td>
+        <td style="background: #AEF1AE">
+          scala.collection.immutable.List.apply[Char]('+', '-', 'A').apply(random.nextInt(3))
+        </td>
+      </tr><tr>
+        <td>
+          12
+        </td>
+        <td>
+          160
+        </td>
+        <td>
+          353
+          -
+          356
+        </td>
+        <td>
+          Literal
+        </td>
+        <td>
+          &lt;nosymbol&gt;
+        </td>
+        <td style="background: #AEF1AE">
+          '+'
+        </td>
+      </tr><tr>
+        <td>
+          12
+        </td>
+        <td>
+          163
+        </td>
+        <td>
+          368
+          -
+          385
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          scala.util.Random.nextInt
+        </td>
+        <td style="background: #AEF1AE">
+          random.nextInt(3)
+        </td>
+      </tr><tr>
+        <td>
+          12
+        </td>
+        <td>
+          162
+        </td>
+        <td>
+          363
+          -
+          366
+        </td>
+        <td>
+          Literal
+        </td>
+        <td>
+          &lt;nosymbol&gt;
+        </td>
+        <td style="background: #AEF1AE">
+          'A'
+        </td>
+      </tr><tr>
+        <td>
+          12
+        </td>
+        <td>
+          161
+        </td>
+        <td>
+          358
+          -
+          361
+        </td>
+        <td>
+          Literal
+        </td>
+        <td>
+          &lt;nosymbol&gt;
+        </td>
+        <td style="background: #AEF1AE">
+          '-'
+        </td>
+      </tr><tr>
+        <td>
+          13
+        </td>
+        <td>
+          165
+        </td>
+        <td>
+          419
+          -
+          439
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          scala.util.Random.nextInt
+        </td>
+        <td style="background: #AEF1AE">
+          random.nextInt(1000)
+        </td>
+      </tr><tr>
+        <td>
+          15
+        </td>
+        <td>
+          166
+        </td>
+        <td>
+          496
+          -
+          513
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          org.finnpic.PicGenerator.formatInt2
+        </td>
+        <td style="background: #AEF1AE">
+          PicGenerator.this.formatInt2(month)
+        </td>
+      </tr><tr>
+        <td>
+          15
+        </td>
+        <td>
+          168
+        </td>
+        <td>
+          472
+          -
+          538
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          java.lang.String.+
+        </td>
+        <td style="background: #AEF1AE">
+          PicGenerator.this.formatInt2(day).+(PicGenerator.this.formatInt2(month)).+(PicGenerator.this.formatInt2(year))
+        </td>
+      </tr><tr>
+        <td>
+          16
+        </td>
+        <td>
+          167
+        </td>
+        <td>
+          522
+          -
+          538
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          org.finnpic.PicGenerator.formatInt2
+        </td>
+        <td style="background: #AEF1AE">
+          PicGenerator.this.formatInt2(year)
+        </td>
+      </tr><tr>
+        <td>
+          17
+        </td>
+        <td>
+          169
+        </td>
+        <td>
+          584
+          -
+          612
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          org.finnpic.PicGenerator.formatInt3
+        </td>
+        <td style="background: #AEF1AE">
+          PicGenerator.this.formatInt3(individualNumber)
+        </td>
+      </tr><tr>
+        <td>
+          17
+        </td>
+        <td>
+          170
+        </td>
+        <td>
+          568
+          -
+          612
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          java.lang.String.+
+        </td>
+        <td style="background: #AEF1AE">
+          birthDatePart.+(PicGenerator.this.formatInt3(individualNumber))
+        </td>
+      </tr><tr>
+        <td>
+          18
+        </td>
+        <td>
+          172
+        </td>
+        <td>
+          646
+          -
+          710
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          org.finnpic.Pic.calculateExpectedControlCharacter
+        </td>
+        <td style="background: #AEF1AE">
+          Pic.calculateExpectedControlCharacter(scala.Predef.augmentString(numericPartsString).toLong)
+        </td>
+      </tr><tr>
+        <td>
+          18
+        </td>
+        <td>
+          171
+        </td>
+        <td>
+          684
+          -
+          709
+        </td>
+        <td>
+          Select
+        </td>
+        <td>
+          scala.collection.immutable.StringLike.toLong
+        </td>
+        <td style="background: #AEF1AE">
+          scala.Predef.augmentString(numericPartsString).toLong
+        </td>
+      </tr><tr>
+        <td>
+          20
+        </td>
+        <td>
+          173
+        </td>
+        <td>
+          753
+          -
+          766
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          scala.Any.toString
+        </td>
+        <td style="background: #AEF1AE">
+          sign.toString()
+        </td>
+      </tr><tr>
+        <td>
+          21
+        </td>
+        <td>
+          176
+        </td>
+        <td>
+          731
+          -
+          837
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          java.lang.String.+
+        </td>
+        <td style="background: #AEF1AE">
+          birthDatePart.+(sign.toString()).+(PicGenerator.this.formatInt3(individualNumber)).+(controlCharacter.toString())
+        </td>
+      </tr><tr>
+        <td>
+          21
+        </td>
+        <td>
+          174
+        </td>
+        <td>
+          775
+          -
+          803
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          org.finnpic.PicGenerator.formatInt3
+        </td>
+        <td style="background: #AEF1AE">
+          PicGenerator.this.formatInt3(individualNumber)
+        </td>
+      </tr><tr>
+        <td>
+          22
+        </td>
+        <td>
+          175
+        </td>
+        <td>
+          812
+          -
+          837
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          scala.Any.toString
+        </td>
+        <td style="background: #AEF1AE">
+          controlCharacter.toString()
+        </td>
+      </tr><tr>
+        <td>
+          24
+        </td>
+        <td>
+          177
+        </td>
+        <td>
+          883
+          -
+          897
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          org.finnpic.Pic.apply
+        </td>
+        <td style="background: #AEF1AE">
+          Pic.apply(picString)
+        </td>
+      </tr><tr>
+        <td>
+          30
+        </td>
+        <td>
+          178
+        </td>
+        <td>
+          1105
+          -
+          1122
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          scala.util.Random.nextLong
+        </td>
+        <td style="background: #AEF1AE">
+          random.nextLong()
+        </td>
+      </tr><tr>
+        <td>
+          30
+        </td>
+        <td>
+          179
+        </td>
+        <td>
+          1091
+          -
+          1123
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          org.finnpic.PicGenerator.generateOne
+        </td>
+        <td style="background: #AEF1AE">
+          PicGenerator.this.generateOne()(random.nextLong())
+        </td>
+      </tr><tr>
+        <td>
+          36
+        </td>
+        <td>
+          180
+        </td>
+        <td>
+          1250
+          -
+          1282
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          scala.collection.immutable.Stream.take
+        </td>
+        <td style="background: #AEF1AE">
+          PicGenerator.this.generateInfinite()(seed).take(n)
+        </td>
+      </tr><tr>
+        <td>
+          40
+        </td>
+        <td>
+          181
+        </td>
+        <td>
+          1388
+          -
+          1404
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          scala.util.Random.&lt;init&gt;
+        </td>
+        <td style="background: #AEF1AE">
+          new scala.util.Random(seed)
+        </td>
+      </tr><tr>
+        <td>
+          41
+        </td>
+        <td>
+          182
+        </td>
+        <td>
+          1442
+          -
+          1483
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          scala.collection.immutable.Stream.ConsWrapper.#::
+        </td>
+        <td style="background: #AEF1AE">
+          immutable.this.Stream.consWrapper[org.finnpic.Pic](PicGenerator.this.generateInfinite()(random.nextLong())).#::[org.finnpic.Pic](x$1)
+        </td>
+      </tr><tr>
+        <td>
+          45
+        </td>
+        <td>
+          183
+        </td>
+        <td>
+          1609
+          -
+          1657
+        </td>
+        <td>
+          Select
+        </td>
+        <td>
+          scala.Option.get
+        </td>
+        <td style="background: #AEF1AE">
+          PicGenerator.this.generateInfinite()(seed).find(specification).get
+        </td>
+      </tr><tr>
+        <td>
+          49
+        </td>
+        <td>
+          184
+        </td>
+        <td>
+          1797
+          -
+          1851
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          scala.collection.immutable.Stream.take
+        </td>
+        <td style="background: #AEF1AE">
+          PicGenerator.this.generateInfinite()(seed).filter(specification).take(n)
+        </td>
+      </tr>
+    </table>
+          </div>
+        </div>
+      </body>
+    </html>

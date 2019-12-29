@@ -26,7 +26,7 @@
 </span>2 <span style=''>
 </span>3 <span style=''>import java.time.{Clock, LocalDate, Period}
 </span>4 <span style=''>
-</span>5 <span style=''>import scala.util.Try
+</span>5 <span style=''>import scala.util.{Failure, Success, Try}
 </span>6 <span style=''>
 </span>7 <span style=''>/**
 </span>8 <span style=''> * PIC = Personal Identity Code, &quot;henkilotunnus&quot; in Finnish.
@@ -255,7 +255,7 @@
 </span>231 <span style=''>  val finnishLegalAge: Int = </span><span style='background: #AEF1AE'>18</span><span style=''>
 </span>232 <span style=''>
 </span>233 <span style=''>  /**
-</span>234 <span style=''>   * Create a Pic from an input String, see [[fromString()]].
+</span>234 <span style=''>   * Create a Pic from an input String, see [[fromString(input: String)]].
 </span>235 <span style=''>   */
 </span>236 <span style=''>  def apply(input: String): Either[String, Pic] = </span><span style='background: #AEF1AE'>fromString(input)</span><span style=''>
 </span>237 <span style=''>
@@ -356,77 +356,105 @@
 </span>332 <span style=''></span><span style='background: #AEF1AE'>    pp =&gt;
 </span>333 <span style=''></span><span style='background: #AEF1AE'>      s&quot;Invalid PIC: '${pp.originalInput}'. The first six characters have to be numeric, but they were: '${pp.birthDatePart}'.&quot;)</span><span style=''>
 </span>334 <span style=''>
-</span>335 <span style=''>  private val signMustHaveAcceptableValue = </span><span style='background: #AEF1AE'>ValidationRule(
-</span>336 <span style=''></span><span style='background: #AEF1AE'>    pp =&gt;
-</span>337 <span style=''></span><span style='background: #AEF1AE'>      List('+', '-', 'A').contains(pp.sign.charAt(0)),
-</span>338 <span style=''></span><span style='background: #AEF1AE'>    pp =&gt;
-</span>339 <span style=''></span><span style='background: #AEF1AE'>      s&quot;Invalid PIC: '${pp.originalInput}'. The sign (7th character) must be +, - or A, now it was: '${pp.sign}'.&quot;
-</span>340 <span style=''></span><span style='background: #AEF1AE'>  )</span><span style=''>
-</span>341 <span style=''>
-</span>342 <span style=''>  private val individualNumberMustBeNumeric = </span><span style='background: #AEF1AE'>ValidationRule(
-</span>343 <span style=''></span><span style='background: #AEF1AE'>    pp =&gt;
-</span>344 <span style=''></span><span style='background: #AEF1AE'>      Try(pp.individualNumber.toInt).toOption.isDefined,
-</span>345 <span style=''></span><span style='background: #AEF1AE'>    pp =&gt;
-</span>346 <span style=''></span><span style='background: #AEF1AE'>      s&quot;Invalid PIC: '${pp.originalInput}'. The individual number (characters 8-10) must be numeric, now it was: '${pp.individualNumber}'.&quot;
-</span>347 <span style=''></span><span style='background: #AEF1AE'>  )</span><span style=''>
-</span>348 <span style=''>
-</span>349 <span style=''>  private val validationRules = </span><span style='background: #AEF1AE'>List(birthDatePartMustBeNumeric, signMustHaveAcceptableValue, individualNumberMustBeNumeric)</span><span style=''>
-</span>350 <span style=''>
-</span>351 <span style=''>  /**
-</span>352 <span style=''>   * Here we have certainty that all the substrings, when concatenated together, form a string of 11 chars.
-</span>353 <span style=''>   */
-</span>354 <span style=''>  private def createFromSubstrings(pp: PicParts): Either[String, Pic] = {
-</span>355 <span style=''>    val failedValidationRule = </span><span style='background: #AEF1AE'>validationRules.find(vr =&gt; !vr.predicate(pp))</span><span style=''>
-</span>356 <span style=''>    failedValidationRule match {
-</span>357 <span style=''>      case Some(rule) =&gt; </span><span style='background: #AEF1AE'>Left(rule.errorMessageGenerator(pp))</span><span style=''>
-</span>358 <span style=''>      case None =&gt; </span><span style='background: #AEF1AE'>createFromValidParts(pp)</span><span style=''>
-</span>359 <span style=''>    }
-</span>360 <span style=''>  }
-</span>361 <span style=''>
-</span>362 <span style=''>  /**
-</span>363 <span style=''>   * Here we have certainty that all the parts are themselves valid, except for the control character.
-</span>364 <span style=''>   */
-</span>365 <span style=''>  private def createFromValidParts(pp: PicParts): Either[String, Pic] = {
-</span>366 <span style=''>    // At this point the birthDatePart and individualNumber have been validated to be numeric, so we can just use .toLong directly without Try.
-</span>367 <span style=''>    val expectedControlCharacter: Char = </span><span style='background: #AEF1AE'>calculateExpectedControlCharacter((pp.birthDatePart + pp.individualNumber).toLong)</span><span style=''>
-</span>368 <span style=''>    if (</span><span style='background: #AEF1AE'>pp.controlCharacter.charAt(0) != expectedControlCharacter</span><span style=''>) {
-</span>369 <span style=''>      </span><span style='background: #AEF1AE'>Left(s&quot;Invalid PIC: '${pp.originalInput}'. The control character ('${pp.controlCharacter}') is wrong: it should be '${expectedControlCharacter}'.&quot;)</span><span style=''>
-</span>370 <span style=''>    } else </span><span style='background: #AEF1AE'>{
-</span>371 <span style=''></span><span style='background: #AEF1AE'>      val gender = if (pp.individualNumber.toInt % 2 == 0) Female else Male
-</span>372 <span style=''></span><span style='background: #AEF1AE'>      val century = pp.sign.charAt(0) match {
-</span>373 <span style=''></span><span style='background: #AEF1AE'>        case '+' =&gt; 1800
-</span>374 <span style=''></span><span style='background: #AEF1AE'>        case '-' =&gt; 1900
-</span>375 <span style=''></span><span style='background: #AEF1AE'>        case 'A' =&gt; 2000
-</span>376 <span style=''></span><span style='background: #AEF1AE'>      }
-</span>377 <span style=''></span><span style='background: #AEF1AE'>      val yearWithinCentury = pp.birthDatePart.toString.substring(4, 6).toInt
-</span>378 <span style=''></span><span style='background: #AEF1AE'>      val birthYear = century + yearWithinCentury
-</span>379 <span style=''></span><span style='background: #AEF1AE'>      val birthMonth = pp.birthDatePart.toString.substring(2, 4).toInt
-</span>380 <span style=''></span><span style='background: #AEF1AE'>      val birthDay = pp.birthDatePart.toString.substring(0, 2).toInt
-</span>381 <span style=''></span><span style='background: #AEF1AE'>      Right(new Pic(pp.cleanedInput, gender, birthYear, birthMonth, birthDay))
-</span>382 <span style=''></span><span style='background: #AEF1AE'>    }</span><span style=''>
+</span>335 <span style=''>  private val dayOfBirthDatePartMustBeInRangeOf1To31 = </span><span style='background: #AEF1AE'>ValidationRule(
+</span>336 <span style=''></span><span style='background: #AEF1AE'>    pp =&gt; {
+</span>337 <span style=''></span><span style='background: #AEF1AE'>      val day = pp.birthDatePart.substring(0, 2).toInt
+</span>338 <span style=''></span><span style='background: #AEF1AE'>      day &gt;= 1 &amp;&amp; day &lt;= 31
+</span>339 <span style=''></span><span style='background: #AEF1AE'>    },
+</span>340 <span style=''></span><span style='background: #AEF1AE'>    pp =&gt;
+</span>341 <span style=''></span><span style='background: #AEF1AE'>      s&quot;Invalid PIC: '${pp.originalInput}'. The day part of the birth date is wrong: it should be 01-31, but was: '${pp.birthDatePart.substring(0, 2)}'.&quot;
+</span>342 <span style=''></span><span style='background: #AEF1AE'>  )</span><span style=''>
+</span>343 <span style=''>
+</span>344 <span style=''>  private val monthOfBirthDatePartMustBeInRangeOf1To12 = </span><span style='background: #AEF1AE'>ValidationRule(
+</span>345 <span style=''></span><span style='background: #AEF1AE'>    pp =&gt; {
+</span>346 <span style=''></span><span style='background: #AEF1AE'>      val month = pp.birthDatePart.substring(2, 4).toInt
+</span>347 <span style=''></span><span style='background: #AEF1AE'>      month &gt;= 1 &amp;&amp; month &lt;= 12
+</span>348 <span style=''></span><span style='background: #AEF1AE'>    },
+</span>349 <span style=''></span><span style='background: #AEF1AE'>    pp =&gt;
+</span>350 <span style=''></span><span style='background: #AEF1AE'>      s&quot;Invalid PIC: '${pp.originalInput}'. The month part of the birth date is wrong: it should be 01-12, but was: '${pp.birthDatePart.substring(2, 4)}'.&quot;
+</span>351 <span style=''></span><span style='background: #AEF1AE'>  )</span><span style=''>
+</span>352 <span style=''>
+</span>353 <span style=''>  private val signMustHaveAcceptableValue = </span><span style='background: #AEF1AE'>ValidationRule(
+</span>354 <span style=''></span><span style='background: #AEF1AE'>    pp =&gt;
+</span>355 <span style=''></span><span style='background: #AEF1AE'>      List('+', '-', 'A').contains(pp.sign.charAt(0)),
+</span>356 <span style=''></span><span style='background: #AEF1AE'>    pp =&gt;
+</span>357 <span style=''></span><span style='background: #AEF1AE'>      s&quot;Invalid PIC: '${pp.originalInput}'. The sign (7th character) must be +, - or A, now it was: '${pp.sign}'.&quot;
+</span>358 <span style=''></span><span style='background: #AEF1AE'>  )</span><span style=''>
+</span>359 <span style=''>
+</span>360 <span style=''>  private val individualNumberMustBeNumeric = </span><span style='background: #AEF1AE'>ValidationRule(
+</span>361 <span style=''></span><span style='background: #AEF1AE'>    pp =&gt;
+</span>362 <span style=''></span><span style='background: #AEF1AE'>      Try(pp.individualNumber.toInt).toOption.isDefined,
+</span>363 <span style=''></span><span style='background: #AEF1AE'>    pp =&gt;
+</span>364 <span style=''></span><span style='background: #AEF1AE'>      s&quot;Invalid PIC: '${pp.originalInput}'. The individual number (characters 8-10) must be numeric, now it was: '${pp.individualNumber}'.&quot;
+</span>365 <span style=''></span><span style='background: #AEF1AE'>  )</span><span style=''>
+</span>366 <span style=''>
+</span>367 <span style=''>  private val validationRules = </span><span style='background: #AEF1AE'>List(
+</span>368 <span style=''></span><span style='background: #AEF1AE'>    birthDatePartMustBeNumeric,
+</span>369 <span style=''></span><span style='background: #AEF1AE'>    dayOfBirthDatePartMustBeInRangeOf1To31,
+</span>370 <span style=''></span><span style='background: #AEF1AE'>    monthOfBirthDatePartMustBeInRangeOf1To12,
+</span>371 <span style=''></span><span style='background: #AEF1AE'>    signMustHaveAcceptableValue,
+</span>372 <span style=''></span><span style='background: #AEF1AE'>    individualNumberMustBeNumeric)</span><span style=''>
+</span>373 <span style=''>
+</span>374 <span style=''>  /**
+</span>375 <span style=''>   * Here we have certainty that all the substrings, when concatenated together, form a string of 11 chars.
+</span>376 <span style=''>   */
+</span>377 <span style=''>  private def createFromSubstrings(pp: PicParts): Either[String, Pic] = {
+</span>378 <span style=''>    val failedValidationRule = </span><span style='background: #AEF1AE'>validationRules.find(vr =&gt; !vr.predicate(pp))</span><span style=''>
+</span>379 <span style=''>    failedValidationRule match {
+</span>380 <span style=''>      case Some(rule) =&gt; </span><span style='background: #AEF1AE'>Left(rule.errorMessageGenerator(pp))</span><span style=''>
+</span>381 <span style=''>      case None =&gt; </span><span style='background: #AEF1AE'>createFromValidParts(pp)</span><span style=''>
+</span>382 <span style=''>    }
 </span>383 <span style=''>  }
 </span>384 <span style=''>
-</span>385 <span style=''>
-</span>386 <span style=''>  /**
-</span>387 <span style=''>   * The possible control characters. See https://vrk.fi/en/personal-identity-code1 for more information about the control character calculation.
-</span>388 <span style=''>   */
-</span>389 <span style=''>  private val controlChars: Array[Char] = </span><span style='background: #AEF1AE'>Array('0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F', 'H', 'J', 'K', 'L', 'M', 'N', 'P', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y')</span><span style=''>
-</span>390 <span style=''>
-</span>391 <span style=''>  /**
-</span>392 <span style=''>   * The input to this method is the birth date part (290877 in 290877-1639)
-</span>393 <span style=''>   * concatenated with the individualNumber (163 in 290877-1639). In this example,
-</span>394 <span style=''>   * the returned char would be 9.
-</span>395 <span style=''>   *
-</span>396 <span style=''>   * See https://vrk.fi/en/personal-identity-code1 for more information about the control character calculation.
-</span>397 <span style=''>   *
-</span>398 <span style=''>   * @param input see the description of input above.
-</span>399 <span style=''>   * @return the expected control character for the input given.
-</span>400 <span style=''>   */
-</span>401 <span style=''>  private def calculateExpectedControlCharacter(input: Long): Char = {
-</span>402 <span style=''>    val remainder: Int = (</span><span style='background: #AEF1AE'>input % 31).toInt</span><span style=''>
-</span>403 <span style=''>    </span><span style='background: #AEF1AE'>controlChars(remainder)</span><span style=''>
-</span>404 <span style=''>  }
-</span>405 <span style=''>}
+</span>385 <span style=''>  /**
+</span>386 <span style=''>   * Here we have certainty that all the parts are themselves valid, except for the control character.
+</span>387 <span style=''>   */
+</span>388 <span style=''>  private def createFromValidParts(pp: PicParts): Either[String, Pic] = {
+</span>389 <span style=''>    // At this point the birthDatePart and individualNumber have been validated to be numeric, so we can just use .toLong directly without Try.
+</span>390 <span style=''>    val expectedControlCharacter: Char = </span><span style='background: #AEF1AE'>calculateExpectedControlCharacter((pp.birthDatePart + pp.individualNumber).toLong)</span><span style=''>
+</span>391 <span style=''>    if (</span><span style='background: #AEF1AE'>pp.controlCharacter.charAt(0) != expectedControlCharacter</span><span style=''>) {
+</span>392 <span style=''>      </span><span style='background: #AEF1AE'>Left(s&quot;Invalid PIC: '${pp.originalInput}'. The control character ('${pp.controlCharacter}') is wrong: it should be '${expectedControlCharacter}'.&quot;)</span><span style=''>
+</span>393 <span style=''>    } else </span><span style='background: #AEF1AE'>{
+</span>394 <span style=''></span><span style='background: #AEF1AE'>      val gender = if (pp.individualNumber.toInt % 2 == 0) Female else Male
+</span>395 <span style=''></span><span style='background: #AEF1AE'>      val century = pp.sign.charAt(0) match {
+</span>396 <span style=''></span><span style='background: #AEF1AE'>        case '+' =&gt; 1800
+</span>397 <span style=''></span><span style='background: #AEF1AE'>        case '-' =&gt; 1900
+</span>398 <span style=''></span><span style='background: #AEF1AE'>        case 'A' =&gt; 2000
+</span>399 <span style=''></span><span style='background: #AEF1AE'>      }
+</span>400 <span style=''></span><span style='background: #AEF1AE'>      val yearWithinCentury = pp.birthDatePart.toString.substring(4, 6).toInt
+</span>401 <span style=''></span><span style='background: #AEF1AE'>      val birthYear = century + yearWithinCentury
+</span>402 <span style=''></span><span style='background: #AEF1AE'>      val birthMonth = pp.birthDatePart.toString.substring(2, 4).toInt
+</span>403 <span style=''></span><span style='background: #AEF1AE'>      val birthDay = pp.birthDatePart.toString.substring(0, 2).toInt
+</span>404 <span style=''></span><span style='background: #AEF1AE'>      val candidate: Pic = new Pic(pp.cleanedInput, gender, birthYear, birthMonth, birthDay)
+</span>405 <span style=''></span><span style='background: #AEF1AE'>      // Check that the birth date is not impossible (e.g. not in the calendar,
+</span>406 <span style=''></span><span style='background: #AEF1AE'>      // like &quot;30.2.1977&quot;).
+</span>407 <span style=''></span><span style='background: #AEF1AE'>      Try(candidate.birthDate) match {
+</span>408 <span style=''></span><span style='background: #AEF1AE'>        case Success(_) =&gt; Right(candidate)
+</span>409 <span style=''></span><span style='background: #AEF1AE'>        case Failure(_) =&gt; Left(s&quot;Invalid PIC: '${pp.originalInput}'. The birth date is impossible, this day does not exist on the calendar: '${pp.birthDatePart}'.&quot;)
+</span>410 <span style=''></span><span style='background: #AEF1AE'>      }
+</span>411 <span style=''></span><span style='background: #AEF1AE'>    }</span><span style=''>
+</span>412 <span style=''>  }
+</span>413 <span style=''>
+</span>414 <span style=''>  /**
+</span>415 <span style=''>   * The possible control characters. See https://vrk.fi/en/personal-identity-code1 for more information about the control character calculation.
+</span>416 <span style=''>   */
+</span>417 <span style=''>  private[finnpic] val controlChars: Array[Char] = </span><span style='background: #AEF1AE'>Array('0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F', 'H', 'J', 'K', 'L', 'M', 'N', 'P', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y')</span><span style=''>
+</span>418 <span style=''>
+</span>419 <span style=''>  /**
+</span>420 <span style=''>   * The input to this method is the birth date part (290877 in 290877-1639)
+</span>421 <span style=''>   * concatenated with the individualNumber (163 in 290877-1639). In this example,
+</span>422 <span style=''>   * the returned char would be 9.
+</span>423 <span style=''>   *
+</span>424 <span style=''>   * See https://vrk.fi/en/personal-identity-code1 for more information about the control character calculation.
+</span>425 <span style=''>   *
+</span>426 <span style=''>   * @param input see the description of input above.
+</span>427 <span style=''>   * @return the expected control character for the input given.
+</span>428 <span style=''>   */
+</span>429 <span style=''>  private[finnpic] def calculateExpectedControlCharacter(input: Long): Char = {
+</span>430 <span style=''>    val remainder: Int = (</span><span style='background: #AEF1AE'>input % 31).toInt</span><span style=''>
+</span>431 <span style=''>    </span><span style='background: #AEF1AE'>controlChars(remainder)</span><span style=''>
+</span>432 <span style=''>  }
+</span>433 <span style=''>}
 </span></pre>
           </div>
           <div class="tab-pane" id="statementlist">
@@ -446,9 +474,9 @@
           1
         </td>
         <td>
-          1599
+          1619
           -
-          1605
+          1625
         </td>
         <td>
           Select
@@ -467,9 +495,9 @@
           2
         </td>
         <td>
-          1981
+          2001
           -
-          1988
+          2008
         </td>
         <td>
           Select
@@ -488,9 +516,9 @@
           3
         </td>
         <td>
-          2241
+          2261
           -
-          2251
+          2271
         </td>
         <td>
           Select
@@ -509,9 +537,9 @@
           4
         </td>
         <td>
-          2567
+          2587
           -
-          2578
+          2598
         </td>
         <td>
           Select
@@ -530,9 +558,9 @@
           5
         </td>
         <td>
-          3051
+          3071
           -
-          3060
+          3080
         </td>
         <td>
           Select
@@ -551,9 +579,9 @@
           8
         </td>
         <td>
-          3133
+          3153
           -
-          3141
+          3161
         </td>
         <td>
           Select
@@ -572,9 +600,9 @@
           7
         </td>
         <td>
-          3121
+          3141
           -
-          3131
+          3151
         </td>
         <td>
           Select
@@ -593,9 +621,9 @@
           9
         </td>
         <td>
-          3097
+          3117
           -
-          3142
+          3162
         </td>
         <td>
           Apply
@@ -614,9 +642,9 @@
           6
         </td>
         <td>
-          3110
+          3130
           -
-          3119
+          3139
         </td>
         <td>
           Select
@@ -635,9 +663,9 @@
           11
         </td>
         <td>
-          3191
+          3211
           -
-          3220
+          3240
         </td>
         <td>
           Apply
@@ -656,9 +684,9 @@
           10
         </td>
         <td>
-          3206
+          3226
           -
-          3215
+          3235
         </td>
         <td>
           Select
@@ -677,9 +705,9 @@
           13
         </td>
         <td>
-          3308
+          3328
           -
-          3335
+          3355
         </td>
         <td>
           Apply
@@ -698,9 +726,9 @@
           12
         </td>
         <td>
-          3314
-          -
           3334
+          -
+          3354
         </td>
         <td>
           Apply
@@ -719,9 +747,9 @@
           14
         </td>
         <td>
-          3388
+          3408
           -
-          3406
+          3426
         </td>
         <td>
           Apply
@@ -740,9 +768,9 @@
           15
         </td>
         <td>
-          3498
+          3518
           -
-          3515
+          3535
         </td>
         <td>
           Apply
@@ -761,9 +789,9 @@
           17
         </td>
         <td>
-          3587
+          3607
           -
-          3626
+          3646
         </td>
         <td>
           Apply
@@ -782,9 +810,9 @@
           16
         </td>
         <td>
-          3607
+          3627
           -
-          3626
+          3646
         </td>
         <td>
           Select
@@ -803,9 +831,9 @@
           19
         </td>
         <td>
-          3737
+          3757
           -
-          3775
+          3795
         </td>
         <td>
           Apply
@@ -824,9 +852,9 @@
           18
         </td>
         <td>
-          3756
+          3776
           -
-          3775
+          3795
         </td>
         <td>
           Select
@@ -845,9 +873,9 @@
           20
         </td>
         <td>
-          4116
+          4136
           -
-          4121
+          4141
         </td>
         <td>
           Select
@@ -866,9 +894,9 @@
           22
         </td>
         <td>
-          4454
+          4474
           -
-          4483
+          4503
         </td>
         <td>
           Apply
@@ -887,9 +915,9 @@
           21
         </td>
         <td>
-          4472
+          4492
           -
-          4482
+          4502
         </td>
         <td>
           Select
@@ -908,9 +936,9 @@
           23
         </td>
         <td>
-          4508
+          4528
           -
-          4513
+          4533
         </td>
         <td>
           Literal
@@ -929,9 +957,9 @@
           24
         </td>
         <td>
-          4788
+          4808
           -
-          4802
+          4822
         </td>
         <td>
           Apply
@@ -950,9 +978,9 @@
           25
         </td>
         <td>
-          5961
+          5981
           -
-          5963
+          5983
         </td>
         <td>
           Literal
@@ -971,9 +999,9 @@
           26
         </td>
         <td>
-          6089
+          6122
           -
-          6106
+          6139
         </td>
         <td>
           Apply
@@ -992,9 +1020,9 @@
           27
         </td>
         <td>
-          7050
+          7083
           -
-          7074
+          7107
         </td>
         <td>
           Apply
@@ -1013,9 +1041,9 @@
           32
         </td>
         <td>
-          7194
+          7227
           -
-          7202
+          7235
         </td>
         <td>
           Apply
@@ -1034,9 +1062,9 @@
           29
         </td>
         <td>
-          7132
+          7165
           -
-          7147
+          7180
         </td>
         <td>
           Literal
@@ -1055,9 +1083,9 @@
           31
         </td>
         <td>
-          7203
+          7236
           -
-          7216
+          7249
         </td>
         <td>
           Literal
@@ -1076,9 +1104,9 @@
           34
         </td>
         <td>
-          7125
+          7158
           -
-          7217
+          7250
         </td>
         <td>
           Apply
@@ -1097,9 +1125,9 @@
           28
         </td>
         <td>
-          7107
+          7140
           -
-          7121
+          7154
         </td>
         <td>
           Apply
@@ -1118,9 +1146,9 @@
           30
         </td>
         <td>
-          7150
+          7183
           -
-          7193
+          7226
         </td>
         <td>
           Literal
@@ -1139,9 +1167,9 @@
           33
         </td>
         <td>
-          7130
+          7163
           -
-          7216
+          7249
         </td>
         <td>
           Apply
@@ -1160,9 +1188,9 @@
           35
         </td>
         <td>
-          7242
+          7275
           -
-          7256
+          7289
         </td>
         <td>
           Apply
@@ -1181,9 +1209,9 @@
           36
         </td>
         <td>
-          7260
+          7293
           -
-          7301
+          7334
         </td>
         <td>
           Apply
@@ -1202,9 +1230,9 @@
           37
         </td>
         <td>
-          8147
+          8180
           -
-          8164
+          8197
         </td>
         <td>
           Apply
@@ -1223,9 +1251,9 @@
           38
         </td>
         <td>
-          8206
+          8239
           -
-          8254
+          8287
         </td>
         <td>
           Throw
@@ -1244,9 +1272,9 @@
           39
         </td>
         <td>
-          8620
+          8653
           -
-          8643
+          8676
         </td>
         <td>
           Apply
@@ -1265,9 +1293,9 @@
           40
         </td>
         <td>
-          8984
+          9017
           -
-          9012
+          9045
         </td>
         <td>
           Apply
@@ -1286,9 +1314,9 @@
           41
         </td>
         <td>
-          9028
+          9061
           -
-          9056
+          9089
         </td>
         <td>
           Apply
@@ -1307,9 +1335,9 @@
           42
         </td>
         <td>
-          9084
+          9117
           -
-          9113
+          9146
         </td>
         <td>
           Apply
@@ -1328,9 +1356,9 @@
           43
         </td>
         <td>
-          9141
+          9174
           -
-          9171
+          9204
         </td>
         <td>
           Apply
@@ -1349,9 +1377,9 @@
           44
         </td>
         <td>
-          9197
+          9230
           -
-          9291
+          9324
         </td>
         <td>
           Apply
@@ -1370,9 +1398,9 @@
           45
         </td>
         <td>
-          9176
+          9209
           -
-          9292
+          9325
         </td>
         <td>
           Apply
@@ -1391,9 +1419,9 @@
           53
         </td>
         <td>
-          9768
+          9801
           -
-          9974
+          10007
         </td>
         <td>
           Apply
@@ -1412,9 +1440,9 @@
           46
         </td>
         <td>
-          9800
+          9833
           -
-          9834
+          9867
         </td>
         <td>
           Apply
@@ -1433,9 +1461,9 @@
           50
         </td>
         <td>
-          9870
+          9903
           -
-          9886
+          9919
         </td>
         <td>
           Select
@@ -1454,9 +1482,9 @@
           47
         </td>
         <td>
-          9854
+          9887
           -
-          9869
+          9902
         </td>
         <td>
           Literal
@@ -1475,9 +1503,9 @@
           49
         </td>
         <td>
-          9970
+          10003
           -
-          9973
+          10006
         </td>
         <td>
           Literal
@@ -1496,9 +1524,9 @@
           52
         </td>
         <td>
-          9852
+          9885
           -
-          9973
+          10006
         </td>
         <td>
           Apply
@@ -1517,9 +1545,9 @@
           48
         </td>
         <td>
-          9887
+          9920
           -
-          9952
+          9985
         </td>
         <td>
           Literal
@@ -1538,9 +1566,9 @@
           51
         </td>
         <td>
-          9953
+          9986
           -
-          9969
+          10002
         </td>
         <td>
           Select
@@ -1559,9 +1587,519 @@
           65
         </td>
         <td>
-          10020
+          10064
           -
-          10229
+          10349
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          org.finnpic.Pic.ValidationRule.apply
+        </td>
+        <td style="background: #AEF1AE">
+          Pic.this.ValidationRule.apply(((pp: org.finnpic.Pic.PicParts) =&gt; {
+  val day: Int = scala.Predef.augmentString(pp.birthDatePart.substring(0, 2)).toInt;
+  day.&gt;=(1).&amp;&amp;(day.&lt;=(31))
+}), ((pp: org.finnpic.Pic.PicParts) =&gt; scala.StringContext.apply(&quot;Invalid PIC: \'&quot;, &quot;\'. The day part of the birth date is wrong: it should be 01-31, but was: \'&quot;, &quot;\'.&quot;).s(pp.originalInput, pp.birthDatePart.substring(0, 2))))
+        </td>
+      </tr><tr>
+        <td>
+          337
+        </td>
+        <td>
+          55
+        </td>
+        <td>
+          10108
+          -
+          10146
+        </td>
+        <td>
+          Select
+        </td>
+        <td>
+          scala.collection.immutable.StringLike.toInt
+        </td>
+        <td style="background: #AEF1AE">
+          scala.Predef.augmentString(pp.birthDatePart.substring(0, 2)).toInt
+        </td>
+      </tr><tr>
+        <td>
+          337
+        </td>
+        <td>
+          54
+        </td>
+        <td>
+          10108
+          -
+          10140
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          java.lang.String.substring
+        </td>
+        <td style="background: #AEF1AE">
+          pp.birthDatePart.substring(0, 2)
+        </td>
+      </tr><tr>
+        <td>
+          338
+        </td>
+        <td>
+          56
+        </td>
+        <td>
+          10160
+          -
+          10161
+        </td>
+        <td>
+          Literal
+        </td>
+        <td>
+          &lt;nosymbol&gt;
+        </td>
+        <td style="background: #AEF1AE">
+          1
+        </td>
+      </tr><tr>
+        <td>
+          338
+        </td>
+        <td>
+          58
+        </td>
+        <td>
+          10153
+          -
+          10174
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          scala.Boolean.&amp;&amp;
+        </td>
+        <td style="background: #AEF1AE">
+          day.&gt;=(1).&amp;&amp;(day.&lt;=(31))
+        </td>
+      </tr><tr>
+        <td>
+          338
+        </td>
+        <td>
+          57
+        </td>
+        <td>
+          10165
+          -
+          10174
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          scala.Int.&lt;=
+        </td>
+        <td style="background: #AEF1AE">
+          day.&lt;=(31)
+        </td>
+      </tr><tr>
+        <td>
+          341
+        </td>
+        <td>
+          59
+        </td>
+        <td>
+          10200
+          -
+          10215
+        </td>
+        <td>
+          Literal
+        </td>
+        <td>
+          &lt;nosymbol&gt;
+        </td>
+        <td style="background: #AEF1AE">
+          &quot;Invalid PIC: \'&quot;
+        </td>
+      </tr><tr>
+        <td>
+          341
+        </td>
+        <td>
+          62
+        </td>
+        <td>
+          10216
+          -
+          10232
+        </td>
+        <td>
+          Select
+        </td>
+        <td>
+          org.finnpic.Pic.PicParts.originalInput
+        </td>
+        <td style="background: #AEF1AE">
+          pp.originalInput
+        </td>
+      </tr><tr>
+        <td>
+          341
+        </td>
+        <td>
+          64
+        </td>
+        <td>
+          10198
+          -
+          10345
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          scala.StringContext.s
+        </td>
+        <td style="background: #AEF1AE">
+          scala.StringContext.apply(&quot;Invalid PIC: \'&quot;, &quot;\'. The day part of the birth date is wrong: it should be 01-31, but was: \'&quot;, &quot;\'.&quot;).s(pp.originalInput, pp.birthDatePart.substring(0, 2))
+        </td>
+      </tr><tr>
+        <td>
+          341
+        </td>
+        <td>
+          61
+        </td>
+        <td>
+          10342
+          -
+          10345
+        </td>
+        <td>
+          Literal
+        </td>
+        <td>
+          &lt;nosymbol&gt;
+        </td>
+        <td style="background: #AEF1AE">
+          &quot;\'.&quot;
+        </td>
+      </tr><tr>
+        <td>
+          341
+        </td>
+        <td>
+          60
+        </td>
+        <td>
+          10233
+          -
+          10308
+        </td>
+        <td>
+          Literal
+        </td>
+        <td>
+          &lt;nosymbol&gt;
+        </td>
+        <td style="background: #AEF1AE">
+          &quot;\'. The day part of the birth date is wrong: it should be 01-31, but was: \'&quot;
+        </td>
+      </tr><tr>
+        <td>
+          341
+        </td>
+        <td>
+          63
+        </td>
+        <td>
+          10309
+          -
+          10341
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          java.lang.String.substring
+        </td>
+        <td style="background: #AEF1AE">
+          pp.birthDatePart.substring(0, 2)
+        </td>
+      </tr><tr>
+        <td>
+          344
+        </td>
+        <td>
+          77
+        </td>
+        <td>
+          10408
+          -
+          10701
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          org.finnpic.Pic.ValidationRule.apply
+        </td>
+        <td style="background: #AEF1AE">
+          Pic.this.ValidationRule.apply(((pp: org.finnpic.Pic.PicParts) =&gt; {
+  val month: Int = scala.Predef.augmentString(pp.birthDatePart.substring(2, 4)).toInt;
+  month.&gt;=(1).&amp;&amp;(month.&lt;=(12))
+}), ((pp: org.finnpic.Pic.PicParts) =&gt; scala.StringContext.apply(&quot;Invalid PIC: \'&quot;, &quot;\'. The month part of the birth date is wrong: it should be 01-12, but was: \'&quot;, &quot;\'.&quot;).s(pp.originalInput, pp.birthDatePart.substring(2, 4))))
+        </td>
+      </tr><tr>
+        <td>
+          346
+        </td>
+        <td>
+          67
+        </td>
+        <td>
+          10454
+          -
+          10492
+        </td>
+        <td>
+          Select
+        </td>
+        <td>
+          scala.collection.immutable.StringLike.toInt
+        </td>
+        <td style="background: #AEF1AE">
+          scala.Predef.augmentString(pp.birthDatePart.substring(2, 4)).toInt
+        </td>
+      </tr><tr>
+        <td>
+          346
+        </td>
+        <td>
+          66
+        </td>
+        <td>
+          10454
+          -
+          10486
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          java.lang.String.substring
+        </td>
+        <td style="background: #AEF1AE">
+          pp.birthDatePart.substring(2, 4)
+        </td>
+      </tr><tr>
+        <td>
+          347
+        </td>
+        <td>
+          68
+        </td>
+        <td>
+          10508
+          -
+          10509
+        </td>
+        <td>
+          Literal
+        </td>
+        <td>
+          &lt;nosymbol&gt;
+        </td>
+        <td style="background: #AEF1AE">
+          1
+        </td>
+      </tr><tr>
+        <td>
+          347
+        </td>
+        <td>
+          70
+        </td>
+        <td>
+          10499
+          -
+          10524
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          scala.Boolean.&amp;&amp;
+        </td>
+        <td style="background: #AEF1AE">
+          month.&gt;=(1).&amp;&amp;(month.&lt;=(12))
+        </td>
+      </tr><tr>
+        <td>
+          347
+        </td>
+        <td>
+          69
+        </td>
+        <td>
+          10513
+          -
+          10524
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          scala.Int.&lt;=
+        </td>
+        <td style="background: #AEF1AE">
+          month.&lt;=(12)
+        </td>
+      </tr><tr>
+        <td>
+          350
+        </td>
+        <td>
+          71
+        </td>
+        <td>
+          10550
+          -
+          10565
+        </td>
+        <td>
+          Literal
+        </td>
+        <td>
+          &lt;nosymbol&gt;
+        </td>
+        <td style="background: #AEF1AE">
+          &quot;Invalid PIC: \'&quot;
+        </td>
+      </tr><tr>
+        <td>
+          350
+        </td>
+        <td>
+          74
+        </td>
+        <td>
+          10566
+          -
+          10582
+        </td>
+        <td>
+          Select
+        </td>
+        <td>
+          org.finnpic.Pic.PicParts.originalInput
+        </td>
+        <td style="background: #AEF1AE">
+          pp.originalInput
+        </td>
+      </tr><tr>
+        <td>
+          350
+        </td>
+        <td>
+          73
+        </td>
+        <td>
+          10694
+          -
+          10697
+        </td>
+        <td>
+          Literal
+        </td>
+        <td>
+          &lt;nosymbol&gt;
+        </td>
+        <td style="background: #AEF1AE">
+          &quot;\'.&quot;
+        </td>
+      </tr><tr>
+        <td>
+          350
+        </td>
+        <td>
+          76
+        </td>
+        <td>
+          10548
+          -
+          10697
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          scala.StringContext.s
+        </td>
+        <td style="background: #AEF1AE">
+          scala.StringContext.apply(&quot;Invalid PIC: \'&quot;, &quot;\'. The month part of the birth date is wrong: it should be 01-12, but was: \'&quot;, &quot;\'.&quot;).s(pp.originalInput, pp.birthDatePart.substring(2, 4))
+        </td>
+      </tr><tr>
+        <td>
+          350
+        </td>
+        <td>
+          72
+        </td>
+        <td>
+          10583
+          -
+          10660
+        </td>
+        <td>
+          Literal
+        </td>
+        <td>
+          &lt;nosymbol&gt;
+        </td>
+        <td style="background: #AEF1AE">
+          &quot;\'. The month part of the birth date is wrong: it should be 01-12, but was: \'&quot;
+        </td>
+      </tr><tr>
+        <td>
+          350
+        </td>
+        <td>
+          75
+        </td>
+        <td>
+          10661
+          -
+          10693
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          java.lang.String.substring
+        </td>
+        <td style="background: #AEF1AE">
+          pp.birthDatePart.substring(2, 4)
+        </td>
+      </tr><tr>
+        <td>
+          353
+        </td>
+        <td>
+          89
+        </td>
+        <td>
+          10747
+          -
+          10956
         </td>
         <td>
           Apply
@@ -1574,15 +2112,15 @@
         </td>
       </tr><tr>
         <td>
-          337
+          355
         </td>
         <td>
-          56
+          80
         </td>
         <td>
-          10067
+          10794
           -
-          10070
+          10797
         </td>
         <td>
           Literal
@@ -1595,36 +2133,15 @@
         </td>
       </tr><tr>
         <td>
-          337
+          355
         </td>
         <td>
-          55
+          82
         </td>
         <td>
-          10062
+          10779
           -
-          10065
-        </td>
-        <td>
-          Literal
-        </td>
-        <td>
-          &lt;nosymbol&gt;
-        </td>
-        <td style="background: #AEF1AE">
-          '-'
-        </td>
-      </tr><tr>
-        <td>
-          337
-        </td>
-        <td>
-          58
-        </td>
-        <td>
-          10052
-          -
-          10099
+          10826
         </td>
         <td>
           Apply
@@ -1637,15 +2154,36 @@
         </td>
       </tr><tr>
         <td>
-          337
+          355
         </td>
         <td>
-          54
+          79
         </td>
         <td>
-          10057
+          10789
           -
-          10060
+          10792
+        </td>
+        <td>
+          Literal
+        </td>
+        <td>
+          &lt;nosymbol&gt;
+        </td>
+        <td style="background: #AEF1AE">
+          '-'
+        </td>
+      </tr><tr>
+        <td>
+          355
+        </td>
+        <td>
+          78
+        </td>
+        <td>
+          10784
+          -
+          10787
         </td>
         <td>
           Literal
@@ -1658,15 +2196,15 @@
         </td>
       </tr><tr>
         <td>
-          337
+          355
         </td>
         <td>
-          57
+          81
         </td>
         <td>
-          10081
+          10808
           -
-          10098
+          10825
         </td>
         <td>
           Apply
@@ -1679,15 +2217,15 @@
         </td>
       </tr><tr>
         <td>
-          339
+          357
         </td>
         <td>
-          59
+          83
         </td>
         <td>
-          10119
+          10846
           -
-          10134
+          10861
         </td>
         <td>
           Literal
@@ -1700,15 +2238,15 @@
         </td>
       </tr><tr>
         <td>
-          339
+          357
         </td>
         <td>
-          62
+          86
         </td>
         <td>
-          10135
+          10862
           -
-          10151
+          10878
         </td>
         <td>
           Select
@@ -1721,15 +2259,36 @@
         </td>
       </tr><tr>
         <td>
-          339
+          357
         </td>
         <td>
-          64
+          85
         </td>
         <td>
-          10117
+          10949
           -
-          10225
+          10952
+        </td>
+        <td>
+          Literal
+        </td>
+        <td>
+          &lt;nosymbol&gt;
+        </td>
+        <td style="background: #AEF1AE">
+          &quot;\'.&quot;
+        </td>
+      </tr><tr>
+        <td>
+          357
+        </td>
+        <td>
+          88
+        </td>
+        <td>
+          10844
+          -
+          10952
         </td>
         <td>
           Apply
@@ -1742,57 +2301,15 @@
         </td>
       </tr><tr>
         <td>
-          339
+          357
         </td>
         <td>
-          61
+          87
         </td>
         <td>
-          10222
+          10941
           -
-          10225
-        </td>
-        <td>
-          Literal
-        </td>
-        <td>
-          &lt;nosymbol&gt;
-        </td>
-        <td style="background: #AEF1AE">
-          &quot;\'.&quot;
-        </td>
-      </tr><tr>
-        <td>
-          339
-        </td>
-        <td>
-          60
-        </td>
-        <td>
-          10152
-          -
-          10213
-        </td>
-        <td>
-          Literal
-        </td>
-        <td>
-          &lt;nosymbol&gt;
-        </td>
-        <td style="background: #AEF1AE">
-          &quot;\'. The sign (7th character) must be +, - or A, now it was: \'&quot;
-        </td>
-      </tr><tr>
-        <td>
-          339
-        </td>
-        <td>
-          63
-        </td>
-        <td>
-          10214
-          -
-          10221
+          10948
         </td>
         <td>
           Select
@@ -1805,15 +2322,36 @@
         </td>
       </tr><tr>
         <td>
-          342
+          357
         </td>
         <td>
-          75
+          84
         </td>
         <td>
-          10277
+          10879
           -
-          10513
+          10940
+        </td>
+        <td>
+          Literal
+        </td>
+        <td>
+          &lt;nosymbol&gt;
+        </td>
+        <td style="background: #AEF1AE">
+          &quot;\'. The sign (7th character) must be +, - or A, now it was: \'&quot;
+        </td>
+      </tr><tr>
+        <td>
+          360
+        </td>
+        <td>
+          99
+        </td>
+        <td>
+          11004
+          -
+          11240
         </td>
         <td>
           Apply
@@ -1826,15 +2364,15 @@
         </td>
       </tr><tr>
         <td>
-          344
+          362
         </td>
         <td>
-          68
+          92
         </td>
         <td>
-          10309
+          11036
           -
-          10358
+          11085
         </td>
         <td>
           Select
@@ -1847,15 +2385,15 @@
         </td>
       </tr><tr>
         <td>
-          344
+          362
         </td>
         <td>
-          67
+          91
         </td>
         <td>
-          10313
+          11040
           -
-          10338
+          11065
         </td>
         <td>
           Select
@@ -1868,15 +2406,15 @@
         </td>
       </tr><tr>
         <td>
-          344
+          362
         </td>
         <td>
-          66
+          90
         </td>
         <td>
-          10313
+          11040
           -
-          10332
+          11059
         </td>
         <td>
           Select
@@ -1889,15 +2427,15 @@
         </td>
       </tr><tr>
         <td>
-          346
+          364
         </td>
         <td>
-          71
+          95
         </td>
         <td>
-          10506
+          11233
           -
-          10509
+          11236
         </td>
         <td>
           Literal
@@ -1910,15 +2448,15 @@
         </td>
       </tr><tr>
         <td>
-          346
+          364
         </td>
         <td>
-          74
+          98
         </td>
         <td>
-          10376
+          11103
           -
-          10509
+          11236
         </td>
         <td>
           Apply
@@ -1931,36 +2469,15 @@
         </td>
       </tr><tr>
         <td>
-          346
+          364
         </td>
         <td>
-          73
+          94
         </td>
         <td>
-          10486
+          11138
           -
-          10505
-        </td>
-        <td>
-          Select
-        </td>
-        <td>
-          org.finnpic.Pic.PicParts.individualNumber
-        </td>
-        <td style="background: #AEF1AE">
-          pp.individualNumber
-        </td>
-      </tr><tr>
-        <td>
-          346
-        </td>
-        <td>
-          70
-        </td>
-        <td>
-          10411
-          -
-          10485
+          11212
         </td>
         <td>
           Literal
@@ -1973,267 +2490,15 @@
         </td>
       </tr><tr>
         <td>
-          346
+          364
         </td>
         <td>
-          69
+          97
         </td>
         <td>
-          10378
+          11213
           -
-          10393
-        </td>
-        <td>
-          Literal
-        </td>
-        <td>
-          &lt;nosymbol&gt;
-        </td>
-        <td style="background: #AEF1AE">
-          &quot;Invalid PIC: \'&quot;
-        </td>
-      </tr><tr>
-        <td>
-          346
-        </td>
-        <td>
-          72
-        </td>
-        <td>
-          10394
-          -
-          10410
-        </td>
-        <td>
-          Select
-        </td>
-        <td>
-          org.finnpic.Pic.PicParts.originalInput
-        </td>
-        <td style="background: #AEF1AE">
-          pp.originalInput
-        </td>
-      </tr><tr>
-        <td>
-          349
-        </td>
-        <td>
-          77
-        </td>
-        <td>
-          10580
-          -
-          10607
-        </td>
-        <td>
-          Select
-        </td>
-        <td>
-          org.finnpic.Pic.signMustHaveAcceptableValue
-        </td>
-        <td style="background: #AEF1AE">
-          Pic.this.signMustHaveAcceptableValue
-        </td>
-      </tr><tr>
-        <td>
-          349
-        </td>
-        <td>
-          76
-        </td>
-        <td>
-          10552
-          -
-          10578
-        </td>
-        <td>
-          Select
-        </td>
-        <td>
-          org.finnpic.Pic.birthDatePartMustBeNumeric
-        </td>
-        <td style="background: #AEF1AE">
-          Pic.this.birthDatePartMustBeNumeric
-        </td>
-      </tr><tr>
-        <td>
-          349
-        </td>
-        <td>
-          79
-        </td>
-        <td>
-          10547
-          -
-          10639
-        </td>
-        <td>
-          Apply
-        </td>
-        <td>
-          scala.collection.immutable.List.apply
-        </td>
-        <td style="background: #AEF1AE">
-          scala.collection.immutable.List.apply[org.finnpic.Pic.ValidationRule](Pic.this.birthDatePartMustBeNumeric, Pic.this.signMustHaveAcceptableValue, Pic.this.individualNumberMustBeNumeric)
-        </td>
-      </tr><tr>
-        <td>
-          349
-        </td>
-        <td>
-          78
-        </td>
-        <td>
-          10609
-          -
-          10638
-        </td>
-        <td>
-          Select
-        </td>
-        <td>
-          org.finnpic.Pic.individualNumberMustBeNumeric
-        </td>
-        <td style="background: #AEF1AE">
-          Pic.this.individualNumberMustBeNumeric
-        </td>
-      </tr><tr>
-        <td>
-          355
-        </td>
-        <td>
-          80
-        </td>
-        <td>
-          10893
-          -
-          10910
-        </td>
-        <td>
-          Select
-        </td>
-        <td>
-          scala.Boolean.unary_!
-        </td>
-        <td style="background: #AEF1AE">
-          vr.predicate.apply(pp).unary_!
-        </td>
-      </tr><tr>
-        <td>
-          355
-        </td>
-        <td>
-          81
-        </td>
-        <td>
-          10866
-          -
-          10911
-        </td>
-        <td>
-          Apply
-        </td>
-        <td>
-          scala.collection.LinearSeqOptimized.find
-        </td>
-        <td style="background: #AEF1AE">
-          Pic.this.validationRules.find(((vr: org.finnpic.Pic.ValidationRule) =&gt; vr.predicate.apply(pp).unary_!))
-        </td>
-      </tr><tr>
-        <td>
-          357
-        </td>
-        <td>
-          83
-        </td>
-        <td>
-          10970
-          -
-          11006
-        </td>
-        <td>
-          Apply
-        </td>
-        <td>
-          scala.util.Left.apply
-        </td>
-        <td style="background: #AEF1AE">
-          scala.`package`.Left.apply[String, Nothing](rule.errorMessageGenerator.apply(pp))
-        </td>
-      </tr><tr>
-        <td>
-          357
-        </td>
-        <td>
-          82
-        </td>
-        <td>
-          10975
-          -
-          11005
-        </td>
-        <td>
-          Apply
-        </td>
-        <td>
-          scala.Function1.apply
-        </td>
-        <td style="background: #AEF1AE">
-          rule.errorMessageGenerator.apply(pp)
-        </td>
-      </tr><tr>
-        <td>
-          358
-        </td>
-        <td>
-          84
-        </td>
-        <td>
-          11026
-          -
-          11050
-        </td>
-        <td>
-          Apply
-        </td>
-        <td>
-          org.finnpic.Pic.createFromValidParts
-        </td>
-        <td style="background: #AEF1AE">
-          Pic.this.createFromValidParts(pp)
-        </td>
-      </tr><tr>
-        <td>
-          367
-        </td>
-        <td>
-          86
-        </td>
-        <td>
-          11471
-          -
-          11509
-        </td>
-        <td>
-          Apply
-        </td>
-        <td>
-          java.lang.String.+
-        </td>
-        <td style="background: #AEF1AE">
-          pp.birthDatePart.+(pp.individualNumber)
-        </td>
-      </tr><tr>
-        <td>
-          367
-        </td>
-        <td>
-          85
-        </td>
-        <td>
-          11490
-          -
-          11509
+          11232
         </td>
         <td>
           Select
@@ -2246,162 +2511,15 @@
         </td>
       </tr><tr>
         <td>
-          367
+          364
         </td>
         <td>
-          88
+          96
         </td>
         <td>
-          11436
+          11121
           -
-          11518
-        </td>
-        <td>
-          Apply
-        </td>
-        <td>
-          org.finnpic.Pic.calculateExpectedControlCharacter
-        </td>
-        <td style="background: #AEF1AE">
-          Pic.this.calculateExpectedControlCharacter(scala.Predef.augmentString(pp.birthDatePart.+(pp.individualNumber)).toLong)
-        </td>
-      </tr><tr>
-        <td>
-          367
-        </td>
-        <td>
-          87
-        </td>
-        <td>
-          11471
-          -
-          11517
-        </td>
-        <td>
-          Select
-        </td>
-        <td>
-          scala.collection.immutable.StringLike.toLong
-        </td>
-        <td style="background: #AEF1AE">
-          scala.Predef.augmentString(pp.birthDatePart.+(pp.individualNumber)).toLong
-        </td>
-      </tr><tr>
-        <td>
-          368
-        </td>
-        <td>
-          89
-        </td>
-        <td>
-          11527
-          -
-          11584
-        </td>
-        <td>
-          Apply
-        </td>
-        <td>
-          scala.Char.!=
-        </td>
-        <td style="background: #AEF1AE">
-          pp.controlCharacter.charAt(0).!=(expectedControlCharacter)
-        </td>
-      </tr><tr>
-        <td>
-          369
-        </td>
-        <td>
-          92
-        </td>
-        <td>
-          11683
-          -
-          11711
-        </td>
-        <td>
-          Literal
-        </td>
-        <td>
-          &lt;nosymbol&gt;
-        </td>
-        <td style="background: #AEF1AE">
-          &quot;\') is wrong: it should be \'&quot;
-        </td>
-      </tr><tr>
-        <td>
-          369
-        </td>
-        <td>
-          95
-        </td>
-        <td>
-          11663
-          -
-          11682
-        </td>
-        <td>
-          Select
-        </td>
-        <td>
-          org.finnpic.Pic.PicParts.controlCharacter
-        </td>
-        <td style="background: #AEF1AE">
-          pp.controlCharacter
-        </td>
-      </tr><tr>
-        <td>
-          369
-        </td>
-        <td>
-          98
-        </td>
-        <td>
-          11594
-          -
-          11741
-        </td>
-        <td>
-          Block
-        </td>
-        <td>
-          scala.util.Left.apply
-        </td>
-        <td style="background: #AEF1AE">
-          scala.`package`.Left.apply[String, Nothing](scala.StringContext.apply(&quot;Invalid PIC: \'&quot;, &quot;\'. The control character (\'&quot;, &quot;\') is wrong: it should be \'&quot;, &quot;\'.&quot;).s(pp.originalInput, pp.controlCharacter, expectedControlCharacter))
-        </td>
-      </tr><tr>
-        <td>
-          369
-        </td>
-        <td>
-          91
-        </td>
-        <td>
-          11634
-          -
-          11662
-        </td>
-        <td>
-          Literal
-        </td>
-        <td>
-          &lt;nosymbol&gt;
-        </td>
-        <td style="background: #AEF1AE">
-          &quot;\'. The control character (\'&quot;
-        </td>
-      </tr><tr>
-        <td>
-          369
-        </td>
-        <td>
-          94
-        </td>
-        <td>
-          11617
-          -
-          11633
+          11137
         </td>
         <td>
           Select
@@ -2414,57 +2532,15 @@
         </td>
       </tr><tr>
         <td>
-          369
+          364
         </td>
         <td>
-          97
+          93
         </td>
         <td>
-          11594
+          11105
           -
-          11741
-        </td>
-        <td>
-          Apply
-        </td>
-        <td>
-          scala.util.Left.apply
-        </td>
-        <td style="background: #AEF1AE">
-          scala.`package`.Left.apply[String, Nothing](scala.StringContext.apply(&quot;Invalid PIC: \'&quot;, &quot;\'. The control character (\'&quot;, &quot;\') is wrong: it should be \'&quot;, &quot;\'.&quot;).s(pp.originalInput, pp.controlCharacter, expectedControlCharacter))
-        </td>
-      </tr><tr>
-        <td>
-          369
-        </td>
-        <td>
-          96
-        </td>
-        <td>
-          11599
-          -
-          11740
-        </td>
-        <td>
-          Apply
-        </td>
-        <td>
-          scala.StringContext.s
-        </td>
-        <td style="background: #AEF1AE">
-          scala.StringContext.apply(&quot;Invalid PIC: \'&quot;, &quot;\'. The control character (\'&quot;, &quot;\') is wrong: it should be \'&quot;, &quot;\'.&quot;).s(pp.originalInput, pp.controlCharacter, expectedControlCharacter)
-        </td>
-      </tr><tr>
-        <td>
-          369
-        </td>
-        <td>
-          90
-        </td>
-        <td>
-          11601
-          -
-          11616
+          11120
         </td>
         <td>
           Literal
@@ -2477,15 +2553,351 @@
         </td>
       </tr><tr>
         <td>
+          367
+        </td>
+        <td>
+          105
+        </td>
+        <td>
+          11274
+          -
+          11469
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          scala.collection.immutable.List.apply
+        </td>
+        <td style="background: #AEF1AE">
+          scala.collection.immutable.List.apply[org.finnpic.Pic.ValidationRule](Pic.this.birthDatePartMustBeNumeric, Pic.this.dayOfBirthDatePartMustBeInRangeOf1To31, Pic.this.monthOfBirthDatePartMustBeInRangeOf1To12, Pic.this.signMustHaveAcceptableValue, Pic.this.individualNumberMustBeNumeric)
+        </td>
+      </tr><tr>
+        <td>
+          368
+        </td>
+        <td>
+          100
+        </td>
+        <td>
+          11284
+          -
+          11310
+        </td>
+        <td>
+          Select
+        </td>
+        <td>
+          org.finnpic.Pic.birthDatePartMustBeNumeric
+        </td>
+        <td style="background: #AEF1AE">
+          Pic.this.birthDatePartMustBeNumeric
+        </td>
+      </tr><tr>
+        <td>
           369
         </td>
         <td>
-          93
+          101
         </td>
         <td>
-          11737
+          11316
+          -
+          11354
+        </td>
+        <td>
+          Select
+        </td>
+        <td>
+          org.finnpic.Pic.dayOfBirthDatePartMustBeInRangeOf1To31
+        </td>
+        <td style="background: #AEF1AE">
+          Pic.this.dayOfBirthDatePartMustBeInRangeOf1To31
+        </td>
+      </tr><tr>
+        <td>
+          370
+        </td>
+        <td>
+          102
+        </td>
+        <td>
+          11360
+          -
+          11400
+        </td>
+        <td>
+          Select
+        </td>
+        <td>
+          org.finnpic.Pic.monthOfBirthDatePartMustBeInRangeOf1To12
+        </td>
+        <td style="background: #AEF1AE">
+          Pic.this.monthOfBirthDatePartMustBeInRangeOf1To12
+        </td>
+      </tr><tr>
+        <td>
+          371
+        </td>
+        <td>
+          103
+        </td>
+        <td>
+          11406
+          -
+          11433
+        </td>
+        <td>
+          Select
+        </td>
+        <td>
+          org.finnpic.Pic.signMustHaveAcceptableValue
+        </td>
+        <td style="background: #AEF1AE">
+          Pic.this.signMustHaveAcceptableValue
+        </td>
+      </tr><tr>
+        <td>
+          372
+        </td>
+        <td>
+          104
+        </td>
+        <td>
+          11439
+          -
+          11468
+        </td>
+        <td>
+          Select
+        </td>
+        <td>
+          org.finnpic.Pic.individualNumberMustBeNumeric
+        </td>
+        <td style="background: #AEF1AE">
+          Pic.this.individualNumberMustBeNumeric
+        </td>
+      </tr><tr>
+        <td>
+          378
+        </td>
+        <td>
+          107
+        </td>
+        <td>
+          11696
+          -
+          11741
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          scala.collection.LinearSeqOptimized.find
+        </td>
+        <td style="background: #AEF1AE">
+          Pic.this.validationRules.find(((vr: org.finnpic.Pic.ValidationRule) =&gt; vr.predicate.apply(pp).unary_!))
+        </td>
+      </tr><tr>
+        <td>
+          378
+        </td>
+        <td>
+          106
+        </td>
+        <td>
+          11723
           -
           11740
+        </td>
+        <td>
+          Select
+        </td>
+        <td>
+          scala.Boolean.unary_!
+        </td>
+        <td style="background: #AEF1AE">
+          vr.predicate.apply(pp).unary_!
+        </td>
+      </tr><tr>
+        <td>
+          380
+        </td>
+        <td>
+          109
+        </td>
+        <td>
+          11800
+          -
+          11836
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          scala.util.Left.apply
+        </td>
+        <td style="background: #AEF1AE">
+          scala.`package`.Left.apply[String, Nothing](rule.errorMessageGenerator.apply(pp))
+        </td>
+      </tr><tr>
+        <td>
+          380
+        </td>
+        <td>
+          108
+        </td>
+        <td>
+          11805
+          -
+          11835
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          scala.Function1.apply
+        </td>
+        <td style="background: #AEF1AE">
+          rule.errorMessageGenerator.apply(pp)
+        </td>
+      </tr><tr>
+        <td>
+          381
+        </td>
+        <td>
+          110
+        </td>
+        <td>
+          11856
+          -
+          11880
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          org.finnpic.Pic.createFromValidParts
+        </td>
+        <td style="background: #AEF1AE">
+          Pic.this.createFromValidParts(pp)
+        </td>
+      </tr><tr>
+        <td>
+          390
+        </td>
+        <td>
+          113
+        </td>
+        <td>
+          12301
+          -
+          12347
+        </td>
+        <td>
+          Select
+        </td>
+        <td>
+          scala.collection.immutable.StringLike.toLong
+        </td>
+        <td style="background: #AEF1AE">
+          scala.Predef.augmentString(pp.birthDatePart.+(pp.individualNumber)).toLong
+        </td>
+      </tr><tr>
+        <td>
+          390
+        </td>
+        <td>
+          112
+        </td>
+        <td>
+          12301
+          -
+          12339
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          java.lang.String.+
+        </td>
+        <td style="background: #AEF1AE">
+          pp.birthDatePart.+(pp.individualNumber)
+        </td>
+      </tr><tr>
+        <td>
+          390
+        </td>
+        <td>
+          114
+        </td>
+        <td>
+          12266
+          -
+          12348
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          org.finnpic.Pic.calculateExpectedControlCharacter
+        </td>
+        <td style="background: #AEF1AE">
+          Pic.this.calculateExpectedControlCharacter(scala.Predef.augmentString(pp.birthDatePart.+(pp.individualNumber)).toLong)
+        </td>
+      </tr><tr>
+        <td>
+          390
+        </td>
+        <td>
+          111
+        </td>
+        <td>
+          12320
+          -
+          12339
+        </td>
+        <td>
+          Select
+        </td>
+        <td>
+          org.finnpic.Pic.PicParts.individualNumber
+        </td>
+        <td style="background: #AEF1AE">
+          pp.individualNumber
+        </td>
+      </tr><tr>
+        <td>
+          391
+        </td>
+        <td>
+          115
+        </td>
+        <td>
+          12357
+          -
+          12414
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          scala.Char.!=
+        </td>
+        <td style="background: #AEF1AE">
+          pp.controlCharacter.charAt(0).!=(expectedControlCharacter)
+        </td>
+      </tr><tr>
+        <td>
+          392
+        </td>
+        <td>
+          119
+        </td>
+        <td>
+          12567
+          -
+          12570
         </td>
         <td>
           Literal
@@ -2498,15 +2910,183 @@
         </td>
       </tr><tr>
         <td>
-          370
+          392
+        </td>
+        <td>
+          122
+        </td>
+        <td>
+          12429
+          -
+          12570
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          scala.StringContext.s
+        </td>
+        <td style="background: #AEF1AE">
+          scala.StringContext.apply(&quot;Invalid PIC: \'&quot;, &quot;\'. The control character (\'&quot;, &quot;\') is wrong: it should be \'&quot;, &quot;\'.&quot;).s(pp.originalInput, pp.controlCharacter, expectedControlCharacter)
+        </td>
+      </tr><tr>
+        <td>
+          392
         </td>
         <td>
           116
         </td>
         <td>
-          11753
+          12431
           -
-          12312
+          12446
+        </td>
+        <td>
+          Literal
+        </td>
+        <td>
+          &lt;nosymbol&gt;
+        </td>
+        <td style="background: #AEF1AE">
+          &quot;Invalid PIC: \'&quot;
+        </td>
+      </tr><tr>
+        <td>
+          392
+        </td>
+        <td>
+          124
+        </td>
+        <td>
+          12424
+          -
+          12571
+        </td>
+        <td>
+          Block
+        </td>
+        <td>
+          scala.util.Left.apply
+        </td>
+        <td style="background: #AEF1AE">
+          scala.`package`.Left.apply[String, Nothing](scala.StringContext.apply(&quot;Invalid PIC: \'&quot;, &quot;\'. The control character (\'&quot;, &quot;\') is wrong: it should be \'&quot;, &quot;\'.&quot;).s(pp.originalInput, pp.controlCharacter, expectedControlCharacter))
+        </td>
+      </tr><tr>
+        <td>
+          392
+        </td>
+        <td>
+          118
+        </td>
+        <td>
+          12513
+          -
+          12541
+        </td>
+        <td>
+          Literal
+        </td>
+        <td>
+          &lt;nosymbol&gt;
+        </td>
+        <td style="background: #AEF1AE">
+          &quot;\') is wrong: it should be \'&quot;
+        </td>
+      </tr><tr>
+        <td>
+          392
+        </td>
+        <td>
+          121
+        </td>
+        <td>
+          12493
+          -
+          12512
+        </td>
+        <td>
+          Select
+        </td>
+        <td>
+          org.finnpic.Pic.PicParts.controlCharacter
+        </td>
+        <td style="background: #AEF1AE">
+          pp.controlCharacter
+        </td>
+      </tr><tr>
+        <td>
+          392
+        </td>
+        <td>
+          120
+        </td>
+        <td>
+          12447
+          -
+          12463
+        </td>
+        <td>
+          Select
+        </td>
+        <td>
+          org.finnpic.Pic.PicParts.originalInput
+        </td>
+        <td style="background: #AEF1AE">
+          pp.originalInput
+        </td>
+      </tr><tr>
+        <td>
+          392
+        </td>
+        <td>
+          123
+        </td>
+        <td>
+          12424
+          -
+          12571
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          scala.util.Left.apply
+        </td>
+        <td style="background: #AEF1AE">
+          scala.`package`.Left.apply[String, Nothing](scala.StringContext.apply(&quot;Invalid PIC: \'&quot;, &quot;\'. The control character (\'&quot;, &quot;\') is wrong: it should be \'&quot;, &quot;\'.&quot;).s(pp.originalInput, pp.controlCharacter, expectedControlCharacter))
+        </td>
+      </tr><tr>
+        <td>
+          392
+        </td>
+        <td>
+          117
+        </td>
+        <td>
+          12464
+          -
+          12492
+        </td>
+        <td>
+          Literal
+        </td>
+        <td>
+          &lt;nosymbol&gt;
+        </td>
+        <td style="background: #AEF1AE">
+          &quot;\'. The control character (\'&quot;
+        </td>
+      </tr><tr>
+        <td>
+          393
+        </td>
+        <td>
+          151
+        </td>
+        <td>
+          12583
+          -
+          13521
         </td>
         <td>
           Block
@@ -2529,62 +3109,24 @@
   val birthYear: Int = century.+(yearWithinCentury);
   val birthMonth: Int = scala.Predef.augmentString(pp.birthDatePart.toString().substring(2, 4)).toInt;
   val birthDay: Int = scala.Predef.augmentString(pp.birthDatePart.toString().substring(0, 2)).toInt;
-  scala.`package`.Right.apply[Nothing, org.finnpic.Pic](new Pic(pp.cleanedInput, gender, birthYear, birthMonth, birthDay))
+  val candidate: org.finnpic.Pic = new Pic(pp.cleanedInput, gender, birthYear, birthMonth, birthDay);
+  scala.util.Try.apply[java.time.LocalDate](candidate.birthDate) match {
+    case (value: java.time.LocalDate)scala.util.Success[java.time.LocalDate](_) =&gt; scala.`package`.Right.apply[Nothing, org.finnpic.Pic](candidate)
+    case (exception: Throwable)scala.util.Failure[java.time.LocalDate](_) =&gt; scala.`package`.Left.apply[String, Nothing](scala.StringContext.apply(&quot;Invalid PIC: \'&quot;, &quot;\'. The birth date is impossible, this day does not exist on the calendar: \'&quot;, &quot;\'.&quot;).s(pp.originalInput, pp.birthDatePart))
+  }
 }
         </td>
       </tr><tr>
         <td>
-          371
+          394
         </td>
         <td>
-          101
+          125
         </td>
         <td>
-          11826
+          12608
           -
-          11830
-        </td>
-        <td>
-          Ident
-        </td>
-        <td>
-          org.finnpic.Male
-        </td>
-        <td style="background: #AEF1AE">
-          Male
-        </td>
-      </tr><tr>
-        <td>
-          371
-        </td>
-        <td>
-          100
-        </td>
-        <td>
-          11814
-          -
-          11820
-        </td>
-        <td>
-          Ident
-        </td>
-        <td>
-          org.finnpic.Female
-        </td>
-        <td style="background: #AEF1AE">
-          Female
-        </td>
-      </tr><tr>
-        <td>
-          371
-        </td>
-        <td>
-          99
-        </td>
-        <td>
-          11778
-          -
-          11812
+          12642
         </td>
         <td>
           Apply
@@ -2597,15 +3139,57 @@
         </td>
       </tr><tr>
         <td>
-          372
+          394
         </td>
         <td>
-          102
+          127
         </td>
         <td>
-          11851
+          12656
           -
-          11868
+          12660
+        </td>
+        <td>
+          Ident
+        </td>
+        <td>
+          org.finnpic.Male
+        </td>
+        <td style="background: #AEF1AE">
+          Male
+        </td>
+      </tr><tr>
+        <td>
+          394
+        </td>
+        <td>
+          126
+        </td>
+        <td>
+          12644
+          -
+          12650
+        </td>
+        <td>
+          Ident
+        </td>
+        <td>
+          org.finnpic.Female
+        </td>
+        <td style="background: #AEF1AE">
+          Female
+        </td>
+      </tr><tr>
+        <td>
+          395
+        </td>
+        <td>
+          128
+        </td>
+        <td>
+          12681
+          -
+          12698
         </td>
         <td>
           Apply
@@ -2618,15 +3202,15 @@
         </td>
       </tr><tr>
         <td>
-          373
+          396
         </td>
         <td>
-          103
+          129
         </td>
         <td>
-          11897
+          12727
           -
-          11901
+          12731
         </td>
         <td>
           Literal
@@ -2639,15 +3223,15 @@
         </td>
       </tr><tr>
         <td>
-          374
+          397
         </td>
         <td>
-          104
+          130
         </td>
         <td>
-          11922
+          12752
           -
-          11926
+          12756
         </td>
         <td>
           Literal
@@ -2660,15 +3244,15 @@
         </td>
       </tr><tr>
         <td>
-          375
+          398
         </td>
         <td>
-          105
+          131
         </td>
         <td>
-          11947
+          12777
           -
-          11951
+          12781
         </td>
         <td>
           Literal
@@ -2681,15 +3265,15 @@
         </td>
       </tr><tr>
         <td>
-          377
+          400
         </td>
         <td>
-          107
+          133
         </td>
         <td>
-          11990
+          12820
           -
-          12037
+          12867
         </td>
         <td>
           Select
@@ -2702,15 +3286,15 @@
         </td>
       </tr><tr>
         <td>
-          377
+          400
         </td>
         <td>
-          106
+          132
         </td>
         <td>
-          11990
+          12820
           -
-          12031
+          12861
         </td>
         <td>
           Apply
@@ -2723,15 +3307,15 @@
         </td>
       </tr><tr>
         <td>
-          378
+          401
         </td>
         <td>
-          108
+          134
         </td>
         <td>
-          12060
+          12890
           -
-          12087
+          12917
         </td>
         <td>
           Apply
@@ -2744,15 +3328,15 @@
         </td>
       </tr><tr>
         <td>
-          379
+          402
         </td>
         <td>
-          110
+          136
         </td>
         <td>
-          12111
+          12941
           -
-          12158
+          12988
         </td>
         <td>
           Select
@@ -2765,15 +3349,15 @@
         </td>
       </tr><tr>
         <td>
-          379
+          402
         </td>
         <td>
-          109
+          135
         </td>
         <td>
-          12111
+          12941
           -
-          12152
+          12982
         </td>
         <td>
           Apply
@@ -2786,36 +3370,15 @@
         </td>
       </tr><tr>
         <td>
-          380
+          403
         </td>
         <td>
-          112
+          137
         </td>
         <td>
-          12180
+          13010
           -
-          12227
-        </td>
-        <td>
-          Select
-        </td>
-        <td>
-          scala.collection.immutable.StringLike.toInt
-        </td>
-        <td style="background: #AEF1AE">
-          scala.Predef.augmentString(pp.birthDatePart.toString().substring(0, 2)).toInt
-        </td>
-      </tr><tr>
-        <td>
-          380
-        </td>
-        <td>
-          111
-        </td>
-        <td>
-          12180
-          -
-          12221
+          13051
         </td>
         <td>
           Apply
@@ -2828,57 +3391,36 @@
         </td>
       </tr><tr>
         <td>
-          381
+          403
         </td>
         <td>
-          113
+          138
         </td>
         <td>
-          12248
+          13010
           -
-          12263
+          13057
         </td>
         <td>
           Select
         </td>
         <td>
-          org.finnpic.Pic.PicParts.cleanedInput
+          scala.collection.immutable.StringLike.toInt
         </td>
         <td style="background: #AEF1AE">
-          pp.cleanedInput
+          scala.Predef.augmentString(pp.birthDatePart.toString().substring(0, 2)).toInt
         </td>
       </tr><tr>
         <td>
-          381
+          404
         </td>
         <td>
-          115
+          140
         </td>
         <td>
-          12234
+          13085
           -
-          12306
-        </td>
-        <td>
-          Apply
-        </td>
-        <td>
-          scala.util.Right.apply
-        </td>
-        <td style="background: #AEF1AE">
-          scala.`package`.Right.apply[Nothing, org.finnpic.Pic](new Pic(pp.cleanedInput, gender, birthYear, birthMonth, birthDay))
-        </td>
-      </tr><tr>
-        <td>
-          381
-        </td>
-        <td>
-          114
-        </td>
-        <td>
-          12240
-          -
-          12305
+          13150
         </td>
         <td>
           Apply
@@ -2891,15 +3433,246 @@
         </td>
       </tr><tr>
         <td>
-          389
+          404
         </td>
         <td>
-          117
+          139
         </td>
         <td>
-          12519
+          13093
           -
-          12679
+          13108
+        </td>
+        <td>
+          Select
+        </td>
+        <td>
+          org.finnpic.Pic.PicParts.cleanedInput
+        </td>
+        <td style="background: #AEF1AE">
+          pp.cleanedInput
+        </td>
+      </tr><tr>
+        <td>
+          407
+        </td>
+        <td>
+          142
+        </td>
+        <td>
+          13265
+          -
+          13289
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          scala.util.Try.apply
+        </td>
+        <td style="background: #AEF1AE">
+          scala.util.Try.apply[java.time.LocalDate](candidate.birthDate)
+        </td>
+      </tr><tr>
+        <td>
+          407
+        </td>
+        <td>
+          141
+        </td>
+        <td>
+          13269
+          -
+          13288
+        </td>
+        <td>
+          Select
+        </td>
+        <td>
+          org.finnpic.Pic.birthDate
+        </td>
+        <td style="background: #AEF1AE">
+          candidate.birthDate
+        </td>
+      </tr><tr>
+        <td>
+          408
+        </td>
+        <td>
+          143
+        </td>
+        <td>
+          13325
+          -
+          13341
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          scala.util.Right.apply
+        </td>
+        <td style="background: #AEF1AE">
+          scala.`package`.Right.apply[Nothing, org.finnpic.Pic](candidate)
+        </td>
+      </tr><tr>
+        <td>
+          409
+        </td>
+        <td>
+          146
+        </td>
+        <td>
+          13503
+          -
+          13506
+        </td>
+        <td>
+          Literal
+        </td>
+        <td>
+          &lt;nosymbol&gt;
+        </td>
+        <td style="background: #AEF1AE">
+          &quot;\'.&quot;
+        </td>
+      </tr><tr>
+        <td>
+          409
+        </td>
+        <td>
+          149
+        </td>
+        <td>
+          13374
+          -
+          13506
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          scala.StringContext.s
+        </td>
+        <td style="background: #AEF1AE">
+          scala.StringContext.apply(&quot;Invalid PIC: \'&quot;, &quot;\'. The birth date is impossible, this day does not exist on the calendar: \'&quot;, &quot;\'.&quot;).s(pp.originalInput, pp.birthDatePart)
+        </td>
+      </tr><tr>
+        <td>
+          409
+        </td>
+        <td>
+          145
+        </td>
+        <td>
+          13409
+          -
+          13485
+        </td>
+        <td>
+          Literal
+        </td>
+        <td>
+          &lt;nosymbol&gt;
+        </td>
+        <td style="background: #AEF1AE">
+          &quot;\'. The birth date is impossible, this day does not exist on the calendar: \'&quot;
+        </td>
+      </tr><tr>
+        <td>
+          409
+        </td>
+        <td>
+          148
+        </td>
+        <td>
+          13486
+          -
+          13502
+        </td>
+        <td>
+          Select
+        </td>
+        <td>
+          org.finnpic.Pic.PicParts.birthDatePart
+        </td>
+        <td style="background: #AEF1AE">
+          pp.birthDatePart
+        </td>
+      </tr><tr>
+        <td>
+          409
+        </td>
+        <td>
+          147
+        </td>
+        <td>
+          13392
+          -
+          13408
+        </td>
+        <td>
+          Select
+        </td>
+        <td>
+          org.finnpic.Pic.PicParts.originalInput
+        </td>
+        <td style="background: #AEF1AE">
+          pp.originalInput
+        </td>
+      </tr><tr>
+        <td>
+          409
+        </td>
+        <td>
+          150
+        </td>
+        <td>
+          13369
+          -
+          13507
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          scala.util.Left.apply
+        </td>
+        <td style="background: #AEF1AE">
+          scala.`package`.Left.apply[String, Nothing](scala.StringContext.apply(&quot;Invalid PIC: \'&quot;, &quot;\'. The birth date is impossible, this day does not exist on the calendar: \'&quot;, &quot;\'.&quot;).s(pp.originalInput, pp.birthDatePart))
+        </td>
+      </tr><tr>
+        <td>
+          409
+        </td>
+        <td>
+          144
+        </td>
+        <td>
+          13376
+          -
+          13391
+        </td>
+        <td>
+          Literal
+        </td>
+        <td>
+          &lt;nosymbol&gt;
+        </td>
+        <td style="background: #AEF1AE">
+          &quot;Invalid PIC: \'&quot;
+        </td>
+      </tr><tr>
+        <td>
+          417
+        </td>
+        <td>
+          152
+        </td>
+        <td>
+          13736
+          -
+          13896
         </td>
         <td>
           Apply
@@ -2912,15 +3685,15 @@
         </td>
       </tr><tr>
         <td>
-          402
+          430
         </td>
         <td>
-          119
+          154
         </td>
         <td>
-          13227
+          14453
           -
-          13244
+          14470
         </td>
         <td>
           Select
@@ -2933,15 +3706,15 @@
         </td>
       </tr><tr>
         <td>
-          402
+          430
         </td>
         <td>
-          118
+          153
         </td>
         <td>
-          13235
+          14461
           -
-          13237
+          14463
         </td>
         <td>
           Literal
@@ -2954,15 +3727,15 @@
         </td>
       </tr><tr>
         <td>
-          403
+          431
         </td>
         <td>
-          120
+          155
         </td>
         <td>
-          13249
+          14475
           -
-          13272
+          14498
         </td>
         <td>
           Apply
