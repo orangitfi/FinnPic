@@ -41,6 +41,14 @@ object PicGenerator {
     generateOne()(random.nextLong()) #:: generateInfinite()(random.nextLong())
   }
 
+  def generateOneWithSpecification(specification: Pic => Boolean)(implicit seed: Long = Random.nextLong()): Pic = {
+    generateInfinite()(seed).find(specification).get
+  }
+
+  def generateManyWithSpecification(specification: Pic => Boolean)(n: Int)(implicit seed: Long = Random.nextLong()): Seq[Pic] = {
+    generateInfinite()(seed).filter(specification).take(n)
+  }
+
   private def formatInt2(input: Int): String = {
     f"${input}%02d"
   }
