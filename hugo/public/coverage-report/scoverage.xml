@@ -1,5 +1,5 @@
 <scoverage 
-statement-count="184" statements-invoked="184" statement-rate="100.00" branch-rate="100.00" version="1.0" timestamp="1577642746219">
+statement-count="184" statements-invoked="184" statement-rate="100.00" branch-rate="100.00" version="1.0" timestamp="1577646858971">
     <packages>
         <package name="org.finnpic" statement-count="184" statements-invoked="184" statement-rate="100.00">
             <classes>
@@ -652,7 +652,7 @@ statement-count="184" statements-invoked="184" statement-rate="100.00" branch-ra
                         name="org.finnpic/PicGenerator/generateOneWithSpecification" statement-count="1" statements-invoked="1" statement-rate="100.00" branch-rate="100.00">
                             <statements>
                                 <statement 
-                                package="org.finnpic" class="PicGenerator" class-type="Object" full-class-name="org.finnpic.PicGenerator" source="/Users/vpeurala/Projects/OrangIT/FinnPic/src/main/scala/org/finnpic/PicGenerator.scala" method="generateOneWithSpecification" start="1609" end="1657" line="45" branch="false" invocation-count="1" ignored="false">
+                                package="org.finnpic" class="PicGenerator" class-type="Object" full-class-name="org.finnpic.PicGenerator" source="/Users/vpeurala/Projects/OrangIT/FinnPic/src/main/scala/org/finnpic/PicGenerator.scala" method="generateOneWithSpecification" start="1617" end="1661" line="45" branch="false" invocation-count="1" ignored="false">
 </statement>
                             </statements>
 </method>
@@ -668,7 +668,7 @@ statement-count="184" statements-invoked="184" statement-rate="100.00" branch-ra
                         name="org.finnpic/PicGenerator/generateManyWithSpecification" statement-count="1" statements-invoked="1" statement-rate="100.00" branch-rate="100.00">
                             <statements>
                                 <statement 
-                                package="org.finnpic" class="PicGenerator" class-type="Object" full-class-name="org.finnpic.PicGenerator" source="/Users/vpeurala/Projects/OrangIT/FinnPic/src/main/scala/org/finnpic/PicGenerator.scala" method="generateManyWithSpecification" start="1797" end="1851" line="49" branch="false" invocation-count="1" ignored="false">
+                                package="org.finnpic" class="PicGenerator" class-type="Object" full-class-name="org.finnpic.PicGenerator" source="/Users/vpeurala/Projects/OrangIT/FinnPic/src/main/scala/org/finnpic/PicGenerator.scala" method="generateManyWithSpecification" start="1801" end="1855" line="49" branch="false" invocation-count="1" ignored="false">
 </statement>
                             </statements>
 </method>

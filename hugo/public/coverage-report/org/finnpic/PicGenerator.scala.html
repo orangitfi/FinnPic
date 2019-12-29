@@ -45,7 +45,7 @@
 </span>21 <span style=''></span><span style='background: #AEF1AE'>      formatInt3(individualNumber) +
 </span>22 <span style=''></span><span style='background: #AEF1AE'>      controlCharacter.toString</span><span style=''>
 </span>23 <span style=''>
-</span>24 <span style=''>    var candidatePic: Either[String, Pic] = </span><span style='background: #AEF1AE'>Pic(picString)</span><span style=''>
+</span>24 <span style=''>    val candidatePic: Either[String, Pic] = </span><span style='background: #AEF1AE'>Pic(picString)</span><span style=''>
 </span>25 <span style=''>
 </span>26 <span style=''>    // Filter out candidates with an impossible birth date.
 </span>27 <span style=''>    // Empirical experimentation has shown that there are
@@ -65,8 +65,8 @@
 </span>41 <span style=''>    generateOne()(random.nextLong()) </span><span style='background: #AEF1AE'>#:: generateInfinite()(random.nextLong())</span><span style=''>
 </span>42 <span style=''>  }
 </span>43 <span style=''>
-</span>44 <span style=''>  def generateOneWithSpecification(specification: Pic =&gt; Boolean)(implicit seed: Long = Random.nextLong()): Pic = {
-</span>45 <span style=''>    </span><span style='background: #AEF1AE'>generateInfinite()(seed).find(specification).get</span><span style=''>
+</span>44 <span style=''>  def generateOneWithSpecification(specification: Pic =&gt; Boolean)(implicit seed: Long = Random.nextLong()): Option[Pic] = {
+</span>45 <span style=''>    </span><span style='background: #AEF1AE'>generateInfinite()(seed).find(specification)</span><span style=''>
 </span>46 <span style=''>  }
 </span>47 <span style=''>
 </span>48 <span style=''>  def generateManyWithSpecification(specification: Pic =&gt; Boolean)(n: Int)(implicit seed: Long = Random.nextLong()): Seq[Pic] = {
@@ -667,18 +667,18 @@
           183
         </td>
         <td>
-          1609
+          1617
           -
-          1657
+          1661
         </td>
         <td>
-          Select
+          Apply
         </td>
         <td>
-          scala.Option.get
+          scala.collection.LinearSeqOptimized.find
         </td>
         <td style="background: #AEF1AE">
-          PicGenerator.this.generateInfinite()(seed).find(specification).get
+          PicGenerator.this.generateInfinite()(seed).find(specification)
         </td>
       </tr><tr>
         <td>
@@ -688,9 +688,9 @@
           184
         </td>
         <td>
-          1797
+          1801
           -
-          1851
+          1855
         </td>
         <td>
           Apply
