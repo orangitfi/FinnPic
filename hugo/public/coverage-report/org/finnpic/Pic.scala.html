@@ -43,8 +43,8 @@
 </span>19 <span style=''> *
 </span>20 <span style=''> * Some examples of [[Pic]] creation:
 </span>21 <span style=''> * {{{
-</span>22 <span style=''> * &gt;&gt;&gt; Pic(&quot;290877-1639&quot;)
-</span>23 <span style=''> * Right(290877-1639)
+</span>22 <span style=''> * &gt;&gt;&gt; Pic(&quot;070377-281V&quot;)
+</span>23 <span style=''> * Right(070377-281V)
 </span>24 <span style=''> *
 </span>25 <span style=''> * &gt;&gt;&gt; Pic(&quot;290877-163&quot;)
 </span>26 <span style=''> * Left(Invalid PIC: '290877-163'. PIC should have 11 characters, but was 10 characters.)
@@ -52,12 +52,12 @@
 </span>28 <span style=''> * &gt;&gt;&gt; Pic(&quot;290877-1638&quot;)
 </span>29 <span style=''> * Left(Invalid PIC: '290877-1638'. The control character ('8') is wrong: it should be '9'.)
 </span>30 <span style=''> *
-</span>31 <span style=''> * &gt;&gt;&gt; Pic.fromStringUnsafe(&quot;290877-1639&quot;)
-</span>32 <span style=''> * 290877-1639
+</span>31 <span style=''> * &gt;&gt;&gt; Pic.fromStringUnsafe(&quot;070377-281V&quot;)
+</span>32 <span style=''> * 070377-281V
 </span>33 <span style=''> *
 </span>34 <span style=''> * // Pic.fromStringU is just a shorter alias for Pic.fromStringUnsafe.
-</span>35 <span style=''> * &gt;&gt;&gt; Pic.fromStringU(&quot;290877-1639&quot;)
-</span>36 <span style=''> * 290877-1639
+</span>35 <span style=''> * &gt;&gt;&gt; Pic.fromStringU(&quot;070377-281V&quot;)
+</span>36 <span style=''> * 070377-281V
 </span>37 <span style=''> *
 </span>38 <span style=''> * // If you give Pic.fromStringUnsafe (or Pic.fromStringU) an invalid PIC, they throw an IllegalArgumentException.
 </span>39 <span style=''> * }}}
@@ -68,11 +68,11 @@
 </span>44 <span style=''>   *
 </span>45 <span style=''>   * Examples:
 </span>46 <span style=''>   * {{{
-</span>47 <span style=''>   * &gt;&gt;&gt; Pic.fromStringU(&quot;290877-1639&quot;).value
-</span>48 <span style=''>   * 290877-1639
+</span>47 <span style=''>   * &gt;&gt;&gt; Pic.fromStringU(&quot;070377-281V&quot;).value
+</span>48 <span style=''>   * 070377-281V
 </span>49 <span style=''>   *
-</span>50 <span style=''>   * &gt;&gt;&gt; Pic.fromStringU(&quot;170214a6228&quot;).value
-</span>51 <span style=''>   * 170214A6228
+</span>50 <span style=''>   * &gt;&gt;&gt; Pic.fromStringU(&quot;211114a664e&quot;).value
+</span>51 <span style=''>   * 211114A664E
 </span>52 <span style=''>   * }}}
 </span>53 <span style=''>   */
 </span>54 <span style=''>  val value: String = </span><span style='background: #AEF1AE'>mValue</span><span style=''>
@@ -83,10 +83,10 @@
 </span>59 <span style=''>   *
 </span>60 <span style=''>   * Examples:
 </span>61 <span style=''>   * {{{
-</span>62 <span style=''>   * &gt;&gt;&gt; Pic.fromStringU(&quot;290877-1639&quot;).gender
+</span>62 <span style=''>   * &gt;&gt;&gt; Pic.fromStringU(&quot;070377-281V&quot;).gender
 </span>63 <span style=''>   * Male
 </span>64 <span style=''>   *
-</span>65 <span style=''>   * &gt;&gt;&gt; Pic.fromStringU(&quot;170214A6228&quot;).gender
+</span>65 <span style=''>   * &gt;&gt;&gt; Pic.fromStringU(&quot;211114A664E&quot;).gender
 </span>66 <span style=''>   * Female
 </span>67 <span style=''>   * }}}
 </span>68 <span style=''>   */
@@ -97,10 +97,10 @@
 </span>73 <span style=''>   *
 </span>74 <span style=''>   * Examples:
 </span>75 <span style=''>   * {{{
-</span>76 <span style=''>   * &gt;&gt;&gt; Pic.fromStringU(&quot;290877-1639&quot;).birthYear
+</span>76 <span style=''>   * &gt;&gt;&gt; Pic.fromStringU(&quot;070377-281V&quot;).birthYear
 </span>77 <span style=''>   * 1977
 </span>78 <span style=''>   *
-</span>79 <span style=''>   * &gt;&gt;&gt; Pic.fromStringU(&quot;170214A6228&quot;).birthYear
+</span>79 <span style=''>   * &gt;&gt;&gt; Pic.fromStringU(&quot;211114A664E&quot;).birthYear
 </span>80 <span style=''>   * 2014
 </span>81 <span style=''>   * }}}
 </span>82 <span style=''>   */
@@ -112,11 +112,11 @@
 </span>88 <span style=''>   *
 </span>89 <span style=''>   * Examples:
 </span>90 <span style=''>   * {{{
-</span>91 <span style=''>   * &gt;&gt;&gt; Pic.fromStringU(&quot;290877-1639&quot;).birthMonth
-</span>92 <span style=''>   * 8
+</span>91 <span style=''>   * &gt;&gt;&gt; Pic.fromStringU(&quot;070377-281V&quot;).birthMonth
+</span>92 <span style=''>   * 3
 </span>93 <span style=''>   *
-</span>94 <span style=''>   * &gt;&gt;&gt; Pic.fromStringU(&quot;170214A6228&quot;).birthMonth
-</span>95 <span style=''>   * 2
+</span>94 <span style=''>   * &gt;&gt;&gt; Pic.fromStringU(&quot;211114A664E&quot;).birthMonth
+</span>95 <span style=''>   * 11
 </span>96 <span style=''>   * }}}
 </span>97 <span style=''>   */
 </span>98 <span style=''>  val birthMonth: Int = </span><span style='background: #AEF1AE'>mBirthMonth</span><span style=''>
@@ -129,11 +129,11 @@
 </span>105 <span style=''>   *
 </span>106 <span style=''>   * Examples:
 </span>107 <span style=''>   * {{{
-</span>108 <span style=''>   * &gt;&gt;&gt; Pic.fromStringU(&quot;290877-1639&quot;).birthDay
-</span>109 <span style=''>   * 29
+</span>108 <span style=''>   * &gt;&gt;&gt; Pic.fromStringU(&quot;070377-281V&quot;).birthDay
+</span>109 <span style=''>   * 7
 </span>110 <span style=''>   *
-</span>111 <span style=''>   * &gt;&gt;&gt; Pic.fromStringU(&quot;170214A6228&quot;).birthDay
-</span>112 <span style=''>   * 17
+</span>111 <span style=''>   * &gt;&gt;&gt; Pic.fromStringU(&quot;211114A664E&quot;).birthDay
+</span>112 <span style=''>   * 21
 </span>113 <span style=''>   * }}}
 </span>114 <span style=''>   */
 </span>115 <span style=''>  val birthDay: Int = </span><span style='background: #AEF1AE'>mBirthDay</span><span style=''>
@@ -172,8 +172,8 @@
 </span>148 <span style=''>   *
 </span>149 <span style=''>   * Example:
 </span>150 <span style=''>   * {{{
-</span>151 <span style=''>   * &gt;&gt;&gt; Pic.fromStringU(&quot;290877-1639&quot;).toString
-</span>152 <span style=''>   * 290877-1639
+</span>151 <span style=''>   * &gt;&gt;&gt; Pic.fromStringU(&quot;070377-281V&quot;).toString
+</span>152 <span style=''>   * 070377-281V
 </span>153 <span style=''>   * }}}
 </span>154 <span style=''>   *
 </span>155 <span style=''>   * @return the canonical string representation of the PIC.
@@ -201,7 +201,7 @@
 </span>177 <span style=''>   *
 </span>178 <span style=''>   * Example:
 </span>179 <span style=''>   * {{{
-</span>180 <span style=''>   * &gt;&gt;&gt; Pic.fromStringU(&quot;290877-1639&quot;).hashCode == &quot;290877-1639&quot;.hashCode
+</span>180 <span style=''>   * &gt;&gt;&gt; Pic.fromStringU(&quot;070377-281V&quot;).hashCode == &quot;070377-281V&quot;.hashCode
 </span>181 <span style=''>   * true
 </span>182 <span style=''>   * }}}
 </span>183 <span style=''>   *
@@ -232,8 +232,8 @@
 </span>208 <span style=''> *
 </span>209 <span style=''> * Some examples of [[Pic]] creation:
 </span>210 <span style=''> * {{{
-</span>211 <span style=''> * &gt;&gt;&gt; Pic(&quot;290877-1639&quot;)
-</span>212 <span style=''> * Right(290877-1639)
+</span>211 <span style=''> * &gt;&gt;&gt; Pic(&quot;070377-281V&quot;)
+</span>212 <span style=''> * Right(070377-281V)
 </span>213 <span style=''> *
 </span>214 <span style=''> * &gt;&gt;&gt; Pic(&quot;290877-163&quot;)
 </span>215 <span style=''> * Left(Invalid PIC: '290877-163'. PIC should have 11 characters, but was 10 characters.)
@@ -241,12 +241,12 @@
 </span>217 <span style=''> * &gt;&gt;&gt; Pic(&quot;290877-1638&quot;)
 </span>218 <span style=''> * Left(Invalid PIC: '290877-1638'. The control character ('8') is wrong: it should be '9'.)
 </span>219 <span style=''> *
-</span>220 <span style=''> * &gt;&gt;&gt; Pic.fromStringUnsafe(&quot;290877-1639&quot;)
-</span>221 <span style=''> * 290877-1639
+</span>220 <span style=''> * &gt;&gt;&gt; Pic.fromStringUnsafe(&quot;070377-281V&quot;)
+</span>221 <span style=''> * 070377-281V
 </span>222 <span style=''> *
 </span>223 <span style=''> * // Pic.fromStringU is just a shorter alias for Pic.fromStringUnsafe.
-</span>224 <span style=''> * &gt;&gt;&gt; Pic.fromStringU(&quot;290877-1639&quot;)
-</span>225 <span style=''> * 290877-1639
+</span>224 <span style=''> * &gt;&gt;&gt; Pic.fromStringU(&quot;070377-281V&quot;)
+</span>225 <span style=''> * 070377-281V
 </span>226 <span style=''> *
 </span>227 <span style=''> * // If you give Pic.fromStringUnsafe (or Pic.fromStringU) an invalid PIC, they throw an IllegalArgumentException.
 </span>228 <span style=''> * }}}
@@ -267,8 +267,8 @@
 </span>243 <span style=''>   *
 </span>244 <span style=''>   * Examples:
 </span>245 <span style=''>   * {{{
-</span>246 <span style=''>   * &gt;&gt;&gt; Pic(&quot;290877-1639&quot;)
-</span>247 <span style=''>   * Right(290877-1639)
+</span>246 <span style=''>   * &gt;&gt;&gt; Pic(&quot;070377-281V&quot;)
+</span>247 <span style=''>   * Right(070377-281V)
 </span>248 <span style=''>   *
 </span>249 <span style=''>   * &gt;&gt;&gt; Pic(&quot;290877-163&quot;)
 </span>250 <span style=''>   * Left(Invalid PIC: '290877-163'. PIC should have 11 characters, but was 10 characters.)
@@ -298,8 +298,8 @@
 </span>274 <span style=''>   *
 </span>275 <span style=''>   * Examples:
 </span>276 <span style=''>   * {{{
-</span>277 <span style=''>   * &gt;&gt;&gt; Pic.fromStringUnsafe(&quot;290877-1639&quot;)
-</span>278 <span style=''>   * 290877-1639
+</span>277 <span style=''>   * &gt;&gt;&gt; Pic.fromStringUnsafe(&quot;070377-281V&quot;)
+</span>278 <span style=''>   * 070377-281V
 </span>279 <span style=''>   *
 </span>280 <span style=''>   * &gt;&gt;&gt; // Pic.fromStringUnsafe(&quot;foo&quot;) would throw an IllegalArgumentException.
 </span>281 <span style=''>   * }}}
@@ -321,8 +321,8 @@
 </span>297 <span style=''>   *
 </span>298 <span style=''>   * Examples:
 </span>299 <span style=''>   * {{{
-</span>300 <span style=''>   * &gt;&gt;&gt; Pic.fromStringU(&quot;290877-1639&quot;)
-</span>301 <span style=''>   * 290877-1639
+</span>300 <span style=''>   * &gt;&gt;&gt; Pic.fromStringU(&quot;070377-281V&quot;)
+</span>301 <span style=''>   * 070377-281V
 </span>302 <span style=''>   *
 </span>303 <span style=''>   * &gt;&gt;&gt; // Pic.fromStringU(&quot;foo&quot;) would throw an IllegalArgumentException.
 </span>304 <span style=''>   * }}}
@@ -441,8 +441,8 @@
 </span>417 <span style=''>  private[finnpic] val controlChars: Array[Char] = </span><span style='background: #AEF1AE'>Array('0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F', 'H', 'J', 'K', 'L', 'M', 'N', 'P', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y')</span><span style=''>
 </span>418 <span style=''>
 </span>419 <span style=''>  /**
-</span>420 <span style=''>   * The input to this method is the birth date part (290877 in 290877-1639)
-</span>421 <span style=''>   * concatenated with the individualNumber (163 in 290877-1639). In this example,
+</span>420 <span style=''>   * The input to this method is the birth date part (290877 in 070377-281V)
+</span>421 <span style=''>   * concatenated with the individualNumber (163 in 070377-281V). In this example,
 </span>422 <span style=''>   * the returned char would be 9.
 </span>423 <span style=''>   *
 </span>424 <span style=''>   * See https://vrk.fi/en/personal-identity-code1 for more information about the control character calculation.
@@ -537,9 +537,9 @@
           4
         </td>
         <td>
-          2587
+          2588
           -
-          2598
+          2599
         </td>
         <td>
           Select

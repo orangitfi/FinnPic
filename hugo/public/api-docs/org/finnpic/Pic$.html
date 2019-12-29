@@ -153,8 +153,8 @@
 
       
           <div id="comment" class="fullcommenttop"><div class="comment cmt"><p>Contains the factory methods for creating objects of class <a href="Pic.html" class="extype" name="org.finnpic.Pic">Pic</a>.
-Follows the &quot;smart constructor&quot; pattern, familiar from Haskell.</p><p>Some examples of <a href="Pic.html" class="extype" name="org.finnpic.Pic">Pic</a> creation:</p><pre>&gt;&gt;&gt; Pic(<span class="lit">"290877-1639"</span>)
-Right(<span class="num">290877</span>-<span class="num">1639</span>)
+Follows the &quot;smart constructor&quot; pattern, familiar from Haskell.</p><p>Some examples of <a href="Pic.html" class="extype" name="org.finnpic.Pic">Pic</a> creation:</p><pre>&gt;&gt;&gt; Pic(<span class="lit">"070377-281V"</span>)
+Right(<span class="num">070377</span>-<span class="num">281</span>V)
 
 &gt;&gt;&gt; Pic(<span class="lit">"290877-163"</span>)
 Left(Invalid PIC: '<span class="num">290877</span>-<span class="num">163</span>'. PIC should have <span class="num">11</span> characters, but was <span class="num">10</span> characters.)
@@ -162,12 +162,12 @@ Left(Invalid PIC: '<span class="num">290877</span>-<span class="num">163</span>'
 &gt;&gt;&gt; Pic(<span class="lit">"290877-1638"</span>)
 Left(Invalid PIC: '<span class="num">290877</span>-<span class="num">1638</span>'. The control character (<span class="lit">'8'</span>) is wrong: it should be <span class="lit">'9'</span>.)
 
-&gt;&gt;&gt; Pic.fromStringUnsafe(<span class="lit">"290877-1639"</span>)
-<span class="num">290877</span>-<span class="num">1639</span>
+&gt;&gt;&gt; Pic.fromStringUnsafe(<span class="lit">"070377-281V"</span>)
+<span class="num">070377</span>-<span class="num">281</span>V
 
 <span class="cmt">// Pic.fromStringU is just a shorter alias for Pic.fromStringUnsafe.</span>
-&gt;&gt;&gt; Pic.fromStringU(<span class="lit">"290877-1639"</span>)
-<span class="num">290877</span>-<span class="num">1639</span>
+&gt;&gt;&gt; Pic.fromStringU(<span class="lit">"070377-281V"</span>)
+<span class="num">070377</span>-<span class="num">281</span>V
 
 <span class="cmt">// If you give Pic.fromStringUnsafe (or Pic.fromStringU) an invalid PIC, they throw an IllegalArgumentException.</span></pre></div><div class="toggleContainer block">
           <span class="toggle">
@@ -416,8 +416,8 @@ Left(Invalid PIC: '<span class="num">290877</span>-<span class="num">1638</span>
       </span>
       
       <p class="shortcomment cmt">Create a Pic from an input String, returning an <a href="https://www.scala-lang.org/api/2.12.10/scala/util/Either.html" class="extype" name="scala.util.Either">scala.util.Either</a>.</p><div class="fullcomment"><div class="comment cmt"><p>Create a Pic from an input String, returning an <a href="https://www.scala-lang.org/api/2.12.10/scala/util/Either.html" class="extype" name="scala.util.Either">scala.util.Either</a>.</p><p>See also <a href="#fromStringUnsafe(input:String):org.finnpic.Pic" class="extmbr" name="org.finnpic.Pic#fromStringUnsafe">fromStringUnsafe</a> for cases where you are sure that the input is a valid PIC
-(or you are willing to handle exceptions).</p><p>Examples:</p><pre>&gt;&gt;&gt; Pic(<span class="lit">"290877-1639"</span>)
-Right(<span class="num">290877</span>-<span class="num">1639</span>)
+(or you are willing to handle exceptions).</p><p>Examples:</p><pre>&gt;&gt;&gt; Pic(<span class="lit">"070377-281V"</span>)
+Right(<span class="num">070377</span>-<span class="num">281</span>V)
 
 &gt;&gt;&gt; Pic(<span class="lit">"290877-163"</span>)
 Left(Invalid PIC: '<span class="num">290877</span>-<span class="num">163</span>'. PIC should have <span class="num">11</span> characters, but was <span class="num">10</span> characters.)
@@ -441,8 +441,8 @@ Left(Invalid PIC: '<span class="num">290877</span>-<span class="num">1638</span>
       </span>
       
       <p class="shortcomment cmt">A shorter alias for <a href="#fromStringUnsafe(input:String):org.finnpic.Pic" class="extmbr" name="org.finnpic.Pic#fromStringUnsafe">Pic.fromStringUnsafe</a>.</p><div class="fullcomment"><div class="comment cmt"><p>A shorter alias for <a href="#fromStringUnsafe(input:String):org.finnpic.Pic" class="extmbr" name="org.finnpic.Pic#fromStringUnsafe">Pic.fromStringUnsafe</a>.
-See the documentation for that function.</p><p>Examples:</p><pre>&gt;&gt;&gt; Pic.fromStringU(<span class="lit">"290877-1639"</span>)
-<span class="num">290877</span>-<span class="num">1639</span>
+See the documentation for that function.</p><p>Examples:</p><pre>&gt;&gt;&gt; Pic.fromStringU(<span class="lit">"070377-281V"</span>)
+<span class="num">070377</span>-<span class="num">281</span>V
 
 &gt;&gt;&gt; <span class="cmt">// Pic.fromStringU("foo") would throw an IllegalArgumentException.</span></pre></div></div>
     </li><li name="org.finnpic.Pic#fromStringUnsafe" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
@@ -461,8 +461,8 @@ See the documentation for that function.</p><p>Examples:</p><pre>&gt;&gt;&gt; Pi
       </span>
       
       <p class="shortcomment cmt">Create a Pic from an input String, throwing an <a href="https://www.scala-lang.org/api/2.12.10/scala/index.html#IllegalArgumentException=IllegalArgumentException" class="extype" name="scala">scala.IllegalArgumentException</a> if the input is not a valid PIC.</p><div class="fullcomment"><div class="comment cmt"><p>Create a Pic from an input String, throwing an <a href="https://www.scala-lang.org/api/2.12.10/scala/index.html#IllegalArgumentException=IllegalArgumentException" class="extype" name="scala">scala.IllegalArgumentException</a> if the input is not a valid PIC.</p><p>See also:</p><ul><li><a href="#fromString(input:String):Either[String,org.finnpic.Pic]" class="extmbr" name="org.finnpic.Pic#fromString">fromString</a> for cases where you are not sure if the input is a valid PIC (for example,
-the input comes from a user), which returns an Either for you to handle.</li><li><a href="#fromStringU(input:String):org.finnpic.Pic" class="extmbr" name="org.finnpic.Pic#fromStringU">fromStringU</a> for a shorter named alias of this function.</li></ul><p>Examples:</p><pre>&gt;&gt;&gt; Pic.fromStringUnsafe(<span class="lit">"290877-1639"</span>)
-<span class="num">290877</span>-<span class="num">1639</span>
+the input comes from a user), which returns an Either for you to handle.</li><li><a href="#fromStringU(input:String):org.finnpic.Pic" class="extmbr" name="org.finnpic.Pic#fromStringU">fromStringU</a> for a shorter named alias of this function.</li></ul><p>Examples:</p><pre>&gt;&gt;&gt; Pic.fromStringUnsafe(<span class="lit">"070377-281V"</span>)
+<span class="num">070377</span>-<span class="num">281</span>V
 
 &gt;&gt;&gt; <span class="cmt">// Pic.fromStringUnsafe("foo") would throw an IllegalArgumentException.</span></pre></div><dl class="paramcmts block"><dt class="param">input</dt><dd class="cmt"><p>a valid Personal Identity Code as a String.</p></dd><dt>returns</dt><dd class="cmt"><p>a Pic object if the input is a valid PIC.</p></dd></dl><dl class="attributes block"> <dt>Exceptions thrown</dt><dd><span class="cmt"><p><a href="https://www.scala-lang.org/api/2.12.10/scala/index.html#IllegalArgumentException=IllegalArgumentException" class="extype" name="scala"><code>scala.IllegalArgumentException</code></a> if the input is not a valid PIC.</p></span></dd></dl></div>
     </li><li name="scala.AnyRef#getClass" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">

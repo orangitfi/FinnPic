@@ -156,8 +156,8 @@
 be created via the companion object (the so called
 &quot;smart constructor&quot; pattern). This prevents instances which
 are in an illegal state. Every Pic object can thus be
-treated as a valid Pic.</p><p>See the companion object for how to create instances of Pic.</p><p>Some examples of <a href="" class="extype" name="org.finnpic.Pic">Pic</a> creation:</p><pre>&gt;&gt;&gt; Pic(<span class="lit">"290877-1639"</span>)
-Right(<span class="num">290877</span>-<span class="num">1639</span>)
+treated as a valid Pic.</p><p>See the companion object for how to create instances of Pic.</p><p>Some examples of <a href="" class="extype" name="org.finnpic.Pic">Pic</a> creation:</p><pre>&gt;&gt;&gt; Pic(<span class="lit">"070377-281V"</span>)
+Right(<span class="num">070377</span>-<span class="num">281</span>V)
 
 &gt;&gt;&gt; Pic(<span class="lit">"290877-163"</span>)
 Left(Invalid PIC: '<span class="num">290877</span>-<span class="num">163</span>'. PIC should have <span class="num">11</span> characters, but was <span class="num">10</span> characters.)
@@ -165,12 +165,12 @@ Left(Invalid PIC: '<span class="num">290877</span>-<span class="num">163</span>'
 &gt;&gt;&gt; Pic(<span class="lit">"290877-1638"</span>)
 Left(Invalid PIC: '<span class="num">290877</span>-<span class="num">1638</span>'. The control character (<span class="lit">'8'</span>) is wrong: it should be <span class="lit">'9'</span>.)
 
-&gt;&gt;&gt; Pic.fromStringUnsafe(<span class="lit">"290877-1639"</span>)
-<span class="num">290877</span>-<span class="num">1639</span>
+&gt;&gt;&gt; Pic.fromStringUnsafe(<span class="lit">"070377-281V"</span>)
+<span class="num">070377</span>-<span class="num">281</span>V
 
 <span class="cmt">// Pic.fromStringU is just a shorter alias for Pic.fromStringUnsafe.</span>
-&gt;&gt;&gt; Pic.fromStringU(<span class="lit">"290877-1639"</span>)
-<span class="num">290877</span>-<span class="num">1639</span>
+&gt;&gt;&gt; Pic.fromStringU(<span class="lit">"070377-281V"</span>)
+<span class="num">070377</span>-<span class="num">281</span>V
 
 <span class="cmt">// If you give Pic.fromStringUnsafe (or Pic.fromStringU) an invalid PIC, they throw an IllegalArgumentException.</span></pre></div><div class="toggleContainer block">
           <span class="toggle">
@@ -391,11 +391,11 @@ Left(Invalid PIC: '<span class="num">290877</span>-<span class="num">1638</span>
       <p class="shortcomment cmt">The day of month of the birth of the person whose PIC this is.</p><div class="fullcomment"><div class="comment cmt"><p>The day of month of the birth of the person whose PIC this is.
 It is not a typo that this method is called 'birthDay', not 'birthday'.
 They are different concepts: this contains only the day of month,
-whereas the concept of 'birthday' includes the whole date.</p><p>Examples:</p><pre>&gt;&gt;&gt; Pic.fromStringU(<span class="lit">"290877-1639"</span>).birthDay
-<span class="num">29</span>
+whereas the concept of 'birthday' includes the whole date.</p><p>Examples:</p><pre>&gt;&gt;&gt; Pic.fromStringU(<span class="lit">"070377-281V"</span>).birthDay
+<span class="num">7</span>
 
-&gt;&gt;&gt; Pic.fromStringU(<span class="lit">"170214A6228"</span>).birthDay
-<span class="num">17</span></pre></div></div>
+&gt;&gt;&gt; Pic.fromStringU(<span class="lit">"211114A664E"</span>).birthDay
+<span class="num">21</span></pre></div></div>
     </li><li name="org.finnpic.Pic#birthMonth" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="birthMonth:Int"></a>
       <span class="permalink">
@@ -412,11 +412,11 @@ whereas the concept of 'birthday' includes the whole date.</p><p>Examples:</p><p
       </span>
       
       <p class="shortcomment cmt">The birth month of the person whose PIC this is.</p><div class="fullcomment"><div class="comment cmt"><p>The birth month of the person whose PIC this is. 1-based representation, so
-January is 1 and December is 12.</p><p>Examples:</p><pre>&gt;&gt;&gt; Pic.fromStringU(<span class="lit">"290877-1639"</span>).birthMonth
-<span class="num">8</span>
+January is 1 and December is 12.</p><p>Examples:</p><pre>&gt;&gt;&gt; Pic.fromStringU(<span class="lit">"070377-281V"</span>).birthMonth
+<span class="num">3</span>
 
-&gt;&gt;&gt; Pic.fromStringU(<span class="lit">"170214A6228"</span>).birthMonth
-<span class="num">2</span></pre></div></div>
+&gt;&gt;&gt; Pic.fromStringU(<span class="lit">"211114A664E"</span>).birthMonth
+<span class="num">11</span></pre></div></div>
     </li><li name="org.finnpic.Pic#birthYear" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="birthYear:Int"></a>
       <span class="permalink">
@@ -432,10 +432,10 @@ January is 1 and December is 12.</p><p>Examples:</p><pre>&gt;&gt;&gt; Pic.fromSt
         <span class="name">birthYear</span><span class="result">: <a href="https://www.scala-lang.org/api/2.12.10/scala/Int.html#scala.Int" class="extype" name="scala.Int">Int</a></span>
       </span>
       
-      <p class="shortcomment cmt">The birth year of the person whose PIC this is.</p><div class="fullcomment"><div class="comment cmt"><p>The birth year of the person whose PIC this is.</p><p>Examples:</p><pre>&gt;&gt;&gt; Pic.fromStringU(<span class="lit">"290877-1639"</span>).birthYear
+      <p class="shortcomment cmt">The birth year of the person whose PIC this is.</p><div class="fullcomment"><div class="comment cmt"><p>The birth year of the person whose PIC this is.</p><p>Examples:</p><pre>&gt;&gt;&gt; Pic.fromStringU(<span class="lit">"070377-281V"</span>).birthYear
 <span class="num">1977</span>
 
-&gt;&gt;&gt; Pic.fromStringU(<span class="lit">"170214A6228"</span>).birthYear
+&gt;&gt;&gt; Pic.fromStringU(<span class="lit">"211114A664E"</span>).birthYear
 <span class="num">2014</span></pre></div></div>
     </li><li name="scala.AnyRef#clone" visbl="prt" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="clone():Object"></a><a id="clone():AnyRef"></a>
@@ -533,10 +533,10 @@ Always false if the other object is not instance of <a href="" class="extype" na
       </span>
       
       <p class="shortcomment cmt">The <a href="Gender.html" class="extype" name="org.finnpic.Gender">Gender</a> of the person whose PIC this is.</p><div class="fullcomment"><div class="comment cmt"><p>The <a href="Gender.html" class="extype" name="org.finnpic.Gender">Gender</a> of the person whose PIC this is. Currently this can be only <a href="Male$.html" class="extype" name="org.finnpic.Male">Male</a> or <a href="Female$.html" class="extype" name="org.finnpic.Female">Female</a>; this
-is a restriction which comes directly from the PIC specification.</p><p>Examples:</p><pre>&gt;&gt;&gt; Pic.fromStringU(<span class="lit">"290877-1639"</span>).gender
+is a restriction which comes directly from the PIC specification.</p><p>Examples:</p><pre>&gt;&gt;&gt; Pic.fromStringU(<span class="lit">"070377-281V"</span>).gender
 Male
 
-&gt;&gt;&gt; Pic.fromStringU(<span class="lit">"170214A6228"</span>).gender
+&gt;&gt;&gt; Pic.fromStringU(<span class="lit">"211114A664E"</span>).gender
 Female</pre></div></div>
     </li><li name="scala.AnyRef#getClass" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="getClass():Class[_]"></a>
@@ -572,7 +572,7 @@ Female</pre></div></div>
         <span class="name">hashCode</span><span class="params">()</span><span class="result">: <a href="https://www.scala-lang.org/api/2.12.10/scala/Int.html#scala.Int" class="extype" name="scala.Int">Int</a></span>
       </span>
       
-      <p class="shortcomment cmt">The hashCode() function of <a href="" class="extype" name="org.finnpic.Pic">Pic</a> only delegates the call to <a href="#value:String" class="extmbr" name="org.finnpic.Pic#value">value</a>.</p><div class="fullcomment"><div class="comment cmt"><p>The hashCode() function of <a href="" class="extype" name="org.finnpic.Pic">Pic</a> only delegates the call to <a href="#value:String" class="extmbr" name="org.finnpic.Pic#value">value</a>.</p><p>Example:</p><pre>&gt;&gt;&gt; Pic.fromStringU(<span class="lit">"290877-1639"</span>).hashCode == <span class="lit">"290877-1639"</span>.hashCode
+      <p class="shortcomment cmt">The hashCode() function of <a href="" class="extype" name="org.finnpic.Pic">Pic</a> only delegates the call to <a href="#value:String" class="extmbr" name="org.finnpic.Pic#value">value</a>.</p><div class="fullcomment"><div class="comment cmt"><p>The hashCode() function of <a href="" class="extype" name="org.finnpic.Pic">Pic</a> only delegates the call to <a href="#value:String" class="extmbr" name="org.finnpic.Pic#value">value</a>.</p><p>Example:</p><pre>&gt;&gt;&gt; Pic.fromStringU(<span class="lit">"070377-281V"</span>).hashCode == <span class="lit">"070377-281V"</span>.hashCode
 <span class="kw">true</span></pre></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="" class="extype" name="org.finnpic.Pic">Pic</a> → AnyRef → Any</dd></dl></div>
     </li><li name="scala.Any#isInstanceOf" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="isInstanceOf[T0]:Boolean"></a>
@@ -708,8 +708,8 @@ Female</pre></div></div>
       </span>
       
       <p class="shortcomment cmt">The canonical string representation of the PIC.</p><div class="fullcomment"><div class="comment cmt"><p>The canonical string representation of the PIC. Usually the same String
-which was used to create this object.</p><p>Example:</p><pre>&gt;&gt;&gt; Pic.fromStringU(<span class="lit">"290877-1639"</span>).toString
-<span class="num">290877</span>-<span class="num">1639</span></pre></div><dl class="paramcmts block"><dt>returns</dt><dd class="cmt"><p>the canonical string representation of the PIC.</p></dd></dl><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="" class="extype" name="org.finnpic.Pic">Pic</a> → AnyRef → Any</dd></dl></div>
+which was used to create this object.</p><p>Example:</p><pre>&gt;&gt;&gt; Pic.fromStringU(<span class="lit">"070377-281V"</span>).toString
+<span class="num">070377</span>-<span class="num">281</span>V</pre></div><dl class="paramcmts block"><dt>returns</dt><dd class="cmt"><p>the canonical string representation of the PIC.</p></dd></dl><dl class="attributes block"> <dt>Definition Classes</dt><dd><a href="" class="extype" name="org.finnpic.Pic">Pic</a> → AnyRef → Any</dd></dl></div>
     </li><li name="org.finnpic.Pic#value" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="value:String"></a>
       <span class="permalink">
@@ -725,11 +725,11 @@ which was used to create this object.</p><p>Example:</p><pre>&gt;&gt;&gt; Pic.fr
         <span class="name">value</span><span class="result">: <span class="extype" name="scala.Predef.String">String</span></span>
       </span>
       
-      <p class="shortcomment cmt">The PIC String used to create this Pic object itself, trimmed and in uppercase.</p><div class="fullcomment"><div class="comment cmt"><p>The PIC String used to create this Pic object itself, trimmed and in uppercase.</p><p>Examples:</p><pre>&gt;&gt;&gt; Pic.fromStringU(<span class="lit">"290877-1639"</span>).value
-<span class="num">290877</span>-<span class="num">1639</span>
+      <p class="shortcomment cmt">The PIC String used to create this Pic object itself, trimmed and in uppercase.</p><div class="fullcomment"><div class="comment cmt"><p>The PIC String used to create this Pic object itself, trimmed and in uppercase.</p><p>Examples:</p><pre>&gt;&gt;&gt; Pic.fromStringU(<span class="lit">"070377-281V"</span>).value
+<span class="num">070377</span>-<span class="num">281</span>V
 
-&gt;&gt;&gt; Pic.fromStringU(<span class="lit">"170214a6228"</span>).value
-<span class="num">170214</span>A6228</pre></div></div>
+&gt;&gt;&gt; Pic.fromStringU(<span class="lit">"211114a664e"</span>).value
+<span class="num">211114</span>A664E</pre></div></div>
     </li><li name="scala.AnyRef#wait" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="wait():Unit"></a>
       <span class="permalink">

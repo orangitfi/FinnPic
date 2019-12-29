@@ -19,8 +19,8 @@ import scala.util.{Failure, Success, Try}
  *
  * Some examples of [[Pic]] creation:
  * {{{
- * >>> Pic("290877-1639")
- * Right(290877-1639)
+ * >>> Pic("070377-281V")
+ * Right(070377-281V)
  *
  * >>> Pic("290877-163")
  * Left(Invalid PIC: '290877-163'. PIC should have 11 characters, but was 10 characters.)
@@ -28,12 +28,12 @@ import scala.util.{Failure, Success, Try}
  * >>> Pic("290877-1638")
  * Left(Invalid PIC: '290877-1638'. The control character ('8') is wrong: it should be '9'.)
  *
- * >>> Pic.fromStringUnsafe("290877-1639")
- * 290877-1639
+ * >>> Pic.fromStringUnsafe("070377-281V")
+ * 070377-281V
  *
  * // Pic.fromStringU is just a shorter alias for Pic.fromStringUnsafe.
- * >>> Pic.fromStringU("290877-1639")
- * 290877-1639
+ * >>> Pic.fromStringU("070377-281V")
+ * 070377-281V
  *
  * // If you give Pic.fromStringUnsafe (or Pic.fromStringU) an invalid PIC, they throw an IllegalArgumentException.
  * }}}
@@ -44,11 +44,11 @@ class Pic private(mValue: String, mGender: Gender, mBirthYear: Int, mBirthMonth:
    *
    * Examples:
    * {{{
-   * >>> Pic.fromStringU("290877-1639").value
-   * 290877-1639
+   * >>> Pic.fromStringU("070377-281V").value
+   * 070377-281V
    *
-   * >>> Pic.fromStringU("170214a6228").value
-   * 170214A6228
+   * >>> Pic.fromStringU("211114a664e").value
+   * 211114A664E
    * }}}
    */
   val value: String = mValue
@@ -59,10 +59,10 @@ class Pic private(mValue: String, mGender: Gender, mBirthYear: Int, mBirthMonth:
    *
    * Examples:
    * {{{
-   * >>> Pic.fromStringU("290877-1639").gender
+   * >>> Pic.fromStringU("070377-281V").gender
    * Male
    *
-   * >>> Pic.fromStringU("170214A6228").gender
+   * >>> Pic.fromStringU("211114A664E").gender
    * Female
    * }}}
    */
@@ -73,10 +73,10 @@ class Pic private(mValue: String, mGender: Gender, mBirthYear: Int, mBirthMonth:
    *
    * Examples:
    * {{{
-   * >>> Pic.fromStringU("290877-1639").birthYear
+   * >>> Pic.fromStringU("070377-281V").birthYear
    * 1977
    *
-   * >>> Pic.fromStringU("170214A6228").birthYear
+   * >>> Pic.fromStringU("211114A664E").birthYear
    * 2014
    * }}}
    */
@@ -88,11 +88,11 @@ class Pic private(mValue: String, mGender: Gender, mBirthYear: Int, mBirthMonth:
    *
    * Examples:
    * {{{
-   * >>> Pic.fromStringU("290877-1639").birthMonth
-   * 8
+   * >>> Pic.fromStringU("070377-281V").birthMonth
+   * 3
    *
-   * >>> Pic.fromStringU("170214A6228").birthMonth
-   * 2
+   * >>> Pic.fromStringU("211114A664E").birthMonth
+   * 11
    * }}}
    */
   val birthMonth: Int = mBirthMonth
@@ -105,11 +105,11 @@ class Pic private(mValue: String, mGender: Gender, mBirthYear: Int, mBirthMonth:
    *
    * Examples:
    * {{{
-   * >>> Pic.fromStringU("290877-1639").birthDay
-   * 29
+   * >>> Pic.fromStringU("070377-281V").birthDay
+   * 7
    *
-   * >>> Pic.fromStringU("170214A6228").birthDay
-   * 17
+   * >>> Pic.fromStringU("211114A664E").birthDay
+   * 21
    * }}}
    */
   val birthDay: Int = mBirthDay
@@ -148,8 +148,8 @@ class Pic private(mValue: String, mGender: Gender, mBirthYear: Int, mBirthMonth:
    *
    * Example:
    * {{{
-   * >>> Pic.fromStringU("290877-1639").toString
-   * 290877-1639
+   * >>> Pic.fromStringU("070377-281V").toString
+   * 070377-281V
    * }}}
    *
    * @return the canonical string representation of the PIC.
@@ -177,7 +177,7 @@ class Pic private(mValue: String, mGender: Gender, mBirthYear: Int, mBirthMonth:
    *
    * Example:
    * {{{
-   * >>> Pic.fromStringU("290877-1639").hashCode == "290877-1639".hashCode
+   * >>> Pic.fromStringU("070377-281V").hashCode == "070377-281V".hashCode
    * true
    * }}}
    *
@@ -208,8 +208,8 @@ case object Female extends Gender
  *
  * Some examples of [[Pic]] creation:
  * {{{
- * >>> Pic("290877-1639")
- * Right(290877-1639)
+ * >>> Pic("070377-281V")
+ * Right(070377-281V)
  *
  * >>> Pic("290877-163")
  * Left(Invalid PIC: '290877-163'. PIC should have 11 characters, but was 10 characters.)
@@ -217,12 +217,12 @@ case object Female extends Gender
  * >>> Pic("290877-1638")
  * Left(Invalid PIC: '290877-1638'. The control character ('8') is wrong: it should be '9'.)
  *
- * >>> Pic.fromStringUnsafe("290877-1639")
- * 290877-1639
+ * >>> Pic.fromStringUnsafe("070377-281V")
+ * 070377-281V
  *
  * // Pic.fromStringU is just a shorter alias for Pic.fromStringUnsafe.
- * >>> Pic.fromStringU("290877-1639")
- * 290877-1639
+ * >>> Pic.fromStringU("070377-281V")
+ * 070377-281V
  *
  * // If you give Pic.fromStringUnsafe (or Pic.fromStringU) an invalid PIC, they throw an IllegalArgumentException.
  * }}}
@@ -243,8 +243,8 @@ object Pic {
    *
    * Examples:
    * {{{
-   * >>> Pic("290877-1639")
-   * Right(290877-1639)
+   * >>> Pic("070377-281V")
+   * Right(070377-281V)
    *
    * >>> Pic("290877-163")
    * Left(Invalid PIC: '290877-163'. PIC should have 11 characters, but was 10 characters.)
@@ -274,8 +274,8 @@ object Pic {
    *
    * Examples:
    * {{{
-   * >>> Pic.fromStringUnsafe("290877-1639")
-   * 290877-1639
+   * >>> Pic.fromStringUnsafe("070377-281V")
+   * 070377-281V
    *
    * >>> // Pic.fromStringUnsafe("foo") would throw an IllegalArgumentException.
    * }}}
@@ -297,8 +297,8 @@ object Pic {
    *
    * Examples:
    * {{{
-   * >>> Pic.fromStringU("290877-1639")
-   * 290877-1639
+   * >>> Pic.fromStringU("070377-281V")
+   * 070377-281V
    *
    * >>> // Pic.fromStringU("foo") would throw an IllegalArgumentException.
    * }}}
@@ -417,8 +417,8 @@ object Pic {
   private[finnpic] val controlChars: Array[Char] = Array('0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F', 'H', 'J', 'K', 'L', 'M', 'N', 'P', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y')
 
   /**
-   * The input to this method is the birth date part (290877 in 290877-1639)
-   * concatenated with the individualNumber (163 in 290877-1639). In this example,
+   * The input to this method is the birth date part (290877 in 070377-281V)
+   * concatenated with the individualNumber (163 in 070377-281V). In this example,
    * the returned char would be 9.
    *
    * See https://vrk.fi/en/personal-identity-code1 for more information about the control character calculation.

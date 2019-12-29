@@ -12,12 +12,14 @@ import scala.util.{Failure, Success, Try}
  * See https://vrk.fi/en/personal-identity-code1 for specs.
  */
 class PicSpec extends AnyFlatSpecLike with Matchers {
-  val validPic1MaleBornIn1900s = "290877-1639"
-  val validPic2FemaleBornIn1900s = "010781-190A"
-  val validPic3FemaleBornIn2000s = "170214A6228"
-  val validPic4MaleBornIn1800s = "290877+1639"
+  val validPic1MaleBornIn1900s = "070377-281V"
+  val validPic2FemaleBornIn1900s = "211281-862X"
+  val validPic3FemaleBornIn2000s = "211114A664E"
+  val validPic4MaleBornIn1800s = "210777+9955"
 
   val validPics: List[String] = List(validPic1MaleBornIn1900s, validPic2FemaleBornIn1900s, validPic3FemaleBornIn2000s, validPic4MaleBornIn1800s)
+
+  val helsinkiTimeZone: ZoneId = ZoneId.of("Europe/Helsinki")
 
   behavior of "object Pic, method fromString"
 
@@ -72,8 +74,8 @@ class PicSpec extends AnyFlatSpecLike with Matchers {
   }
 
   it should "uppercase all characters to achieve a canonical representation" in {
-    fromStringU("010781-190a").value should be("010781-190A")
-    fromStringU("170214a6228").value should be("170214A6228")
+    fromStringU("211281-862x").value should be("211281-862X")
+    fromStringU("211114a664e").value should be("211114A664E")
   }
 
   behavior of "object Pic, method fromStringUnsafe / fromStringU"
@@ -86,6 +88,11 @@ class PicSpec extends AnyFlatSpecLike with Matchers {
       }
       case Success(_) => fail("An IllegalArgumentException should have been thrown, but was not.")
     }
+  }
+
+  it should "accept a valid PIC" in {
+    fromStringU("230625A323J") // pass
+    fromStringU("120128A116H") // pass
   }
 
   behavior of "class Pic"
@@ -105,56 +112,68 @@ class PicSpec extends AnyFlatSpecLike with Matchers {
   }
 
   it should "know the birth month of the person" in {
-    fromStringU(validPic1MaleBornIn1900s).birthMonth should be(8)
-    fromStringU(validPic2FemaleBornIn1900s).birthMonth should be(7)
-    fromStringU(validPic3FemaleBornIn2000s).birthMonth should be(2)
-    fromStringU(validPic4MaleBornIn1800s).birthMonth should be(8)
+    fromStringU(validPic1MaleBornIn1900s).birthMonth should be(3)
+    fromStringU(validPic2FemaleBornIn1900s).birthMonth should be(12)
+    fromStringU(validPic3FemaleBornIn2000s).birthMonth should be(11)
+    fromStringU(validPic4MaleBornIn1800s).birthMonth should be(7)
   }
 
   it should "know the birth day (of month) of the person" in {
-    fromStringU(validPic1MaleBornIn1900s).birthDay should be(29)
-    fromStringU(validPic2FemaleBornIn1900s).birthDay should be(1)
-    fromStringU(validPic3FemaleBornIn2000s).birthDay should be(17)
-    fromStringU(validPic4MaleBornIn1800s).birthDay should be(29)
+    fromStringU(validPic1MaleBornIn1900s).birthDay should be(7)
+    fromStringU(validPic2FemaleBornIn1900s).birthDay should be(21)
+    fromStringU(validPic3FemaleBornIn2000s).birthDay should be(21)
+    fromStringU(validPic4MaleBornIn1800s).birthDay should be(21)
   }
 
   it should "know the birth date of the person" in {
-    fromStringU(validPic1MaleBornIn1900s).birthDate should be(LocalDate.of(1977, 8, 29))
-    fromStringU(validPic2FemaleBornIn1900s).birthDate should be(LocalDate.of(1981, 7, 1))
-    fromStringU(validPic3FemaleBornIn2000s).birthDate should be(LocalDate.of(2014, 2, 17))
-    fromStringU(validPic4MaleBornIn1800s).birthDate should be(LocalDate.of(1877, 8, 29))
+    fromStringU(validPic1MaleBornIn1900s).birthDate should be(LocalDate.of(1977, 3, 7))
+    fromStringU(validPic2FemaleBornIn1900s).birthDate should be(LocalDate.of(1981, 12, 21))
+    fromStringU(validPic3FemaleBornIn2000s).birthDate should be(LocalDate.of(2014, 11, 21))
+    fromStringU(validPic4MaleBornIn1800s).birthDate should be(LocalDate.of(1877, 7, 21))
   }
 
   it should "know the age of the person in question, on the day before birthday" in {
-    implicit val at28081995: Clock = Clock.fixed(Instant.ofEpochSecond(809629200), ZoneId.of("Europe/Helsinki"))
+    val dayBefore18thBirthday = LocalDate.of(1995, 3, 6)
+    implicit val atDayBefore18thBirthday: Clock =
+      Clock.fixed(dayBefore18thBirthday.atTime(17, 0).
+        toInstant(
+          helsinkiTimeZone.getRules.getOffset(dayBefore18thBirthday.atTime(17, 0))
+        ),
+        helsinkiTimeZone
+      )
     fromStringU(validPic1MaleBornIn1900s).ageInYearsNow() should be(17)
-    fromStringU(validPic2FemaleBornIn1900s).ageInYearsNow() should be(14)
-    fromStringU(validPic3FemaleBornIn2000s).ageInYearsNow() should be(-18)
+    fromStringU(validPic2FemaleBornIn1900s).ageInYearsNow() should be(13)
+    fromStringU(validPic3FemaleBornIn2000s).ageInYearsNow() should be(-19)
     fromStringU(validPic4MaleBornIn1800s).ageInYearsNow() should be(117)
   }
 
   it should "know the age of the person in question, on birthday" in {
-    implicit val at29081995: Clock = Clock.fixed(Instant.ofEpochSecond(809715600), ZoneId.of("Europe/Helsinki"))
+    val dayOf18thBirthday = LocalDate.of(1995, 3, 7)
+    implicit val at29081995: Clock = Clock.fixed(dayOf18thBirthday.atTime(0, 0).
+      toInstant(
+        helsinkiTimeZone.getRules.getOffset(dayOf18thBirthday.atTime(8, 0))
+      ),
+      helsinkiTimeZone)
     fromStringU(validPic1MaleBornIn1900s).ageInYearsNow() should be(18)
-    fromStringU(validPic2FemaleBornIn1900s).ageInYearsNow() should be(14)
-    fromStringU(validPic3FemaleBornIn2000s).ageInYearsNow() should be(-18)
-    fromStringU(validPic4MaleBornIn1800s).ageInYearsNow() should be(118)
+    fromStringU(validPic2FemaleBornIn1900s).ageInYearsNow() should be(13)
+    fromStringU(validPic3FemaleBornIn2000s).ageInYearsNow() should be(-19)
+    fromStringU(validPic4MaleBornIn1800s).ageInYearsNow() should be(117)
   }
 
   it should "know if the person if os Finnish legal age at some point in time, on the day before birthday" in {
-    val at29081995: LocalDate = LocalDate.of(1995, 8, 28)
-    fromStringU(validPic1MaleBornIn1900s).personIsOfFinnishLegalAgeAt(at29081995) should be(false)
-    fromStringU(validPic2FemaleBornIn1900s).personIsOfFinnishLegalAgeAt(at29081995) should be(false)
-    fromStringU(validPic3FemaleBornIn2000s).personIsOfFinnishLegalAgeAt(at29081995) should be(false)
-    fromStringU(validPic4MaleBornIn1800s).personIsOfFinnishLegalAgeAt(at29081995) should be(true)
+    val at06031995: LocalDate = LocalDate.of(1995, 3, 6)
+    fromStringU(validPic1MaleBornIn1900s).personIsOfFinnishLegalAgeAt(at06031995) should be(false)
+    fromStringU(validPic2FemaleBornIn1900s).personIsOfFinnishLegalAgeAt(at06031995) should be(false)
+    fromStringU(validPic3FemaleBornIn2000s).personIsOfFinnishLegalAgeAt(at06031995) should be(false)
+    fromStringU(validPic4MaleBornIn1800s).personIsOfFinnishLegalAgeAt(at06031995) should be(true)
   }
 
   it should "know if the person if os Finnish legal age at some point in time, on birthday" in {
-    val at29081995: LocalDate = LocalDate.of(1995, 8, 29)
-    fromStringU(validPic1MaleBornIn1900s).personIsOfFinnishLegalAgeAt(at29081995) should be(true)
-    fromStringU(validPic2FemaleBornIn1900s).personIsOfFinnishLegalAgeAt(at29081995) should be(false)
-    fromStringU(validPic3FemaleBornIn2000s).personIsOfFinnishLegalAgeAt(at29081995) should be(false)
-    fromStringU(validPic4MaleBornIn1800s).personIsOfFinnishLegalAgeAt(at29081995) should be(true)
+    val at0703081995: LocalDate = LocalDate.of(1995, 3, 7)
+    fromStringU(validPic1MaleBornIn1900s).personIsOfFinnishLegalAgeAt(at0703081995) should be(true)
+    fromStringU(validPic2FemaleBornIn1900s).personIsOfFinnishLegalAgeAt(at0703081995) should be(false)
+    fromStringU(validPic3FemaleBornIn2000s).personIsOfFinnishLegalAgeAt(at0703081995) should be(false)
+    fromStringU(validPic4MaleBornIn1800s).personIsOfFinnishLegalAgeAt(at0703081995) should be(true)
   }
 
   it should "know if the person is of Finnish legal age now" in {
@@ -183,14 +202,14 @@ class PicSpec extends AnyFlatSpecLike with Matchers {
   }
 
   it should "match if the PIC String is equivalent, but the control character is in a different case" in {
-    val pic1 = fromStringU("010781-190A")
-    val pic2 = fromStringU("010781-190a")
+    val pic1 = fromStringU("211281-862X")
+    val pic2 = fromStringU("211281-862x")
     pic1 should equal(pic2)
   }
 
   it should "match if the PIC String is equivalent, but the sign character is in a different case" in {
-    val pic1 = fromStringU("170214A6228")
-    val pic2 = fromStringU("170214a6228")
+    val pic1 = fromStringU("211114A664E")
+    val pic2 = fromStringU("211114a664E")
     pic1 should equal(pic2)
   }
 

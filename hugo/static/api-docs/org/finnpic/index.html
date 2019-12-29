@@ -240,8 +240,8 @@
 be created via the companion object (the so called
 &quot;smart constructor&quot; pattern). This prevents instances which
 are in an illegal state. Every Pic object can thus be
-treated as a valid Pic.</p><p>See the companion object for how to create instances of Pic.</p><p>Some examples of <a href="Pic.html" class="extype" name="org.finnpic.Pic">Pic</a> creation:</p><pre>&gt;&gt;&gt; Pic(<span class="lit">"290877-1639"</span>)
-Right(<span class="num">290877</span>-<span class="num">1639</span>)
+treated as a valid Pic.</p><p>See the companion object for how to create instances of Pic.</p><p>Some examples of <a href="Pic.html" class="extype" name="org.finnpic.Pic">Pic</a> creation:</p><pre>&gt;&gt;&gt; Pic(<span class="lit">"070377-281V"</span>)
+Right(<span class="num">070377</span>-<span class="num">281</span>V)
 
 &gt;&gt;&gt; Pic(<span class="lit">"290877-163"</span>)
 Left(Invalid PIC: '<span class="num">290877</span>-<span class="num">163</span>'. PIC should have <span class="num">11</span> characters, but was <span class="num">10</span> characters.)
@@ -249,12 +249,12 @@ Left(Invalid PIC: '<span class="num">290877</span>-<span class="num">163</span>'
 &gt;&gt;&gt; Pic(<span class="lit">"290877-1638"</span>)
 Left(Invalid PIC: '<span class="num">290877</span>-<span class="num">1638</span>'. The control character (<span class="lit">'8'</span>) is wrong: it should be <span class="lit">'9'</span>.)
 
-&gt;&gt;&gt; Pic.fromStringUnsafe(<span class="lit">"290877-1639"</span>)
-<span class="num">290877</span>-<span class="num">1639</span>
+&gt;&gt;&gt; Pic.fromStringUnsafe(<span class="lit">"070377-281V"</span>)
+<span class="num">070377</span>-<span class="num">281</span>V
 
 <span class="cmt">// Pic.fromStringU is just a shorter alias for Pic.fromStringUnsafe.</span>
-&gt;&gt;&gt; Pic.fromStringU(<span class="lit">"290877-1639"</span>)
-<span class="num">290877</span>-<span class="num">1639</span>
+&gt;&gt;&gt; Pic.fromStringU(<span class="lit">"070377-281V"</span>)
+<span class="num">070377</span>-<span class="num">281</span>V
 
 <span class="cmt">// If you give Pic.fromStringUnsafe (or Pic.fromStringU) an invalid PIC, they throw an IllegalArgumentException.</span></pre></div></div>
     </li></ol>
@@ -313,8 +313,8 @@ Left(Invalid PIC: '<span class="num">290877</span>-<span class="num">1638</span>
       </span>
       
       <p class="shortcomment cmt">Contains the factory methods for creating objects of class <a href="Pic.html" class="extype" name="org.finnpic.Pic">Pic</a>.</p><div class="fullcomment"><div class="comment cmt"><p>Contains the factory methods for creating objects of class <a href="Pic.html" class="extype" name="org.finnpic.Pic">Pic</a>.
-Follows the &quot;smart constructor&quot; pattern, familiar from Haskell.</p><p>Some examples of <a href="Pic.html" class="extype" name="org.finnpic.Pic">Pic</a> creation:</p><pre>&gt;&gt;&gt; Pic(<span class="lit">"290877-1639"</span>)
-Right(<span class="num">290877</span>-<span class="num">1639</span>)
+Follows the &quot;smart constructor&quot; pattern, familiar from Haskell.</p><p>Some examples of <a href="Pic.html" class="extype" name="org.finnpic.Pic">Pic</a> creation:</p><pre>&gt;&gt;&gt; Pic(<span class="lit">"070377-281V"</span>)
+Right(<span class="num">070377</span>-<span class="num">281</span>V)
 
 &gt;&gt;&gt; Pic(<span class="lit">"290877-163"</span>)
 Left(Invalid PIC: '<span class="num">290877</span>-<span class="num">163</span>'. PIC should have <span class="num">11</span> characters, but was <span class="num">10</span> characters.)
@@ -322,12 +322,12 @@ Left(Invalid PIC: '<span class="num">290877</span>-<span class="num">163</span>'
 &gt;&gt;&gt; Pic(<span class="lit">"290877-1638"</span>)
 Left(Invalid PIC: '<span class="num">290877</span>-<span class="num">1638</span>'. The control character (<span class="lit">'8'</span>) is wrong: it should be <span class="lit">'9'</span>.)
 
-&gt;&gt;&gt; Pic.fromStringUnsafe(<span class="lit">"290877-1639"</span>)
-<span class="num">290877</span>-<span class="num">1639</span>
+&gt;&gt;&gt; Pic.fromStringUnsafe(<span class="lit">"070377-281V"</span>)
+<span class="num">070377</span>-<span class="num">281</span>V
 
 <span class="cmt">// Pic.fromStringU is just a shorter alias for Pic.fromStringUnsafe.</span>
-&gt;&gt;&gt; Pic.fromStringU(<span class="lit">"290877-1639"</span>)
-<span class="num">290877</span>-<span class="num">1639</span>
+&gt;&gt;&gt; Pic.fromStringU(<span class="lit">"070377-281V"</span>)
+<span class="num">070377</span>-<span class="num">281</span>V
 
 <span class="cmt">// If you give Pic.fromStringUnsafe (or Pic.fromStringU) an invalid PIC, they throw an IllegalArgumentException.</span></pre></div></div>
     </li><li name="org.finnpic.PicGenerator" visbl="pub" class="indented0 " data-isabs="false" fullComment="no" group="Ungrouped">

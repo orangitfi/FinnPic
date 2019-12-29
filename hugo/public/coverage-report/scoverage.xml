@@ -1,5 +1,5 @@
 <scoverage 
-statement-count="184" statements-invoked="184" statement-rate="100.00" branch-rate="100.00" version="1.0" timestamp="1577619282752">
+statement-count="184" statements-invoked="184" statement-rate="100.00" branch-rate="100.00" version="1.0" timestamp="1577641070519">
     <packages>
         <package name="org.finnpic" statement-count="184" statements-invoked="184" statement-rate="100.00">
             <classes>
@@ -466,7 +466,7 @@ statement-count="184" statements-invoked="184" statement-rate="100.00" branch-ra
                                 package="org.finnpic" class="Pic" class-type="Object" full-class-name="org.finnpic.Pic" source="/Users/vpeurala/Projects/OrangIT/FinnPic/src/main/scala/org/finnpic/Pic.scala" method="&lt;none&gt;" start="10003" end="10006" line="333" branch="false" invocation-count="1" ignored="false">
 </statement>
                                 <statement 
-                                package="org.finnpic" class="Pic" class-type="Class" full-class-name="org.finnpic.Pic" source="/Users/vpeurala/Projects/OrangIT/FinnPic/src/main/scala/org/finnpic/Pic.scala" method="&lt;none&gt;" start="2587" end="2598" line="98" branch="false" invocation-count="1" ignored="false">
+                                package="org.finnpic" class="Pic" class-type="Class" full-class-name="org.finnpic.Pic" source="/Users/vpeurala/Projects/OrangIT/FinnPic/src/main/scala/org/finnpic/Pic.scala" method="&lt;none&gt;" start="2588" end="2599" line="98" branch="false" invocation-count="1" ignored="false">
 </statement>
                                 <statement 
                                 package="org.finnpic" class="Pic" class-type="Object" full-class-name="org.finnpic.Pic" source="/Users/vpeurala/Projects/OrangIT/FinnPic/src/main/scala/org/finnpic/Pic.scala" method="&lt;none&gt;" start="11406" end="11433" line="371" branch="false" invocation-count="1" ignored="false">

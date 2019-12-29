@@ -36,7 +36,7 @@ The safe way, used successfully on a valid PIC:
 
 ```scala
 // The safe way, success:
-val p = Pic.fromString("290877-1639")
+val p = Pic.fromString("070377-281V")
 // ^ p is now Right(Pic(...))
 ```
 
@@ -56,7 +56,7 @@ Use the unsafe way when the PIC value comes from a dependable source (for exampl
 a database column where you know that only valid values are stored).
 
 ```scala
-val p: Pic = Pic.fromStringUnsafe("290877-1639")
+val p: Pic = Pic.fromStringUnsafe("070377-281V")
 // ^ p is now Pic(...)
 
 p = Pic.fromStringUnsafe("foo")

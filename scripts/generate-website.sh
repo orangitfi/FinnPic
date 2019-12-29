@@ -7,6 +7,9 @@ echo "Building a website for FinnPic project..."
 echo "Running sbt..."
 sbt clean coverage test coverageReport doc
 
+# Clean Hugo's public dir (the output of site generation)
+rm -rf hugo/public/*
+
 # Clean the old versions of generated content from Hugo.
 echo "Cleaning up Hugo's static/ dir..."
 rm -rf hugo/static/api-docs

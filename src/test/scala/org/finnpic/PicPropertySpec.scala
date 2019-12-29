@@ -1,5 +1,7 @@
 package org.finnpic
 
+import java.time.LocalDate
+
 import org.scalacheck.Prop.forAll
 import org.scalacheck.{Gen, Properties}
 
@@ -17,11 +19,13 @@ object PicPropertySpec extends Properties("Pic.fromString") {
     controlCharacter <- controlCharacterG
   } yield (birthDatePart + sign + individualNumber + controlCharacter)
 
+  val arbitraryDateFarInFuture: LocalDate = LocalDate.of(3000, 1, 1)
+
   property("does not throw runtime exceptions for arbitrary strings of any length") = forAll { (s: String) =>
     val e: Either[String, Pic] = Pic(s)
     e match {
       case Left(_) => true
-      case Right(pic) => pic.value == s.trim.toUpperCase
+      case Right(pic) => pic.value == s.trim.toUpperCase && pic.ageInYearsAt(arbitraryDateFarInFuture) >= 0
     }
   }
 
@@ -29,7 +33,7 @@ object PicPropertySpec extends Properties("Pic.fromString") {
     val e: Either[String, Pic] = Pic(s)
     e match {
       case Left(_) => true
-      case Right(pic) => pic.value == s.trim.toUpperCase
+      case Right(pic) => pic.value == s.trim.toUpperCase && pic.ageInYearsAt(arbitraryDateFarInFuture) >= 0
     }
   }
 
@@ -37,7 +41,7 @@ object PicPropertySpec extends Properties("Pic.fromString") {
     val e: Either[String, Pic] = Pic(s)
     e match {
       case Left(_) => true
-      case Right(pic) => pic.value == s.trim.toUpperCase && pic.ageInYearsNow() >= 0
+      case Right(pic) => pic.value == s.trim.toUpperCase && pic.ageInYearsAt(arbitraryDateFarInFuture) >= 0
     }
   }
 }
