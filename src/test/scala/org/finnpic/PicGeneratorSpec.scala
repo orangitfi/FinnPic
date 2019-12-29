@@ -45,22 +45,22 @@ class PicGeneratorSpec extends AnyFlatSpecLike with Matchers {
 
   it should "be able to generate a PIC for a 5 years old female" in {
     implicit val seed: Long = 5
-    val generatedPic: Pic = PicGenerator.generateInfinite().find(
+    val generatedPic: Option[Pic] = PicGenerator.generateInfinite().find(
       pic => pic.gender == Female && pic.ageInYearsAt(testDate) == 5
-    ).get
-    generatedPic.gender should be(Female)
-    generatedPic.ageInYearsNow() should be(5)
-    generatedPic.value should be("060714A7422")
+    )
+    generatedPic.map(_.gender) should be(Some(Female))
+    generatedPic.map(_.ageInYearsNow()) should be(Some(5))
+    generatedPic.map(_.value) should be(Some("060714A7422"))
   }
 
   it should "be able to generate a PIC for a 100 years old male" in {
     implicit val seed: Long = 5
-    val generatedPic: Pic = PicGenerator.generateInfinite().find(
+    val generatedPic: Option[Pic] = PicGenerator.generateInfinite().find(
       pic => pic.gender == Male && pic.ageInYearsAt(testDate) == 100
-    ).get
-    generatedPic.gender should be(Male)
-    generatedPic.ageInYearsNow() should be(100)
-    generatedPic.value should be("181219-4634")
+    )
+    generatedPic.map(_.gender) should be(Some(Male))
+    generatedPic.map(_.ageInYearsNow()) should be(Some(100))
+    generatedPic.map(_.value) should be(Some("181219-4634"))
   }
 
   behavior of "PicGenerator.generateOneWithSpecification"
