@@ -32,15 +32,15 @@ class PicSpec extends AnyFlatSpecLike with Matchers {
   }
 
   it should "reject a PIC where the delimiter char is something other than +, -, or A" in {
-    Pic("290877X1639") should be(Left("Invalid PIC: '290877X1639'. The sign (7th character) must be +, - or A, now it was: 'X'."))
+    Pic("070377X281V") should be(Left("Invalid PIC: '070377X281V'. The sign (7th character) must be +, - or A, now it was: 'X'."))
   }
 
   it should "reject a PIC where the individual number is not numeric" in {
-    Pic("290877-16A9") should be(Left("Invalid PIC: '290877-16A9'. The individual number (characters 8-10) must be numeric, now it was: '16A'."))
+    Pic("070377-28AV") should be(Left("Invalid PIC: '070377-28AV'. The individual number (characters 8-10) must be numeric, now it was: '28A'."))
   }
 
   it should "reject a PIC the control character is wrong" in {
-    Pic("290877-1638") should be(Left("Invalid PIC: '290877-1638'. The control character ('8') is wrong: it should be '9'."))
+    Pic("070377-2818") should be(Left("Invalid PIC: '070377-2818'. The control character ('8') is wrong: it should be 'V'."))
   }
 
   it should "reject a PIC where the day part of the birth date part is something else than 1-31" in {
@@ -81,10 +81,10 @@ class PicSpec extends AnyFlatSpecLike with Matchers {
   behavior of "object Pic, method fromStringUnsafe / fromStringU"
 
   it should "throw an IllegalArgumentException if the input is not a valid PIC" in {
-    val t: Try[Pic] = Try(fromStringU("290877-1640"))
+    val t: Try[Pic] = Try(fromStringU("070377-2819"))
     t match {
       case Failure(err) => {
-        err.getMessage should be("Invalid PIC: '290877-1640'. The control character ('0') is wrong: it should be 'A'.")
+        err.getMessage should be("Invalid PIC: '070377-2819'. The control character ('9') is wrong: it should be 'V'.")
       }
       case Success(_) => fail("An IllegalArgumentException should have been thrown, but was not.")
     }

@@ -22,11 +22,11 @@ import scala.util.{Failure, Success, Try}
  * >>> Pic("070377-281V")
  * Right(070377-281V)
  *
- * >>> Pic("290877-163")
- * Left(Invalid PIC: '290877-163'. PIC should have 11 characters, but was 10 characters.)
+ * >>> Pic("070377-281")
+ * Left(Invalid PIC: '070377-281'. PIC should have 11 characters, but was 10 characters.)
  *
- * >>> Pic("290877-1638")
- * Left(Invalid PIC: '290877-1638'. The control character ('8') is wrong: it should be '9'.)
+ * >>> Pic("070377-2818")
+ * Left(Invalid PIC: '070377-2818'. The control character ('8') is wrong: it should be 'V'.)
  *
  * >>> Pic.fromStringUnsafe("070377-281V")
  * 070377-281V
@@ -211,11 +211,11 @@ case object Female extends Gender
  * >>> Pic("070377-281V")
  * Right(070377-281V)
  *
- * >>> Pic("290877-163")
- * Left(Invalid PIC: '290877-163'. PIC should have 11 characters, but was 10 characters.)
+ * >>> Pic("070377-281")
+ * Left(Invalid PIC: '070377-281'. PIC should have 11 characters, but was 10 characters.)
  *
- * >>> Pic("290877-1638")
- * Left(Invalid PIC: '290877-1638'. The control character ('8') is wrong: it should be '9'.)
+ * >>> Pic("070377-2818")
+ * Left(Invalid PIC: '070377-2818'. The control character ('8') is wrong: it should be 'V'.)
  *
  * >>> Pic.fromStringUnsafe("070377-281V")
  * 070377-281V
@@ -246,11 +246,11 @@ object Pic {
    * >>> Pic("070377-281V")
    * Right(070377-281V)
    *
-   * >>> Pic("290877-163")
-   * Left(Invalid PIC: '290877-163'. PIC should have 11 characters, but was 10 characters.)
+   * >>> Pic("070377-281")
+   * Left(Invalid PIC: '070377-281'. PIC should have 11 characters, but was 10 characters.)
    *
-   * >>> Pic("290877-1638")
-   * Left(Invalid PIC: '290877-1638'. The control character ('8') is wrong: it should be '9'.)
+   * >>> Pic("070377-2818")
+   * Left(Invalid PIC: '070377-2818'. The control character ('8') is wrong: it should be 'V'.)
    * }}}
    *
    * @param input a valid Personal Identity Code as a String.
@@ -417,8 +417,8 @@ object Pic {
   private[finnpic] val controlChars: Array[Char] = Array('0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F', 'H', 'J', 'K', 'L', 'M', 'N', 'P', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y')
 
   /**
-   * The input to this method is the birth date part (290877 in 070377-281V)
-   * concatenated with the individualNumber (163 in 070377-281V). In this example,
+   * The input to this method is the birth date part (070377 in 070377-281V)
+   * concatenated with the individualNumber (281 in 070377-281V). In this example,
    * the returned char would be 9.
    *
    * See https://vrk.fi/en/personal-identity-code1 for more information about the control character calculation.
