@@ -19,13 +19,13 @@ import scala.util.Try
  *
  * Some examples of [[Pic]] creation:
  * {{{
- * >>> Pic.fromString("290877-1639")
+ * >>> Pic("290877-1639")
  * Right(290877-1639)
  *
- * >>> Pic.fromString("290877-163")
+ * >>> Pic("290877-163")
  * Left(Invalid PIC: '290877-163'. PIC should have 11 characters, but was 10 characters.)
  *
- * >>> Pic.fromString("290877-1638")
+ * >>> Pic("290877-1638")
  * Left(Invalid PIC: '290877-1638'. The control character ('8') is wrong: it should be '9'.)
  *
  * >>> Pic.fromStringUnsafe("290877-1639")
@@ -208,13 +208,13 @@ case object Female extends Gender
  *
  * Some examples of [[Pic]] creation:
  * {{{
- * >>> Pic.fromString("290877-1639")
+ * >>> Pic("290877-1639")
  * Right(290877-1639)
  *
- * >>> Pic.fromString("290877-163")
+ * >>> Pic("290877-163")
  * Left(Invalid PIC: '290877-163'. PIC should have 11 characters, but was 10 characters.)
  *
- * >>> Pic.fromString("290877-1638")
+ * >>> Pic("290877-1638")
  * Left(Invalid PIC: '290877-1638'. The control character ('8') is wrong: it should be '9'.)
  *
  * >>> Pic.fromStringUnsafe("290877-1639")
@@ -231,6 +231,11 @@ object Pic {
   val finnishLegalAge: Int = 18
 
   /**
+   * Create a Pic from an input String, see [[fromString()]].
+   */
+  def apply(input: String): Either[String, Pic] = fromString(input)
+
+  /**
    * Create a Pic from an input String, returning an [[scala.util.Either]].
    *
    * See also [[fromStringUnsafe]] for cases where you are sure that the input is a valid PIC
@@ -238,13 +243,13 @@ object Pic {
    *
    * Examples:
    * {{{
-   * >>> Pic.fromString("290877-1639")
+   * >>> Pic("290877-1639")
    * Right(290877-1639)
    *
-   * >>> Pic.fromString("290877-163")
+   * >>> Pic("290877-163")
    * Left(Invalid PIC: '290877-163'. PIC should have 11 characters, but was 10 characters.)
    *
-   * >>> Pic.fromString("290877-1638")
+   * >>> Pic("290877-1638")
    * Left(Invalid PIC: '290877-1638'. The control character ('8') is wrong: it should be '9'.)
    * }}}
    *

@@ -38,14 +38,14 @@ The safe way, used successfully on a valid PIC:
 
 ```scala
 // The safe way, success:
-val p = Pic.fromString("290877-1639")
+val p = Pic("290877-1639")
 // ^ p is now Right(Pic(...))
 ```
 
 The safe way, failing:
 
 ```scala
-p = Pic.fromString("foo")
+p = Pic("foo")
 // ^ p is now Left("some error message")
 ```
 

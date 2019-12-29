@@ -2,11 +2,12 @@ package org.finnpic
 
 import java.time.{Clock, Instant, LocalDate, ZoneId}
 
-import Pic.{fromString, fromStringU}
 import org.scalatest.flatspec.AnyFlatSpecLike
 import org.scalatest.matchers.should.Matchers
 
 import scala.util.{Failure, Success, Try}
+
+import Pic.fromStringU
 
 /**
  * See https://vrk.fi/en/personal-identity-code1 for specs.
@@ -22,28 +23,28 @@ class PicSpec extends AnyFlatSpecLike with Matchers {
   behavior of "object Pic, method fromString"
 
   it should "reject an empty string" in {
-    fromString("") should be(Left("Invalid PIC: ''. PIC should have 11 characters, but was 0 characters."))
+    Pic("") should be(Left("Invalid PIC: ''. PIC should have 11 characters, but was 0 characters."))
   }
 
   it should "reject a PIC with non-numeric character in the first 6 places" in {
-    fromString("2908X7-1639") should be(Left("Invalid PIC: '2908X7-1639'. The first six characters have to be numeric, but they were: '2908X7'."))
+    Pic("2908X7-1639") should be(Left("Invalid PIC: '2908X7-1639'. The first six characters have to be numeric, but they were: '2908X7'."))
   }
 
   it should "reject a PIC where the delimiter char is something other than +, -, or A" in {
-    fromString("290877X1639") should be(Left("Invalid PIC: '290877X1639'. The sign (7th character) must be +, - or A, now it was: 'X'."))
+    Pic("290877X1639") should be(Left("Invalid PIC: '290877X1639'. The sign (7th character) must be +, - or A, now it was: 'X'."))
   }
 
   it should "reject a PIC where the individual number is not numeric" in {
-    fromString("290877-16A9") should be(Left("Invalid PIC: '290877-16A9'. The individual number (characters 8-10) must be numeric, now it was: '16A'."))
+    Pic("290877-16A9") should be(Left("Invalid PIC: '290877-16A9'. The individual number (characters 8-10) must be numeric, now it was: '16A'."))
   }
 
   it should "reject a PIC the control character is wrong" in {
-    fromString("290877-1638") should be(Left("Invalid PIC: '290877-1638'. The control character ('8') is wrong: it should be '9'."))
+    Pic("290877-1638") should be(Left("Invalid PIC: '290877-1638'. The control character ('8') is wrong: it should be '9'."))
   }
 
   it should "accept a valid PIC" in {
     validPics.foreach(s =>
-      fromString(s) match {
+      Pic(s) match {
         case Left(errorMsg: String) => fail(errorMsg)
         case Right(pic) => pic.value should be(s)
       })

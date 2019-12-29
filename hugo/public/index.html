@@ -6,7 +6,7 @@
     
     <title>FinnPic open source project </title>
     <meta name="viewport" content="width=device-width,minimum-scale=1">
-    <meta name="generator" content="Hugo 0.61.0" />
+    <meta name="generator" content="Hugo 0.62.0" />
     
     
       <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
@@ -156,10 +156,10 @@ pattern in functional programming.</p>
 or some other undependable source.</p>
 <p>The safe way, used successfully on a valid PIC:</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-scala" data-lang="scala"><span style="color:#75715e">// The safe way, success:
-</span><span style="color:#75715e"></span><span style="color:#66d9ef">val</span> p <span style="color:#66d9ef">=</span> <span style="color:#a6e22e">Pic</span><span style="color:#f92672">.</span>fromString<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;290877-1639&#34;</span><span style="color:#f92672">)</span>
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">val</span> p <span style="color:#66d9ef">=</span> <span style="color:#a6e22e">Pic</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;290877-1639&#34;</span><span style="color:#f92672">)</span>
 <span style="color:#75715e">// ^ p is now Right(Pic(...))
 </span></code></pre></div><p>The safe way, failing:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-scala" data-lang="scala">p <span style="color:#66d9ef">=</span> <span style="color:#a6e22e">Pic</span><span style="color:#f92672">.</span>fromString<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;foo&#34;</span><span style="color:#f92672">)</span>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-scala" data-lang="scala">p <span style="color:#66d9ef">=</span> <span style="color:#a6e22e">Pic</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;foo&#34;</span><span style="color:#f92672">)</span>
 <span style="color:#75715e">// ^ p is now Left(&#34;some error message&#34;)
 </span></code></pre></div><p>The unsafe way is to use <code>Pic.fromStringUnsafe</code>, or its alias <code>Pic.fromStringU</code>
 (which does the same thing, but is shorter to type and read). The unsafe variants return a
