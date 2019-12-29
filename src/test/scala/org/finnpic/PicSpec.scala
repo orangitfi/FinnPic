@@ -28,7 +28,7 @@ class PicSpec extends AnyFlatSpecLike with Matchers {
   }
 
   it should "reject a PIC with non-numeric character in the first 6 places" in {
-    Pic("2908X7-1639") should be(Left("Invalid PIC: '2908X7-1639'. The first six characters have to be numeric, but they were: '2908X7'."))
+    Pic("07037X-281V") should be(Left("Invalid PIC: '07037X-281V'. The first six characters have to be numeric, but they were: '07037X'."))
   }
 
   it should "reject a PIC where the delimiter char is something other than +, -, or A" in {
@@ -49,8 +49,8 @@ class PicSpec extends AnyFlatSpecLike with Matchers {
   }
 
   it should "reject a PIC where the month part of the birth date part is something else than 1-12" in {
-    Pic("290077-1639") should be(Left("Invalid PIC: '290077-1639'. The month part of the birth date is wrong: it should be 01-12, but was: '00'."))
-    Pic("291377-1639") should be(Left("Invalid PIC: '291377-1639'. The month part of the birth date is wrong: it should be 01-12, but was: '13'."))
+    Pic("070077-281V") should be(Left("Invalid PIC: '070077-281V'. The month part of the birth date is wrong: it should be 01-12, but was: '00'."))
+    Pic("071377-281V") should be(Left("Invalid PIC: '071377-281V'. The month part of the birth date is wrong: it should be 01-12, but was: '13'."))
   }
 
   it should "reject a PIC where the birth date is impossible" in {
@@ -149,7 +149,7 @@ class PicSpec extends AnyFlatSpecLike with Matchers {
 
   it should "know the age of the person in question, on birthday" in {
     val dayOf18thBirthday = LocalDate.of(1995, 3, 7)
-    implicit val at29081995: Clock = Clock.fixed(dayOf18thBirthday.atTime(0, 0).
+    implicit val atDayOf18thBirthday: Clock = Clock.fixed(dayOf18thBirthday.atTime(0, 0).
       toInstant(
         helsinkiTimeZone.getRules.getOffset(dayOf18thBirthday.atTime(8, 0))
       ),
@@ -161,19 +161,19 @@ class PicSpec extends AnyFlatSpecLike with Matchers {
   }
 
   it should "know if the person if os Finnish legal age at some point in time, on the day before birthday" in {
-    val at06031995: LocalDate = LocalDate.of(1995, 3, 6)
-    fromStringU(validPic1MaleBornIn1900s).personIsOfFinnishLegalAgeAt(at06031995) should be(false)
-    fromStringU(validPic2FemaleBornIn1900s).personIsOfFinnishLegalAgeAt(at06031995) should be(false)
-    fromStringU(validPic3FemaleBornIn2000s).personIsOfFinnishLegalAgeAt(at06031995) should be(false)
-    fromStringU(validPic4MaleBornIn1800s).personIsOfFinnishLegalAgeAt(at06031995) should be(true)
+    val atDayBefore18thBirthday: LocalDate = LocalDate.of(1995, 3, 6)
+    fromStringU(validPic1MaleBornIn1900s).personIsOfFinnishLegalAgeAt(atDayBefore18thBirthday) should be(false)
+    fromStringU(validPic2FemaleBornIn1900s).personIsOfFinnishLegalAgeAt(atDayBefore18thBirthday) should be(false)
+    fromStringU(validPic3FemaleBornIn2000s).personIsOfFinnishLegalAgeAt(atDayBefore18thBirthday) should be(false)
+    fromStringU(validPic4MaleBornIn1800s).personIsOfFinnishLegalAgeAt(atDayBefore18thBirthday) should be(true)
   }
 
   it should "know if the person if os Finnish legal age at some point in time, on birthday" in {
-    val at0703081995: LocalDate = LocalDate.of(1995, 3, 7)
-    fromStringU(validPic1MaleBornIn1900s).personIsOfFinnishLegalAgeAt(at0703081995) should be(true)
-    fromStringU(validPic2FemaleBornIn1900s).personIsOfFinnishLegalAgeAt(at0703081995) should be(false)
-    fromStringU(validPic3FemaleBornIn2000s).personIsOfFinnishLegalAgeAt(at0703081995) should be(false)
-    fromStringU(validPic4MaleBornIn1800s).personIsOfFinnishLegalAgeAt(at0703081995) should be(true)
+    val atDayOf18thBirthday: LocalDate = LocalDate.of(1995, 3, 7)
+    fromStringU(validPic1MaleBornIn1900s).personIsOfFinnishLegalAgeAt(atDayOf18thBirthday) should be(true)
+    fromStringU(validPic2FemaleBornIn1900s).personIsOfFinnishLegalAgeAt(atDayOf18thBirthday) should be(false)
+    fromStringU(validPic3FemaleBornIn2000s).personIsOfFinnishLegalAgeAt(atDayOf18thBirthday) should be(false)
+    fromStringU(validPic4MaleBornIn1800s).personIsOfFinnishLegalAgeAt(atDayOf18thBirthday) should be(true)
   }
 
   it should "know if the person is of Finnish legal age now" in {

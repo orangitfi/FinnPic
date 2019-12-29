@@ -159,11 +159,11 @@ are in an illegal state. Every Pic object can thus be
 treated as a valid Pic.</p><p>See the companion object for how to create instances of Pic.</p><p>Some examples of <a href="" class="extype" name="org.finnpic.Pic">Pic</a> creation:</p><pre>&gt;&gt;&gt; Pic(<span class="lit">"070377-281V"</span>)
 Right(<span class="num">070377</span>-<span class="num">281</span>V)
 
-&gt;&gt;&gt; Pic(<span class="lit">"290877-163"</span>)
-Left(Invalid PIC: '<span class="num">290877</span>-<span class="num">163</span>'. PIC should have <span class="num">11</span> characters, but was <span class="num">10</span> characters.)
+&gt;&gt;&gt; Pic(<span class="lit">"070377-281"</span>)
+Left(Invalid PIC: '<span class="num">070377</span>-<span class="num">281</span>'. PIC should have <span class="num">11</span> characters, but was <span class="num">10</span> characters.)
 
-&gt;&gt;&gt; Pic(<span class="lit">"290877-1638"</span>)
-Left(Invalid PIC: '<span class="num">290877</span>-<span class="num">1638</span>'. The control character (<span class="lit">'8'</span>) is wrong: it should be <span class="lit">'9'</span>.)
+&gt;&gt;&gt; Pic(<span class="lit">"070377-2818"</span>)
+Left(Invalid PIC: '<span class="num">070377</span>-<span class="num">2818</span>'. The control character (<span class="lit">'8'</span>) is wrong: it should be <span class="lit">'V'</span>.)
 
 &gt;&gt;&gt; Pic.fromStringUnsafe(<span class="lit">"070377-281V"</span>)
 <span class="num">070377</span>-<span class="num">281</span>V

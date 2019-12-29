@@ -156,11 +156,11 @@
 Follows the &quot;smart constructor&quot; pattern, familiar from Haskell.</p><p>Some examples of <a href="Pic.html" class="extype" name="org.finnpic.Pic">Pic</a> creation:</p><pre>&gt;&gt;&gt; Pic(<span class="lit">"070377-281V"</span>)
 Right(<span class="num">070377</span>-<span class="num">281</span>V)
 
-&gt;&gt;&gt; Pic(<span class="lit">"290877-163"</span>)
-Left(Invalid PIC: '<span class="num">290877</span>-<span class="num">163</span>'. PIC should have <span class="num">11</span> characters, but was <span class="num">10</span> characters.)
+&gt;&gt;&gt; Pic(<span class="lit">"070377-281"</span>)
+Left(Invalid PIC: '<span class="num">070377</span>-<span class="num">281</span>'. PIC should have <span class="num">11</span> characters, but was <span class="num">10</span> characters.)
 
-&gt;&gt;&gt; Pic(<span class="lit">"290877-1638"</span>)
-Left(Invalid PIC: '<span class="num">290877</span>-<span class="num">1638</span>'. The control character (<span class="lit">'8'</span>) is wrong: it should be <span class="lit">'9'</span>.)
+&gt;&gt;&gt; Pic(<span class="lit">"070377-2818"</span>)
+Left(Invalid PIC: '<span class="num">070377</span>-<span class="num">2818</span>'. The control character (<span class="lit">'8'</span>) is wrong: it should be <span class="lit">'V'</span>.)
 
 &gt;&gt;&gt; Pic.fromStringUnsafe(<span class="lit">"070377-281V"</span>)
 <span class="num">070377</span>-<span class="num">281</span>V
@@ -419,11 +419,11 @@ Left(Invalid PIC: '<span class="num">290877</span>-<span class="num">1638</span>
 (or you are willing to handle exceptions).</p><p>Examples:</p><pre>&gt;&gt;&gt; Pic(<span class="lit">"070377-281V"</span>)
 Right(<span class="num">070377</span>-<span class="num">281</span>V)
 
-&gt;&gt;&gt; Pic(<span class="lit">"290877-163"</span>)
-Left(Invalid PIC: '<span class="num">290877</span>-<span class="num">163</span>'. PIC should have <span class="num">11</span> characters, but was <span class="num">10</span> characters.)
+&gt;&gt;&gt; Pic(<span class="lit">"070377-281"</span>)
+Left(Invalid PIC: '<span class="num">070377</span>-<span class="num">281</span>'. PIC should have <span class="num">11</span> characters, but was <span class="num">10</span> characters.)
 
-&gt;&gt;&gt; Pic(<span class="lit">"290877-1638"</span>)
-Left(Invalid PIC: '<span class="num">290877</span>-<span class="num">1638</span>'. The control character (<span class="lit">'8'</span>) is wrong: it should be <span class="lit">'9'</span>.)</pre></div><dl class="paramcmts block"><dt class="param">input</dt><dd class="cmt"><p>a valid Personal Identity Code as a String.</p></dd><dt>returns</dt><dd class="cmt"><p>Left(String) if the given String is not a valid PIC, return a scala.util.Left containing an error message.
+&gt;&gt;&gt; Pic(<span class="lit">"070377-2818"</span>)
+Left(Invalid PIC: '<span class="num">070377</span>-<span class="num">2818</span>'. The control character (<span class="lit">'8'</span>) is wrong: it should be <span class="lit">'V'</span>.)</pre></div><dl class="paramcmts block"><dt class="param">input</dt><dd class="cmt"><p>a valid Personal Identity Code as a String.</p></dd><dt>returns</dt><dd class="cmt"><p>Left(String) if the given String is not a valid PIC, return a scala.util.Left containing an error message.
         Right(Pic) if the given String is a valid PIC, return a scala.util.Right containing the <a href="Pic.html" class="extype" name="org.finnpic.Pic">Pic</a> object.</p></dd></dl></div>
     </li><li name="org.finnpic.Pic#fromStringU" visbl="pub" class="indented0 " data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="fromStringU(input:String):org.finnpic.Pic"></a><a id="fromStringU(String):Pic"></a>
