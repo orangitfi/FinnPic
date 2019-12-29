@@ -1,5 +1,5 @@
 <scoverage 
-statement-count="184" statements-invoked="184" statement-rate="100.00" branch-rate="100.00" version="1.0" timestamp="1577642191608">
+statement-count="184" statements-invoked="184" statement-rate="100.00" branch-rate="100.00" version="1.0" timestamp="1577642746219">
     <packages>
         <package name="org.finnpic" statement-count="184" statements-invoked="184" statement-rate="100.00">
             <classes>
@@ -10,7 +10,7 @@ statement-count="184" statements-invoked="184" statement-rate="100.00" branch-ra
                         name="org.finnpic/Pic/fromStringU" statement-count="1" statements-invoked="1" statement-rate="100.00" branch-rate="100.00">
                             <statements>
                                 <statement 
-                                package="org.finnpic" class="Pic" class-type="Object" full-class-name="org.finnpic.Pic" source="/Users/vpeurala/Projects/OrangIT/FinnPic/src/main/scala/org/finnpic/Pic.scala" method="fromStringU" start="8653" end="8676" line="306" branch="false" invocation-count="1" ignored="false">
+                                package="org.finnpic" class="Pic" class-type="Object" full-class-name="org.finnpic.Pic" source="/Users/vpeurala/Projects/OrangIT/FinnPic/src/main/scala/org/finnpic/Pic.scala" method="fromStringU" start="8660" end="8683" line="306" branch="false" invocation-count="1" ignored="false">
 </statement>
                             </statements>
 </method>
@@ -40,13 +40,13 @@ statement-count="184" statements-invoked="184" statement-rate="100.00" branch-ra
                         name="org.finnpic/Pic/calculateExpectedControlCharacter" statement-count="3" statements-invoked="3" statement-rate="100.00" branch-rate="100.00">
                             <statements>
                                 <statement 
-                                package="org.finnpic" class="Pic" class-type="Object" full-class-name="org.finnpic.Pic" source="/Users/vpeurala/Projects/OrangIT/FinnPic/src/main/scala/org/finnpic/Pic.scala" method="calculateExpectedControlCharacter" start="14475" end="14498" line="431" branch="false" invocation-count="1" ignored="false">
+                                package="org.finnpic" class="Pic" class-type="Object" full-class-name="org.finnpic.Pic" source="/Users/vpeurala/Projects/OrangIT/FinnPic/src/main/scala/org/finnpic/Pic.scala" method="calculateExpectedControlCharacter" start="14482" end="14505" line="431" branch="false" invocation-count="1" ignored="false">
 </statement>
                                 <statement 
-                                package="org.finnpic" class="Pic" class-type="Object" full-class-name="org.finnpic.Pic" source="/Users/vpeurala/Projects/OrangIT/FinnPic/src/main/scala/org/finnpic/Pic.scala" method="calculateExpectedControlCharacter" start="14453" end="14470" line="430" branch="false" invocation-count="1" ignored="false">
+                                package="org.finnpic" class="Pic" class-type="Object" full-class-name="org.finnpic.Pic" source="/Users/vpeurala/Projects/OrangIT/FinnPic/src/main/scala/org/finnpic/Pic.scala" method="calculateExpectedControlCharacter" start="14460" end="14477" line="430" branch="false" invocation-count="1" ignored="false">
 </statement>
                                 <statement 
-                                package="org.finnpic" class="Pic" class-type="Object" full-class-name="org.finnpic.Pic" source="/Users/vpeurala/Projects/OrangIT/FinnPic/src/main/scala/org/finnpic/Pic.scala" method="calculateExpectedControlCharacter" start="14461" end="14463" line="430" branch="false" invocation-count="1" ignored="false">
+                                package="org.finnpic" class="Pic" class-type="Object" full-class-name="org.finnpic.Pic" source="/Users/vpeurala/Projects/OrangIT/FinnPic/src/main/scala/org/finnpic/Pic.scala" method="calculateExpectedControlCharacter" start="14468" end="14470" line="430" branch="false" invocation-count="1" ignored="false">
 </statement>
                             </statements>
 </method>
@@ -65,7 +65,7 @@ statement-count="184" statements-invoked="184" statement-rate="100.00" branch-ra
                         name="org.finnpic/Pic/apply" statement-count="1" statements-invoked="1" statement-rate="100.00" branch-rate="100.00">
                             <statements>
                                 <statement 
-                                package="org.finnpic" class="Pic" class-type="Object" full-class-name="org.finnpic.Pic" source="/Users/vpeurala/Projects/OrangIT/FinnPic/src/main/scala/org/finnpic/Pic.scala" method="apply" start="6122" end="6139" line="236" branch="false" invocation-count="1" ignored="false">
+                                package="org.finnpic" class="Pic" class-type="Object" full-class-name="org.finnpic.Pic" source="/Users/vpeurala/Projects/OrangIT/FinnPic/src/main/scala/org/finnpic/Pic.scala" method="apply" start="6129" end="6146" line="236" branch="false" invocation-count="1" ignored="false">
 </statement>
                             </statements>
 </method>
@@ -73,34 +73,34 @@ statement-count="184" statements-invoked="184" statement-rate="100.00" branch-ra
                         name="org.finnpic/Pic/fromString" statement-count="10" statements-invoked="10" statement-rate="100.00" branch-rate="100.00">
                             <statements>
                                 <statement 
-                                package="org.finnpic" class="Pic" class-type="Object" full-class-name="org.finnpic.Pic" source="/Users/vpeurala/Projects/OrangIT/FinnPic/src/main/scala/org/finnpic/Pic.scala" method="fromString" start="7227" end="7235" line="262" branch="false" invocation-count="1" ignored="false">
+                                package="org.finnpic" class="Pic" class-type="Object" full-class-name="org.finnpic.Pic" source="/Users/vpeurala/Projects/OrangIT/FinnPic/src/main/scala/org/finnpic/Pic.scala" method="fromString" start="7234" end="7242" line="262" branch="false" invocation-count="1" ignored="false">
 </statement>
                                 <statement 
-                                package="org.finnpic" class="Pic" class-type="Object" full-class-name="org.finnpic.Pic" source="/Users/vpeurala/Projects/OrangIT/FinnPic/src/main/scala/org/finnpic/Pic.scala" method="fromString" start="7275" end="7289" line="263" branch="false" invocation-count="1" ignored="false">
+                                package="org.finnpic" class="Pic" class-type="Object" full-class-name="org.finnpic.Pic" source="/Users/vpeurala/Projects/OrangIT/FinnPic/src/main/scala/org/finnpic/Pic.scala" method="fromString" start="7282" end="7296" line="263" branch="false" invocation-count="1" ignored="false">
 </statement>
                                 <statement 
-                                package="org.finnpic" class="Pic" class-type="Object" full-class-name="org.finnpic.Pic" source="/Users/vpeurala/Projects/OrangIT/FinnPic/src/main/scala/org/finnpic/Pic.scala" method="fromString" start="7165" end="7180" line="262" branch="false" invocation-count="1" ignored="false">
+                                package="org.finnpic" class="Pic" class-type="Object" full-class-name="org.finnpic.Pic" source="/Users/vpeurala/Projects/OrangIT/FinnPic/src/main/scala/org/finnpic/Pic.scala" method="fromString" start="7172" end="7187" line="262" branch="false" invocation-count="1" ignored="false">
 </statement>
                                 <statement 
-                                package="org.finnpic" class="Pic" class-type="Object" full-class-name="org.finnpic.Pic" source="/Users/vpeurala/Projects/OrangIT/FinnPic/src/main/scala/org/finnpic/Pic.scala" method="fromString" start="7236" end="7249" line="262" branch="false" invocation-count="1" ignored="false">
+                                package="org.finnpic" class="Pic" class-type="Object" full-class-name="org.finnpic.Pic" source="/Users/vpeurala/Projects/OrangIT/FinnPic/src/main/scala/org/finnpic/Pic.scala" method="fromString" start="7243" end="7256" line="262" branch="false" invocation-count="1" ignored="false">
 </statement>
                                 <statement 
-                                package="org.finnpic" class="Pic" class-type="Object" full-class-name="org.finnpic.Pic" source="/Users/vpeurala/Projects/OrangIT/FinnPic/src/main/scala/org/finnpic/Pic.scala" method="fromString" start="7158" end="7250" line="262" branch="false" invocation-count="1" ignored="false">
+                                package="org.finnpic" class="Pic" class-type="Object" full-class-name="org.finnpic.Pic" source="/Users/vpeurala/Projects/OrangIT/FinnPic/src/main/scala/org/finnpic/Pic.scala" method="fromString" start="7165" end="7257" line="262" branch="false" invocation-count="1" ignored="false">
 </statement>
                                 <statement 
-                                package="org.finnpic" class="Pic" class-type="Object" full-class-name="org.finnpic.Pic" source="/Users/vpeurala/Projects/OrangIT/FinnPic/src/main/scala/org/finnpic/Pic.scala" method="fromString" start="7140" end="7154" line="262" branch="false" invocation-count="1" ignored="false">
+                                package="org.finnpic" class="Pic" class-type="Object" full-class-name="org.finnpic.Pic" source="/Users/vpeurala/Projects/OrangIT/FinnPic/src/main/scala/org/finnpic/Pic.scala" method="fromString" start="7147" end="7161" line="262" branch="false" invocation-count="1" ignored="false">
 </statement>
                                 <statement 
-                                package="org.finnpic" class="Pic" class-type="Object" full-class-name="org.finnpic.Pic" source="/Users/vpeurala/Projects/OrangIT/FinnPic/src/main/scala/org/finnpic/Pic.scala" method="fromString" start="7083" end="7107" line="261" branch="false" invocation-count="1" ignored="false">
+                                package="org.finnpic" class="Pic" class-type="Object" full-class-name="org.finnpic.Pic" source="/Users/vpeurala/Projects/OrangIT/FinnPic/src/main/scala/org/finnpic/Pic.scala" method="fromString" start="7090" end="7114" line="261" branch="false" invocation-count="1" ignored="false">
 </statement>
                                 <statement 
-                                package="org.finnpic" class="Pic" class-type="Object" full-class-name="org.finnpic.Pic" source="/Users/vpeurala/Projects/OrangIT/FinnPic/src/main/scala/org/finnpic/Pic.scala" method="fromString" start="7293" end="7334" line="263" branch="false" invocation-count="1" ignored="false">
+                                package="org.finnpic" class="Pic" class-type="Object" full-class-name="org.finnpic.Pic" source="/Users/vpeurala/Projects/OrangIT/FinnPic/src/main/scala/org/finnpic/Pic.scala" method="fromString" start="7300" end="7341" line="263" branch="false" invocation-count="1" ignored="false">
 </statement>
                                 <statement 
-                                package="org.finnpic" class="Pic" class-type="Object" full-class-name="org.finnpic.Pic" source="/Users/vpeurala/Projects/OrangIT/FinnPic/src/main/scala/org/finnpic/Pic.scala" method="fromString" start="7183" end="7226" line="262" branch="false" invocation-count="1" ignored="false">
+                                package="org.finnpic" class="Pic" class-type="Object" full-class-name="org.finnpic.Pic" source="/Users/vpeurala/Projects/OrangIT/FinnPic/src/main/scala/org/finnpic/Pic.scala" method="fromString" start="7190" end="7233" line="262" branch="false" invocation-count="1" ignored="false">
 </statement>
                                 <statement 
-                                package="org.finnpic" class="Pic" class-type="Object" full-class-name="org.finnpic.Pic" source="/Users/vpeurala/Projects/OrangIT/FinnPic/src/main/scala/org/finnpic/Pic.scala" method="fromString" start="7163" end="7249" line="262" branch="false" invocation-count="1" ignored="false">
+                                package="org.finnpic" class="Pic" class-type="Object" full-class-name="org.finnpic.Pic" source="/Users/vpeurala/Projects/OrangIT/FinnPic/src/main/scala/org/finnpic/Pic.scala" method="fromString" start="7170" end="7256" line="262" branch="false" invocation-count="1" ignored="false">
 </statement>
                             </statements>
 </method>
@@ -108,22 +108,22 @@ statement-count="184" statements-invoked="184" statement-rate="100.00" branch-ra
                         name="org.finnpic/Pic/createFromStringOfCorrectLength" statement-count="6" statements-invoked="6" statement-rate="100.00" branch-rate="100.00">
                             <statements>
                                 <statement 
-                                package="org.finnpic" class="Pic" class-type="Object" full-class-name="org.finnpic.Pic" source="/Users/vpeurala/Projects/OrangIT/FinnPic/src/main/scala/org/finnpic/Pic.scala" method="createFromStringOfCorrectLength" start="9061" end="9089" line="314" branch="false" invocation-count="1" ignored="false">
+                                package="org.finnpic" class="Pic" class-type="Object" full-class-name="org.finnpic.Pic" source="/Users/vpeurala/Projects/OrangIT/FinnPic/src/main/scala/org/finnpic/Pic.scala" method="createFromStringOfCorrectLength" start="9068" end="9096" line="314" branch="false" invocation-count="1" ignored="false">
 </statement>
                                 <statement 
-                                package="org.finnpic" class="Pic" class-type="Object" full-class-name="org.finnpic.Pic" source="/Users/vpeurala/Projects/OrangIT/FinnPic/src/main/scala/org/finnpic/Pic.scala" method="createFromStringOfCorrectLength" start="9230" end="9324" line="317" branch="false" invocation-count="1" ignored="false">
+                                package="org.finnpic" class="Pic" class-type="Object" full-class-name="org.finnpic.Pic" source="/Users/vpeurala/Projects/OrangIT/FinnPic/src/main/scala/org/finnpic/Pic.scala" method="createFromStringOfCorrectLength" start="9237" end="9331" line="317" branch="false" invocation-count="1" ignored="false">
 </statement>
                                 <statement 
-                                package="org.finnpic" class="Pic" class-type="Object" full-class-name="org.finnpic.Pic" source="/Users/vpeurala/Projects/OrangIT/FinnPic/src/main/scala/org/finnpic/Pic.scala" method="createFromStringOfCorrectLength" start="9017" end="9045" line="313" branch="false" invocation-count="1" ignored="false">
+                                package="org.finnpic" class="Pic" class-type="Object" full-class-name="org.finnpic.Pic" source="/Users/vpeurala/Projects/OrangIT/FinnPic/src/main/scala/org/finnpic/Pic.scala" method="createFromStringOfCorrectLength" start="9024" end="9052" line="313" branch="false" invocation-count="1" ignored="false">
 </statement>
                                 <statement 
-                                package="org.finnpic" class="Pic" class-type="Object" full-class-name="org.finnpic.Pic" source="/Users/vpeurala/Projects/OrangIT/FinnPic/src/main/scala/org/finnpic/Pic.scala" method="createFromStringOfCorrectLength" start="9174" end="9204" line="316" branch="false" invocation-count="1" ignored="false">
+                                package="org.finnpic" class="Pic" class-type="Object" full-class-name="org.finnpic.Pic" source="/Users/vpeurala/Projects/OrangIT/FinnPic/src/main/scala/org/finnpic/Pic.scala" method="createFromStringOfCorrectLength" start="9181" end="9211" line="316" branch="false" invocation-count="1" ignored="false">
 </statement>
                                 <statement 
-                                package="org.finnpic" class="Pic" class-type="Object" full-class-name="org.finnpic.Pic" source="/Users/vpeurala/Projects/OrangIT/FinnPic/src/main/scala/org/finnpic/Pic.scala" method="createFromStringOfCorrectLength" start="9209" end="9325" line="317" branch="false" invocation-count="1" ignored="false">
+                                package="org.finnpic" class="Pic" class-type="Object" full-class-name="org.finnpic.Pic" source="/Users/vpeurala/Projects/OrangIT/FinnPic/src/main/scala/org/finnpic/Pic.scala" method="createFromStringOfCorrectLength" start="9216" end="9332" line="317" branch="false" invocation-count="1" ignored="false">
 </statement>
                                 <statement 
-                                package="org.finnpic" class="Pic" class-type="Object" full-class-name="org.finnpic.Pic" source="/Users/vpeurala/Projects/OrangIT/FinnPic/src/main/scala/org/finnpic/Pic.scala" method="createFromStringOfCorrectLength" start="9117" end="9146" line="315" branch="false" invocation-count="1" ignored="false">
+                                package="org.finnpic" class="Pic" class-type="Object" full-class-name="org.finnpic.Pic" source="/Users/vpeurala/Projects/OrangIT/FinnPic/src/main/scala/org/finnpic/Pic.scala" method="createFromStringOfCorrectLength" start="9124" end="9153" line="315" branch="false" invocation-count="1" ignored="false">
 </statement>
                             </statements>
 </method>
@@ -150,10 +150,10 @@ statement-count="184" statements-invoked="184" statement-rate="100.00" branch-ra
                         name="org.finnpic/Pic/fromStringUnsafe" statement-count="2" statements-invoked="2" statement-rate="100.00" branch-rate="100.00">
                             <statements>
                                 <statement 
-                                package="org.finnpic" class="Pic" class-type="Object" full-class-name="org.finnpic.Pic" source="/Users/vpeurala/Projects/OrangIT/FinnPic/src/main/scala/org/finnpic/Pic.scala" method="fromStringUnsafe" start="8239" end="8287" line="289" branch="false" invocation-count="1" ignored="false">
+                                package="org.finnpic" class="Pic" class-type="Object" full-class-name="org.finnpic.Pic" source="/Users/vpeurala/Projects/OrangIT/FinnPic/src/main/scala/org/finnpic/Pic.scala" method="fromStringUnsafe" start="8246" end="8294" line="289" branch="false" invocation-count="1" ignored="false">
 </statement>
                                 <statement 
-                                package="org.finnpic" class="Pic" class-type="Object" full-class-name="org.finnpic.Pic" source="/Users/vpeurala/Projects/OrangIT/FinnPic/src/main/scala/org/finnpic/Pic.scala" method="fromStringUnsafe" start="8180" end="8197" line="288" branch="false" invocation-count="1" ignored="false">
+                                package="org.finnpic" class="Pic" class-type="Object" full-class-name="org.finnpic.Pic" source="/Users/vpeurala/Projects/OrangIT/FinnPic/src/main/scala/org/finnpic/Pic.scala" method="fromStringUnsafe" start="8187" end="8204" line="288" branch="false" invocation-count="1" ignored="false">
 </statement>
                             </statements>
 </method>
@@ -169,127 +169,127 @@ statement-count="184" statements-invoked="184" statement-rate="100.00" branch-ra
                         name="org.finnpic/Pic/createFromValidParts" statement-count="41" statements-invoked="41" statement-rate="100.00" branch-rate="100.00">
                             <statements>
                                 <statement 
-                                package="org.finnpic" class="Pic" class-type="Object" full-class-name="org.finnpic.Pic" source="/Users/vpeurala/Projects/OrangIT/FinnPic/src/main/scala/org/finnpic/Pic.scala" method="createFromValidParts" start="13503" end="13506" line="409" branch="false" invocation-count="1" ignored="false">
+                                package="org.finnpic" class="Pic" class-type="Object" full-class-name="org.finnpic.Pic" source="/Users/vpeurala/Projects/OrangIT/FinnPic/src/main/scala/org/finnpic/Pic.scala" method="createFromValidParts" start="13510" end="13513" line="409" branch="false" invocation-count="1" ignored="false">
 </statement>
                                 <statement 
-                                package="org.finnpic" class="Pic" class-type="Object" full-class-name="org.finnpic.Pic" source="/Users/vpeurala/Projects/OrangIT/FinnPic/src/main/scala/org/finnpic/Pic.scala" method="createFromValidParts" start="13010" end="13051" line="403" branch="false" invocation-count="1" ignored="false">
+                                package="org.finnpic" class="Pic" class-type="Object" full-class-name="org.finnpic.Pic" source="/Users/vpeurala/Projects/OrangIT/FinnPic/src/main/scala/org/finnpic/Pic.scala" method="createFromValidParts" start="13017" end="13058" line="403" branch="false" invocation-count="1" ignored="false">
 </statement>
                                 <statement 
-                                package="org.finnpic" class="Pic" class-type="Object" full-class-name="org.finnpic.Pic" source="/Users/vpeurala/Projects/OrangIT/FinnPic/src/main/scala/org/finnpic/Pic.scala" method="createFromValidParts" start="12681" end="12698" line="395" branch="false" invocation-count="1" ignored="false">
+                                package="org.finnpic" class="Pic" class-type="Object" full-class-name="org.finnpic.Pic" source="/Users/vpeurala/Projects/OrangIT/FinnPic/src/main/scala/org/finnpic/Pic.scala" method="createFromValidParts" start="12688" end="12705" line="395" branch="false" invocation-count="1" ignored="false">
 </statement>
                                 <statement 
-                                package="org.finnpic" class="Pic" class-type="Object" full-class-name="org.finnpic.Pic" source="/Users/vpeurala/Projects/OrangIT/FinnPic/src/main/scala/org/finnpic/Pic.scala" method="createFromValidParts" start="12567" end="12570" line="392" branch="false" invocation-count="1" ignored="false">
+                                package="org.finnpic" class="Pic" class-type="Object" full-class-name="org.finnpic.Pic" source="/Users/vpeurala/Projects/OrangIT/FinnPic/src/main/scala/org/finnpic/Pic.scala" method="createFromValidParts" start="12574" end="12577" line="392" branch="false" invocation-count="1" ignored="false">
 </statement>
                                 <statement 
-                                package="org.finnpic" class="Pic" class-type="Object" full-class-name="org.finnpic.Pic" source="/Users/vpeurala/Projects/OrangIT/FinnPic/src/main/scala/org/finnpic/Pic.scala" method="createFromValidParts" start="12777" end="12781" line="398" branch="false" invocation-count="1" ignored="false">
+                                package="org.finnpic" class="Pic" class-type="Object" full-class-name="org.finnpic.Pic" source="/Users/vpeurala/Projects/OrangIT/FinnPic/src/main/scala/org/finnpic/Pic.scala" method="createFromValidParts" start="12784" end="12788" line="398" branch="false" invocation-count="1" ignored="false">
 </statement>
                                 <statement 
-                                package="org.finnpic" class="Pic" class-type="Object" full-class-name="org.finnpic.Pic" source="/Users/vpeurala/Projects/OrangIT/FinnPic/src/main/scala/org/finnpic/Pic.scala" method="createFromValidParts" start="12429" end="12570" line="392" branch="false" invocation-count="1" ignored="false">
+                                package="org.finnpic" class="Pic" class-type="Object" full-class-name="org.finnpic.Pic" source="/Users/vpeurala/Projects/OrangIT/FinnPic/src/main/scala/org/finnpic/Pic.scala" method="createFromValidParts" start="12436" end="12577" line="392" branch="false" invocation-count="1" ignored="false">
 </statement>
                                 <statement 
-                                package="org.finnpic" class="Pic" class-type="Object" full-class-name="org.finnpic.Pic" source="/Users/vpeurala/Projects/OrangIT/FinnPic/src/main/scala/org/finnpic/Pic.scala" method="createFromValidParts" start="13085" end="13150" line="404" branch="false" invocation-count="1" ignored="false">
+                                package="org.finnpic" class="Pic" class-type="Object" full-class-name="org.finnpic.Pic" source="/Users/vpeurala/Projects/OrangIT/FinnPic/src/main/scala/org/finnpic/Pic.scala" method="createFromValidParts" start="13092" end="13157" line="404" branch="false" invocation-count="1" ignored="false">
 </statement>
                                 <statement 
-                                package="org.finnpic" class="Pic" class-type="Object" full-class-name="org.finnpic.Pic" source="/Users/vpeurala/Projects/OrangIT/FinnPic/src/main/scala/org/finnpic/Pic.scala" method="createFromValidParts" start="12301" end="12347" line="390" branch="false" invocation-count="1" ignored="false">
+                                package="org.finnpic" class="Pic" class-type="Object" full-class-name="org.finnpic.Pic" source="/Users/vpeurala/Projects/OrangIT/FinnPic/src/main/scala/org/finnpic/Pic.scala" method="createFromValidParts" start="12308" end="12354" line="390" branch="false" invocation-count="1" ignored="false">
 </statement>
                                 <statement 
-                                package="org.finnpic" class="Pic" class-type="Object" full-class-name="org.finnpic.Pic" source="/Users/vpeurala/Projects/OrangIT/FinnPic/src/main/scala/org/finnpic/Pic.scala" method="createFromValidParts" start="13374" end="13506" line="409" branch="false" invocation-count="1" ignored="false">
+                                package="org.finnpic" class="Pic" class-type="Object" full-class-name="org.finnpic.Pic" source="/Users/vpeurala/Projects/OrangIT/FinnPic/src/main/scala/org/finnpic/Pic.scala" method="createFromValidParts" start="13381" end="13513" line="409" branch="false" invocation-count="1" ignored="false">
 </statement>
                                 <statement 
-                                package="org.finnpic" class="Pic" class-type="Object" full-class-name="org.finnpic.Pic" source="/Users/vpeurala/Projects/OrangIT/FinnPic/src/main/scala/org/finnpic/Pic.scala" method="createFromValidParts" start="12890" end="12917" line="401" branch="false" invocation-count="1" ignored="false">
+                                package="org.finnpic" class="Pic" class-type="Object" full-class-name="org.finnpic.Pic" source="/Users/vpeurala/Projects/OrangIT/FinnPic/src/main/scala/org/finnpic/Pic.scala" method="createFromValidParts" start="12897" end="12924" line="401" branch="false" invocation-count="1" ignored="false">
 </statement>
                                 <statement 
-                                package="org.finnpic" class="Pic" class-type="Object" full-class-name="org.finnpic.Pic" source="/Users/vpeurala/Projects/OrangIT/FinnPic/src/main/scala/org/finnpic/Pic.scala" method="createFromValidParts" start="12608" end="12642" line="394" branch="false" invocation-count="1" ignored="false">
+                                package="org.finnpic" class="Pic" class-type="Object" full-class-name="org.finnpic.Pic" source="/Users/vpeurala/Projects/OrangIT/FinnPic/src/main/scala/org/finnpic/Pic.scala" method="createFromValidParts" start="12615" end="12649" line="394" branch="false" invocation-count="1" ignored="false">
 </statement>
                                 <statement 
-                                package="org.finnpic" class="Pic" class-type="Object" full-class-name="org.finnpic.Pic" source="/Users/vpeurala/Projects/OrangIT/FinnPic/src/main/scala/org/finnpic/Pic.scala" method="createFromValidParts" start="12431" end="12446" line="392" branch="false" invocation-count="1" ignored="false">
+                                package="org.finnpic" class="Pic" class-type="Object" full-class-name="org.finnpic.Pic" source="/Users/vpeurala/Projects/OrangIT/FinnPic/src/main/scala/org/finnpic/Pic.scala" method="createFromValidParts" start="12438" end="12453" line="392" branch="false" invocation-count="1" ignored="false">
 </statement>
                                 <statement 
-                                package="org.finnpic" class="Pic" class-type="Object" full-class-name="org.finnpic.Pic" source="/Users/vpeurala/Projects/OrangIT/FinnPic/src/main/scala/org/finnpic/Pic.scala" method="createFromValidParts" start="12583" end="13521" line="393" branch="true" invocation-count="1" ignored="false">
+                                package="org.finnpic" class="Pic" class-type="Object" full-class-name="org.finnpic.Pic" source="/Users/vpeurala/Projects/OrangIT/FinnPic/src/main/scala/org/finnpic/Pic.scala" method="createFromValidParts" start="12590" end="13528" line="393" branch="true" invocation-count="1" ignored="false">
 </statement>
                                 <statement 
-                                package="org.finnpic" class="Pic" class-type="Object" full-class-name="org.finnpic.Pic" source="/Users/vpeurala/Projects/OrangIT/FinnPic/src/main/scala/org/finnpic/Pic.scala" method="createFromValidParts" start="13265" end="13289" line="407" branch="false" invocation-count="1" ignored="false">
+                                package="org.finnpic" class="Pic" class-type="Object" full-class-name="org.finnpic.Pic" source="/Users/vpeurala/Projects/OrangIT/FinnPic/src/main/scala/org/finnpic/Pic.scala" method="createFromValidParts" start="13272" end="13296" line="407" branch="false" invocation-count="1" ignored="false">
 </statement>
                                 <statement 
-                                package="org.finnpic" class="Pic" class-type="Object" full-class-name="org.finnpic.Pic" source="/Users/vpeurala/Projects/OrangIT/FinnPic/src/main/scala/org/finnpic/Pic.scala" method="createFromValidParts" start="12424" end="12571" line="392" branch="true" invocation-count="1" ignored="false">
+                                package="org.finnpic" class="Pic" class-type="Object" full-class-name="org.finnpic.Pic" source="/Users/vpeurala/Projects/OrangIT/FinnPic/src/main/scala/org/finnpic/Pic.scala" method="createFromValidParts" start="12431" end="12578" line="392" branch="true" invocation-count="1" ignored="false">
 </statement>
                                 <statement 
-                                package="org.finnpic" class="Pic" class-type="Object" full-class-name="org.finnpic.Pic" source="/Users/vpeurala/Projects/OrangIT/FinnPic/src/main/scala/org/finnpic/Pic.scala" method="createFromValidParts" start="12820" end="12867" line="400" branch="false" invocation-count="1" ignored="false">
+                                package="org.finnpic" class="Pic" class-type="Object" full-class-name="org.finnpic.Pic" source="/Users/vpeurala/Projects/OrangIT/FinnPic/src/main/scala/org/finnpic/Pic.scala" method="createFromValidParts" start="12827" end="12874" line="400" branch="false" invocation-count="1" ignored="false">
 </statement>
                                 <statement 
-                                package="org.finnpic" class="Pic" class-type="Object" full-class-name="org.finnpic.Pic" source="/Users/vpeurala/Projects/OrangIT/FinnPic/src/main/scala/org/finnpic/Pic.scala" method="createFromValidParts" start="12357" end="12414" line="391" branch="false" invocation-count="1" ignored="false">
+                                package="org.finnpic" class="Pic" class-type="Object" full-class-name="org.finnpic.Pic" source="/Users/vpeurala/Projects/OrangIT/FinnPic/src/main/scala/org/finnpic/Pic.scala" method="createFromValidParts" start="12364" end="12421" line="391" branch="false" invocation-count="1" ignored="false">
 </statement>
                                 <statement 
-                                package="org.finnpic" class="Pic" class-type="Object" full-class-name="org.finnpic.Pic" source="/Users/vpeurala/Projects/OrangIT/FinnPic/src/main/scala/org/finnpic/Pic.scala" method="createFromValidParts" start="12656" end="12660" line="394" branch="true" invocation-count="1" ignored="false">
+                                package="org.finnpic" class="Pic" class-type="Object" full-class-name="org.finnpic.Pic" source="/Users/vpeurala/Projects/OrangIT/FinnPic/src/main/scala/org/finnpic/Pic.scala" method="createFromValidParts" start="12663" end="12667" line="394" branch="true" invocation-count="1" ignored="false">
 </statement>
                                 <statement 
-                                package="org.finnpic" class="Pic" class-type="Object" full-class-name="org.finnpic.Pic" source="/Users/vpeurala/Projects/OrangIT/FinnPic/src/main/scala/org/finnpic/Pic.scala" method="createFromValidParts" start="12513" end="12541" line="392" branch="false" invocation-count="1" ignored="false">
+                                package="org.finnpic" class="Pic" class-type="Object" full-class-name="org.finnpic.Pic" source="/Users/vpeurala/Projects/OrangIT/FinnPic/src/main/scala/org/finnpic/Pic.scala" method="createFromValidParts" start="12520" end="12548" line="392" branch="false" invocation-count="1" ignored="false">
 </statement>
                                 <statement 
-                                package="org.finnpic" class="Pic" class-type="Object" full-class-name="org.finnpic.Pic" source="/Users/vpeurala/Projects/OrangIT/FinnPic/src/main/scala/org/finnpic/Pic.scala" method="createFromValidParts" start="12941" end="12988" line="402" branch="false" invocation-count="1" ignored="false">
+                                package="org.finnpic" class="Pic" class-type="Object" full-class-name="org.finnpic.Pic" source="/Users/vpeurala/Projects/OrangIT/FinnPic/src/main/scala/org/finnpic/Pic.scala" method="createFromValidParts" start="12948" end="12995" line="402" branch="false" invocation-count="1" ignored="false">
 </statement>
                                 <statement 
-                                package="org.finnpic" class="Pic" class-type="Object" full-class-name="org.finnpic.Pic" source="/Users/vpeurala/Projects/OrangIT/FinnPic/src/main/scala/org/finnpic/Pic.scala" method="createFromValidParts" start="13409" end="13485" line="409" branch="false" invocation-count="1" ignored="false">
+                                package="org.finnpic" class="Pic" class-type="Object" full-class-name="org.finnpic.Pic" source="/Users/vpeurala/Projects/OrangIT/FinnPic/src/main/scala/org/finnpic/Pic.scala" method="createFromValidParts" start="13416" end="13492" line="409" branch="false" invocation-count="1" ignored="false">
 </statement>
                                 <statement 
-                                package="org.finnpic" class="Pic" class-type="Object" full-class-name="org.finnpic.Pic" source="/Users/vpeurala/Projects/OrangIT/FinnPic/src/main/scala/org/finnpic/Pic.scala" method="createFromValidParts" start="13093" end="13108" line="404" branch="false" invocation-count="1" ignored="false">
+                                package="org.finnpic" class="Pic" class-type="Object" full-class-name="org.finnpic.Pic" source="/Users/vpeurala/Projects/OrangIT/FinnPic/src/main/scala/org/finnpic/Pic.scala" method="createFromValidParts" start="13100" end="13115" line="404" branch="false" invocation-count="1" ignored="false">
 </statement>
                                 <statement 
-                                package="org.finnpic" class="Pic" class-type="Object" full-class-name="org.finnpic.Pic" source="/Users/vpeurala/Projects/OrangIT/FinnPic/src/main/scala/org/finnpic/Pic.scala" method="createFromValidParts" start="12752" end="12756" line="397" branch="false" invocation-count="1" ignored="false">
+                                package="org.finnpic" class="Pic" class-type="Object" full-class-name="org.finnpic.Pic" source="/Users/vpeurala/Projects/OrangIT/FinnPic/src/main/scala/org/finnpic/Pic.scala" method="createFromValidParts" start="12759" end="12763" line="397" branch="false" invocation-count="1" ignored="false">
 </statement>
                                 <statement 
-                                package="org.finnpic" class="Pic" class-type="Object" full-class-name="org.finnpic.Pic" source="/Users/vpeurala/Projects/OrangIT/FinnPic/src/main/scala/org/finnpic/Pic.scala" method="createFromValidParts" start="13486" end="13502" line="409" branch="false" invocation-count="1" ignored="false">
+                                package="org.finnpic" class="Pic" class-type="Object" full-class-name="org.finnpic.Pic" source="/Users/vpeurala/Projects/OrangIT/FinnPic/src/main/scala/org/finnpic/Pic.scala" method="createFromValidParts" start="13493" end="13509" line="409" branch="false" invocation-count="1" ignored="false">
 </statement>
                                 <statement 
-                                package="org.finnpic" class="Pic" class-type="Object" full-class-name="org.finnpic.Pic" source="/Users/vpeurala/Projects/OrangIT/FinnPic/src/main/scala/org/finnpic/Pic.scala" method="createFromValidParts" start="12493" end="12512" line="392" branch="false" invocation-count="1" ignored="false">
+                                package="org.finnpic" class="Pic" class-type="Object" full-class-name="org.finnpic.Pic" source="/Users/vpeurala/Projects/OrangIT/FinnPic/src/main/scala/org/finnpic/Pic.scala" method="createFromValidParts" start="12500" end="12519" line="392" branch="false" invocation-count="1" ignored="false">
 </statement>
                                 <statement 
-                                package="org.finnpic" class="Pic" class-type="Object" full-class-name="org.finnpic.Pic" source="/Users/vpeurala/Projects/OrangIT/FinnPic/src/main/scala/org/finnpic/Pic.scala" method="createFromValidParts" start="12301" end="12339" line="390" branch="false" invocation-count="1" ignored="false">
+                                package="org.finnpic" class="Pic" class-type="Object" full-class-name="org.finnpic.Pic" source="/Users/vpeurala/Projects/OrangIT/FinnPic/src/main/scala/org/finnpic/Pic.scala" method="createFromValidParts" start="12308" end="12346" line="390" branch="false" invocation-count="1" ignored="false">
 </statement>
                                 <statement 
-                                package="org.finnpic" class="Pic" class-type="Object" full-class-name="org.finnpic.Pic" source="/Users/vpeurala/Projects/OrangIT/FinnPic/src/main/scala/org/finnpic/Pic.scala" method="createFromValidParts" start="13392" end="13408" line="409" branch="false" invocation-count="1" ignored="false">
+                                package="org.finnpic" class="Pic" class-type="Object" full-class-name="org.finnpic.Pic" source="/Users/vpeurala/Projects/OrangIT/FinnPic/src/main/scala/org/finnpic/Pic.scala" method="createFromValidParts" start="13399" end="13415" line="409" branch="false" invocation-count="1" ignored="false">
 </statement>
                                 <statement 
-                                package="org.finnpic" class="Pic" class-type="Object" full-class-name="org.finnpic.Pic" source="/Users/vpeurala/Projects/OrangIT/FinnPic/src/main/scala/org/finnpic/Pic.scala" method="createFromValidParts" start="12727" end="12731" line="396" branch="false" invocation-count="1" ignored="false">
+                                package="org.finnpic" class="Pic" class-type="Object" full-class-name="org.finnpic.Pic" source="/Users/vpeurala/Projects/OrangIT/FinnPic/src/main/scala/org/finnpic/Pic.scala" method="createFromValidParts" start="12734" end="12738" line="396" branch="false" invocation-count="1" ignored="false">
 </statement>
                                 <statement 
-                                package="org.finnpic" class="Pic" class-type="Object" full-class-name="org.finnpic.Pic" source="/Users/vpeurala/Projects/OrangIT/FinnPic/src/main/scala/org/finnpic/Pic.scala" method="createFromValidParts" start="13010" end="13057" line="403" branch="false" invocation-count="1" ignored="false">
+                                package="org.finnpic" class="Pic" class-type="Object" full-class-name="org.finnpic.Pic" source="/Users/vpeurala/Projects/OrangIT/FinnPic/src/main/scala/org/finnpic/Pic.scala" method="createFromValidParts" start="13017" end="13064" line="403" branch="false" invocation-count="1" ignored="false">
 </statement>
                                 <statement 
-                                package="org.finnpic" class="Pic" class-type="Object" full-class-name="org.finnpic.Pic" source="/Users/vpeurala/Projects/OrangIT/FinnPic/src/main/scala/org/finnpic/Pic.scala" method="createFromValidParts" start="12447" end="12463" line="392" branch="false" invocation-count="1" ignored="false">
+                                package="org.finnpic" class="Pic" class-type="Object" full-class-name="org.finnpic.Pic" source="/Users/vpeurala/Projects/OrangIT/FinnPic/src/main/scala/org/finnpic/Pic.scala" method="createFromValidParts" start="12454" end="12470" line="392" branch="false" invocation-count="1" ignored="false">
 </statement>
                                 <statement 
-                                package="org.finnpic" class="Pic" class-type="Object" full-class-name="org.finnpic.Pic" source="/Users/vpeurala/Projects/OrangIT/FinnPic/src/main/scala/org/finnpic/Pic.scala" method="createFromValidParts" start="13369" end="13507" line="409" branch="false" invocation-count="1" ignored="false">
+                                package="org.finnpic" class="Pic" class-type="Object" full-class-name="org.finnpic.Pic" source="/Users/vpeurala/Projects/OrangIT/FinnPic/src/main/scala/org/finnpic/Pic.scala" method="createFromValidParts" start="13376" end="13514" line="409" branch="false" invocation-count="1" ignored="false">
 </statement>
                                 <statement 
-                                package="org.finnpic" class="Pic" class-type="Object" full-class-name="org.finnpic.Pic" source="/Users/vpeurala/Projects/OrangIT/FinnPic/src/main/scala/org/finnpic/Pic.scala" method="createFromValidParts" start="12820" end="12861" line="400" branch="false" invocation-count="1" ignored="false">
+                                package="org.finnpic" class="Pic" class-type="Object" full-class-name="org.finnpic.Pic" source="/Users/vpeurala/Projects/OrangIT/FinnPic/src/main/scala/org/finnpic/Pic.scala" method="createFromValidParts" start="12827" end="12868" line="400" branch="false" invocation-count="1" ignored="false">
 </statement>
                                 <statement 
-                                package="org.finnpic" class="Pic" class-type="Object" full-class-name="org.finnpic.Pic" source="/Users/vpeurala/Projects/OrangIT/FinnPic/src/main/scala/org/finnpic/Pic.scala" method="createFromValidParts" start="13269" end="13288" line="407" branch="false" invocation-count="1" ignored="false">
+                                package="org.finnpic" class="Pic" class-type="Object" full-class-name="org.finnpic.Pic" source="/Users/vpeurala/Projects/OrangIT/FinnPic/src/main/scala/org/finnpic/Pic.scala" method="createFromValidParts" start="13276" end="13295" line="407" branch="false" invocation-count="1" ignored="false">
 </statement>
                                 <statement 
-                                package="org.finnpic" class="Pic" class-type="Object" full-class-name="org.finnpic.Pic" source="/Users/vpeurala/Projects/OrangIT/FinnPic/src/main/scala/org/finnpic/Pic.scala" method="createFromValidParts" start="12424" end="12571" line="392" branch="false" invocation-count="1" ignored="false">
+                                package="org.finnpic" class="Pic" class-type="Object" full-class-name="org.finnpic.Pic" source="/Users/vpeurala/Projects/OrangIT/FinnPic/src/main/scala/org/finnpic/Pic.scala" method="createFromValidParts" start="12431" end="12578" line="392" branch="false" invocation-count="1" ignored="false">
 </statement>
                                 <statement 
-                                package="org.finnpic" class="Pic" class-type="Object" full-class-name="org.finnpic.Pic" source="/Users/vpeurala/Projects/OrangIT/FinnPic/src/main/scala/org/finnpic/Pic.scala" method="createFromValidParts" start="12266" end="12348" line="390" branch="false" invocation-count="1" ignored="false">
+                                package="org.finnpic" class="Pic" class-type="Object" full-class-name="org.finnpic.Pic" source="/Users/vpeurala/Projects/OrangIT/FinnPic/src/main/scala/org/finnpic/Pic.scala" method="createFromValidParts" start="12273" end="12355" line="390" branch="false" invocation-count="1" ignored="false">
 </statement>
                                 <statement 
-                                package="org.finnpic" class="Pic" class-type="Object" full-class-name="org.finnpic.Pic" source="/Users/vpeurala/Projects/OrangIT/FinnPic/src/main/scala/org/finnpic/Pic.scala" method="createFromValidParts" start="13376" end="13391" line="409" branch="false" invocation-count="1" ignored="false">
+                                package="org.finnpic" class="Pic" class-type="Object" full-class-name="org.finnpic.Pic" source="/Users/vpeurala/Projects/OrangIT/FinnPic/src/main/scala/org/finnpic/Pic.scala" method="createFromValidParts" start="13383" end="13398" line="409" branch="false" invocation-count="1" ignored="false">
 </statement>
                                 <statement 
-                                package="org.finnpic" class="Pic" class-type="Object" full-class-name="org.finnpic.Pic" source="/Users/vpeurala/Projects/OrangIT/FinnPic/src/main/scala/org/finnpic/Pic.scala" method="createFromValidParts" start="12644" end="12650" line="394" branch="true" invocation-count="1" ignored="false">
+                                package="org.finnpic" class="Pic" class-type="Object" full-class-name="org.finnpic.Pic" source="/Users/vpeurala/Projects/OrangIT/FinnPic/src/main/scala/org/finnpic/Pic.scala" method="createFromValidParts" start="12651" end="12657" line="394" branch="true" invocation-count="1" ignored="false">
 </statement>
                                 <statement 
-                                package="org.finnpic" class="Pic" class-type="Object" full-class-name="org.finnpic.Pic" source="/Users/vpeurala/Projects/OrangIT/FinnPic/src/main/scala/org/finnpic/Pic.scala" method="createFromValidParts" start="12941" end="12982" line="402" branch="false" invocation-count="1" ignored="false">
+                                package="org.finnpic" class="Pic" class-type="Object" full-class-name="org.finnpic.Pic" source="/Users/vpeurala/Projects/OrangIT/FinnPic/src/main/scala/org/finnpic/Pic.scala" method="createFromValidParts" start="12948" end="12989" line="402" branch="false" invocation-count="1" ignored="false">
 </statement>
                                 <statement 
-                                package="org.finnpic" class="Pic" class-type="Object" full-class-name="org.finnpic.Pic" source="/Users/vpeurala/Projects/OrangIT/FinnPic/src/main/scala/org/finnpic/Pic.scala" method="createFromValidParts" start="12464" end="12492" line="392" branch="false" invocation-count="1" ignored="false">
+                                package="org.finnpic" class="Pic" class-type="Object" full-class-name="org.finnpic.Pic" source="/Users/vpeurala/Projects/OrangIT/FinnPic/src/main/scala/org/finnpic/Pic.scala" method="createFromValidParts" start="12471" end="12499" line="392" branch="false" invocation-count="1" ignored="false">
 </statement>
                                 <statement 
-                                package="org.finnpic" class="Pic" class-type="Object" full-class-name="org.finnpic.Pic" source="/Users/vpeurala/Projects/OrangIT/FinnPic/src/main/scala/org/finnpic/Pic.scala" method="createFromValidParts" start="12320" end="12339" line="390" branch="false" invocation-count="1" ignored="false">
+                                package="org.finnpic" class="Pic" class-type="Object" full-class-name="org.finnpic.Pic" source="/Users/vpeurala/Projects/OrangIT/FinnPic/src/main/scala/org/finnpic/Pic.scala" method="createFromValidParts" start="12327" end="12346" line="390" branch="false" invocation-count="1" ignored="false">
 </statement>
                                 <statement 
-                                package="org.finnpic" class="Pic" class-type="Object" full-class-name="org.finnpic.Pic" source="/Users/vpeurala/Projects/OrangIT/FinnPic/src/main/scala/org/finnpic/Pic.scala" method="createFromValidParts" start="13325" end="13341" line="408" branch="false" invocation-count="1" ignored="false">
+                                package="org.finnpic" class="Pic" class-type="Object" full-class-name="org.finnpic.Pic" source="/Users/vpeurala/Projects/OrangIT/FinnPic/src/main/scala/org/finnpic/Pic.scala" method="createFromValidParts" start="13332" end="13348" line="408" branch="false" invocation-count="1" ignored="false">
 </statement>
                             </statements>
 </method>
@@ -297,19 +297,19 @@ statement-count="184" statements-invoked="184" statement-rate="100.00" branch-ra
                         name="org.finnpic/Pic/createFromSubstrings" statement-count="5" statements-invoked="5" statement-rate="100.00" branch-rate="100.00">
                             <statements>
                                 <statement 
-                                package="org.finnpic" class="Pic" class-type="Object" full-class-name="org.finnpic.Pic" source="/Users/vpeurala/Projects/OrangIT/FinnPic/src/main/scala/org/finnpic/Pic.scala" method="createFromSubstrings" start="11856" end="11880" line="381" branch="false" invocation-count="1" ignored="false">
+                                package="org.finnpic" class="Pic" class-type="Object" full-class-name="org.finnpic.Pic" source="/Users/vpeurala/Projects/OrangIT/FinnPic/src/main/scala/org/finnpic/Pic.scala" method="createFromSubstrings" start="11863" end="11887" line="381" branch="false" invocation-count="1" ignored="false">
 </statement>
                                 <statement 
-                                package="org.finnpic" class="Pic" class-type="Object" full-class-name="org.finnpic.Pic" source="/Users/vpeurala/Projects/OrangIT/FinnPic/src/main/scala/org/finnpic/Pic.scala" method="createFromSubstrings" start="11696" end="11741" line="378" branch="false" invocation-count="1" ignored="false">
+                                package="org.finnpic" class="Pic" class-type="Object" full-class-name="org.finnpic.Pic" source="/Users/vpeurala/Projects/OrangIT/FinnPic/src/main/scala/org/finnpic/Pic.scala" method="createFromSubstrings" start="11703" end="11748" line="378" branch="false" invocation-count="1" ignored="false">
 </statement>
                                 <statement 
-                                package="org.finnpic" class="Pic" class-type="Object" full-class-name="org.finnpic.Pic" source="/Users/vpeurala/Projects/OrangIT/FinnPic/src/main/scala/org/finnpic/Pic.scala" method="createFromSubstrings" start="11723" end="11740" line="378" branch="false" invocation-count="1" ignored="false">
+                                package="org.finnpic" class="Pic" class-type="Object" full-class-name="org.finnpic.Pic" source="/Users/vpeurala/Projects/OrangIT/FinnPic/src/main/scala/org/finnpic/Pic.scala" method="createFromSubstrings" start="11730" end="11747" line="378" branch="false" invocation-count="1" ignored="false">
 </statement>
                                 <statement 
-                                package="org.finnpic" class="Pic" class-type="Object" full-class-name="org.finnpic.Pic" source="/Users/vpeurala/Projects/OrangIT/FinnPic/src/main/scala/org/finnpic/Pic.scala" method="createFromSubstrings" start="11800" end="11836" line="380" branch="false" invocation-count="1" ignored="false">
+                                package="org.finnpic" class="Pic" class-type="Object" full-class-name="org.finnpic.Pic" source="/Users/vpeurala/Projects/OrangIT/FinnPic/src/main/scala/org/finnpic/Pic.scala" method="createFromSubstrings" start="11807" end="11843" line="380" branch="false" invocation-count="1" ignored="false">
 </statement>
                                 <statement 
-                                package="org.finnpic" class="Pic" class-type="Object" full-class-name="org.finnpic.Pic" source="/Users/vpeurala/Projects/OrangIT/FinnPic/src/main/scala/org/finnpic/Pic.scala" method="createFromSubstrings" start="11805" end="11835" line="380" branch="false" invocation-count="1" ignored="false">
+                                package="org.finnpic" class="Pic" class-type="Object" full-class-name="org.finnpic.Pic" source="/Users/vpeurala/Projects/OrangIT/FinnPic/src/main/scala/org/finnpic/Pic.scala" method="createFromSubstrings" start="11812" end="11842" line="380" branch="false" invocation-count="1" ignored="false">
 </statement>
                             </statements>
 </method>
@@ -364,205 +364,205 @@ statement-count="184" statements-invoked="184" statement-rate="100.00" branch-ra
                         name="org.finnpic/Pic/&lt;none&gt;" statement-count="67" statements-invoked="67" statement-rate="100.00" branch-rate="100.00">
                             <statements>
                                 <statement 
-                                package="org.finnpic" class="Pic" class-type="Object" full-class-name="org.finnpic.Pic" source="/Users/vpeurala/Projects/OrangIT/FinnPic/src/main/scala/org/finnpic/Pic.scala" method="&lt;none&gt;" start="11036" end="11085" line="362" branch="false" invocation-count="1" ignored="false">
+                                package="org.finnpic" class="Pic" class-type="Object" full-class-name="org.finnpic.Pic" source="/Users/vpeurala/Projects/OrangIT/FinnPic/src/main/scala/org/finnpic/Pic.scala" method="&lt;none&gt;" start="11043" end="11092" line="362" branch="false" invocation-count="1" ignored="false">
 </statement>
                                 <statement 
-                                package="org.finnpic" class="Pic" class-type="Object" full-class-name="org.finnpic.Pic" source="/Users/vpeurala/Projects/OrangIT/FinnPic/src/main/scala/org/finnpic/Pic.scala" method="&lt;none&gt;" start="11316" end="11354" line="369" branch="false" invocation-count="1" ignored="false">
+                                package="org.finnpic" class="Pic" class-type="Object" full-class-name="org.finnpic.Pic" source="/Users/vpeurala/Projects/OrangIT/FinnPic/src/main/scala/org/finnpic/Pic.scala" method="&lt;none&gt;" start="11323" end="11361" line="369" branch="false" invocation-count="1" ignored="false">
 </statement>
                                 <statement 
-                                package="org.finnpic" class="Pic" class-type="Object" full-class-name="org.finnpic.Pic" source="/Users/vpeurala/Projects/OrangIT/FinnPic/src/main/scala/org/finnpic/Pic.scala" method="&lt;none&gt;" start="10846" end="10861" line="357" branch="false" invocation-count="1" ignored="false">
+                                package="org.finnpic" class="Pic" class-type="Object" full-class-name="org.finnpic.Pic" source="/Users/vpeurala/Projects/OrangIT/FinnPic/src/main/scala/org/finnpic/Pic.scala" method="&lt;none&gt;" start="10853" end="10868" line="357" branch="false" invocation-count="1" ignored="false">
 </statement>
                                 <statement 
-                                package="org.finnpic" class="Pic" class-type="Object" full-class-name="org.finnpic.Pic" source="/Users/vpeurala/Projects/OrangIT/FinnPic/src/main/scala/org/finnpic/Pic.scala" method="&lt;none&gt;" start="11439" end="11468" line="372" branch="false" invocation-count="1" ignored="false">
+                                package="org.finnpic" class="Pic" class-type="Object" full-class-name="org.finnpic.Pic" source="/Users/vpeurala/Projects/OrangIT/FinnPic/src/main/scala/org/finnpic/Pic.scala" method="&lt;none&gt;" start="11446" end="11475" line="372" branch="false" invocation-count="1" ignored="false">
 </statement>
                                 <statement 
-                                package="org.finnpic" class="Pic" class-type="Object" full-class-name="org.finnpic.Pic" source="/Users/vpeurala/Projects/OrangIT/FinnPic/src/main/scala/org/finnpic/Pic.scala" method="&lt;none&gt;" start="11233" end="11236" line="364" branch="false" invocation-count="1" ignored="false">
+                                package="org.finnpic" class="Pic" class-type="Object" full-class-name="org.finnpic.Pic" source="/Users/vpeurala/Projects/OrangIT/FinnPic/src/main/scala/org/finnpic/Pic.scala" method="&lt;none&gt;" start="11240" end="11243" line="364" branch="false" invocation-count="1" ignored="false">
 </statement>
                                 <statement 
-                                package="org.finnpic" class="Pic" class-type="Object" full-class-name="org.finnpic.Pic" source="/Users/vpeurala/Projects/OrangIT/FinnPic/src/main/scala/org/finnpic/Pic.scala" method="&lt;none&gt;" start="10408" end="10701" line="344" branch="false" invocation-count="1" ignored="false">
+                                package="org.finnpic" class="Pic" class-type="Object" full-class-name="org.finnpic.Pic" source="/Users/vpeurala/Projects/OrangIT/FinnPic/src/main/scala/org/finnpic/Pic.scala" method="&lt;none&gt;" start="10415" end="10708" line="344" branch="false" invocation-count="1" ignored="false">
 </statement>
                                 <statement 
-                                package="org.finnpic" class="Pic" class-type="Object" full-class-name="org.finnpic.Pic" source="/Users/vpeurala/Projects/OrangIT/FinnPic/src/main/scala/org/finnpic/Pic.scala" method="&lt;none&gt;" start="10862" end="10878" line="357" branch="false" invocation-count="1" ignored="false">
+                                package="org.finnpic" class="Pic" class-type="Object" full-class-name="org.finnpic.Pic" source="/Users/vpeurala/Projects/OrangIT/FinnPic/src/main/scala/org/finnpic/Pic.scala" method="&lt;none&gt;" start="10869" end="10885" line="357" branch="false" invocation-count="1" ignored="false">
 </statement>
                                 <statement 
-                                package="org.finnpic" class="Pic" class-type="Object" full-class-name="org.finnpic.Pic" source="/Users/vpeurala/Projects/OrangIT/FinnPic/src/main/scala/org/finnpic/Pic.scala" method="&lt;none&gt;" start="9903" end="9919" line="333" branch="false" invocation-count="1" ignored="false">
+                                package="org.finnpic" class="Pic" class-type="Object" full-class-name="org.finnpic.Pic" source="/Users/vpeurala/Projects/OrangIT/FinnPic/src/main/scala/org/finnpic/Pic.scala" method="&lt;none&gt;" start="9910" end="9926" line="333" branch="false" invocation-count="1" ignored="false">
 </statement>
                                 <statement 
-                                package="org.finnpic" class="Pic" class-type="Object" full-class-name="org.finnpic.Pic" source="/Users/vpeurala/Projects/OrangIT/FinnPic/src/main/scala/org/finnpic/Pic.scala" method="&lt;none&gt;" start="10200" end="10215" line="341" branch="false" invocation-count="1" ignored="false">
+                                package="org.finnpic" class="Pic" class-type="Object" full-class-name="org.finnpic.Pic" source="/Users/vpeurala/Projects/OrangIT/FinnPic/src/main/scala/org/finnpic/Pic.scala" method="&lt;none&gt;" start="10207" end="10222" line="341" branch="false" invocation-count="1" ignored="false">
 </statement>
                                 <statement 
-                                package="org.finnpic" class="Pic" class-type="Object" full-class-name="org.finnpic.Pic" source="/Users/vpeurala/Projects/OrangIT/FinnPic/src/main/scala/org/finnpic/Pic.scala" method="&lt;none&gt;" start="10508" end="10509" line="347" branch="false" invocation-count="1" ignored="false">
+                                package="org.finnpic" class="Pic" class-type="Object" full-class-name="org.finnpic.Pic" source="/Users/vpeurala/Projects/OrangIT/FinnPic/src/main/scala/org/finnpic/Pic.scala" method="&lt;none&gt;" start="10515" end="10516" line="347" branch="false" invocation-count="1" ignored="false">
 </statement>
                                 <statement 
-                                package="org.finnpic" class="Pic" class-type="Object" full-class-name="org.finnpic.Pic" source="/Users/vpeurala/Projects/OrangIT/FinnPic/src/main/scala/org/finnpic/Pic.scala" method="&lt;none&gt;" start="9801" end="10007" line="329" branch="false" invocation-count="1" ignored="false">
+                                package="org.finnpic" class="Pic" class-type="Object" full-class-name="org.finnpic.Pic" source="/Users/vpeurala/Projects/OrangIT/FinnPic/src/main/scala/org/finnpic/Pic.scala" method="&lt;none&gt;" start="9808" end="10014" line="329" branch="false" invocation-count="1" ignored="false">
 </statement>
                                 <statement 
-                                package="org.finnpic" class="Pic" class-type="Object" full-class-name="org.finnpic.Pic" source="/Users/vpeurala/Projects/OrangIT/FinnPic/src/main/scala/org/finnpic/Pic.scala" method="&lt;none&gt;" start="10216" end="10232" line="341" branch="false" invocation-count="1" ignored="false">
+                                package="org.finnpic" class="Pic" class-type="Object" full-class-name="org.finnpic.Pic" source="/Users/vpeurala/Projects/OrangIT/FinnPic/src/main/scala/org/finnpic/Pic.scala" method="&lt;none&gt;" start="10223" end="10239" line="341" branch="false" invocation-count="1" ignored="false">
 </statement>
                                 <statement 
-                                package="org.finnpic" class="Pic" class-type="Object" full-class-name="org.finnpic.Pic" source="/Users/vpeurala/Projects/OrangIT/FinnPic/src/main/scala/org/finnpic/Pic.scala" method="&lt;none&gt;" start="10794" end="10797" line="355" branch="false" invocation-count="1" ignored="false">
+                                package="org.finnpic" class="Pic" class-type="Object" full-class-name="org.finnpic.Pic" source="/Users/vpeurala/Projects/OrangIT/FinnPic/src/main/scala/org/finnpic/Pic.scala" method="&lt;none&gt;" start="10801" end="10804" line="355" branch="false" invocation-count="1" ignored="false">
 </statement>
                                 <statement 
-                                package="org.finnpic" class="Pic" class-type="Object" full-class-name="org.finnpic.Pic" source="/Users/vpeurala/Projects/OrangIT/FinnPic/src/main/scala/org/finnpic/Pic.scala" method="&lt;none&gt;" start="10747" end="10956" line="353" branch="false" invocation-count="1" ignored="false">
+                                package="org.finnpic" class="Pic" class-type="Object" full-class-name="org.finnpic.Pic" source="/Users/vpeurala/Projects/OrangIT/FinnPic/src/main/scala/org/finnpic/Pic.scala" method="&lt;none&gt;" start="10754" end="10963" line="353" branch="false" invocation-count="1" ignored="false">
 </statement>
                                 <statement 
-                                package="org.finnpic" class="Pic" class-type="Object" full-class-name="org.finnpic.Pic" source="/Users/vpeurala/Projects/OrangIT/FinnPic/src/main/scala/org/finnpic/Pic.scala" method="&lt;none&gt;" start="11103" end="11236" line="364" branch="false" invocation-count="1" ignored="false">
+                                package="org.finnpic" class="Pic" class-type="Object" full-class-name="org.finnpic.Pic" source="/Users/vpeurala/Projects/OrangIT/FinnPic/src/main/scala/org/finnpic/Pic.scala" method="&lt;none&gt;" start="11110" end="11243" line="364" branch="false" invocation-count="1" ignored="false">
 </statement>
                                 <statement 
-                                package="org.finnpic" class="Pic" class-type="Object" full-class-name="org.finnpic.Pic" source="/Users/vpeurala/Projects/OrangIT/FinnPic/src/main/scala/org/finnpic/Pic.scala" method="&lt;none&gt;" start="10550" end="10565" line="350" branch="false" invocation-count="1" ignored="false">
+                                package="org.finnpic" class="Pic" class-type="Object" full-class-name="org.finnpic.Pic" source="/Users/vpeurala/Projects/OrangIT/FinnPic/src/main/scala/org/finnpic/Pic.scala" method="&lt;none&gt;" start="10557" end="10572" line="350" branch="false" invocation-count="1" ignored="false">
 </statement>
                                 <statement 
-                                package="org.finnpic" class="Pic" class-type="Object" full-class-name="org.finnpic.Pic" source="/Users/vpeurala/Projects/OrangIT/FinnPic/src/main/scala/org/finnpic/Pic.scala" method="&lt;none&gt;" start="10566" end="10582" line="350" branch="false" invocation-count="1" ignored="false">
+                                package="org.finnpic" class="Pic" class-type="Object" full-class-name="org.finnpic.Pic" source="/Users/vpeurala/Projects/OrangIT/FinnPic/src/main/scala/org/finnpic/Pic.scala" method="&lt;none&gt;" start="10573" end="10589" line="350" branch="false" invocation-count="1" ignored="false">
 </statement>
                                 <statement 
-                                package="org.finnpic" class="Pic" class-type="Object" full-class-name="org.finnpic.Pic" source="/Users/vpeurala/Projects/OrangIT/FinnPic/src/main/scala/org/finnpic/Pic.scala" method="&lt;none&gt;" start="10160" end="10161" line="338" branch="false" invocation-count="1" ignored="false">
+                                package="org.finnpic" class="Pic" class-type="Object" full-class-name="org.finnpic.Pic" source="/Users/vpeurala/Projects/OrangIT/FinnPic/src/main/scala/org/finnpic/Pic.scala" method="&lt;none&gt;" start="10167" end="10168" line="338" branch="false" invocation-count="1" ignored="false">
 </statement>
                                 <statement 
-                                package="org.finnpic" class="Pic" class-type="Object" full-class-name="org.finnpic.Pic" source="/Users/vpeurala/Projects/OrangIT/FinnPic/src/main/scala/org/finnpic/Pic.scala" method="&lt;none&gt;" start="9887" end="9902" line="333" branch="false" invocation-count="1" ignored="false">
+                                package="org.finnpic" class="Pic" class-type="Object" full-class-name="org.finnpic.Pic" source="/Users/vpeurala/Projects/OrangIT/FinnPic/src/main/scala/org/finnpic/Pic.scala" method="&lt;none&gt;" start="9894" end="9909" line="333" branch="false" invocation-count="1" ignored="false">
 </statement>
                                 <statement 
                                 package="org.finnpic" class="Pic" class-type="Class" full-class-name="org.finnpic.Pic" source="/Users/vpeurala/Projects/OrangIT/FinnPic/src/main/scala/org/finnpic/Pic.scala" method="&lt;none&gt;" start="2001" end="2008" line="69" branch="false" invocation-count="1" ignored="false">
 </statement>
                                 <statement 
-                                package="org.finnpic" class="Pic" class-type="Object" full-class-name="org.finnpic.Pic" source="/Users/vpeurala/Projects/OrangIT/FinnPic/src/main/scala/org/finnpic/Pic.scala" method="&lt;none&gt;" start="10064" end="10349" line="335" branch="false" invocation-count="1" ignored="false">
+                                package="org.finnpic" class="Pic" class-type="Object" full-class-name="org.finnpic.Pic" source="/Users/vpeurala/Projects/OrangIT/FinnPic/src/main/scala/org/finnpic/Pic.scala" method="&lt;none&gt;" start="10071" end="10356" line="335" branch="false" invocation-count="1" ignored="false">
 </statement>
                                 <statement 
                                 package="org.finnpic" class="Pic" class-type="Class" full-class-name="org.finnpic.Pic" source="/Users/vpeurala/Projects/OrangIT/FinnPic/src/main/scala/org/finnpic/Pic.scala" method="&lt;none&gt;" start="3071" end="3080" line="115" branch="false" invocation-count="1" ignored="false">
 </statement>
                                 <statement 
-                                package="org.finnpic" class="Pic" class-type="Object" full-class-name="org.finnpic.Pic" source="/Users/vpeurala/Projects/OrangIT/FinnPic/src/main/scala/org/finnpic/Pic.scala" method="&lt;none&gt;" start="9833" end="9867" line="331" branch="false" invocation-count="1" ignored="false">
+                                package="org.finnpic" class="Pic" class-type="Object" full-class-name="org.finnpic.Pic" source="/Users/vpeurala/Projects/OrangIT/FinnPic/src/main/scala/org/finnpic/Pic.scala" method="&lt;none&gt;" start="9840" end="9874" line="331" branch="false" invocation-count="1" ignored="false">
 </statement>
                                 <statement 
-                                package="org.finnpic" class="Pic" class-type="Object" full-class-name="org.finnpic.Pic" source="/Users/vpeurala/Projects/OrangIT/FinnPic/src/main/scala/org/finnpic/Pic.scala" method="&lt;none&gt;" start="11284" end="11310" line="368" branch="false" invocation-count="1" ignored="false">
+                                package="org.finnpic" class="Pic" class-type="Object" full-class-name="org.finnpic.Pic" source="/Users/vpeurala/Projects/OrangIT/FinnPic/src/main/scala/org/finnpic/Pic.scala" method="&lt;none&gt;" start="11291" end="11317" line="368" branch="false" invocation-count="1" ignored="false">
 </statement>
                                 <statement 
-                                package="org.finnpic" class="Pic" class-type="Object" full-class-name="org.finnpic.Pic" source="/Users/vpeurala/Projects/OrangIT/FinnPic/src/main/scala/org/finnpic/Pic.scala" method="&lt;none&gt;" start="10779" end="10826" line="355" branch="false" invocation-count="1" ignored="false">
+                                package="org.finnpic" class="Pic" class-type="Object" full-class-name="org.finnpic.Pic" source="/Users/vpeurala/Projects/OrangIT/FinnPic/src/main/scala/org/finnpic/Pic.scala" method="&lt;none&gt;" start="10786" end="10833" line="355" branch="false" invocation-count="1" ignored="false">
 </statement>
                                 <statement 
-                                package="org.finnpic" class="Pic" class-type="Object" full-class-name="org.finnpic.Pic" source="/Users/vpeurala/Projects/OrangIT/FinnPic/src/main/scala/org/finnpic/Pic.scala" method="&lt;none&gt;" start="11040" end="11065" line="362" branch="false" invocation-count="1" ignored="false">
+                                package="org.finnpic" class="Pic" class-type="Object" full-class-name="org.finnpic.Pic" source="/Users/vpeurala/Projects/OrangIT/FinnPic/src/main/scala/org/finnpic/Pic.scala" method="&lt;none&gt;" start="11047" end="11072" line="362" branch="false" invocation-count="1" ignored="false">
 </statement>
                                 <statement 
-                                package="org.finnpic" class="Pic" class-type="Object" full-class-name="org.finnpic.Pic" source="/Users/vpeurala/Projects/OrangIT/FinnPic/src/main/scala/org/finnpic/Pic.scala" method="&lt;none&gt;" start="10108" end="10146" line="337" branch="false" invocation-count="1" ignored="false">
+                                package="org.finnpic" class="Pic" class-type="Object" full-class-name="org.finnpic.Pic" source="/Users/vpeurala/Projects/OrangIT/FinnPic/src/main/scala/org/finnpic/Pic.scala" method="&lt;none&gt;" start="10115" end="10153" line="337" branch="false" invocation-count="1" ignored="false">
 </statement>
                                 <statement 
-                                package="org.finnpic" class="Pic" class-type="Object" full-class-name="org.finnpic.Pic" source="/Users/vpeurala/Projects/OrangIT/FinnPic/src/main/scala/org/finnpic/Pic.scala" method="&lt;none&gt;" start="10198" end="10345" line="341" branch="false" invocation-count="1" ignored="false">
+                                package="org.finnpic" class="Pic" class-type="Object" full-class-name="org.finnpic.Pic" source="/Users/vpeurala/Projects/OrangIT/FinnPic/src/main/scala/org/finnpic/Pic.scala" method="&lt;none&gt;" start="10205" end="10352" line="341" branch="false" invocation-count="1" ignored="false">
 </statement>
                                 <statement 
-                                package="org.finnpic" class="Pic" class-type="Object" full-class-name="org.finnpic.Pic" source="/Users/vpeurala/Projects/OrangIT/FinnPic/src/main/scala/org/finnpic/Pic.scala" method="&lt;none&gt;" start="10694" end="10697" line="350" branch="false" invocation-count="1" ignored="false">
+                                package="org.finnpic" class="Pic" class-type="Object" full-class-name="org.finnpic.Pic" source="/Users/vpeurala/Projects/OrangIT/FinnPic/src/main/scala/org/finnpic/Pic.scala" method="&lt;none&gt;" start="10701" end="10704" line="350" branch="false" invocation-count="1" ignored="false">
 </statement>
                                 <statement 
-                                package="org.finnpic" class="Pic" class-type="Object" full-class-name="org.finnpic.Pic" source="/Users/vpeurala/Projects/OrangIT/FinnPic/src/main/scala/org/finnpic/Pic.scala" method="&lt;none&gt;" start="10153" end="10174" line="338" branch="false" invocation-count="1" ignored="false">
+                                package="org.finnpic" class="Pic" class-type="Object" full-class-name="org.finnpic.Pic" source="/Users/vpeurala/Projects/OrangIT/FinnPic/src/main/scala/org/finnpic/Pic.scala" method="&lt;none&gt;" start="10160" end="10181" line="338" branch="false" invocation-count="1" ignored="false">
 </statement>
                                 <statement 
-                                package="org.finnpic" class="Pic" class-type="Object" full-class-name="org.finnpic.Pic" source="/Users/vpeurala/Projects/OrangIT/FinnPic/src/main/scala/org/finnpic/Pic.scala" method="&lt;none&gt;" start="10454" end="10492" line="346" branch="false" invocation-count="1" ignored="false">
+                                package="org.finnpic" class="Pic" class-type="Object" full-class-name="org.finnpic.Pic" source="/Users/vpeurala/Projects/OrangIT/FinnPic/src/main/scala/org/finnpic/Pic.scala" method="&lt;none&gt;" start="10461" end="10499" line="346" branch="false" invocation-count="1" ignored="false">
 </statement>
                                 <statement 
-                                package="org.finnpic" class="Pic" class-type="Object" full-class-name="org.finnpic.Pic" source="/Users/vpeurala/Projects/OrangIT/FinnPic/src/main/scala/org/finnpic/Pic.scala" method="&lt;none&gt;" start="10949" end="10952" line="357" branch="false" invocation-count="1" ignored="false">
+                                package="org.finnpic" class="Pic" class-type="Object" full-class-name="org.finnpic.Pic" source="/Users/vpeurala/Projects/OrangIT/FinnPic/src/main/scala/org/finnpic/Pic.scala" method="&lt;none&gt;" start="10956" end="10959" line="357" branch="false" invocation-count="1" ignored="false">
 </statement>
                                 <statement 
-                                package="org.finnpic" class="Pic" class-type="Object" full-class-name="org.finnpic.Pic" source="/Users/vpeurala/Projects/OrangIT/FinnPic/src/main/scala/org/finnpic/Pic.scala" method="&lt;none&gt;" start="11138" end="11212" line="364" branch="false" invocation-count="1" ignored="false">
+                                package="org.finnpic" class="Pic" class-type="Object" full-class-name="org.finnpic.Pic" source="/Users/vpeurala/Projects/OrangIT/FinnPic/src/main/scala/org/finnpic/Pic.scala" method="&lt;none&gt;" start="11145" end="11219" line="364" branch="false" invocation-count="1" ignored="false">
 </statement>
                                 <statement 
-                                package="org.finnpic" class="Pic" class-type="Object" full-class-name="org.finnpic.Pic" source="/Users/vpeurala/Projects/OrangIT/FinnPic/src/main/scala/org/finnpic/Pic.scala" method="&lt;none&gt;" start="10003" end="10006" line="333" branch="false" invocation-count="1" ignored="false">
+                                package="org.finnpic" class="Pic" class-type="Object" full-class-name="org.finnpic.Pic" source="/Users/vpeurala/Projects/OrangIT/FinnPic/src/main/scala/org/finnpic/Pic.scala" method="&lt;none&gt;" start="10010" end="10013" line="333" branch="false" invocation-count="1" ignored="false">
 </statement>
                                 <statement 
                                 package="org.finnpic" class="Pic" class-type="Class" full-class-name="org.finnpic.Pic" source="/Users/vpeurala/Projects/OrangIT/FinnPic/src/main/scala/org/finnpic/Pic.scala" method="&lt;none&gt;" start="2588" end="2599" line="98" branch="false" invocation-count="1" ignored="false">
 </statement>
                                 <statement 
-                                package="org.finnpic" class="Pic" class-type="Object" full-class-name="org.finnpic.Pic" source="/Users/vpeurala/Projects/OrangIT/FinnPic/src/main/scala/org/finnpic/Pic.scala" method="&lt;none&gt;" start="11406" end="11433" line="371" branch="false" invocation-count="1" ignored="false">
+                                package="org.finnpic" class="Pic" class-type="Object" full-class-name="org.finnpic.Pic" source="/Users/vpeurala/Projects/OrangIT/FinnPic/src/main/scala/org/finnpic/Pic.scala" method="&lt;none&gt;" start="11413" end="11440" line="371" branch="false" invocation-count="1" ignored="false">
 </statement>
                                 <statement 
-                                package="org.finnpic" class="Pic" class-type="Object" full-class-name="org.finnpic.Pic" source="/Users/vpeurala/Projects/OrangIT/FinnPic/src/main/scala/org/finnpic/Pic.scala" method="&lt;none&gt;" start="10548" end="10697" line="350" branch="false" invocation-count="1" ignored="false">
+                                package="org.finnpic" class="Pic" class-type="Object" full-class-name="org.finnpic.Pic" source="/Users/vpeurala/Projects/OrangIT/FinnPic/src/main/scala/org/finnpic/Pic.scala" method="&lt;none&gt;" start="10555" end="10704" line="350" branch="false" invocation-count="1" ignored="false">
 </statement>
                                 <statement 
-                                package="org.finnpic" class="Pic" class-type="Object" full-class-name="org.finnpic.Pic" source="/Users/vpeurala/Projects/OrangIT/FinnPic/src/main/scala/org/finnpic/Pic.scala" method="&lt;none&gt;" start="11213" end="11232" line="364" branch="false" invocation-count="1" ignored="false">
+                                package="org.finnpic" class="Pic" class-type="Object" full-class-name="org.finnpic.Pic" source="/Users/vpeurala/Projects/OrangIT/FinnPic/src/main/scala/org/finnpic/Pic.scala" method="&lt;none&gt;" start="11220" end="11239" line="364" branch="false" invocation-count="1" ignored="false">
 </statement>
                                 <statement 
-                                package="org.finnpic" class="Pic" class-type="Object" full-class-name="org.finnpic.Pic" source="/Users/vpeurala/Projects/OrangIT/FinnPic/src/main/scala/org/finnpic/Pic.scala" method="&lt;none&gt;" start="10789" end="10792" line="355" branch="false" invocation-count="1" ignored="false">
+                                package="org.finnpic" class="Pic" class-type="Object" full-class-name="org.finnpic.Pic" source="/Users/vpeurala/Projects/OrangIT/FinnPic/src/main/scala/org/finnpic/Pic.scala" method="&lt;none&gt;" start="10796" end="10799" line="355" branch="false" invocation-count="1" ignored="false">
 </statement>
                                 <statement 
-                                package="org.finnpic" class="Pic" class-type="Object" full-class-name="org.finnpic.Pic" source="/Users/vpeurala/Projects/OrangIT/FinnPic/src/main/scala/org/finnpic/Pic.scala" method="&lt;none&gt;" start="10844" end="10952" line="357" branch="false" invocation-count="1" ignored="false">
+                                package="org.finnpic" class="Pic" class-type="Object" full-class-name="org.finnpic.Pic" source="/Users/vpeurala/Projects/OrangIT/FinnPic/src/main/scala/org/finnpic/Pic.scala" method="&lt;none&gt;" start="10851" end="10959" line="357" branch="false" invocation-count="1" ignored="false">
 </statement>
                                 <statement 
-                                package="org.finnpic" class="Pic" class-type="Object" full-class-name="org.finnpic.Pic" source="/Users/vpeurala/Projects/OrangIT/FinnPic/src/main/scala/org/finnpic/Pic.scala" method="&lt;none&gt;" start="10499" end="10524" line="347" branch="false" invocation-count="1" ignored="false">
+                                package="org.finnpic" class="Pic" class-type="Object" full-class-name="org.finnpic.Pic" source="/Users/vpeurala/Projects/OrangIT/FinnPic/src/main/scala/org/finnpic/Pic.scala" method="&lt;none&gt;" start="10506" end="10531" line="347" branch="false" invocation-count="1" ignored="false">
 </statement>
                                 <statement 
-                                package="org.finnpic" class="Pic" class-type="Object" full-class-name="org.finnpic.Pic" source="/Users/vpeurala/Projects/OrangIT/FinnPic/src/main/scala/org/finnpic/Pic.scala" method="&lt;none&gt;" start="9885" end="10006" line="333" branch="false" invocation-count="1" ignored="false">
+                                package="org.finnpic" class="Pic" class-type="Object" full-class-name="org.finnpic.Pic" source="/Users/vpeurala/Projects/OrangIT/FinnPic/src/main/scala/org/finnpic/Pic.scala" method="&lt;none&gt;" start="9892" end="10013" line="333" branch="false" invocation-count="1" ignored="false">
 </statement>
                                 <statement 
                                 package="org.finnpic" class="Pic" class-type="Object" full-class-name="org.finnpic.Pic" source="/Users/vpeurala/Projects/OrangIT/FinnPic/src/main/scala/org/finnpic/Pic.scala" method="&lt;none&gt;" start="5981" end="5983" line="231" branch="false" invocation-count="1" ignored="false">
 </statement>
                                 <statement 
-                                package="org.finnpic" class="Pic" class-type="Object" full-class-name="org.finnpic.Pic" source="/Users/vpeurala/Projects/OrangIT/FinnPic/src/main/scala/org/finnpic/Pic.scala" method="&lt;none&gt;" start="10342" end="10345" line="341" branch="false" invocation-count="1" ignored="false">
+                                package="org.finnpic" class="Pic" class-type="Object" full-class-name="org.finnpic.Pic" source="/Users/vpeurala/Projects/OrangIT/FinnPic/src/main/scala/org/finnpic/Pic.scala" method="&lt;none&gt;" start="10349" end="10352" line="341" branch="false" invocation-count="1" ignored="false">
 </statement>
                                 <statement 
                                 package="org.finnpic" class="Pic" class-type="Class" full-class-name="org.finnpic.Pic" source="/Users/vpeurala/Projects/OrangIT/FinnPic/src/main/scala/org/finnpic/Pic.scala" method="&lt;none&gt;" start="1619" end="1625" line="54" branch="false" invocation-count="1" ignored="false">
 </statement>
                                 <statement 
-                                package="org.finnpic" class="Pic" class-type="Object" full-class-name="org.finnpic.Pic" source="/Users/vpeurala/Projects/OrangIT/FinnPic/src/main/scala/org/finnpic/Pic.scala" method="&lt;none&gt;" start="10233" end="10308" line="341" branch="false" invocation-count="1" ignored="false">
+                                package="org.finnpic" class="Pic" class-type="Object" full-class-name="org.finnpic.Pic" source="/Users/vpeurala/Projects/OrangIT/FinnPic/src/main/scala/org/finnpic/Pic.scala" method="&lt;none&gt;" start="10240" end="10315" line="341" branch="false" invocation-count="1" ignored="false">
 </statement>
                                 <statement 
-                                package="org.finnpic" class="Pic" class-type="Object" full-class-name="org.finnpic.Pic" source="/Users/vpeurala/Projects/OrangIT/FinnPic/src/main/scala/org/finnpic/Pic.scala" method="&lt;none&gt;" start="10941" end="10948" line="357" branch="false" invocation-count="1" ignored="false">
+                                package="org.finnpic" class="Pic" class-type="Object" full-class-name="org.finnpic.Pic" source="/Users/vpeurala/Projects/OrangIT/FinnPic/src/main/scala/org/finnpic/Pic.scala" method="&lt;none&gt;" start="10948" end="10955" line="357" branch="false" invocation-count="1" ignored="false">
 </statement>
                                 <statement 
-                                package="org.finnpic" class="Pic" class-type="Object" full-class-name="org.finnpic.Pic" source="/Users/vpeurala/Projects/OrangIT/FinnPic/src/main/scala/org/finnpic/Pic.scala" method="&lt;none&gt;" start="11121" end="11137" line="364" branch="false" invocation-count="1" ignored="false">
+                                package="org.finnpic" class="Pic" class-type="Object" full-class-name="org.finnpic.Pic" source="/Users/vpeurala/Projects/OrangIT/FinnPic/src/main/scala/org/finnpic/Pic.scala" method="&lt;none&gt;" start="11128" end="11144" line="364" branch="false" invocation-count="1" ignored="false">
 </statement>
                                 <statement 
-                                package="org.finnpic" class="Pic" class-type="Object" full-class-name="org.finnpic.Pic" source="/Users/vpeurala/Projects/OrangIT/FinnPic/src/main/scala/org/finnpic/Pic.scala" method="&lt;none&gt;" start="11274" end="11469" line="367" branch="false" invocation-count="1" ignored="false">
+                                package="org.finnpic" class="Pic" class-type="Object" full-class-name="org.finnpic.Pic" source="/Users/vpeurala/Projects/OrangIT/FinnPic/src/main/scala/org/finnpic/Pic.scala" method="&lt;none&gt;" start="11281" end="11476" line="367" branch="false" invocation-count="1" ignored="false">
 </statement>
                                 <statement 
-                                package="org.finnpic" class="Pic" class-type="Object" full-class-name="org.finnpic.Pic" source="/Users/vpeurala/Projects/OrangIT/FinnPic/src/main/scala/org/finnpic/Pic.scala" method="&lt;none&gt;" start="10513" end="10524" line="347" branch="false" invocation-count="1" ignored="false">
+                                package="org.finnpic" class="Pic" class-type="Object" full-class-name="org.finnpic.Pic" source="/Users/vpeurala/Projects/OrangIT/FinnPic/src/main/scala/org/finnpic/Pic.scala" method="&lt;none&gt;" start="10520" end="10531" line="347" branch="false" invocation-count="1" ignored="false">
 </statement>
                                 <statement 
-                                package="org.finnpic" class="Pic" class-type="Object" full-class-name="org.finnpic.Pic" source="/Users/vpeurala/Projects/OrangIT/FinnPic/src/main/scala/org/finnpic/Pic.scala" method="&lt;none&gt;" start="10784" end="10787" line="355" branch="false" invocation-count="1" ignored="false">
+                                package="org.finnpic" class="Pic" class-type="Object" full-class-name="org.finnpic.Pic" source="/Users/vpeurala/Projects/OrangIT/FinnPic/src/main/scala/org/finnpic/Pic.scala" method="&lt;none&gt;" start="10791" end="10794" line="355" branch="false" invocation-count="1" ignored="false">
 </statement>
                                 <statement 
-                                package="org.finnpic" class="Pic" class-type="Object" full-class-name="org.finnpic.Pic" source="/Users/vpeurala/Projects/OrangIT/FinnPic/src/main/scala/org/finnpic/Pic.scala" method="&lt;none&gt;" start="11004" end="11240" line="360" branch="false" invocation-count="1" ignored="false">
+                                package="org.finnpic" class="Pic" class-type="Object" full-class-name="org.finnpic.Pic" source="/Users/vpeurala/Projects/OrangIT/FinnPic/src/main/scala/org/finnpic/Pic.scala" method="&lt;none&gt;" start="11011" end="11247" line="360" branch="false" invocation-count="1" ignored="false">
 </statement>
                                 <statement 
-                                package="org.finnpic" class="Pic" class-type="Object" full-class-name="org.finnpic.Pic" source="/Users/vpeurala/Projects/OrangIT/FinnPic/src/main/scala/org/finnpic/Pic.scala" method="&lt;none&gt;" start="10309" end="10341" line="341" branch="false" invocation-count="1" ignored="false">
+                                package="org.finnpic" class="Pic" class-type="Object" full-class-name="org.finnpic.Pic" source="/Users/vpeurala/Projects/OrangIT/FinnPic/src/main/scala/org/finnpic/Pic.scala" method="&lt;none&gt;" start="10316" end="10348" line="341" branch="false" invocation-count="1" ignored="false">
 </statement>
                                 <statement 
-                                package="org.finnpic" class="Pic" class-type="Object" full-class-name="org.finnpic.Pic" source="/Users/vpeurala/Projects/OrangIT/FinnPic/src/main/scala/org/finnpic/Pic.scala" method="&lt;none&gt;" start="11040" end="11059" line="362" branch="false" invocation-count="1" ignored="false">
+                                package="org.finnpic" class="Pic" class-type="Object" full-class-name="org.finnpic.Pic" source="/Users/vpeurala/Projects/OrangIT/FinnPic/src/main/scala/org/finnpic/Pic.scala" method="&lt;none&gt;" start="11047" end="11066" line="362" branch="false" invocation-count="1" ignored="false">
 </statement>
                                 <statement 
-                                package="org.finnpic" class="Pic" class-type="Object" full-class-name="org.finnpic.Pic" source="/Users/vpeurala/Projects/OrangIT/FinnPic/src/main/scala/org/finnpic/Pic.scala" method="&lt;none&gt;" start="10108" end="10140" line="337" branch="false" invocation-count="1" ignored="false">
+                                package="org.finnpic" class="Pic" class-type="Object" full-class-name="org.finnpic.Pic" source="/Users/vpeurala/Projects/OrangIT/FinnPic/src/main/scala/org/finnpic/Pic.scala" method="&lt;none&gt;" start="10115" end="10147" line="337" branch="false" invocation-count="1" ignored="false">
 </statement>
                                 <statement 
-                                package="org.finnpic" class="Pic" class-type="Object" full-class-name="org.finnpic.Pic" source="/Users/vpeurala/Projects/OrangIT/FinnPic/src/main/scala/org/finnpic/Pic.scala" method="&lt;none&gt;" start="10583" end="10660" line="350" branch="false" invocation-count="1" ignored="false">
+                                package="org.finnpic" class="Pic" class-type="Object" full-class-name="org.finnpic.Pic" source="/Users/vpeurala/Projects/OrangIT/FinnPic/src/main/scala/org/finnpic/Pic.scala" method="&lt;none&gt;" start="10590" end="10667" line="350" branch="false" invocation-count="1" ignored="false">
 </statement>
                                 <statement 
-                                package="org.finnpic" class="Pic" class-type="Object" full-class-name="org.finnpic.Pic" source="/Users/vpeurala/Projects/OrangIT/FinnPic/src/main/scala/org/finnpic/Pic.scala" method="&lt;none&gt;" start="10808" end="10825" line="355" branch="false" invocation-count="1" ignored="false">
+                                package="org.finnpic" class="Pic" class-type="Object" full-class-name="org.finnpic.Pic" source="/Users/vpeurala/Projects/OrangIT/FinnPic/src/main/scala/org/finnpic/Pic.scala" method="&lt;none&gt;" start="10815" end="10832" line="355" branch="false" invocation-count="1" ignored="false">
 </statement>
                                 <statement 
-                                package="org.finnpic" class="Pic" class-type="Object" full-class-name="org.finnpic.Pic" source="/Users/vpeurala/Projects/OrangIT/FinnPic/src/main/scala/org/finnpic/Pic.scala" method="&lt;none&gt;" start="9920" end="9985" line="333" branch="false" invocation-count="1" ignored="false">
+                                package="org.finnpic" class="Pic" class-type="Object" full-class-name="org.finnpic.Pic" source="/Users/vpeurala/Projects/OrangIT/FinnPic/src/main/scala/org/finnpic/Pic.scala" method="&lt;none&gt;" start="9927" end="9992" line="333" branch="false" invocation-count="1" ignored="false">
 </statement>
                                 <statement 
-                                package="org.finnpic" class="Pic" class-type="Object" full-class-name="org.finnpic.Pic" source="/Users/vpeurala/Projects/OrangIT/FinnPic/src/main/scala/org/finnpic/Pic.scala" method="&lt;none&gt;" start="10165" end="10174" line="338" branch="false" invocation-count="1" ignored="false">
+                                package="org.finnpic" class="Pic" class-type="Object" full-class-name="org.finnpic.Pic" source="/Users/vpeurala/Projects/OrangIT/FinnPic/src/main/scala/org/finnpic/Pic.scala" method="&lt;none&gt;" start="10172" end="10181" line="338" branch="false" invocation-count="1" ignored="false">
 </statement>
                                 <statement 
                                 package="org.finnpic" class="Pic" class-type="Class" full-class-name="org.finnpic.Pic" source="/Users/vpeurala/Projects/OrangIT/FinnPic/src/main/scala/org/finnpic/Pic.scala" method="&lt;none&gt;" start="2261" end="2271" line="83" branch="false" invocation-count="1" ignored="false">
 </statement>
                                 <statement 
-                                package="org.finnpic" class="Pic" class-type="Object" full-class-name="org.finnpic.Pic" source="/Users/vpeurala/Projects/OrangIT/FinnPic/src/main/scala/org/finnpic/Pic.scala" method="&lt;none&gt;" start="10879" end="10940" line="357" branch="false" invocation-count="1" ignored="false">
+                                package="org.finnpic" class="Pic" class-type="Object" full-class-name="org.finnpic.Pic" source="/Users/vpeurala/Projects/OrangIT/FinnPic/src/main/scala/org/finnpic/Pic.scala" method="&lt;none&gt;" start="10886" end="10947" line="357" branch="false" invocation-count="1" ignored="false">
 </statement>
                                 <statement 
-                                package="org.finnpic" class="Pic" class-type="Object" full-class-name="org.finnpic.Pic" source="/Users/vpeurala/Projects/OrangIT/FinnPic/src/main/scala/org/finnpic/Pic.scala" method="&lt;none&gt;" start="11360" end="11400" line="370" branch="false" invocation-count="1" ignored="false">
+                                package="org.finnpic" class="Pic" class-type="Object" full-class-name="org.finnpic.Pic" source="/Users/vpeurala/Projects/OrangIT/FinnPic/src/main/scala/org/finnpic/Pic.scala" method="&lt;none&gt;" start="11367" end="11407" line="370" branch="false" invocation-count="1" ignored="false">
 </statement>
                                 <statement 
-                                package="org.finnpic" class="Pic" class-type="Object" full-class-name="org.finnpic.Pic" source="/Users/vpeurala/Projects/OrangIT/FinnPic/src/main/scala/org/finnpic/Pic.scala" method="&lt;none&gt;" start="11105" end="11120" line="364" branch="false" invocation-count="1" ignored="false">
+                                package="org.finnpic" class="Pic" class-type="Object" full-class-name="org.finnpic.Pic" source="/Users/vpeurala/Projects/OrangIT/FinnPic/src/main/scala/org/finnpic/Pic.scala" method="&lt;none&gt;" start="11112" end="11127" line="364" branch="false" invocation-count="1" ignored="false">
 </statement>
                                 <statement 
-                                package="org.finnpic" class="Pic" class-type="Object" full-class-name="org.finnpic.Pic" source="/Users/vpeurala/Projects/OrangIT/FinnPic/src/main/scala/org/finnpic/Pic.scala" method="&lt;none&gt;" start="10661" end="10693" line="350" branch="false" invocation-count="1" ignored="false">
+                                package="org.finnpic" class="Pic" class-type="Object" full-class-name="org.finnpic.Pic" source="/Users/vpeurala/Projects/OrangIT/FinnPic/src/main/scala/org/finnpic/Pic.scala" method="&lt;none&gt;" start="10668" end="10700" line="350" branch="false" invocation-count="1" ignored="false">
 </statement>
                                 <statement 
-                                package="org.finnpic" class="Pic" class-type="Object" full-class-name="org.finnpic.Pic" source="/Users/vpeurala/Projects/OrangIT/FinnPic/src/main/scala/org/finnpic/Pic.scala" method="&lt;none&gt;" start="10454" end="10486" line="346" branch="false" invocation-count="1" ignored="false">
+                                package="org.finnpic" class="Pic" class-type="Object" full-class-name="org.finnpic.Pic" source="/Users/vpeurala/Projects/OrangIT/FinnPic/src/main/scala/org/finnpic/Pic.scala" method="&lt;none&gt;" start="10461" end="10493" line="346" branch="false" invocation-count="1" ignored="false">
 </statement>
                                 <statement 
-                                package="org.finnpic" class="Pic" class-type="Object" full-class-name="org.finnpic.Pic" source="/Users/vpeurala/Projects/OrangIT/FinnPic/src/main/scala/org/finnpic/Pic.scala" method="&lt;none&gt;" start="9986" end="10002" line="333" branch="false" invocation-count="1" ignored="false">
+                                package="org.finnpic" class="Pic" class-type="Object" full-class-name="org.finnpic.Pic" source="/Users/vpeurala/Projects/OrangIT/FinnPic/src/main/scala/org/finnpic/Pic.scala" method="&lt;none&gt;" start="9993" end="10009" line="333" branch="false" invocation-count="1" ignored="false">
 </statement>
                                 <statement 
-                                package="org.finnpic" class="Pic" class-type="Object" full-class-name="org.finnpic.Pic" source="/Users/vpeurala/Projects/OrangIT/FinnPic/src/main/scala/org/finnpic/Pic.scala" method="&lt;none&gt;" start="13736" end="13896" line="417" branch="false" invocation-count="1" ignored="false">
+                                package="org.finnpic" class="Pic" class-type="Object" full-class-name="org.finnpic.Pic" source="/Users/vpeurala/Projects/OrangIT/FinnPic/src/main/scala/org/finnpic/Pic.scala" method="&lt;none&gt;" start="13743" end="13903" line="417" branch="false" invocation-count="1" ignored="false">
 </statement>
                             </statements>
 </method>

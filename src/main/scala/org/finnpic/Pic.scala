@@ -231,7 +231,7 @@ object Pic {
   val finnishLegalAge: Int = 18
 
   /**
-   * Create a Pic from an input String, see [[fromString(input: String)]].
+   * Create a Pic from an input String, see [[fromString(input:String):Either*]].
    */
   def apply(input: String): Either[String, Pic] = fromString(input)
 
