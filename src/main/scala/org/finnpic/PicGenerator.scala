@@ -1,6 +1,5 @@
 package org.finnpic
 
-import scala.collection.mutable.ListBuffer
 import scala.util.Random
 
 object PicGenerator {
@@ -34,12 +33,12 @@ object PicGenerator {
   }
 
   def generateMany(n: Int)(implicit seed: Long = Random.nextLong()): Seq[Pic] = {
+    generateInfinite()(seed).take(n)
+  }
+
+  def generateInfinite()(implicit seed: Long = Random.nextLong()): Stream[Pic] = {
     val random = new Random(seed)
-    val buffer: ListBuffer[Pic] = new ListBuffer
-    for (_ <- 0 until n) {
-      buffer += generateOne()(random.nextLong())
-    }
-    buffer.toList
+    generateOne()(random.nextLong()) #:: generateInfinite()(random.nextLong())
   }
 
   private def formatInt2(input: Int): String = {
