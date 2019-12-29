@@ -405,11 +405,10 @@ object Pic {
     }
   }
 
-
   /**
    * The possible control characters. See https://vrk.fi/en/personal-identity-code1 for more information about the control character calculation.
    */
-  val controlChars: Array[Char] = Array('0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F', 'H', 'J', 'K', 'L', 'M', 'N', 'P', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y')
+  private[finnpic] val controlChars: Array[Char] = Array('0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F', 'H', 'J', 'K', 'L', 'M', 'N', 'P', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y')
 
   /**
    * The input to this method is the birth date part (290877 in 290877-1639)
@@ -421,7 +420,7 @@ object Pic {
    * @param input see the description of input above.
    * @return the expected control character for the input given.
    */
-  private def calculateExpectedControlCharacter(input: Long): Char = {
+  private[finnpic] def calculateExpectedControlCharacter(input: Long): Char = {
     val remainder: Int = (input % 31).toInt
     controlChars(remainder)
   }
