@@ -1,41 +1,28 @@
 resolvers += "Typesafe Repository" at "https://repo.typesafe.com/typesafe/releases/"
 
 import sbt.Keys.organization
-import sbtcrossproject.CrossPlugin.autoImport.{CrossType, crossProject}
-import sbtcrossproject.JVMPlatform
 
 val scala_2_13 = "2.13.1"
 val scala_2_12 = "2.12.10"
 val scala_2_11 = "2.11.12"
 val scala_2_10 = "2.10.7"
-val supportedScalaVersions = Seq(scala_2_11, scala_2_12, scala_2_13)
+val supportedScalaVersions = Seq(scala_2_10, scala_2_11, scala_2_12, scala_2_13)
 
 ThisBuild / scalaVersion := scala_2_12
 
-lazy val root = crossProject(JSPlatform, JVMPlatform)
-  .crossType(CrossType.Full)
+lazy val root = (project in file("."))
   .settings(
     name := "finnpic",
     organization := "org.finnpic",
     version := "0.1.0-SNAPSHOT",
+    doctestTestFramework := DoctestTestFramework.ScalaTest,
+    coverageEnabled := true,
     crossScalaVersions := supportedScalaVersions
   )
-  .jsSettings(
-    libraryDependencies += "org.scala-js" %%% "scalajs-java-time" % "0.2.6",
-    // Note: Doctests disabled for now, because they are not supported on Scala.js.
-    // - vpeurala, 25.12.2019
-    // doctestIgnoreRegex := Some(".*")
-  )
-  .jvmSettings(
-    // Note: Doctests disabled for now, because they are not supported on Scala.js.
-    // - vpeurala, 25.12.2019
-    // doctestTestFramework := DoctestTestFramework.ScalaTest,
-    coverageEnabled := true
-  )
 
-libraryDependencies += "org.scalacheck" %%% "scalacheck" % "1.14.3" % Test
-libraryDependencies += "org.scalactic" %%% "scalactic" % "3.2.0-M2" % Test
-libraryDependencies += "org.scalatest" %%% "scalatest" % "3.2.0-M2" % Test
+libraryDependencies += "org.scalacheck" %% "scalacheck" % "1.14.3" % Test
+libraryDependencies += "org.scalactic" %% "scalactic" % "3.1.0" % Test
+libraryDependencies += "org.scalatest" %% "scalatest" % "3.1.0" % Test
 
 exportJars := true
 
@@ -49,7 +36,7 @@ scalacOptions in (doc) ++= Opts.doc.externalAPI(List
 // testOptions in Test += Tests.Argument(TestFrameworks.ScalaTest, "-h", "target/test-reports/")
 
 // Publishing information
-homepage := Some(url("https://github.com/orangitfi/FinnPic"))
+homepage := Some(url("https://finnpic.org"))
 scmInfo := Some(ScmInfo(url("https://github.com/orangitfi/FinnPic"), "git@github.com:orangitfi/FinnPic.git"))
 developers := List(
   Developer("vpeurala",

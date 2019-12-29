@@ -2,11 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/finnpic.iml" filepath="$PROJECT_DIR$/.idea/modules/finnpic.iml" group="finnpic" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/finnpic.iml" filepath="$PROJECT_DIR$/.idea/modules/finnpic.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/finnpic-build.iml" filepath="$PROJECT_DIR$/.idea/modules/finnpic-build.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/root-sources.iml" filepath="$PROJECT_DIR$/.idea/modules/root-sources.iml" group="finnpic" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/rootJS.iml" filepath="$PROJECT_DIR$/.idea/modules/rootJS.iml" group="finnpic" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/rootJVM.iml" filepath="$PROJECT_DIR$/.idea/modules/rootJVM.iml" group="finnpic" />
     </modules>
   </component>
 </project>

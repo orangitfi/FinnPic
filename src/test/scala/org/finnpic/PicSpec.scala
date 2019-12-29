@@ -96,9 +96,6 @@ class PicSpec extends AnyFlatSpecLike with Matchers {
     fromStringU(validPic4MaleBornIn1800s).birthDay should be(29)
   }
 
-  // Note: enable this when you enable support for Scala.js cross-compiling.
-  // - vpeurala, 23.12.2019
-/*
   it should "know the birth date of the person" in {
     fromStringU(validPic1MaleBornIn1900s).birthDate should be(LocalDate.of(1977, 8, 29))
     fromStringU(validPic2FemaleBornIn1900s).birthDate should be(LocalDate.of(1981, 7, 1))
@@ -145,7 +142,6 @@ class PicSpec extends AnyFlatSpecLike with Matchers {
     fromStringU(validPic3FemaleBornIn2000s).personIsOfFinnishLegalAgeNow() should be(false)
     fromStringU(validPic4MaleBornIn1800s).personIsOfFinnishLegalAgeNow() should be(true)
   }
-  */
 
   behavior of "Pic.toString()"
 
