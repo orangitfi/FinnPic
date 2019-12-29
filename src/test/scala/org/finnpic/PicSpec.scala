@@ -2,12 +2,11 @@ package org.finnpic
 
 import java.time.{Clock, Instant, LocalDate, ZoneId}
 
+import org.finnpic.Pic.fromStringU
 import org.scalatest.flatspec.AnyFlatSpecLike
 import org.scalatest.matchers.should.Matchers
 
 import scala.util.{Failure, Success, Try}
-
-import Pic.fromStringU
 
 /**
  * See https://vrk.fi/en/personal-identity-code1 for specs.
@@ -40,6 +39,16 @@ class PicSpec extends AnyFlatSpecLike with Matchers {
 
   it should "reject a PIC the control character is wrong" in {
     Pic("290877-1638") should be(Left("Invalid PIC: '290877-1638'. The control character ('8') is wrong: it should be '9'."))
+  }
+
+  it should "reject a PIC where the day part of the birth date part is something else than 1-31" in {
+    Pic("000877-163K") should be(Left("Invalid PIC: '000877-163K'. The day part of the birth date is wrong: it should be 01-31, but was: '00'."))
+    Pic("320877-163K") should be(Left("Invalid PIC: '320877-163K'. The day part of the birth date is wrong: it should be 01-31, but was: '32'."))
+  }
+
+  it should "reject a PIC where the month part of the birth date part is something else than 1-12" in {
+    Pic("290077-1639") should be(Left("Invalid PIC: '290077-1639'. The month part of the birth date is wrong: it should be 01-12, but was: '00'."))
+    Pic("291377-1639") should be(Left("Invalid PIC: '291377-1639'. The month part of the birth date is wrong: it should be 01-12, but was: '13'."))
   }
 
   it should "accept a valid PIC" in {

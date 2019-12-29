@@ -332,6 +332,24 @@ object Pic {
     pp =>
       s"Invalid PIC: '${pp.originalInput}'. The first six characters have to be numeric, but they were: '${pp.birthDatePart}'.")
 
+  private val dayOfBirthDatePartMustBeInRangeOf1To31 = ValidationRule(
+    pp => {
+      val day = pp.birthDatePart.substring(0, 2).toInt
+      day >= 1 && day <= 31
+    },
+    pp =>
+      s"Invalid PIC: '${pp.originalInput}'. The day part of the birth date is wrong: it should be 01-31, but was: '${pp.birthDatePart.substring(0, 2)}'."
+  )
+
+  private val monthOfBirthDatePartMustBeInRangeOf1To12 = ValidationRule(
+    pp => {
+      val month = pp.birthDatePart.substring(2, 4).toInt
+      month >= 1 && month <= 12
+    },
+    pp =>
+      s"Invalid PIC: '${pp.originalInput}'. The month part of the birth date is wrong: it should be 01-12, but was: '${pp.birthDatePart.substring(2, 4)}'."
+  )
+
   private val signMustHaveAcceptableValue = ValidationRule(
     pp =>
       List('+', '-', 'A').contains(pp.sign.charAt(0)),
@@ -346,7 +364,12 @@ object Pic {
       s"Invalid PIC: '${pp.originalInput}'. The individual number (characters 8-10) must be numeric, now it was: '${pp.individualNumber}'."
   )
 
-  private val validationRules = List(birthDatePartMustBeNumeric, signMustHaveAcceptableValue, individualNumberMustBeNumeric)
+  private val validationRules = List(
+    birthDatePartMustBeNumeric,
+    dayOfBirthDatePartMustBeInRangeOf1To31,
+    monthOfBirthDatePartMustBeInRangeOf1To12,
+    signMustHaveAcceptableValue,
+    individualNumberMustBeNumeric)
 
   /**
    * Here we have certainty that all the substrings, when concatenated together, form a string of 11 chars.

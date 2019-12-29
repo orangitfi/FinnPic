@@ -28,7 +28,7 @@ object PicPropertySpec extends Properties("Pic.fromString") {
   property("does not throw runtime exceptions for arbitrary strings of length 11") = forAll(stringOf11AsciiCharactersG) { (s: String) =>
     val e: Either[String, Pic] = Pic(s)
     e match {
-      case Left(errMsg) => true
+      case Left(_) => true
       case Right(pic) => pic.value == s.trim.toUpperCase
     }
   }
@@ -37,9 +37,7 @@ object PicPropertySpec extends Properties("Pic.fromString") {
     val e: Either[String, Pic] = Pic(s)
     e match {
       case Left(_) => true
-      case Right(pic) => {
-        pic.value == s.trim.toUpperCase && pic.birthDate.toEpochDay > 0
-      }
+      case Right(pic) => pic.value == s.trim.toUpperCase && pic.ageInYearsNow() >= 0
     }
   }
 }
