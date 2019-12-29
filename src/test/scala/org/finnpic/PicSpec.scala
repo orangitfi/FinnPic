@@ -51,6 +51,18 @@ class PicSpec extends AnyFlatSpecLike with Matchers {
     Pic("291377-1639") should be(Left("Invalid PIC: '291377-1639'. The month part of the birth date is wrong: it should be 01-12, but was: '13'."))
   }
 
+  it should "reject a PIC where the birth date is impossible" in {
+    // There are never 31 days in February, so 31.2. is illegal.
+    Pic("310277-163R") should be(Left("Invalid PIC: '310277-163R'. The birth date is impossible, this day does not exist on the calendar: '310277'."))
+    // Year 1980 was a leap year, so 29.2. is legal.
+    Pic("290280-123X") match {
+      case Left(errMsg) => fail(s"Creation of a legal PIC on a leap day failed: ${errMsg}")
+      case Right(_) => // pass
+    }
+    // Year 1981 was not a leap year, so 29.2. is illegal.
+    Pic("290281-1236") should be(Left("Invalid PIC: '290281-1236'. The birth date is impossible, this day does not exist on the calendar: '290281'."))
+  }
+
   it should "accept a valid PIC" in {
     validPics.foreach(s =>
       Pic(s) match {

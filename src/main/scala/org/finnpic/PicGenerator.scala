@@ -1,7 +1,5 @@
 package org.finnpic
 
-import java.time.DateTimeException
-
 import scala.collection.mutable.ListBuffer
 import scala.util.Random
 
@@ -24,18 +22,14 @@ object PicGenerator {
       formatInt3(individualNumber) +
       controlCharacter.toString
 
-    var candidatePic: Pic = Pic.fromStringUnsafe(picString)
+    var candidatePic: Either[String, Pic] = Pic(picString)
 
     // Filter out candidates with an impossible birth date.
     // Empirical experimentation has shown that there are
     // about 2 % of these.
-    try {
-      candidatePic.birthDate
-      candidatePic
-    } catch {
-      case (_: DateTimeException) => {
-        generateOne()(random.nextLong())
-      }
+    candidatePic match {
+      case Left(_) => generateOne()(random.nextLong())
+      case Right(pic) => pic
     }
   }
 

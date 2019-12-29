@@ -18,6 +18,7 @@ class PicGeneratorSpec extends AnyFlatSpecLike with Matchers {
   behavior of "PicGenerator.generateMany"
 
   it should "be able to generate 1000 valid PICs" in {
+    implicit val seed: Long = 3
     val generatedPics = PicGenerator.generateMany(1000)
     generatedPics.foreach(p => {
       // Check that this does not throw any RuntimeExceptions:

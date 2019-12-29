@@ -2,7 +2,7 @@ package org.finnpic
 
 import java.time.{Clock, LocalDate, Period}
 
-import scala.util.Try
+import scala.util.{Failure, Success, Try}
 
 /**
  * PIC = Personal Identity Code, "henkilotunnus" in Finnish.
@@ -231,7 +231,7 @@ object Pic {
   val finnishLegalAge: Int = 18
 
   /**
-   * Create a Pic from an input String, see [[fromString()]].
+   * Create a Pic from an input String, see [[fromString(input: String)]].
    */
   def apply(input: String): Either[String, Pic] = fromString(input)
 
@@ -401,7 +401,13 @@ object Pic {
       val birthYear = century + yearWithinCentury
       val birthMonth = pp.birthDatePart.toString.substring(2, 4).toInt
       val birthDay = pp.birthDatePart.toString.substring(0, 2).toInt
-      Right(new Pic(pp.cleanedInput, gender, birthYear, birthMonth, birthDay))
+      val candidate: Pic = new Pic(pp.cleanedInput, gender, birthYear, birthMonth, birthDay)
+      // Check that the birth date is not impossible (e.g. not in the calendar,
+      // like "30.2.1977").
+      Try(candidate.birthDate) match {
+        case Success(_) => Right(candidate)
+        case Failure(_) => Left(s"Invalid PIC: '${pp.originalInput}'. The birth date is impossible, this day does not exist on the calendar: '${pp.birthDatePart}'.")
+      }
     }
   }
 
