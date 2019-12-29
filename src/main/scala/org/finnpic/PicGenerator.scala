@@ -21,7 +21,7 @@ object PicGenerator {
       formatInt3(individualNumber) +
       controlCharacter.toString
 
-    var candidatePic: Either[String, Pic] = Pic(picString)
+    val candidatePic: Either[String, Pic] = Pic(picString)
 
     // Filter out candidates with an impossible birth date.
     // Empirical experimentation has shown that there are
@@ -41,8 +41,8 @@ object PicGenerator {
     generateOne()(random.nextLong()) #:: generateInfinite()(random.nextLong())
   }
 
-  def generateOneWithSpecification(specification: Pic => Boolean)(implicit seed: Long = Random.nextLong()): Pic = {
-    generateInfinite()(seed).find(specification).get
+  def generateOneWithSpecification(specification: Pic => Boolean)(implicit seed: Long = Random.nextLong()): Option[Pic] = {
+    generateInfinite()(seed).find(specification)
   }
 
   def generateManyWithSpecification(specification: Pic => Boolean)(n: Int)(implicit seed: Long = Random.nextLong()): Seq[Pic] = {

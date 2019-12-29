@@ -67,10 +67,13 @@ class PicGeneratorSpec extends AnyFlatSpecLike with Matchers {
 
   it should "generate a PIC of the given specification" in {
     implicit val seed: Long = 6
-    val generatedPic: Pic = PicGenerator.generateOneWithSpecification(
+    val generatedPic: Option[Pic] = PicGenerator.generateOneWithSpecification(
       pic => pic.ageInYearsAt(testDate) == 42 && pic.gender == Male
     )
-    generatedPic.value should be("071177-0296")
+    generatedPic match {
+      case None => fail("A PIC with the given specs was not found.")
+      case Some(pic) => pic.value should be("071177-0296")
+    }
   }
 
   behavior of "PicGenerator.generateManyWithSpecification"
