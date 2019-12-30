@@ -14,7 +14,7 @@ lazy val root = (project in file("."))
   .settings(
     name := "finnpic",
     organization := "org.finnpic",
-    version := "0.3.2-SNAPSHOT",
+    version := "0.3.3-SNAPSHOT",
     doctestTestFramework := DoctestTestFramework.ScalaTest,
     crossScalaVersions := supportedScalaVersions
   )
