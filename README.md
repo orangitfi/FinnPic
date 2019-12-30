@@ -69,8 +69,11 @@ p = Pic.fromStringUnsafe("foo")
 ## Publishing a new version
 
 Open an sbt shell and run:
+
 > `+ coverageOff`
+
 > `+ clean`
+
 > `+ publishSigned`
 
 Don't forget the plus signs (for cross compilation and cross publishing)!
