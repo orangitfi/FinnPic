@@ -16,13 +16,15 @@ lazy val root = (project in file("."))
     organization := "org.finnpic",
     version := "0.3.2-SNAPSHOT",
     doctestTestFramework := DoctestTestFramework.ScalaTest,
-    coverageEnabled := false,
     crossScalaVersions := supportedScalaVersions
   )
 
 libraryDependencies += "org.scalacheck" %% "scalacheck" % "1.14.3" % Test
 libraryDependencies += "org.scalactic" %% "scalactic" % "3.1.0" % Test
 libraryDependencies += "org.scalatest" %% "scalatest" % "3.1.0" % Test
+
+// Note: Remember to have this set to false when publishing and true otherwise. - vpeurala, 30.12.2019
+coverageEnabled := true
 
 exportJars := true
 
