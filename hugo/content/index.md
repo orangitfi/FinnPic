@@ -1,12 +1,10 @@
-# FinnPic
-
 [![Codacy Badge](https://api.codacy.com/project/badge/Coverage/8f19681119574ecd96ef6790b29dcde2)](https://www.codacy.com?utm_source=github.com&utm_medium=referral&utm_content=orangitfi/finnish-personal-identity-code&utm_campaign=Badge_Coverage)
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/8f19681119574ecd96ef6790b29dcde2)](https://www.codacy.com?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=orangitfi/finnish-personal-identity-code&amp;utm_campaign=Badge_Grade)
 ![sbt test](https://github.com/orangitfi/finnish-personal-identity-code/workflows/sbt-test/badge.svg)
 
-<a href="https://vrk.fi/en/personal-identity-code1">
-  <img alt="Flag of Finland" src="/images/Flag_of_Finland.svg" width="15%">
-</a>
+# FinnPic
+
+<img src="assets/Flag_of_Finland.svg" alt="Flag of Finland" width="15%">
 
 A Scala implementation of Finnish PIC (Personal Identity Code)("henkilötunnus" in Finnish).
 
@@ -38,14 +36,14 @@ The safe way, used successfully on a valid PIC:
 
 ```scala
 // The safe way, success:
-val p = Pic("070377-281V")
+val p = Pic.fromString("070377-281V")
 // ^ p is now Right(Pic(...))
 ```
 
 The safe way, failing:
 
 ```scala
-p = Pic("foo")
+p = Pic.fromString("foo")
 // ^ p is now Left("some error message")
 ```
 
@@ -68,10 +66,24 @@ p = Pic.fromStringUnsafe("foo")
 // alias for Pic.fromStringUnsafe.
 ```
 
+## Publishing a new version
+
+Open an sbt shell and run:
+
+> `+ coverageOff`
+
+> `+ clean`
+
+> `+ publishSigned`
+
+Don't forget the plus signs (for cross compilation and cross publishing)!
+
+As for your GPG keys and stuff, see https://www.scala-sbt.org/1.x/docs/Using-Sonatype.html and https://github.com/keybase/keybase-issues/issues/2798.
+
 ## Supporters
 
-This project is proudly supported by [Orangit Oy](https://orangit.fi). [We're hiring!](https://orangit.fi/careers/)
+This project is proudly supported by [Orangit Oy](https://orangit.fi).
 
 <a href="https://orangit.fi">
-  <img alt="Orangit logo" src="/images/orangit_logo_web.svg" width="15%">
+  <img src="assets/orangit_logo_web.svg" alt="Orangit Oy" width="15%">
 </a>

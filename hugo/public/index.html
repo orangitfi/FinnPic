@@ -26,35 +26,35 @@
     
     
     <meta property="og:title" content="" />
-<meta property="og:description" content="FinnPic    A Scala implementation of Finnish PIC (Personal Identity Code)(&ldquo;henkilötunnus&rdquo; in Finnish).
+<meta property="og:description" content="FinnPic A Scala implementation of Finnish PIC (Personal Identity Code)(&ldquo;henkilötunnus&rdquo; in Finnish).
 See the specification here: https://vrk.fi/en/personal-identity-code1.
 Building Full build with test coverage (which should stay at 100%) measurement:
  sbt clean coverage test coverageReport
  Usage Construction There is a safe way and an unsafe way to make instances of Pic.
-The safe way is to use Pic.fromString, which returns instances of Either (in Scala standard library)." />
+The safe way is to use Pic.fromString, which returns instances of Either (in Scala standard library). Left(errorMessage) means that the given PIC was invalid, the error message inside tells you why." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://finnpic.org/" />
 
 <meta itemprop="name" content="">
-<meta itemprop="description" content="FinnPic    A Scala implementation of Finnish PIC (Personal Identity Code)(&ldquo;henkilötunnus&rdquo; in Finnish).
+<meta itemprop="description" content="FinnPic A Scala implementation of Finnish PIC (Personal Identity Code)(&ldquo;henkilötunnus&rdquo; in Finnish).
 See the specification here: https://vrk.fi/en/personal-identity-code1.
 Building Full build with test coverage (which should stay at 100%) measurement:
  sbt clean coverage test coverageReport
  Usage Construction There is a safe way and an unsafe way to make instances of Pic.
-The safe way is to use Pic.fromString, which returns instances of Either (in Scala standard library).">
+The safe way is to use Pic.fromString, which returns instances of Either (in Scala standard library). Left(errorMessage) means that the given PIC was invalid, the error message inside tells you why.">
 
-<meta itemprop="wordCount" content="293">
+<meta itemprop="wordCount" content="329">
 
 
 
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content=""/>
-<meta name="twitter:description" content="FinnPic    A Scala implementation of Finnish PIC (Personal Identity Code)(&ldquo;henkilötunnus&rdquo; in Finnish).
+<meta name="twitter:description" content="FinnPic A Scala implementation of Finnish PIC (Personal Identity Code)(&ldquo;henkilötunnus&rdquo; in Finnish).
 See the specification here: https://vrk.fi/en/personal-identity-code1.
 Building Full build with test coverage (which should stay at 100%) measurement:
  sbt clean coverage test coverageReport
  Usage Construction There is a safe way and an unsafe way to make instances of Pic.
-The safe way is to use Pic.fromString, which returns instances of Either (in Scala standard library)."/>
+The safe way is to use Pic.fromString, which returns instances of Either (in Scala standard library). Left(errorMessage) means that the given PIC was invalid, the error message inside tells you why."/>
 
   </head>
 
@@ -129,13 +129,11 @@ The safe way is to use Pic.fromString, which returns instances of Either (in Sca
         </h1>
       </header>
       <div class="nested-copy-line-height lh-copy f4 nested-links nested-img mid-gray">
-        <h1 id="finnpic">FinnPic</h1>
-<p><a href="https://www.codacy.com?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=orangitfi/finnish-personal-identity-code&amp;utm_campaign=Badge_Coverage"><img src="https://api.codacy.com/project/badge/Coverage/8f19681119574ecd96ef6790b29dcde2" alt="Codacy Badge"></a>
+        <p><a href="https://www.codacy.com?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=orangitfi/finnish-personal-identity-code&amp;utm_campaign=Badge_Coverage"><img src="https://api.codacy.com/project/badge/Coverage/8f19681119574ecd96ef6790b29dcde2" alt="Codacy Badge"></a>
 <a href="https://www.codacy.com?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=orangitfi/finnish-personal-identity-code&amp;utm_campaign=Badge_Grade"><img src="https://api.codacy.com/project/badge/Grade/8f19681119574ecd96ef6790b29dcde2" alt="Codacy Badge"></a>
 <img src="https://github.com/orangitfi/finnish-personal-identity-code/workflows/sbt-test/badge.svg" alt="sbt test"></p>
-<a href="https://vrk.fi/en/personal-identity-code1">
-  <img alt="Flag of Finland" src="/images/Flag_of_Finland.svg" width="15%">
-</a>
+<h1 id="finnpic">FinnPic</h1>
+<img src="assets/Flag_of_Finland.svg" alt="Flag of Finland" width="15%">
 <p>A Scala implementation of Finnish PIC (Personal Identity Code)(&ldquo;henkilötunnus&rdquo; in Finnish).</p>
 <p>See the specification here: <a href="https://vrk.fi/en/personal-identity-code1">https://vrk.fi/en/personal-identity-code1</a>.</p>
 <h2 id="building">Building</h2>
@@ -156,10 +154,10 @@ pattern in functional programming.</p>
 or some other undependable source.</p>
 <p>The safe way, used successfully on a valid PIC:</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-scala" data-lang="scala"><span style="color:#75715e">// The safe way, success:
-</span><span style="color:#75715e"></span><span style="color:#66d9ef">val</span> p <span style="color:#66d9ef">=</span> <span style="color:#a6e22e">Pic</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;070377-281V&#34;</span><span style="color:#f92672">)</span>
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">val</span> p <span style="color:#66d9ef">=</span> <span style="color:#a6e22e">Pic</span><span style="color:#f92672">.</span>fromString<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;070377-281V&#34;</span><span style="color:#f92672">)</span>
 <span style="color:#75715e">// ^ p is now Right(Pic(...))
 </span></code></pre></div><p>The safe way, failing:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-scala" data-lang="scala">p <span style="color:#66d9ef">=</span> <span style="color:#a6e22e">Pic</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;foo&#34;</span><span style="color:#f92672">)</span>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-scala" data-lang="scala">p <span style="color:#66d9ef">=</span> <span style="color:#a6e22e">Pic</span><span style="color:#f92672">.</span>fromString<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;foo&#34;</span><span style="color:#f92672">)</span>
 <span style="color:#75715e">// ^ p is now Left(&#34;some error message&#34;)
 </span></code></pre></div><p>The unsafe way is to use <code>Pic.fromStringUnsafe</code>, or its alias <code>Pic.fromStringU</code>
 (which does the same thing, but is shorter to type and read). The unsafe variants return a
@@ -175,10 +173,23 @@ p <span style="color:#66d9ef">=</span> <span style="color:#a6e22e">Pic</span><sp
 </span><span style="color:#75715e"></span>
 <span style="color:#75715e">// There is also Pic.fromStringU, which is just an
 </span><span style="color:#75715e"></span><span style="color:#75715e">// alias for Pic.fromStringUnsafe.
-</span></code></pre></div><h2 id="supporters">Supporters</h2>
-<p>This project is proudly supported by <a href="https://orangit.fi">Orangit Oy</a>. <a href="https://orangit.fi/careers/">We're hiring!</a></p>
+</span></code></pre></div><h2 id="publishing-a-new-version">Publishing a new version</h2>
+<p>Open an sbt shell and run:</p>
+<blockquote>
+<p><code>+ coverageOff</code></p>
+</blockquote>
+<blockquote>
+<p><code>+ clean</code></p>
+</blockquote>
+<blockquote>
+<p><code>+ publishSigned</code></p>
+</blockquote>
+<p>Don't forget the plus signs (for cross compilation and cross publishing)!</p>
+<p>As for your GPG keys and stuff, see <a href="https://www.scala-sbt.org/1.x/docs/Using-Sonatype.html">https://www.scala-sbt.org/1.x/docs/Using-Sonatype.html</a> and <a href="https://github.com/keybase/keybase-issues/issues/2798">https://github.com/keybase/keybase-issues/issues/2798</a>.</p>
+<h2 id="supporters">Supporters</h2>
+<p>This project is proudly supported by <a href="https://orangit.fi">Orangit Oy</a>.</p>
 <a href="https://orangit.fi">
-  <img alt="Orangit logo" src="/images/orangit_logo_web.svg" width="15%">
+  <img src="assets/orangit_logo_web.svg" alt="Orangit Oy" width="15%">
 </a>
 
       </div>
