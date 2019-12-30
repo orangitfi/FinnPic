@@ -69,9 +69,11 @@ p = Pic.fromStringUnsafe("foo")
 ## Publishing a new version
 
 Open an sbt shell and run:
-> + coverageOff
-> + clean
-> + publishSigned
+> `+ coverageOff`
+> `+ clean`
+> `+ publishSigned`
+
+Don't forget the plus signs (for cross compilation and cross publishing)!
 
 As for your GPG keys and stuff, see https://www.scala-sbt.org/1.x/docs/Using-Sonatype.html and https://github.com/keybase/keybase-issues/issues/2798.
 
