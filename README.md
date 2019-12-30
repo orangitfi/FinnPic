@@ -66,6 +66,15 @@ p = Pic.fromStringUnsafe("foo")
 // alias for Pic.fromStringUnsafe.
 ```
 
+## Publishing a new version
+
+Open an sbt shell and run:
+> + coverageOff
+> + clean
+> + publishSigned
+
+As for your GPG keys and stuff, see https://www.scala-sbt.org/1.x/docs/Using-Sonatype.html and https://github.com/keybase/keybase-issues/issues/2798.
+
 ## Supporters
 
 This project is proudly supported by [Orangit Oy](https://orangit.fi).
