@@ -14,7 +14,7 @@ lazy val root = (project in file("."))
   .settings(
     name := "finnpic",
     organization := "org.finnpic",
-    version := "0.3.3-SNAPSHOT",
+    version := "0.3.4",
     doctestTestFramework := DoctestTestFramework.ScalaTest,
     crossScalaVersions := supportedScalaVersions
   )
@@ -24,7 +24,7 @@ libraryDependencies += "org.scalactic" %% "scalactic" % "3.1.0" % Test
 libraryDependencies += "org.scalatest" %% "scalatest" % "3.1.0" % Test
 
 // Note: Remember to have this set to false when publishing and true otherwise. - vpeurala, 30.12.2019
-coverageEnabled := true
+coverageEnabled := false
 
 exportJars := true
 
