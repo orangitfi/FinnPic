@@ -14,7 +14,7 @@ lazy val root = (project in file("."))
   .settings(
     name := "finnpic",
     organization := "org.finnpic",
-    version := "0.3.4",
+    version := "0.3.5",
     doctestTestFramework := DoctestTestFramework.ScalaTest,
     crossScalaVersions := supportedScalaVersions
   )
@@ -57,3 +57,5 @@ publishTo := Some(
   else
     Opts.resolver.sonatypeStaging
 )
+publishConfiguration := publishConfiguration.value.withOverwrite(true)
+publishLocalConfiguration := publishLocalConfiguration.value.withOverwrite(true)
