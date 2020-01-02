@@ -21,7 +21,7 @@ See the specification here: https://vrk.fi/en/personal-identity-code1.
 Building Full build with test coverage (which should stay at 100%) measurement:
  sbt clean coverage test coverageReport
  Usage Construction There is a safe way and an unsafe way to make instances of Pic.
-The safe way is to use Pic.fromString, which returns instances of Either (in Scala standard library). Left(errorMessage) means that the given PIC was invalid, the error message inside tells you why.</description>
+The safe way is to use Pic.fromString, which returns instances of Either (in Scala standard library).</description>
     </item>
     
   </channel>
