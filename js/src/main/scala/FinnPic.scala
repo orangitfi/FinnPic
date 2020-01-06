@@ -33,4 +33,12 @@ object FinnPic {
   def create(input: String): FinnPic = {
     new FinnPic(Pic.fromStringUnsafe(input))
   }
+
+  @JSExport
+  def isValid(input: String): Boolean = {
+    Pic(input) match {
+      case Left(_) => false
+      case Right(_) => true
+    }
+  }
 }

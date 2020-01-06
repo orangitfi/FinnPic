@@ -6,13 +6,12 @@ import org.junit.runners.JUnit4;
 
 import java.time.LocalDate;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.fail;
+import static org.junit.Assert.*;
 
 @RunWith(JUnit4.class)
 public class FinnPicSpec {
     @Test
-    public void canBeUsed() {
+    public void createReturnsFinnpicIfGivenValidPic() {
         FinnPic validPic1 = FinnPic.create("070377-281V");
         assertEquals("070377-281V", validPic1.getValue());
         assertEquals(FinnPic.Gender.MALE, validPic1.getGender());
@@ -23,12 +22,22 @@ public class FinnPicSpec {
     }
 
     @Test
-    public void throwsIllegalArgumentExceptionIfConstructedFromAnInvalidPic() {
+    public void createThrowsIllegalArgumentExceptionIfConstructedFromAnInvalidPic() {
         try {
             FinnPic.create("070377-281X");
             fail("An exception should have been thrown.");
         } catch (IllegalArgumentException e) {
             assertEquals("Invalid PIC: '070377-281X'. The control character ('X') is wrong: it should be 'V'.", e.getMessage());
         }
+    }
+
+    @Test
+    public void isValidReturnsTrueForValidPic() {
+        assertTrue(FinnPic.isValid("070377-281V"));
+    }
+
+    @Test
+    public void isValidReturnsFalseForInvalidPic() {
+        assertFalse(FinnPic.isValid("070377-281X"));
     }
 }

@@ -1,5 +1,7 @@
 package org.finnpic;
 
+import scala.util.Either;
+
 import java.time.LocalDate;
 
 import static org.finnpic.FinnPic.Gender.FEMALE;
@@ -10,6 +12,17 @@ public class FinnPic {
 
     public static FinnPic create(String input) {
         return new FinnPic(Pic$.MODULE$.fromStringUnsafe(input));
+    }
+
+    public static boolean isValid(String input) {
+        Either<String, Pic> either = Pic$.MODULE$.apply(input);
+        if (either.isLeft()) {
+            return false;
+        } else if (either.isRight()) {
+            return true;
+        } else {
+            throw new Error("Logic error. This is a bug.");
+        }
     }
 
     private FinnPic(Pic pic) {
@@ -39,7 +52,6 @@ public class FinnPic {
     public enum Gender {
         MALE, FEMALE
     }
-
 
     public Gender getGender() {
         org.finnpic.Gender gender = pic.gender();
