@@ -17,7 +17,7 @@ lazy val finnpic = crossProject.in(file(".")).
   settings(
     name := "finnpic",
     organization := "org.finnpic",
-    version := "0.3.6-SNAPSHOT",
+    version := "0.4.0-SNAPSHOT",
     crossScalaVersions := supportedScalaVersions,
     libraryDependencies += "org.scalacheck" %%% "scalacheck" % "1.14.3" % Test,
     libraryDependencies += "org.scalactic" %%% "scalactic" % "3.1.0" % Test,
