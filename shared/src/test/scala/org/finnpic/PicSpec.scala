@@ -19,8 +19,6 @@ class PicSpec extends AnyFlatSpecLike with Matchers {
 
   val validPics: List[String] = List(validPic1MaleBornIn1900s, validPic2FemaleBornIn1900s, validPic3FemaleBornIn2000s, validPic4MaleBornIn1800s)
 
-  val helsinkiTimeZone: ZoneId = ZoneId.of("Europe/Helsinki")
-
   behavior of "object Pic, method fromString"
 
   it should "reject an empty string" in {
@@ -132,34 +130,6 @@ class PicSpec extends AnyFlatSpecLike with Matchers {
     fromStringU(validPic4MaleBornIn1800s).birthDate should be(LocalDate.of(1877, 7, 21))
   }
 
-  it should "know the age of the person in question, on the day before birthday" in {
-    val dayBefore18thBirthday = LocalDate.of(1995, 3, 6)
-    implicit val atDayBefore18thBirthday: Clock =
-      Clock.fixed(dayBefore18thBirthday.atTime(17, 0).
-        toInstant(
-          helsinkiTimeZone.getRules.getOffset(dayBefore18thBirthday.atTime(17, 0))
-        ),
-        helsinkiTimeZone
-      )
-    fromStringU(validPic1MaleBornIn1900s).ageInYearsNow() should be(17)
-    fromStringU(validPic2FemaleBornIn1900s).ageInYearsNow() should be(13)
-    fromStringU(validPic3FemaleBornIn2000s).ageInYearsNow() should be(-19)
-    fromStringU(validPic4MaleBornIn1800s).ageInYearsNow() should be(117)
-  }
-
-  it should "know the age of the person in question, on birthday" in {
-    val dayOf18thBirthday = LocalDate.of(1995, 3, 7)
-    implicit val atDayOf18thBirthday: Clock = Clock.fixed(dayOf18thBirthday.atTime(0, 0).
-      toInstant(
-        helsinkiTimeZone.getRules.getOffset(dayOf18thBirthday.atTime(8, 0))
-      ),
-      helsinkiTimeZone)
-    fromStringU(validPic1MaleBornIn1900s).ageInYearsNow() should be(18)
-    fromStringU(validPic2FemaleBornIn1900s).ageInYearsNow() should be(13)
-    fromStringU(validPic3FemaleBornIn2000s).ageInYearsNow() should be(-19)
-    fromStringU(validPic4MaleBornIn1800s).ageInYearsNow() should be(117)
-  }
-
   it should "know if the person if os Finnish legal age at some point in time, on the day before birthday" in {
     val atDayBefore18thBirthday: LocalDate = LocalDate.of(1995, 3, 6)
     fromStringU(validPic1MaleBornIn1900s).personIsOfFinnishLegalAgeAt(atDayBefore18thBirthday) should be(false)
@@ -174,14 +144,6 @@ class PicSpec extends AnyFlatSpecLike with Matchers {
     fromStringU(validPic2FemaleBornIn1900s).personIsOfFinnishLegalAgeAt(atDayOf18thBirthday) should be(false)
     fromStringU(validPic3FemaleBornIn2000s).personIsOfFinnishLegalAgeAt(atDayOf18thBirthday) should be(false)
     fromStringU(validPic4MaleBornIn1800s).personIsOfFinnishLegalAgeAt(atDayOf18thBirthday) should be(true)
-  }
-
-  it should "know if the person is of Finnish legal age now" in {
-    implicit val at29081995: Clock = Clock.fixed(Instant.ofEpochSecond(809715600), ZoneId.of("Europe/Helsinki"))
-    fromStringU(validPic1MaleBornIn1900s).personIsOfFinnishLegalAgeNow() should be(true)
-    fromStringU(validPic2FemaleBornIn1900s).personIsOfFinnishLegalAgeNow() should be(false)
-    fromStringU(validPic3FemaleBornIn2000s).personIsOfFinnishLegalAgeNow() should be(false)
-    fromStringU(validPic4MaleBornIn1800s).personIsOfFinnishLegalAgeNow() should be(true)
   }
 
   behavior of "Pic.toString()"

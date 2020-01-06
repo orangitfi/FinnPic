@@ -25,8 +25,8 @@ class PicGeneratorSpec extends AnyFlatSpecLike with Matchers {
     generatedPics.foreach(p => {
       // Check that this does not throw any RuntimeExceptions:
       // particularly not java.time.DateTimeException for impossible birth dates.
-      p.ageInYearsNow()
-      p.personIsOfFinnishLegalAgeNow()
+      p.ageInYearsAt(testDate)
+      p.personIsOfFinnishLegalAgeAt(testDate)
     })
   }
 
@@ -38,8 +38,8 @@ class PicGeneratorSpec extends AnyFlatSpecLike with Matchers {
     generatedPics.foreach(p => {
       // Check that this does not throw any RuntimeExceptions:
       // particularly not java.time.DateTimeException for impossible birth dates.
-      p.ageInYearsNow()
-      p.personIsOfFinnishLegalAgeNow()
+      p.ageInYearsAt(testDate)
+      p.personIsOfFinnishLegalAgeAt(testDate)
     })
   }
 
@@ -49,7 +49,7 @@ class PicGeneratorSpec extends AnyFlatSpecLike with Matchers {
       pic => pic.gender == Female && pic.ageInYearsAt(testDate) == 5
     )
     generatedPic.map(_.gender) should be(Some(Female))
-    generatedPic.map(_.ageInYearsNow()) should be(Some(5))
+    generatedPic.map(_.ageInYearsAt(testDate)) should be(Some(5))
     generatedPic.map(_.value) should be(Some("060714A7422"))
   }
 
@@ -59,7 +59,7 @@ class PicGeneratorSpec extends AnyFlatSpecLike with Matchers {
       pic => pic.gender == Male && pic.ageInYearsAt(testDate) == 100
     )
     generatedPic.map(_.gender) should be(Some(Male))
-    generatedPic.map(_.ageInYearsNow()) should be(Some(100))
+    generatedPic.map(_.ageInYearsAt(testDate)) should be(Some(100))
     generatedPic.map(_.value) should be(Some("181219-4634"))
   }
 

@@ -122,24 +122,12 @@ class Pic private(mValue: String, mGender: Gender, mBirthYear: Int, mBirthMonth:
     Period.between(birthDate, at)
   }
 
-  def ageNow()(implicit clock: Clock = Clock.systemDefaultZone()): Period = {
-    ageAt(LocalDate.now(clock))
-  }
-
   def ageInYearsAt(at: LocalDate): Int = {
     ageAt(at).getYears
   }
 
-  def ageInYearsNow()(implicit clock: Clock = Clock.systemDefaultZone()): Int = {
-    ageNow().getYears
-  }
-
   def personIsOfFinnishLegalAgeAt(at: LocalDate): Boolean = {
     ageInYearsAt(at) >= Pic.finnishLegalAge
-  }
-
-  def personIsOfFinnishLegalAgeNow()(implicit clock: Clock = Clock.systemDefaultZone()): Boolean = {
-    ageInYearsNow() >= Pic.finnishLegalAge
   }
 
   /**

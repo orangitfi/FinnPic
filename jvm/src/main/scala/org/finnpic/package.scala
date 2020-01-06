@@ -11,4 +11,8 @@ import org.finnpic.Pic
  *
  * See object [[Pic]] and its companion class for usage examples.
  */
-package object finnpic
+package object finnpic {
+  implicit def pic2RichPic(pic: Pic): RichPic = {
+    RichPic(pic)
+  }
+}
