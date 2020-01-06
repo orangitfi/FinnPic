@@ -1,6 +1,6 @@
 resolvers += "Typesafe Repository" at "https://repo.typesafe.com/typesafe/releases/"
 
-import sbt.Keys.organization
+import sbt.Keys.{libraryDependencies, organization}
 
 val scala_2_13 = "2.13.1"
 val scala_2_12 = "2.12.10"
@@ -10,18 +10,29 @@ val supportedScalaVersions = Seq(scala_2_10, scala_2_11, scala_2_12, scala_2_13)
 
 ThisBuild / scalaVersion := scala_2_12
 
-lazy val root = (project in file("."))
-  .settings(
+lazy val root = (project in file(".")).
+  aggregate(finnpicJS, finnpicJVM)
+
+lazy val finnpic = crossProject.in(file(".")).
+  settings(
     name := "finnpic",
     organization := "org.finnpic",
     version := "0.3.6-SNAPSHOT",
-    doctestTestFramework := DoctestTestFramework.ScalaTest,
-    crossScalaVersions := supportedScalaVersions
+    crossScalaVersions := supportedScalaVersions,
+    libraryDependencies += "org.scalacheck" %%% "scalacheck" % "1.14.3" % Test,
+    libraryDependencies += "org.scalactic" %%% "scalactic" % "3.1.0" % Test,
+    libraryDependencies += "org.scalatest" %%% "scalatest" % "3.1.0" % Test
+  ).
+  jsSettings(
+    libraryDependencies += "org.scala-js" %%% "scalajs-java-time" % "0.2.6"
+  ).
+  jvmSettings(
+    // TODO vpeurala: Enable this when sbt-doctest supports Scala.js.
+    // doctestTestFramework := DoctestTestFramework.ScalaTest
   )
 
-libraryDependencies += "org.scalacheck" %% "scalacheck" % "1.14.3" % Test
-libraryDependencies += "org.scalactic" %% "scalactic" % "3.1.0" % Test
-libraryDependencies += "org.scalatest" %% "scalatest" % "3.1.0" % Test
+lazy val finnpicJS = finnpic.js
+lazy val finnpicJVM = finnpic.jvm
 
 // Note: Remember to have this set to false when publishing and true otherwise. - vpeurala, 30.12.2019
 coverageEnabled := true
@@ -32,7 +43,7 @@ useGpg := true
 
 autoAPIMappings := true
 scalacOptions in (doc) ++= Opts.doc.externalAPI(List
-  (file(s"${(packageBin in Compile).value}") -> url("https://www.scala-lang.org/api/current"))
+(file(s"${(packageBin in Compile).value}") -> url("https://www.scala-lang.org/api/current"))
 )
 
 // Note: This does not work with ScalaTest 3.1.0: java.lang.NoClassDefFoundError: com/vladsch/flexmark/ast/Node
