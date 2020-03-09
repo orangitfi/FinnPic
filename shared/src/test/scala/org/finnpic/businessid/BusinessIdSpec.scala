@@ -18,7 +18,11 @@ class BusinessIdSpec extends AnyFlatSpecLike with Matchers {
       })
   }
 
-  it should "reject invalid business id" in {
+  it should "reject invalid business id" in { // TODO improve test name
     BusinessId("bcasdqr-w") should be(Left("Invalid business id: 'bcasdqr-w'. Business id should contain only digits and a dash."))
+  }
+
+  it should "reject business id with an invalid checksum character" in {
+    BusinessId("2933973-8") should be(Left("Invalid business id: '2933973-8'. The checksum character '8' is wrong: it should be '7'."))
   }
 }
