@@ -11,7 +11,7 @@ class BusinessIdSpec extends AnyFlatSpecLike with Matchers {
   }
 
   it should "accept a valid business id" in {
-    Seq("2933973-7").foreach(s =>
+    Seq("2933973-7", "1572860-0").foreach(s =>
       BusinessId(s) match {
         case Left(errorMsg: String) => fail(errorMsg)
         case Right(businessId) => businessId.value should be(s)
@@ -24,5 +24,6 @@ class BusinessIdSpec extends AnyFlatSpecLike with Matchers {
 
   it should "reject business id with an invalid checksum character" in {
     BusinessId("2933973-8") should be(Left("Invalid business id: '2933973-8'. The checksum character '8' is wrong: it should be '7'."))
+    BusinessId("2933973-6") should be(Left("Invalid business id: '2933973-6'. The checksum character '6' is wrong: it should be '7'."))
   }
 }
