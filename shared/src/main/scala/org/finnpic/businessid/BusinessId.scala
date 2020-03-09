@@ -19,15 +19,16 @@ object BusinessId {
     assert(input.length == 9)
     if (input.matches("""[\d]{7}-[\d]""")) {
       checksum(input) match {
-        case (true, _, _) => Right(new BusinessId(input))
-        case (false, was, shouldHaveBeen) => Left(s"Invalid business id: '${input}'. The checksum character '${was}' is wrong: it should be '${shouldHaveBeen}'.")
+        case ChecksumOk => Right(new BusinessId(input))
+        case InvalidChecksumDigitInInput(was, shouldHaveBeen) => Left(s"Invalid business id: '${input}'. The checksum character '${was}' is wrong: it should be '${shouldHaveBeen}'.")
+        case SumMod11ResultsIn1 => Left(s"Invalid business id: '${input}'. The checksum value of 1 is not allowed.")
       }
     } else {
       Left(s"Invalid business id: '${input}'. Business id should contain only digits and a dash.")
     }
   }
 
-  def checksum(input: String): (Boolean, Int, Int) = {
+  def checksum(input: String): ChecksumValidationResult = {
     val weights = List(7, 9, 10, 5, 8, 4, 2)
     val numbers = input.substring(0,7).toCharArray.map(_.asDigit)
     val zipped: immutable.Seq[(Int, Int)] = weights.zip(numbers)
@@ -38,12 +39,22 @@ object BusinessId {
     val sumMod11 = sum % 11
     val inputChecksumDigit = input.charAt(input.length-1).asDigit
 
-    val expectedChecksumDigit = sumMod11 match {
-      case 0 => 0
-      case 1 => ???
-      case i if 2 until 10 contains i => 11 - i
+    val expectedChecksumDigit: Either[ChecksumValidationResult, Int] = sumMod11 match {
+      case 0 => Right(0)
+      case 1 => Left(SumMod11ResultsIn1)
+      case i if 2 until 10 contains i => Right(11 - i)
     }
 
-    (expectedChecksumDigit == inputChecksumDigit, inputChecksumDigit, expectedChecksumDigit)
+    expectedChecksumDigit match {
+      case Left(invalidResult) => invalidResult
+      case Right(expectedDigit) if inputChecksumDigit == expectedDigit => ChecksumOk
+      case Right(expectedDigit) => InvalidChecksumDigitInInput(inputChecksumDigit, expectedDigit)
+    }
   }
+
+  sealed trait ChecksumValidationResult
+
+  case object ChecksumOk extends ChecksumValidationResult
+  case class InvalidChecksumDigitInInput(was: Int, shouldHaveBeen: Int) extends ChecksumValidationResult
+  case object SumMod11ResultsIn1 extends ChecksumValidationResult
 }
