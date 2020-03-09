@@ -10,11 +10,11 @@ class BusinessIdSpec extends AnyFlatSpecLike with Matchers {
     BusinessId("") should be(Left("Invalid business id: ''. Business id should have 9 characters, but was 0 characters."))
   }
 
-  it should "accept a valid business id" in {
-    Seq("2933973-7", "1572860-0").foreach(s =>
+  it should "accept a valid business id, even if there is empty space around it" in {
+    Seq("2933973-7", "1572860-0", "  2933973-7 ").foreach(s =>
       BusinessId(s) match {
         case Left(errorMsg: String) => fail(errorMsg)
-        case Right(businessId) => businessId.value should be(s)
+        case Right(businessId) => businessId.value should be(s.trim)
       })
   }
 
@@ -26,6 +26,7 @@ class BusinessIdSpec extends AnyFlatSpecLike with Matchers {
     BusinessId("2933973-8") should be(Left("Invalid business id: '2933973-8'. The checksum character '8' is wrong: it should be '7'."))
     BusinessId("2933973-6") should be(Left("Invalid business id: '2933973-6'. The checksum character '6' is wrong: it should be '7'."))
     BusinessId("1572860-1") should be(Left("Invalid business id: '1572860-1'. The checksum character '1' is wrong: it should be '0'."))
+    BusinessId(" 1572860-1  ") should be(Left("Invalid business id: ' 1572860-1  '. The checksum character '1' is wrong: it should be '0'."))
     BusinessId("0002001-0") should be(Left("Invalid business id: '0002001-0'. The checksum value of 1 is not allowed."))
   }
 }

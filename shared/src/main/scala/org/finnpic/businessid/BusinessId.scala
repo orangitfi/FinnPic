@@ -2,29 +2,30 @@ package org.finnpic.businessid
 import scala.collection.immutable
 
 class BusinessId(input: String) {
-  val value: String = input.trim.toUpperCase
+  val value: String = input
 }
 
 object BusinessId {
   def apply(input: String): Either[String, BusinessId] = fromString(input)
 
   def fromString(input: String): Either[String, BusinessId] = {
-    input.trim().toUpperCase match {
+    val canonized = input.trim
+    canonized match {
       case s: String if s.length != 9 => Left(s"Invalid business id: ''. Business id should have 9 characters, but was 0 characters.")
-      case s: String if s.length == 9 => createFromStringOfCorrectLength(input)
+      case s: String if s.length == 9 => createFromStringOfCorrectLength(input, canonized)
     }
   }
 
-  def createFromStringOfCorrectLength(input: String): Either[String, BusinessId] = {
-    assert(input.length == 9)
-    if (input.matches("""[\d]{7}-[\d]""")) {
-      checksum(input) match {
-        case ChecksumOk => Right(new BusinessId(input))
-        case InvalidChecksumDigitInInput(was, shouldHaveBeen) => Left(s"Invalid business id: '${input}'. The checksum character '${was}' is wrong: it should be '${shouldHaveBeen}'.")
-        case SumMod11ResultsIn1 => Left(s"Invalid business id: '${input}'. The checksum value of 1 is not allowed.")
+  def createFromStringOfCorrectLength(originalInput: String, canonizedInput: String): Either[String, BusinessId] = {
+    assert(canonizedInput.length == 9)
+    if (canonizedInput.matches("""[\d]{7}-[\d]""")) {
+      checksum(canonizedInput) match {
+        case ChecksumOk => Right(new BusinessId(canonizedInput))
+        case InvalidChecksumDigitInInput(was, shouldHaveBeen) => Left(s"Invalid business id: '${originalInput}'. The checksum character '${was}' is wrong: it should be '${shouldHaveBeen}'.")
+        case SumMod11ResultsIn1 => Left(s"Invalid business id: '${originalInput}'. The checksum value of 1 is not allowed.")
       }
     } else {
-      Left(s"Invalid business id: '${input}'. Business id should contain only digits and a dash.")
+      Left(s"Invalid business id: '${originalInput}'. Business id should contain only digits and a dash.")
     }
   }
 
