@@ -30,22 +30,17 @@ object BusinessId {
   }
 
   def checksum(input: String): Boolean = {
-    println(input)
-    //7, 9, 10, 5, 8, 4 ja 2.
     val weights = List(7, 9, 10, 5, 8, 4, 2)
     val numbers = input.substring(0,7).toCharArray.map(_.asDigit)
     val zipped: immutable.Seq[(Int, Int)] = weights.zip(numbers)
     val multiplied = zipped.map {
       case (w, n) => w * n
     }
-    println(numbers.toList)
-    println(multiplied.toList)
+
     val sum = multiplied.sum
-    println(sum)
 
     val checksum = input.charAt(input.length-1).asDigit
-    println(checksum)
-    println(input.charAt(input.length-1))
+
     sum % 11 == 11 - checksum
   }
 }
