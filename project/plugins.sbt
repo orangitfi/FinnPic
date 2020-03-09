@@ -1,7 +1,7 @@
 addSbtPlugin("com.codacy" % "sbt-codacy-coverage" % "3.0.3")
 addSbtPlugin("com.jsuereth" % "sbt-pgp" % "2.0.0")
 // TODO vpeurala: Enable this when sbt-doctest supports Scala.js.
-// addSbtPlugin("com.github.tkawachi" % "sbt-doctest" % "0.9.5")
+// addSbtPlugin("com.github.tkawachi" % "sbt-doctest" % "0.9.6")
 // TODO vpeurala: Enable this when Scala.js 1.0 is released.
 // addSbtPlugin("org.portable-scala" % "sbt-scalajs-crossproject" % "0.6.1")
 addSbtPlugin("org.scala-js" % "sbt-scalajs" % "0.6.31")
