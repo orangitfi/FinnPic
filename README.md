@@ -13,6 +13,12 @@ See the specification here: [https://vrk.fi/en/personal-identity-code1](https://
 
 ## Building
 
+You need to have [SDKMAN](https://sdkman.io/) and [direnv](https://direnv.net/) installed.
+
+`cd` to the root of the project and say `direnv allow`.
+
+Install the required versions of Java, Scala and Sbt using SDKMAN.
+
 Full build with test coverage (which should stay at 100%) measurement:
 
 > sbt clean coverage test coverageReport
