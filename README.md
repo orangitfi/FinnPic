@@ -15,6 +15,24 @@ See the specification here: [https://vrk.fi/en/personal-identity-code1](https://
 
 You need to have [SDKMAN](https://sdkman.io/) and [direnv](https://direnv.net/) installed.
 
+Put this in your `~/.direnvrc`:
+
+```shell script
+# https://github.com/direnv/direnv/issues/420
+# iterate on pairs of [candidate] [version] and invoice `sdk use` on each of them
+use_sdk() {
+  [[ -s "${SDKMAN_DIR}/bin/sdkman-init.sh" ]] && source "${SDKMAN_DIR}/bin/sdkman-init.sh"
+
+  while (( "$#" >= 2 )); do
+    local candidate=$1
+    local candidate_version=$2
+    sdk use $candidate $candidate_version
+
+    shift 2
+  done
+}
+```
+
 `cd` to the root of the project and say `direnv allow`.
 
 Install the required versions of Java, Scala and Sbt using SDKMAN.
