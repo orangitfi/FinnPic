@@ -15,6 +15,11 @@ object BusinessId {
   }
 
   def createFromStringOfCorrectLength(input: String): Either[String, BusinessId] = {
-    Right(new BusinessId(input))
+    assert(input.length == 9)
+    if (input.matches("""[\d]{7}-[\d]""")) {
+      Right(new BusinessId(input))
+    } else {
+      Left(s"Invalid business id: '${input}'. Business id should contain only digits and a dash.")
+    }
   }
 }

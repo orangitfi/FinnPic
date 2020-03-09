@@ -17,4 +17,8 @@ class BusinessIdSpec extends AnyFlatSpecLike with Matchers {
         case Right(businessId) => businessId.value should be(s)
       })
   }
+
+  it should "reject invalid business id" in {
+    BusinessId("bcasdqr-w") should be(Left("Invalid business id: 'bcasdqr-w'. Business id should contain only digits and a dash."))
+  }
 }
