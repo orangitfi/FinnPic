@@ -25,6 +25,7 @@ class BusinessIdSpec extends AnyFlatSpecLike with Matchers {
   it should "reject business id with an invalid checksum character" in {
     BusinessId("2933973-8") should be(Left("Invalid business id: '2933973-8'. The checksum character '8' is wrong: it should be '7'."))
     BusinessId("2933973-6") should be(Left("Invalid business id: '2933973-6'. The checksum character '6' is wrong: it should be '7'."))
+    BusinessId("1572860-1") should be(Left("Invalid business id: '1572860-1'. The checksum character '1' is wrong: it should be '0'."))
     BusinessId("0002001-0") should be(Left("Invalid business id: '0002001-0'. The checksum value of 1 is not allowed."))
   }
 }
