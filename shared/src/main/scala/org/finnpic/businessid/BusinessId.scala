@@ -1,7 +1,7 @@
 package org.finnpic.businessid
 
 class BusinessId(input: String) {
-
+  val value: String = input.trim.toUpperCase
 }
 
 object BusinessId {
