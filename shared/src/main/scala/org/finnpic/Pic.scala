@@ -215,7 +215,7 @@ case object Female extends Gender
  * // If you give Pic.fromStringUnsafe (or Pic.fromStringU) an invalid PIC, they throw an IllegalArgumentException.
  * }}}
  */
-object Pic {
+object Pic extends Parsable[Pic] {
   val finnishLegalAge: Int = 18
 
   /**
@@ -251,47 +251,6 @@ object Pic {
       case s: String if s.length == 11 => createFromStringOfCorrectLength(input, s)
     }
   }
-
-  /**
-   * Create a Pic from an input String, throwing an [[scala.IllegalArgumentException]] if the input is not a valid PIC.
-   *
-   * See also:
-   *   - [[fromString]] for cases where you are not sure if the input is a valid PIC (for example,
-   * the input comes from a user), which returns an Either for you to handle.
-   *   - [[fromStringU]] for a shorter named alias of this function.
-   *
-   * Examples:
-   * {{{
-   * >>> Pic.fromStringUnsafe("070377-281V")
-   * 070377-281V
-   *
-   * >>> // Pic.fromStringUnsafe("foo") would throw an IllegalArgumentException.
-   * }}}
-   *
-   * @param input a valid Personal Identity Code as a String.
-   * @return a Pic object if the input is a valid PIC.
-   * @throws scala.IllegalArgumentException if the input is not a valid PIC.
-   */
-  def fromStringUnsafe(input: String): Pic = {
-    fromString(input) match {
-      case Left(errorMessage) => throw new IllegalArgumentException(errorMessage)
-      case Right(pic) => pic
-    }
-  }
-
-  /**
-   * A shorter alias for [[Pic.fromStringUnsafe]].
-   * See the documentation for that function.
-   *
-   * Examples:
-   * {{{
-   * >>> Pic.fromStringU("070377-281V")
-   * 070377-281V
-   *
-   * >>> // Pic.fromStringU("foo") would throw an IllegalArgumentException.
-   * }}}
-   */
-  def fromStringU(input: String): Pic = fromStringUnsafe(input)
 
   /**
    * Here we have certainty that parameter `cleanedInput` is 11 chars long.

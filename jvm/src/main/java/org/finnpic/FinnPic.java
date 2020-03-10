@@ -11,7 +11,8 @@ public class FinnPic {
     private final Pic pic;
 
     public static FinnPic create(String input) {
-        return new FinnPic(Pic$.MODULE$.fromStringUnsafe(input));
+        // Note: This does not compile on Java 11 without the (otherwise redundant) cast.
+        return new FinnPic((Pic) Pic$.MODULE$.fromStringUnsafe(input));
     }
 
     public static boolean isValid(String input) {

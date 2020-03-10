@@ -64,7 +64,8 @@ lazy val finnpic = crossProject
   .jvmSettings(
     // TODO vpeurala: Enable this when sbt-doctest supports Scala.js.
     // doctestTestFramework := DoctestTestFramework.ScalaTest
-    libraryDependencies += "junit" % "junit" % "4.13" % Test
+    libraryDependencies += "junit" % "junit" % "4.13" % Test,
+    javacOptions += "-Xdiags:verbose"
   )
 
 lazy val finnpicJS = finnpic.js
