@@ -1,11 +1,54 @@
 package org.finnpic.businessid
 
-import org.finnpic.Parsable
+import org.finnpic.{Parsable, Pic}
 
 import scala.collection.immutable
 
 class BusinessId(input: String) {
   val value: String = input
+
+  /**
+   * The canonical string representation of the business id. Usually the same String
+   * which was used to create this object.
+   *
+   * Example:
+   * {{{
+   * >>> BusinessId.fromStringU("2933973-7").toString
+   * 2933973-7
+   * }}}
+   *
+   * @return the canonical string representation of the business id.
+   */
+  override def toString: String = value
+
+  /**
+   * Equals is true if the canonical string representation matches.
+   * Always false if the other object is not instance of [[BusinessId]].
+   *
+   * @param obj another object.
+   * @return true if the string matches, false if not.
+   */
+  override def equals(obj: Any): Boolean = {
+    obj match {
+      case that: BusinessId =>
+        that.value.equals(this.value)
+      case _ =>
+        false
+    }
+  }
+
+  /**
+   * The hashCode() function of [[BusinessId]] only delegates the call to [[value]].
+   *
+   * Example:
+   * {{{
+   * >>> BusinessId.fromStringU("2933973-7").hashCode == "2933973-7".hashCode
+   * true
+   * }}}
+   *
+   * @return
+   */
+  override def hashCode(): Int = value.hashCode
 }
 
 object BusinessId extends Parsable[BusinessId] {
