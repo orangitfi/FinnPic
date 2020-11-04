@@ -1,7 +1,7 @@
 {
-  "extends": [
-    "github>orangitfi/renovate-config",
-    ":assignee(orangitmetu)",
-    ":reviewer(tomisavolainen)"
-  ]
+    "extends": [
+      "github>orangitfi/renovate-config",
+      ":assignee(orangitmetu)",
+      ":reviewer(tomisavolainen)"
+    ]
 }
