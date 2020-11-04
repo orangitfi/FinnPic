@@ -1,7 +1,28 @@
 {
-    "extends": [
-      "github>orangitfi/renovate-config",
-      ":assignee(orangitmetu)",
-      ":reviewer(tomisavolainen)"
-    ]
+  "extends": [
+    "config:base",
+    ":rebaseStalePrs",
+    ":automergePatch",
+    ":masterIssue",
+    ":pinDependencies",
+    ":pinDevDependencies",
+    ":assignee(tomisavolainen)"
+  ],
+  "assignAutomerge": true,
+  "automergeType": "branch",
+  "lockFileMaintenance": {
+    "enabled": false
+  },
+  "packageRules": [
+    {
+      "updateTypes": ["patch", "pin", "digest"],
+      "automerge": true
+    }
+  ],
+  "schedule": ["before 7am on the first day of the month"],
+  "stabilityDays": 5,
+  "timezone": "Europe/Helsinki",
+  "vulnerabilityAlerts": {
+    "labels": ["security"]
+  }
 }
