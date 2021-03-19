@@ -113,7 +113,7 @@ As for your GPG keys and stuff, see https://www.scala-sbt.org/1.x/docs/Using-Son
 
 ## Website
 
-See `/scripts/generate-website.sh` for a script that publishes the hugo-generated website at https://finnpic.org/
+See `/scripts/generate-website.sh` for a script that publishes the hugo-generated website at https://finnpic.org/ . You'll need to have `hugo` installed before you run the script. https://gohugo.io/getting-started/installing
 
 ## Supporters
 
