@@ -111,6 +111,10 @@ Don't forget the plus signs (for cross compilation and cross publishing)!
 
 As for your GPG keys and stuff, see https://www.scala-sbt.org/1.x/docs/Using-Sonatype.html and https://github.com/keybase/keybase-issues/issues/2798.
 
+## Website
+
+See `/scripts/generate-website.sh` for a script that publishes the hugo-generated website at https://finnpic.org/
+
 ## Supporters
 
 This project is proudly supported by [Orangit Oy](https://orangit.fi).
