@@ -1,6 +1,12 @@
 #!/bin/sh
 # Run this script from the root folder of the project! i.e. DO NOT run it from scripts/ directory!
 
+if ! command -v hugo > /dev/null
+then
+    echo "hugo could not be found - see https://gohugo.io/getting-started/installing"
+    exit
+fi
+
 echo "Building a website for FinnPic project..."
 
 # Build a test report, a coverage report, and API docs.

@@ -35,7 +35,13 @@ use_sdk() {
 
 `cd` to the root of the project and say `direnv allow`.
 
-Install the required versions of Java, Scala and Sbt using SDKMAN.
+Install the required versions of Java, Scala and Sbt using SDKMAN. As of 2021-03-19:
+
+```
+sdk install java 8.0.282.hs-adpt
+sdk install scala 2.12.10
+sdk install sbt 1.3.8
+```
 
 Full build with test coverage (which should stay at 100%) measurement:
 
@@ -50,7 +56,7 @@ There is a safe way and an unsafe way to make instances of *Pic*.
 The safe way is to use `Pic.fromString`, which returns instances of
 `Either` (in Scala standard library). `Left(errorMessage)` means
 that the given PIC was invalid, the error message inside tells you
-why. `Right(pic)` means the PIC was valid and now you can obtain 
+why. `Right(pic)` means the PIC was valid and now you can obtain
 the value from the right side of the `Either`. This is a very common
 pattern in functional programming.
 
@@ -104,6 +110,10 @@ Open an sbt shell and run:
 Don't forget the plus signs (for cross compilation and cross publishing)!
 
 As for your GPG keys and stuff, see https://www.scala-sbt.org/1.x/docs/Using-Sonatype.html and https://github.com/keybase/keybase-issues/issues/2798.
+
+## Website
+
+See `/scripts/generate-website.sh` for a script that publishes the hugo-generated website at https://finnpic.org/ . You'll need to have `hugo` installed before you run the script. https://gohugo.io/getting-started/installing
 
 ## Supporters
 
