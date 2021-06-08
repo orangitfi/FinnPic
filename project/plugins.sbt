@@ -5,5 +5,5 @@ addSbtPlugin("com.jsuereth" % "sbt-pgp" % "2.1.1")
 // TODO vpeurala: Enable this when Scala.js 1.0 is released.
 // addSbtPlugin("org.portable-scala" % "sbt-scalajs-crossproject" % "0.6.1")
 addSbtPlugin("org.scala-js" % "sbt-scalajs" % "0.6.33")
-addSbtPlugin("org.scoverage" % "sbt-scoverage" % "1.6.1")
+addSbtPlugin("org.scoverage" % "sbt-scoverage" % "1.8.2")
 addSbtPlugin("org.xerial.sbt" % "sbt-sonatype" % "3.9.7")
