@@ -21,7 +21,7 @@ lazy val finnpic = crossProject
     crossScalaVersions := supportedScalaVersions,
     libraryDependencies += "org.scalacheck" %%% "scalacheck" % "1.14.3" % Test,
     libraryDependencies += "org.scalactic" %%% "scalactic" % "3.1.4" % Test,
-    libraryDependencies += "org.scalatest" %%% "scalatest" % "3.1.0" % Test,
+    libraryDependencies += "org.scalatest" %%% "scalatest" % "3.1.4" % Test,
     // Publishing information
     homepage := Some(url("https://finnpic.org")),
     scmInfo := Some(
