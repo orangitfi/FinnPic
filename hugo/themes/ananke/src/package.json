@@ -17,7 +17,7 @@
     "babel-loader": "8.2.5",
     "babel-preset-env": "1.7.0",
     "css-loader": "5.0.2",
-    "cssnano": "4.1.11",
+    "cssnano": "5.1.15",
     "extract-text-webpack-plugin": "3.0.2",
     "file-loader": "6.2.0",
     "postcss": "8.2.13",
