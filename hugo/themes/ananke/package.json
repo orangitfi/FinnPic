@@ -21,6 +21,6 @@
   },
   "homepage": "https://github.com/theNewDynamic/thenewdynamic.com#readme",
   "devDependencies": {
-    "auto-changelog": "2.2.1"
+    "auto-changelog": "2.4.0"
   }
 }
