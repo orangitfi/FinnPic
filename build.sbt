@@ -3,7 +3,7 @@ resolvers += "Typesafe Repository" at "https://repo.typesafe.com/typesafe/releas
 import sbt.Keys.{libraryDependencies, organization}
 
 val scala_2_13 = "2.13.1"
-val scala_2_12 = "2.12.10"
+val scala_2_12 = "2.12.19"
 val scala_2_11 = "2.11.12"
 val scala_2_10 = "2.10.7"
 val supportedScalaVersions = Seq(scala_2_10, scala_2_11, scala_2_12, scala_2_13)
