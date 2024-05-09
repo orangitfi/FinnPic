@@ -34,13 +34,13 @@ lazy val finnpic = crossProject
       Developer(
         "vpeurala",
         "Ville Peurala",
-        "ville.peurala@orangit.fi",
+        "hello@orangit.fi",
         url("https://github.com/vpeurala")
       ),
       Developer(
         "uberpallo",
-        "Kasper Jaakkola",
-        "kasper.jaakkola@orangit.fi",
+        "Kasper Paavolainen",
+        "kasper.paavolainen@orangit.fi",
         url("https://github.com/uberpallo")
       )
     ),
