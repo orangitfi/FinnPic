@@ -19,7 +19,7 @@ lazy val finnpic = crossProject
     organization := "org.finnpic",
     version := "0.4.3",
     crossScalaVersions := supportedScalaVersions,
-    libraryDependencies += "org.scalacheck" %%% "scalacheck" % "1.14.3" % Test,
+    libraryDependencies += "org.scalacheck" %%% "scalacheck" % "1.20.0" % Test,
     libraryDependencies += "org.scalactic" %%% "scalactic" % "3.1.4" % Test,
     libraryDependencies += "org.scalatest" %%% "scalatest" % "3.1.4" % Test,
     // Publishing information
